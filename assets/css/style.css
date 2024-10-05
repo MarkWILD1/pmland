@@ -926,3 +926,12 @@ span {
 .foot-note a.fh5-link {
   margin-left: 0;
 }
+
+.green {
+  background-color: #28a745;
+  color: white;
+}
+
+.green:hover {
+  background-color: #3f8f49 !important
+}
