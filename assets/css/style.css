@@ -471,7 +471,7 @@ form button.btn-primary:hover {
     1 - Trust
 ------------------------------------*/
 .trust {
-  padding: 75px 0;
+  padding: 85px;
   background-color: #26264b;
   color: #ddd;
   position: relative;
@@ -506,11 +506,11 @@ form button.btn-primary:hover {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  height: 100%;
+  height: auto;
 }
 
 .trust .gal-img {
-  display: inline-block;
+  display: flex;
   position: relative;
   z-index: 1;
 }
