@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="assets/css/aos/aos.css">
     <link rel="stylesheet" href="assets/css/swiper/swiper.css">
     <link rel="stylesheet" href="assets/css/lightgallery.min.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/meanmenu.min.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
     <!-- Template Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Responsive Stylesheet -->
@@ -38,20 +44,29 @@
         <div class="container">
             <div class="top-header d-none d-sm-flex justify-content-between align-items-center">
                 <div class="contact">
-                    <a href="tel:+1234567890" class="tel"><i class="fa fa-phone" aria-hidden="true"></i>+59891263869</a>
-                    <!-- <a href="mailto:info@yourmail.com"><i class="fa fa-envelope"
-                            aria-hidden="true"></i>info@yourmail.com</a> -->
+                    <a href="mailto:soporte@plan-maestro.com"><i class="fa fa-envelope"
+                            aria-hidden="true"></i>soporte@plan-maestro.com</a>
                 </div>
                 <nav class="d-flex aic">
-                    <!-- <a href="#" class="login"><i class="fa fa-user" aria-hidden="true"></i>Login</a> -->
+
+
                     <ul class="nav social d-none d-md-flex">
                         <li><a href="https://www.instagram.com/planmaestro_uy/" target="_blank"><i
                                     class="fa fa-instagram"></i></a>
                         </li>
-                        <li><a href="https://www.youtube.com/@PlanMaestro-uy"><i class="fa fa-youtube-play"></i></a></li>
-                        <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
+                        <li><a href="https://www.youtube.com/@PlanMaestro-uy" target="_blank"><i
+                                    class="fa fa-youtube-play"></i></a>
+                        </li>
                     </ul>
                 </nav>
+
+                <!-- Inicio de Sección -->
+                <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow" href="https://prime.plan-maestro.com"
+                    target="_blank">
+                    <i class="fa fa-rocket me-2"></i> Iniciar Sección
+                </a>
+
+
             </div>
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="index.html"><img src="assets/images/logo-lateral-2_00000.png"
@@ -61,10 +76,10 @@
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation"><span
                             class="navbar-toggler-icon"></span></button>
-                    <a class="login-icon d-sm-none" href="#"><i class="fa fa-user"></i></a>
-                    <!-- <a class="cart" href="#"><i class="fa fa-shopping-cart"></i></a> -->
+                    <a class="login-icon d-sm-none" href="https://prime.plan-maestro.com/dashboard/main"><i
+                            class="fa fa-user"></i></a>
+                    <a class="cart" href="https://prime.plan-maestro.com/dashboard/main"><i class="fa fa-shopping-cart"></i></a>
                 </div>
-                <!-- <a class="search-icon d-none d-md-block" href="#"><i class="fa fa-search"></i></a> -->
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
@@ -74,15 +89,6 @@
                         <li class="nav-item"><a class="nav-link" href="#ecosistema">Ecosistema</a></li>
                         <li class="nav-item"><a class="nav-link" href="#lanzamiento">Lanzamiento</a></li>
                     </ul>
-                    <!-- <form class="bg-white search-form" method="get" id="searchform">
-                        <div class="input-group">
-                            <input class="field form-control" id="s" name="s" type="text" placeholder="Search">
-                            <span class="input-group-btn">
-                                <input class="submit btn btn-primary" id="searchsubmit" name="submit" type="submit"
-                                    value="Search">
-                            </span>
-                        </div>
-                    </form> -->
                 </div>
             </nav>
         </div>
@@ -137,6 +143,27 @@
         <div class="diag-bg"></div>
     </section>
     <!-- Hero End -->
+
+    <section class="trust py-5" id="lanzamiento">
+        <div class="container">
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-xl-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                    <div class="title mb-4">
+                        <h6 class="title-primary text-success fw-bold">Plaɳ MaeŠtrɸ - 2025</h6>
+                        <h1 class="display-5 fw-bold">Adquiere Yá!</h1>
+                    </div>
+
+                    <h5 class="mb-4">Potencia tu planificación</h5>
+
+                    <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow"
+                        href="https://prime.plan-maestro.com" target="_blank">
+                        <i class="fa fa-rocket me-2"></i> Click aquí!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Trust Start -->
     <section class="trust" id="inspirar">
@@ -232,91 +259,90 @@
     <!-- Services Start -->
     <section class="featured py-5" id="upgrade">
         <div class="container">
-          <div class="title text-center mb-4">
-            <h6>Motivos de</h6>
-            <h1>Por qué usar</h1>
-          </div>
-          <!-- Aquí comienza la sección de íconos y texto -->
-          <div class="row">
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
-                <img class="mr-4" src="assets/images/service1.png" alt="Web Development">
-                <div class="media-body">
-                  <h5>Velocidad</h5>
-                  Planificaciones hechas en tiempo récord.
-                </div>
-              </div>
+            <div class="title text-center mb-4">
+                <h6>Motivos de</h6>
+                <h1>Por qué usar</h1>
             </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
-                <img class="mr-4" src="assets/images/service2.png" alt="Web Development">
-                <div class="media-body">
-                  <h5>Sistema</h5>
-                  Sistema adaptado a la necesidad del docente uruguayo.
+            <!-- Aquí comienza la sección de íconos y texto -->
+            <div class="row">
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
+                        <img class="mr-4" src="assets/images/service1.png" alt="Web Development">
+                        <div class="media-body">
+                            <h5>Velocidad</h5>
+                            Planificaciones hechas en tiempo récord.
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
-                <img class="mr-4" src="assets/images/service3.png" alt="Web Development">
-                <div class="media-body">
-                  <h5>Enciende tus ideas</h5>
-                  El disparador para encender tus ideas de forma instantánea.
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                        <img class="mr-4" src="assets/images/service2.png" alt="Web Development">
+                        <div class="media-body">
+                            <h5>Sistema</h5>
+                            Sistema adaptado a la necesidad del docente uruguayo.
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
-                <img class="mr-4" src="assets/images/service4.png" alt="Web Development">
-                <div class="media-body">
-                  <h5>Moderno y vanguardista</h5>
-                  La educación por encima en la era tecnológica.
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                        <img class="mr-4" src="assets/images/service3.png" alt="Web Development">
+                        <div class="media-body">
+                            <h5>Enciende tus ideas</h5>
+                            El disparador para encender tus ideas de forma instantánea.
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
-                <img class="mr-4" src="assets/images/service1.png" alt="Web Development">
-                <div class="media-body">
-                  <h5>Más tiempo libre</h5>
-                  Más tiempo para potenciar la calidad y el desarrollo del docente.
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
+                        <img class="mr-4" src="assets/images/service4.png" alt="Web Development">
+                        <div class="media-body">
+                            <h5>Moderno y vanguardista</h5>
+                            La educación por encima en la era tecnológica.
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
-                <img class="mr-4" src="assets/images/service5.png" alt="Web Development">
-                <div class="media-body">
-                  <h5>Elaboración con calidad</h5>
-                  Herramienta pensada para trabajos completos.
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                        <img class="mr-4" src="assets/images/service1.png" alt="Web Development">
+                        <div class="media-body">
+                            <h5>Más tiempo libre</h5>
+                            Más tiempo para potenciar la calidad y el desarrollo del docente.
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                        <img class="mr-4" src="assets/images/service5.png" alt="Web Development">
+                        <div class="media-body">
+                            <h5>Elaboración con calidad</h5>
+                            Herramienta pensada para trabajos completos.
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-      
+    </section>
+
     <!-- Services End -->
 
     <!-- Lanzamiento -->
 
-    <section class="trust" id="lanzamiento">
+    <section class="trust py-5" id="lanzamiento">
         <div class="container">
-            <div class="row">
-                <div class="offset-xl-1 col-xl-6" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Plaɳ MaeŠtrɸ - 2025</h6>
-                        <h1>ADQUIERE AHORA! -        </h1>
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-xl-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                    <div class="title mb-4">
+                        <h6 class="title-primary text-success fw-bold">Plaɳ MaeŠtrɸ - 2025</h6>
+                        <h1 class="display-5 fw-bold">Adquiere Yá!</h1>
                     </div>
-                    
-                    <h5>Potencia tu planificación</h5>
-                    <a class="btn green" href="https://prime.plan-maestro.com">Click aquí!</a>
+
+                    <h5 class="mb-4">Potencia tu planificación</h5>
+
+                    <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow"
+                        href="https://prime.plan-maestro.com" target="_blank">
+                        <i class="fa fa-rocket me-2"></i> Click aquí!
+                    </a>
                 </div>
-                <!-- <div class="col-xl-5 gallery">
-                    <div class="row no-gutters h-100" data-aos="fade-left" id="lightgallery">
-                        <img class="img-fluid" src="assets/images/primeweb2.jpg" alt="Gallery Image">
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -361,25 +387,26 @@
 
     <!-- Youtube -->
     <section class="trust" id="youtube">
-  <div class="container">
-    <div class="row">
-      <div class="offset-xl-1 col-xl-6" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
-        <div class="title">
-          <h6 class="title-primary">Canal Oficial 🎥</h6>
-          <h1>¡Ahora en YOUTUBE!<i class="fa fa-youtube-play"></i></h1>
+        <div class="container">
+            <div class="row">
+                <div class="offset-xl-1 col-xl-6" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
+                    <div class="title">
+                        <h6 class="title-primary">Canal Oficial 🎥</h6>
+                        <h1>¡Ahora en YOUTUBE!<i class="fa fa-youtube-play"></i></h1>
+                    </div>
+
+                    <h5>Contenido de USO y ACTUALIZACIONES del sistema Plaɳ MaeŠtrɸ!</h5>
+                    <a class="btn green" href="https://www.youtube.com/@PlanMaestro-uy" target="_blank"
+                        rel="noopener">Ir al canal</a>
+                </div>
+                <div class="col-xl-5 gallery">
+                    <div class="row no-gutters h-100" data-aos="fade-left" id="lightgallery">
+                        <img class="img-fluid" src="assets/images/yt.jpg" alt="Vista previa del canal">
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <h5>Contenido de USO y ACTUALIZACIONES del sistema Plaɳ MaeŠtrɸ!</h5>
-        <a class="btn green" href="https://www.youtube.com/@PlanMaestro-uy" target="_blank" rel="noopener">Ir al canal</a>
-      </div>
-      <div class="col-xl-5 gallery">
-        <div class="row no-gutters h-100" data-aos="fade-left" id="lightgallery">
-          <img class="img-fluid" src="assets/images/yt.jpg" alt="Vista previa del canal">
-        </div>
-      </div> 
-    </div>
-  </div>
-</section>
+    </section>
 
 
     <!-- Featured Start -->
@@ -453,23 +480,22 @@
 
     <!-- Lanzamiento -->
 
-    <section class="trust" id="lanzamiento">
+    <section class="trust py-5" id="lanzamiento">
         <div class="container">
-            <div class="row">
-                <div class="offset-xl-1 col-xl-6" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Plaɳ MaeŠtrɸ - 2025</h6>
-                        <h1>ADQUIERE AHORA! -        </h1>
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-xl-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                    <div class="title mb-4">
+                        <h6 class="title-primary text-success fw-bold">Plaɳ MaeŠtrɸ - 2025</h6>
+                        <h1 class="display-5 fw-bold">Adquiere Yá!</h1>
                     </div>
-                    
-                    <h5>Potencia tu planificación</h5>
-                    <a class="btn green" href="https://prime.plan-maestro.com">Click aquí!</a>
+
+                    <h5 class="mb-4">Potencia tu planificación</h5>
+
+                    <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow"
+                        href="https://prime.plan-maestro.com" target="_blank">
+                        <i class="fa fa-rocket me-2"></i> Click aquí!
+                    </a>
                 </div>
-                <!-- <div class="col-xl-5 gallery">
-                    <div class="row no-gutters h-100" data-aos="fade-left" id="lightgallery">
-                        <img class="img-fluid" src="assets/images/primeweb2.jpg" alt="Gallery Image">
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -709,23 +735,22 @@
 
     <!-- Lanzamiento -->
 
-    <section class="trust" id="lanzamiento">
+    <section class="trust py-5" id="lanzamiento">
         <div class="container">
-            <div class="row">
-                <div class="offset-xl-1 col-xl-6" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Plaɳ MaeŠtrɸ - 2025</h6>
-                        <h1>ADQUIERE AHORA! -        </h1>
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-xl-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                    <div class="title mb-4">
+                        <h6 class="title-primary text-success fw-bold">Plaɳ MaeŠtrɸ - 2025</h6>
+                        <h1 class="display-5 fw-bold">Adquiere Yá!</h1>
                     </div>
-                    
-                    <h5>Potencia tu planificación</h5>
-                    <a class="btn green" href="https://prime.plan-maestro.com">Click aquí!</a>
+
+                    <h5 class="mb-4">Potencia tu planificación</h5>
+
+                    <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow"
+                        href="https://prime.plan-maestro.com" target="_blank">
+                        <i class="fa fa-rocket me-2"></i> Click aquí!
+                    </a>
                 </div>
-                <!-- <div class="col-xl-5 gallery">
-                    <div class="row no-gutters h-100" data-aos="fade-left" id="lightgallery">
-                        <img class="img-fluid" src="assets/images/primeweb2.jpg" alt="Gallery Image">
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -864,19 +889,19 @@
         <div class="footer-widgets">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-xl-3">
+                    <div class="col-md-4 col-xl-4">
                         <h5>Desarrollado con cariño por Marcos Mello</h5>
                     </div>
-                    <div class="col-md-3 col-xl-3">
+                    <div class="col-md-4 col-xl-4">
                         <h5>Social Media y soporte: Cristiane Hernández</h5>
                     </div>
-                    <div class="col-md-3 col-xl-3">
+                    <div class="col-md-4 col-xl-4">
                         <h5>Plaɳ MaeŠtrɸ - 2025</h5>
                     </div>
-                    <div class="col-md-3 col-xl-3">
+                    <!-- <div class="col-md-3 col-xl-3">
                         <i class="fa fa-whatsapp"></i>
                         <a href="https://w.app/AavCFS"> +598 91 263 869</a>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

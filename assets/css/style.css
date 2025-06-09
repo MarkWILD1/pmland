@@ -643,7 +643,8 @@ form button.btn-primary:hover {
 }
 
 .single-pricing:hover .btn {
-  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 3px 7px 0px  rgba(255, 136, 0, 0.35);
+  color: #aaa;
 }
 
 /*-----------------------------------
