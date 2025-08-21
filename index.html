@@ -1,955 +1,460 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <!-- 
-    EN EL HAY FORTALEZA
-    EL SEÑOR ESTABLECE
-    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Document title -->
-    <title>Plaɳ MaeŠtrɸ</title>
-
-    <link rel="shortcut icon" href="./assets/images/icon-black.png" type="image/x-icon">
-    <!-- Stylesheets & Fonts -->
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i%7CRajdhani:400,600,700"
-        rel="stylesheet">
-    <!-- Plugins Stylesheets -->
-    <link rel="stylesheet" href="assets/css/loader/loaders.css">
-    <link rel="stylesheet" href="assets/css/font-awesome/font-awesome.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/aos/aos.css">
-    <link rel="stylesheet" href="assets/css/swiper/swiper.css">
-    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-
-
-    <!-- Template Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Responsive Stylesheet -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
-
+    <title>Plaɳ MaeŠtrɸ - La Calculadora del Pensamiento Docente Uruguayo</title>
+    <meta name="description" content="La revolución en la forma de planificar y plasmar clases. Plataforma completa para docentes uruguayos.">
     
+    <link rel="shortcut icon" href="./assets/images/icon-black.png" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/modern-style.css">
 </head>
 
 <body>
-    <!-- Loader Start -->
-    <div class="css-loader">
-        <div class="loader-inner line-scale d-flex align-items-center justify-content-center"></div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
     </div>
-    <!-- Loader End -->
 
-    <!-- Header Start -->
-    <header class="position-absolute w-100">
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <div class="top-header d-none d-sm-flex justify-content-between align-items-center">
-                <div class="contact">
-                    <a href="mailto:soporte@plan-maestro.com"><i class="fa fa-envelope"
-                            aria-hidden="true"></i>soporte@plan-maestro.com</a>
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/logo-lateral-2_00000.png" alt="Plaɳ MaeŠtrɸ" height="50">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#porqueusar">Por qué Usar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#upgrade">Upgrade</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#inspirar">Inspirar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ecosistema">Ecosistema</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#lanzamiento">Lanzamiento</a></li>
+                </ul>
+                
+                <div class="header-actions ms-3">
+                    <a href="mailto:soporte@plan-maestro.com" class="btn btn-outline-light btn-sm me-2">
+                        <i class="fas fa-envelope me-1"></i>Contacto
+                    </a>
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-sm">
+                        <i class="fas fa-rocket me-1"></i>Iniciar Sesión
+                    </a>
                 </div>
-                <nav class="d-flex aic">
-
-
-                    <ul class="nav social d-none d-md-flex">
-                        <li><a href="https://www.instagram.com/planmaestro_uy/" target="_blank"><i
-                                    class="fa fa-instagram"></i></a>
-                        </li>
-                        <li><a href="https://www.youtube.com/@PlanMaestro-uy" target="_blank"><i
-                                    class="fa fa-youtube-play"></i></a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- Inicio de Sección -->
-                <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow" href="https://prime.plan-maestro.com"
-                    target="_blank">
-                    <i class="fa fa-rocket me-2"></i> Iniciar Sección
-                </a>
-
-
             </div>
-            <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="index.html"><img src="assets/images/logo-lateral-2_00000.png"
-                        alt="Multipurpose"></a>
-                <div class="group d-flex align-items-center">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation"><span
-                            class="navbar-toggler-icon"></span></button>
-                    <a class="login-icon d-sm-none" href="https://prime.plan-maestro.com/dashboard/main"><i
-                            class="fa fa-user"></i></a>
-                    <a class="cart" href="https://prime.plan-maestro.com/dashboard/main"><i class="fa fa-shopping-cart"></i></a>
-                </div>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#porqueusar">Porque Usar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#upgrade">Upgrade</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#inspirar">Inspirar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#ecosistema">Ecosistema</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#lanzamiento">Lanzamiento</a></li>
-                    </ul>
-                </div>
-            </nav>
         </div>
     </header>
-    <!-- Header End -->
 
-    <!-- Hero Start -->
-    <section class="hero" id="inicio">
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section parallax-section">
+        <div class="hero-background parallax-bg" data-speed="0.5">
+            <div class="hero-overlay"></div>
+        </div>
         <div class="container">
-            <div class="row">
-                <div class="col-12 offset-md-1 col-md-11">
-                    <div class="swiper-container hero-slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide slide-content d-flex align-items-center">
-                                <div class="single-slide">
-                                    <h1 data-aos="fade-right" data-aos-delay="200">La Calculadora<br> del pensamiento
-                                        docente uruguayo!
-                                    </h1>
-                                    <p data-aos="fade-right" data-aos-delay="600">La revolución en la forma de
-                                        planificar y plasmar clases<br>
-                                    </p>
-                                    <!-- <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">See
-                                        More</a>
-                                    <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">Get
-                                        Now</a> -->
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="hero-content parallax-content" data-speed="0.3">
+                        <span class="badge bg-warning text-dark mb-3">Nuevo 2025</span>
+                        <h1 class="hero-title">
+                            La Calculadora del <span class="text-gradient">Pensamiento Docente</span> Uruguayo
+                        </h1>
+                        <p class="hero-subtitle">
+                            La herramienta que te produce el verdadero placer de PLANIFICAR!<br>
+                            Grandes docentes merecen <strong>GRANDES HERRAMIENTAS</strong>.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg me-3">
+                                <i class="fas fa-rocket me-2"></i>Empezar Ahora
+                            </a>
+                            <a href="#inspirar" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-play me-2"></i>Que es?
+                            </a>
+                        </div>
+                        <div class="hero-stats mt-5">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <h3>100%</h3>
+                                        <p>Documentación ANEP</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <h3>24/7</h3>
+                                        <p>Disponibilidad</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <h3>+ con - tiempo</h3>
+                                        <p>Produce y enriquece tus planificaciones en tiempo récord!</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide slide-content d-flex align-items-center">
-                                <div class="single-slide">
-                                    <h1 data-aos="fade-right" data-aos-delay="200">Creatividad <br> sin límites
-                                    </h1>
-                                    <p data-aos="fade-right" data-aos-delay="600">Realiza proyectos, plan diario, plan
-                                        semanal, juicios, descripción fundada, rúbricas.
-                                        Absolutamente todo lo relacionado con el quehacer educativo.<br>
-                                    </p>
-                                    <!-- <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">See
-                                        More</a>
-                                    <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">Get
-                                        Now</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
+                    <div class="hero-image parallax-content" data-speed="0.1">
+                        <div class="hero-illustration">
+                            <!-- Imagen real de las mujeres -->
+                            <div class="real-people-image">
+                                <img src="assets/images/imgplan.png" alt="Docentes usando Plan MaeŠtrɸ" class="img-fluid">
+                            </div>
+                            
+                            <!-- Animación de laptop flotante superpuesta -->
+                            <!-- <div class="floating-laptop">
+                                <div class="laptop-container">
+                                    <div class="laptop-screen">
+                                        <div class="laptop-logo">
+                                            <div class="book-icon">
+                                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 4C10.9 4 10 4.9 10 6V54C10 55.1 10.9 56 12 56H48C49.1 56 50 55.1 50 54V6C50 4.9 49.1 4 48 4H12Z" fill="white"/>
+                                                    <path d="M15 8H45V52H15V8Z" fill="#06B6D4"/>
+                                                    <path d="M20 12H40V16H20V12Z" fill="white"/>
+                                                    <path d="M20 20H35V24H20V20Z" fill="white"/>
+                                                    <path d="M20 28H30V32H20V28Z" fill="white"/>
+                                                    <path d="M20 36H40V40H20V36Z" fill="white"/>
+                                                    <path d="M20 44H25V48H20V44Z" fill="white"/>
+                                                    <circle cx="30" cy="30" r="2" fill="#F59E0B"/>
+                                                    <rect x="25" y="25" width="2" height="2" fill="#F59E0B"/>
+                                                    <rect x="35" y="35" width="2" height="2" fill="#F59E0B"/>
+                                                </svg>
+                                            </div>
+                                            <div class="logo-text">Plan MaeŠtrɸ</div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                
+                                <!-- Caritas felices alrededor de la laptop -->
+                                <!-- <div class="happy-faces">
+                                    <div class="happy-face happy-face-1">
+                                        <div class="face-circle">
+                                            <div class="eyes">
+                                                <div class="eye"></div>
+                                                <div class="eye"></div>
+                                            </div>
+                                            <div class="mouth"></div>
+                                        </div>
+                                    </div>
+                                    <div class="happy-face happy-face-2">
+                                        <div class="face-circle">
+                                            <div class="eyes">
+                                                <div class="eye"></div>
+                                                <div class="eye"></div>
+                                            </div>
+                                            <div class="mouth"></div>
+                                        </div>
+                                    </div>
+                                    <div class="happy-face happy-face-3">
+                                        <div class="face-circle">
+                                            <div class="eyes">
+                                                <div class="eye"></div>
+                                                <div class="eye"></div>
+                                            </div>
+                                            <div class="mouth"></div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                            
+                            <!-- Elementos decorativos animados -->
+                            <div class="decorative-elements">
+                                <div class="floating-icon floating-icon-1">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <!-- <div class="floating-icon floating-icon-2">
+                                    <i class="fas fa-heart"></i>
+                                </div> -->
+                                <div class="floating-icon floating-icon-3">
+                                    <i class="fas fa-lightbulb"></i>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-            <!-- Add Control -->
-            <span class="arr-left"><i class="fa fa-angle-left"></i></span>
-            <span class="arr-right"><i class="fa fa-angle-right"></i></span>
         </div>
-        <div class="texture"></div>
-        <div class="diag-bg"></div>
     </section>
-    <!-- Hero End -->
 
-    <section class="trust py-5" id="lanzamiento">
+    <!-- Features Section -->
+    <section id="porqueusar" class="features-section py-5 parallax-section">
+        <div class="parallax-bg features-bg" data-speed="0.2"></div>
         <div class="container">
-            <div class="row justify-content-center align-items-center text-center">
-                <div class="col-xl-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title mb-4">
-                        <h6 class="title-primary text-success fw-bold">Plaɳ MaeŠtrɸ - 2025</h6>
-                        <h1 class="display-5 fw-bold">Adquiere Ya!</h1>
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge bg-primary mb-3">Características</span>
+                    <h2 class="section-title">¿Por qué elegir Plaɳ MaeŠtrɸ?</h2>
+                    <p class="section-subtitle">Descubre las ventajas que hacen de nuestra plataforma la herramienta preferida de los docentes uruguayos</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Velocidad</h4>
+                        <p>Planificaciones hechas en tiempo récord con nuestra IA optimizada</p>
                     </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Sistema Adaptado</h4>
+                        <p>Diseñado específicamente para las necesidades del docente uruguayo</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Enciende tus Ideas</h4>
+                        <p>El disparador perfecto para encender tu creatividad de forma instantánea</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Vanguardista</h4>
+                        <p>La educación por encima en la era tecnológica con herramientas de última generación</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Más Tiempo Libre</h4>
+                        <p>Optimiza tu tiempo para potenciar la calidad y el desarrollo profesional</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Calidad Garantizada</h4>
+                        <p>Herramienta pensada para trabajos completos y profesionales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <h5 class="mb-4">Potencia tu planificación</h5>
+    <!-- About Section -->
+    <section id="inspirar" class="about-section py-5 parallax-section">
+        <div class="parallax-bg about-bg" data-speed="0.3"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-content">
+                        <span class="badge bg-success mb-3">Plaɳ MaeŠtrɸ PRIME</span>
+                        <h2 class="section-title">¿Qué es Plaɳ MaeŠtrɸ PRIME?</h2>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Plataforma completamente equipada con la documentación oficial de ANEP (2025)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Incluye la totalidad de tramos y unidades curriculares correspondientes</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Sistema entrenado a lo largo del año lectivo de 2024</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Banco de datos que se enriquece y aprende con cada registro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-image">
+                        <img src="assets/images/prime1.jpg" alt="Plaɳ MaeŠtrɸ Features" class="img-fluid rounded-4 shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow"
-                        href="https://prime.plan-maestro.com" target="_blank">
-                        <i class="fa fa-rocket me-2"></i> Click aquí!
+    <!-- CTA Section -->
+    <section class="cta-section py-5 parallax-section">
+        <div class="parallax-bg cta-bg" data-speed="0.4"></div>
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="cta-title">¡Actualizado 2025!</h2>
+                    <p class="cta-subtitle">Para construir planificaciones excelentes</p>
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg">
+                        <i class="fas fa-rocket me-2"></i>Adquiere Ya
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- Trust Start -->
-    <section class="trust" id="inspirar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-5" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Plaɳ MaeŠtrɸ</h6>
-                        <h1>Qué es Plaɳ MaeŠtrɸ PRIME?</h1>
-                    </div>
-                    <p>
-                    </p>
-                    <h5> → PLATAFORMA COMPLETAMENTE EQUIPADA CON LA DOCUMENTACIÒN OFICIAL DE ANEP (2025)</h5>
-                    <h5> → INCLUYE LA TOTALIDAD DE TRAMOS Y UNIDADES CURRICULARES CORRESPONDIENTES</h5>
-                    <h5> → SISTEMA ENTRENADO A LO LARGO DEL AÑO LECTIVO DE 2024</h5>
-                    <h5> → BANCO DE DATOS QUE SE ENRIQUECE Y APRENDE CON CADA REGISTRO</h5>
-                </div>
-                <div class="col-xl-7 gallery">
-                    <div class="row" data-aos="fade-left" id="lightgallery">
-                        <img class="img-fluid" src="assets/images/prime1.jpg" alt="Gallery Image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="trust" id="inspirar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-5" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Plaɳ MaeŠtrɸ</h6>
-                        <h1>Qué es Plaɳ MaeŠtrɸ PRIME?</h1>
-                    </div>
-                    <p>
-                    </p>
-                    <h5> → PLATAFORMA QUE CUMPLE CON LOS ESTÁNDARES DE PRIVACIDAD PARA CADA USUARIO</h5>
-                    <h5> → INCLUYE BLOQUES DISEÑADOS PARA POTENCIAR LA PLANIFICACIÒN</h5>
-                    <h5> → ENTRE DICHOS BLOQUES SE DESTACAN: METODOLOGÍAS ACTIVAS, DUA, STEAM, IMÁN DE ALUMNOS, GATILLOS
-                        MENTALES, EVALÚA</h5>
-                </div>
-                <div class="col-xl-6 gallery">
-                    <div class="row" data-aos="fade-left" id="lightgallery">
-                        <img class="img-fluid" src="assets/images/prime2.jpg" alt="Gallery Image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="trust" id="inspirar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-5" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Plaɳ MaeŠtrɸ</h6>
-                        <h1>Qué es Plaɳ MaeŠtrɸ PRIME?</h1>
-                    </div>
-                    <p>
-                    </p>
-                    <h5> → SISTEMA OPTIMIZADO DESDE EL 04 DE MARZO DE 2024</h5>
-                    <h5> → EMPLEA UN MOTOR AVANZADO DE INTELIGENCIA ARTIFICIAL ORIENTADO A LA EDUCACIÓN URUGUAYA</h5>
-                    <h5> → APRENDE CON CADA PETICIÓN Y PERFECCIONA SUS RESPUESTAS</h5>
-                    <h5> → UTILIZA TECNOLOGÍA DE VANGUARDIA</h5>
-                    <h5> → OFRECE ACTUALIZACIONES CONTINUAS</h5>
-                </div>
-                <div class="col-xl-7 gallery">
-                    <div class="row" data-aos="fade-left" id="lightgallery">
-                        <img class="img-fluid" src="assets/images/prime3.jpg" alt="Gallery Image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Upgrade -->
-    <section class="cta" data-aos="fade-up" data-aos-delay="0">
+    <!-- Ecosystem Section -->
+    <section id="ecosistema" class="ecosystem-section py-5 parallax-section">
+        <div class="parallax-bg ecosystem-bg" data-speed="0.2"></div>
         <div class="container">
-            <div class="cta-content d-xl-flex align-items-center justify-content-around text-center text-xl-left">
-                <div class="content" data-aos="fade-right" data-aos-delay="200">
-                    <h2>ACTUALIZADO 2025 - PARA CONSTRUIR PLANIFICACIONES EXCELENTES!</h2>
-                    <p>El UPGRADE que tu planificación necesita.</p>
-                </div>
-                <!-- <div class="subscribe-btn" data-aos="fade-left" data-aos-delay="400" data-aos-offset="0">
-                    <a href="#" class="btn btn-primary">Join Newsletter</a>
-                </div> -->
-            </div>
-        </div>
-    </section>
-    <!-- Upgrade -->
-
-    <!-- Services Start -->
-    <section class="featured py-5" id="upgrade">
-        <div class="container">
-            <div class="title text-center mb-4">
-                <h6>Motivos de</h6>
-                <h1>Por qué usar</h1>
-            </div>
-            <!-- Aquí comienza la sección de íconos y texto -->
-            <div class="row">
-                <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
-                        <img class="mr-4" src="assets/images/service1.png" alt="Web Development">
-                        <div class="media-body">
-                            <h5>Velocidad</h5>
-                            Planificaciones hechas en tiempo récord.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
-                        <img class="mr-4" src="assets/images/service2.png" alt="Web Development">
-                        <div class="media-body">
-                            <h5>Sistema</h5>
-                            Sistema adaptado a la necesidad del docente uruguayo.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
-                        <img class="mr-4" src="assets/images/service3.png" alt="Web Development">
-                        <div class="media-body">
-                            <h5>Enciende tus ideas</h5>
-                            El disparador para encender tus ideas de forma instantánea.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
-                        <img class="mr-4" src="assets/images/service4.png" alt="Web Development">
-                        <div class="media-body">
-                            <h5>Moderno y vanguardista</h5>
-                            La educación por encima en la era tecnológica.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
-                        <img class="mr-4" src="assets/images/service1.png" alt="Web Development">
-                        <div class="media-body">
-                            <h5>Más tiempo libre</h5>
-                            Más tiempo para potenciar la calidad y el desarrollo del docente.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
-                        <img class="mr-4" src="assets/images/service5.png" alt="Web Development">
-                        <div class="media-body">
-                            <h5>Elaboración con calidad</h5>
-                            Herramienta pensada para trabajos completos.
-                        </div>
-                    </div>
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge bg-info mb-3">Ecosistema Completo</span>
+                    <h2 class="section-title">Bloques del Ecosistema - Actualizado 2025</h2>
+                    <p class="section-subtitle">Componentes especializados para cada necesidad educativa</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Services End -->
-
-    <!-- Lanzamiento -->
-
-    <section class="trust py-5" id="lanzamiento">
-        <div class="container">
-            <div class="row justify-content-center align-items-center text-center">
-                <div class="col-xl-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title mb-4">
-                        <h6 class="title-primary text-success fw-bold">Plaɳ MaeŠtrɸ - 2025</h6>
-                        <h1 class="display-5 fw-bold">Adquiere Ya!</h1>
-                    </div>
-
-                    <h5 class="mb-4">Potencia tu planificación</h5>
-
-                    <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow"
-                        href="https://prime.plan-maestro.com" target="_blank">
-                        <i class="fa fa-rocket me-2"></i> Click aquí!
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Featured Start -->
-    <section class="featured" id="upgrade">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6" data-aos="fade-right" data-aos-delay="400" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Plaɳ MaeŠtrɸ</h6>
-                        <h1 class="title-blue">Transforma la planificación en una EXPERIENCIA PLACENTERA!</h1>
-                    </div>
-                    <!-- <p class="title-blue">Plaɳ MaeŠtrɸ ofrece el UPGRADE que tu planificación necesita para llevar tu productividad al
-                        siguiente nivel. LA HERRAMIENTA DEL DOCENTE URUGUAYO POR EXCELENCIA!</p> -->
-                    <!-- <div class="media-element d-flex justify-content-between">
-                        <div class="media">
-                            <i class="fa fa-magic mr-4"></i>
-                            <div class="media-body">
-                                <h5>Planificaciones enteras - Como en un pase de magia</h5>
-
-                            </div>
-                        </div>
-                        <div class="media">
-                            <i class="fa fa-magic mr-4"></i>
-                            <div class="media-body">
-                                <h5>Proyectos prontos - Como por arte de magia</h5>
-
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <a href="#" class="btn btn-primary">See More</a> -->
-                </div>
-                <div class="col-md-6" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
-                    <div class="featured-img">
-                        <!-- <img class="featured-big" src="assets/images/feat-img.jpg" alt="Featured 1"> -->
-                        <img class="featured-small" src="assets/images/feat-img2.jpg" alt="Featured 2">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Youtube -->
-    <section class="trust" id="youtube">
-        <div class="container">
-            <div class="row">
-                <div class="offset-xl-1 col-xl-6" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Canal Oficial 🎥</h6>
-                        <h1>¡Ahora en YOUTUBE!<i class="fa fa-youtube-play"></i></h1>
-                    </div>
-
-                    <h5>Contenido de USO y ACTUALIZACIONES del sistema Plaɳ MaeŠtrɸ!</h5>
-                    <a class="btn green" href="https://www.youtube.com/@PlanMaestro-uy" target="_blank"
-                        rel="noopener">Ir al canal</a>
-                </div>
-                <div class="col-xl-5 gallery">
-                    <div class="row no-gutters h-100" data-aos="fade-left" id="lightgallery">
-                        <img class="img-fluid" src="assets/images/yt.jpg" alt="Vista previa del canal">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Featured Start -->
-    <section class="featured" id="upgrade">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6" data-aos="fade-right" data-aos-delay="400" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Plaɳ MaeŠtrɸ</h6>
-                        <h1 class="title-blue">LA HERRAMIENTA DEL DOCENTE URUGUAYO POR EXCELENCIA!</h1>
-                    </div>
-                    <!-- <p class="title-blue">Plaɳ MaeŠtrɸ ofrece el UPGRADE que tu planificación necesita para llevar tu productividad al
-                        siguiente nivel. LA HERRAMIENTA DEL DOCENTE URUGUAYO POR EXCELENCIA!</p> -->
-                    <div class="media-element d-flex justify-content-between">
-                        <div class="media">
-                            <i class="fa fa-magic mr-4"></i>
-                            <div class="media-body">
-                                <h5>Planificaciones enteras - Como en un pase de magia</h5>
-
-                            </div>
-                        </div>
-                        <div class="media">
-                            <i class="fa fa-magic mr-4"></i>
-                            <div class="media-body">
-                                <h5>Proyectos prontos - Como por arte de magia</h5>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <a href="#" class="btn btn-primary">See More</a> -->
-                </div>
-                <div class="col-md-6" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
-                    <div class="featured-img">
-                        <!-- <img class="featured-big" src="assets/images/feat-img.jpg" alt="Featured 1"> -->
-                        <img class="featured-small" src="assets/images/feat-img2.jpg" alt="Featured 2">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Featured End -->
-
-
-    <!-- Trust End -->
-
-    <!-- Trust Start -->
-    <!-- <section class="trust" id="inspirar">
-        <div class="container">
-            <div class="row">
-                <div class="offset-xl-1 col-xl-4" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title">
-                        <h6 class="title-primary">Plaɳ MaeŠtrɸ</h6>
-                        <h1>Cada bloque POSEE todo para desplegar tu POTENCIAL y encender creatividad</h1>
-                    </div>
-                    <p>Transforma tu experiencia docente con un sistema diseñado para maximizar tu desempeño.
-                        Esta herramienta innovadora no solo potencia tu creatividad con propuestas frescas y dinámicas,
-                        sino que también simplifica y acelera la creación de contenido atractivo, ahorrándote tiempo y
-                        esfuerzo mientras cautivas a tus estudiantes.
-                    </p>
-                    <h5>Inspira, crea y transforma tu aula con menos esfuerzo y más impacto.</h5>
-                </div>
-                <div class="col-xl-5 gallery">
-                    <div class="row no-gutters h-100" data-aos="fade-left" id="lightgallery">
-                        <img class="img-fluid" src="assets/images/planificaciones-de-clases.jpg" alt="Gallery Image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Trust End -->
-
-    <!-- Lanzamiento -->
-
-    <section class="trust py-5" id="lanzamiento">
-        <div class="container">
-            <div class="row justify-content-center align-items-center text-center">
-                <div class="col-xl-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title mb-4">
-                        <h6 class="title-primary text-success fw-bold">Plaɳ MaeŠtrɸ - 2025</h6>
-                        <h1 class="display-5 fw-bold">Adquiere Ya!</h1>
-                    </div>
-
-                    <h5 class="mb-4">Potencia tu planificación</h5>
-
-                    <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow"
-                        href="https://prime.plan-maestro.com" target="_blank">
-                        <i class="fa fa-rocket me-2"></i> Click aquí!
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ECOSISTEMA -->
-    <section class="recent-posts" id="ecosistema">
-        <div class="container">
-            <section class="cta" data-aos="fade-up" data-aos-delay="0">
-                <div class="container">
-                    <div
-                        class="cta-content d-xl-flex align-items-center justify-content-around text-center text-xl-left">
-                        <div class="content" data-aos="fade-right" data-aos-delay="200">
-                            <h2>BLOQUES DEL ECOSISTEMA - ACTUALIZADO 2025</h2>
-                            <p>COMPONENTES</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="row">
-                <!-- Tramo 1 a 4 -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-right"
-                        data-aos-duration="800">
-                        <div class="post-content text-sm-right">
-                            <time datetime="today">Ecosistema</time>
-                            <h3><a href="./assets/pages/tramos1a4.html">Tramos 1 a 4</a></h3>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ecosystem-card">
+                        <img src="assets/images/dgeip.jpg" alt="Tramos 1 a 4" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Tramos 1 a 4</h5>
                             <p>Todos los tramos de DGEIP separados por bloques</p>
-                            <a class="post-btn" href="./assets/pages/tramos1a4.html"><i
-                                    class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/dgeip.jpg" alt="Post 1">
+                            <a href="./assets/pages/tramos1a4.html" class="btn btn-outline-primary btn-sm">Ver más</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tramo 5 y 6 -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-left" data-aos-duration="800">
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/dges-dgetp.jpg" alt="Post 1">
-                        </div>
-                        <div class="post-content">
-                            <time datetime="2019-04-06T13:53">Ecosistema</time>
-                            <h3><a href="./assets/pages/tramos5y6.html">Tramos 5 y 6</a></h3>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ecosystem-card">
+                        <img src="assets/images/dges-dgetp.jpg" alt="Tramos 5 y 6" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Tramos 5 y 6</h5>
                             <p>Este bloque comprende los grados 7, 8 y 9</p>
-                            <a class="post-btn" href="./assets/pages/tramos5y6.html"><i
-                                    class="fa fa-arrow-right"></i></a>
+                            <a href="./assets/pages/tramos5y6.html" class="btn btn-outline-primary btn-sm">Ver más</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- EMS - DGES -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-right" data-aos-delay="200"
-                        data-aos-duration="800">
-                        <div class="post-content text-sm-right">
-                            <time datetime="2019-04-06T13:53">Ecosistema</time>
-                            <h3><a href="./assets/pages/ems-dges.html">Ems - dges</a></h3>
-                            <p><a href="./assets/pages/ems-dges.html">Este bloque comprende las UNIDADES CURRICULARES
-                                    pertenecientes a EMS 1, 2 y 3 - dges</p>
-                            <a class="post-btn" href="./assets/pages/ems-dges.html"><i
-                                    class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/ems-dges.jpg" alt="Post 1">
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="ecosystem-card">
+                        <img src="assets/images/ems-dges.jpg" alt="EMS - DGES" class="card-img-top">
+                        <div class="card-body">
+                            <h5>EMS - DGES</h5>
+                            <p>Unidades curriculares de EMS 1, 2 y 3 - DGES</p>
+                            <a href="./assets/pages/ems-dges.html" class="btn btn-outline-primary btn-sm">Ver más</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- EMS - DGETP -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-left" data-aos-delay="200"
-                        data-aos-duration="800">
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/ems-dgetp.jpg" alt="Post 1">
-                        </div>
-                        <div class="post-content">
-                            <time datetime="2019-04-06T13:53">Ecosistema</time>
-                            <h3><a href="./assets/pages/ems-dgetp.html">Ems - dgetp</a></h3>
-                            <p><a href="./assets/pages/ems-dgetp.html">Este bloque comprende las UNIDADES CURRICULARES
-                                    pertenecientes a Ems 1, 2, 3 - dgetp</p>
-                            <a class="post-btn" href="./assets/pages/ems-dgetp.html"><i
-                                    class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-
-                <!--PLAN 2006 -->
-                <div class="col-lg-6">
-                    <!-- <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-right"
-                        data-aos-duration="800">
-                        <div class="post-content text-sm-right">
-                            <time datetime="today">Ecosistema</time>
-                            <h3><a href="./assets/pages/plan-2006.html">Plan 2006</a></h3>
-                            <p>Cargado con todas UNIDADES CURRICULARES pertenecientes a 5to y 6to año secundaria (pre reforma).</p>
-                            <a class="post-btn" href="./assets/pages/plan-2006.html"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/plan-2006.jpg" alt="Plan 2006">
-                        </div>
-                    </div> -->
-                </div>
-
-                <!-- Metodologías Activas -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-left" data-aos-duration="800">
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/metodologias-activas.jpg" alt="Post 1">
-                        </div>
-                        <div class="post-content">
-                            <time datetime="2019-04-06T13:53">Ecosistema</time>
-                            <h3><a href="./assets/pages/metodologias-activas.html">Metodologías Activas</a></h3>
-                            <p><a href="./assets/pages/metodologias-activas.html">Este bloque posee todas las
-                                    Metodologías activas mencionadas en el MCN</p>
-                            <a class="post-btn" href="./assets/pages/metodologias-activas.html"><i
-                                    class="fa fa-arrow-right"></i></a>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="ecosystem-card">
+                        <img src="assets/images/metodologias-activas.jpg" alt="Metodologías Activas" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Metodologías Activas</h5>
+                            <p>Todas las metodologías activas mencionadas en el MCN</p>
+                            <a href="./assets/pages/metodologias-activas.html" class="btn btn-outline-primary btn-sm">Ver más</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- DUA -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-right" data-aos-delay="200"
-                        data-aos-duration="800">
-                        <div class="post-content text-sm-right">
-                            <time datetime="2019-04-06T13:53">Ecosistema</time>
-                            <h3><a href="#">Diseño Universal de Aprendizaje</a></h3>
-                            <p>Bloque que adapta el contenido a personas que tienen dificultad en adquirir el
-                                aprendizaje</p>
-                            <a class="post-btn" href="./assets/pages/dua.html"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/dua.jpg" alt="Post 1">
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="ecosystem-card">
+                        <img src="assets/images/dua.jpg" alt="DUA" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Diseño Universal de Aprendizaje</h5>
+                            <p>Adapta el contenido para diferentes estilos de aprendizaje</p>
+                            <a href="./assets/pages/dua.html" class="btn btn-outline-primary btn-sm">Ver más</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Imán de alumnos -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-left" data-aos-delay="200"
-                        data-aos-duration="800">
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/iman-de-alumnos.jpg" alt="Imán de alumnos">
-                        </div>
-                        <div class="post-content">
-                            <time datetime="2019-04-06T13:53">Ecosistema</time>
-                            <h3><a href="./assets/pages/iman-de-alumnos.html">Imán de Alumnos</a></h3>
-                            <p>Disparador para dar inicio a la clase de forma atrapante y persuasiva</p>
-                            <a class="post-btn" href="./assets/pages/iman-de-alumnos.html"><i
-                                    class="fa fa-arrow-right"></i></a>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="ecosystem-card">
+                        <img src="assets/images/steam.jpg" alt="STEAM" class="card-img-top">
+                        <div class="card-body">
+                            <h5>STEAM</h5>
+                            <p>Relaciona el contenido a un eje interdisciplinario</p>
+                            <a href="./assets/pages/steam.html" class="btn btn-outline-primary btn-sm">Ver más</a>
                         </div>
                     </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-
-                <!-- STEAM -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-right"
-                        data-aos-duration="800">
-                        <div class="post-content text-sm-right">
-                            <time datetime="today">Ecosistema</time>
-                            <h3><a href="./assets/pages/steam.html">STEAM</a></h3>
-                            <p>Relaciona el contenido a un eje interdiciplinario - propio para crear ferias y
-                                exposiciones.</p>
-                            <a class="post-btn" href="./assets/pages/steam.html"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/steam.jpg" alt="STEAM">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Evalúa -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-left" data-aos-duration="800">
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/evalua.jpg" alt="Evalúa">
-                        </div>
-                        <div class="post-content">
-                            <time datetime="2019-04-06T13:53">Ecosistema</time>
-                            <h3><a href="#">Evalúa</a></h3>
-                            <p>Bloque que realiza evaluaciones para proyectar el aprendizaje y los contenidos de los
-                                alumnos</p>
-                            <a class="post-btn" href="./assets/pages/evalua.html"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Segundas Lenguas -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-right" data-aos-delay="200"
-                        data-aos-duration="800">
-                        <div class="post-content text-sm-right">
-                            <time datetime="2019-04-06T13:53">Ecosistema</time>
-                            <h3><a href="./assets/pages/segundas-lenguas.html">Segundas Lenguas</a></h3>
-                            <p>Bloque cargado con Inglés y Portugués</p>
-                            <a class="post-btn" href="./assets/pages/segundas-lenguas.html"><i
-                                    class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/segundas-lenguas.jpg" alt="Evaluación">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Educación Física -->
-                <div class="col-lg-6">
-                    <div class="single-rpost d-sm-flex align-items-center" data-aos="fade-left" data-aos-delay="200"
-                        data-aos-duration="800">
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="assets/images/educacion-fisica.jpg" alt="Educación Física">
-                        </div>
-                        <div class="post-content">
-                            <time datetime="2019-04-06T13:53">Ecosistema</time>
-                            <h3><a href="./assets/pages/educacion-fisica.html">Educación Física</a></h3>
-                            <p>Bloque cargado con todos los TRAMOS que poseen esta Unidad Curricular</p>
-                            <a class="post-btn" href="./assets/pages/educacion-fisica.html"><i
-                                    class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
     </section>
-    <!-- ECOSISTEMA End -->
 
-    <!-- Lanzamiento -->
-
-    <section class="trust py-5" id="lanzamiento">
+    <!-- Final CTA -->
+    <section id="lanzamiento" class="final-cta-section py-5 parallax-section">
+        <div class="parallax-bg final-cta-bg" data-speed="0.5"></div>
         <div class="container">
-            <div class="row justify-content-center align-items-center text-center">
-                <div class="col-xl-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                    <div class="title mb-4">
-                        <h6 class="title-primary text-success fw-bold">Plaɳ MaeŠtrɸ - 2025</h6>
-                        <h1 class="display-5 fw-bold">Adquiere Ya!</h1>
-                    </div>
-
-                    <h5 class="mb-4">Potencia tu planificación</h5>
-
-                    <a class="btn btn-warning btn-lg px-4 py-2 rounded-pill shadow"
-                        href="https://prime.plan-maestro.com" target="_blank">
-                        <i class="fa fa-rocket me-2"></i> Click aquí!
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="final-cta-title">¡Adquiere Ya!</h2>
+                    <p class="final-cta-subtitle">Potencia tu planificación con la herramienta del docente uruguayo por excelencia</p>
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg btn-glow">
+                        <i class="fas fa-rocket me-2"></i>Iniciar Sesión
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-    <!-- Testimonial and Clients Start -->
-    <!-- <section class="testimonial-and-clients">
-        <div class="container">
-            <div class="testimonials">
-                <div class="swiper-container test-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide text-center">
-                            <div class="row">
-                                <div class="offset-lg-1 col-lg-10">
-                                    <div class="test-img" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0"><img
-                                            src="assets/images/test1.png" alt="Testimonial 1"></div>
-                                    <h5 data-aos="fade-up" data-aos-delay="200" data-aos-duration="600"
-                                        data-aos-offset="0">Marcos Mello</h5>
-                                    <span data-aos="fade-up" data-aos-delay="400" data-aos-duration="600"
-                                        data-aos-offset="0">Desarrollador
-                                        Plan Maestro</span>
-                                    <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="600"
-                                        data-aos-offset="0">Ash's tactics &
-                                        books have helped me a lot in my understanding on how social
-                                        media
-                                        advertising works.I can say that he is one of the best development professionals
-                                        i have
-                                        dealt with so far. His experience is great & he is such a great & pleasant
-                                        person to
-                                        work with as he understands what you are
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <div class="row">
-                                <div class="offset-lg-1 col-lg-10">
-                                    <div class="test-img" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0"><img
-                                            src="assets/images/test1.png" alt="Testimonial 1"></div>
-                                    <h5 data-aos="fade-up" data-aos-delay="200" data-aos-duration="600"
-                                        data-aos-offset="0">John</h5>
-                                    <span data-aos="fade-up" data-aos-delay="400" data-aos-duration="600"
-                                        data-aos-offset="0">UI/UX
-                                        Designer</span>
-                                    <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="600"
-                                        data-aos-offset="0">Ash's tactics &
-                                        books have helped me a lot in my understanding on how social
-                                        media
-                                        advertising works.I can say that he is one of the best development professionals
-                                        i have
-                                        dealt with so far. His experience is great & he is such a great & pleasant
-                                        person to
-                                        work with as he understands what you are</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <div class="row">
-                                <div class="offset-lg-1 col-lg-10">
-                                    <div class="test-img" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0"><img
-                                            src="assets/images/test1.png" alt="Testimonial 1"></div>
-                                    <h5 data-aos="fade-up" data-aos-delay="200" data-aos-duration="600"
-                                        data-aos-offset="0">John</h5>
-                                    <span data-aos="fade-up" data-aos-delay="400" data-aos-duration="600"
-                                        data-aos-offset="0">UI/UX
-                                        Designer</span>
-                                    <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="600"
-                                        data-aos-offset="0">Ash's tactics &
-                                        books have helped me a lot in my understanding on how social
-                                        media
-                                        advertising works.I can say that he is one of the best development professionals
-                                        i have
-                                        dealt with so far. His experience is great & he is such a great & pleasant
-                                        person to
-                                        work with as he understands what you are</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="test-pagination"></div>
-                </div>
-            </div>
-            <div class="clients" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
-                <div class="swiper-container clients-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="assets/images/client1.png" alt="Client 1">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="assets/images/client2.png" alt="Client 2">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="assets/images/client3.png" alt="Client 3">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="assets/images/client4.png" alt="Client 4">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="assets/images/client5.png" alt="Client 5">
-                        </div>
-                    </div>
-                    <div class="test-pagination"></div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Testimonial and Clients End -->
-
-    <!-- Call To Action 2 Start -->
-    <section class="cta cta2" data-aos="fade-up" data-aos-delay="0">
-        <div class="container">
-            <div class="cta-content d-xl-flex align-items-center justify-content-around text-center text-xl-left">
-                <div class="content" data-aos="fade-right" data-aos-delay="200">
-                    <h2>ADQUIERE ESTA SÚPER HERRAMIENTA! - ACTUALIZADO 2025</h2>
-                    <!--                     <p>Packed with all the goodies you can get, Kallyas is our flagship premium template.</p> -->
-                </div>
-                <!--                <div class="subscribe-btn" data-aos="fade-left" data-aos-delay="400" data-aos-offset="0">
-                        <a href="#" class="btn btn-primary">Join Newsletter</a>
-                    </div> -->
-            </div>
-        </div>
-    </section>
-    <!-- Call To Action 2 End -->
-
-
-    <!-- Whatsapp button -->
-    <a href="https://w.app/AavCFS" class="whatsapp-button" target="_blank" aria-label="Chat with us on WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    <!-- WhatsApp Button -->
+    <a href="https://w.app/AavCFS" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-
-    <!-- Footer Start -->
-    <footer>
-        <!-- Widgets Start -->
-        <div class="footer-widgets">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-xl-4">
-                        <h5>Desarrollado con cariño por Marcos Mello</h5>
-                    </div>
-                    <div class="col-md-4 col-xl-4">
-                        <h5>Social Media y soporte: Cristiane Hernández</h5>
-                    </div>
-                    <div class="col-md-4 col-xl-4">
-                        <h5>Plaɳ MaeŠtrɸ - 2025</h5>
-                    </div>
-                    <!-- <div class="col-md-3 col-xl-3">
-                        <i class="fa fa-whatsapp"></i>
-                        <a href="https://w.app/AavCFS"> +598 91 263 869</a>
-                    </div> -->
-
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Desarrollado con ❤️ por Marcos Mello</h5>
+                </div>
+                <div class="col-md-4">
+                    <h5>Social Media y soporte: Cristiane Hernández</h5>
+                </div>
+                <div class="col-md-4">
+                    <h5>Plaɳ MaeŠtrɸ - 2025</h5>
                 </div>
             </div>
         </div>
-        <!-- Widgets End -->
-
-        <!-- Foot Note Start -->
-        <!-- <div class="foot-note">
-            <div class="container">
-                <div
-                    class="footer-content text-center text-lg-left d-lg-flex justify-content-between align-items-center">
-                    <div class="media-body ml-3">
-                        <h6>Contáctate con nosotros</h6>
-                        <i class="fa fa-whatsapp"></i>
-                        <a href="https://w.app/AavCFS"> +598 91 263 869</a>
-                    </div>
-                    <div class="media-body ml-3">
-                        <h6 class="widget-tiltle">Síguenos en Instagram</h6>
-                        <ul class="nav social-nav">
-                            <li><a href="https://www.instagram.com/planmaestro_uy/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="clock" id="clock"></div>
-                     <p class="mb-0" data-aos="fade-left" data-aos-offset="0"><a href="#">Terms Of Use</a><a
-                            href="#">Privacy & Security
-                            Statement</a></p>
-                </div>
-            </div>
-        </div> -->
-        <!-- Foot Note End -->
     </footer>
-    <!-- Footer Endt -->
 
-    <!--jQuery-->
-    <script src="assets/js/jquery-3.3.1.js"></script>
-    <!--Plugins-->
-    <script src="assets/js/bootstrap.bundle.js"></script>
-    <script src="assets/js/loaders.css.js"></script>
-    <script src="assets/js/aos.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
-    <script src="assets/js/lightgallery-all.min.js"></script>
-    <!--Template Script-->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/clock.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/modern-script.js"></script>
 </body>
 
 </html>
