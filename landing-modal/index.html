@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Maestro PRIME - Plataforma Educativa con IA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Plan Maestro PRIME - 2026</span>
+                    <br>Plataforma Educativa con IA
+                </h1>
+                <p class="hero-subtitle">
+                    La herramienta definitiva para educadores modernos. 
+                    Planifica, crea y evalúa con inteligencia artificial.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="scrollToDetailedFeatures()">
+                        <i class="fas fa-rocket"></i>
+                        Descubre todas las funcionalidades
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToFeatures()">
+                        <i class="fas fa-arrow-down"></i>
+                        Ver más
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="card card-1">
+                        <i class="fas fa-brain"></i>
+                        <span>IA Integrada</span>
+                    </div>
+                    <div class="card card-2">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Plan Docs</span>
+                    </div>
+                    <div class="card card-3">
+                        <i class="fas fa-images"></i>
+                        <span>Generador IA</span>
+                    </div>
+                    <div class="card card-4">
+                        <i class="fas fa-map"></i>
+                        <span>Mapas Mentales</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir Plan Maestro PRIME?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Inteligencia Artificial</h3>
+                    <p>Asistente IA especializado en planificación educativa y generación de contenido</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Diseño Moderno</h3>
+                    <p>Interfaz elegante con tema oscuro/claro y transiciones suaves</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Totalmente Responsive</h3>
+                    <p>Funciona perfectamente en todos los dispositivos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Features Section -->
+    <section class="detailed-features show" id="detailedFeatures">
+        <div class="container">
+            <div class="features-header">
+                <h2 class="features-title">
+                    <i class="fas fa-magic"></i>
+                    Todas las funcionalidades de Plan Maestro PRIME
+                </h2>
+                
+            </div>
+            
+            <div class="features-content">
+                <!-- Dashboard Principal -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Dashboard Principal</h3>
+                            <p>Centro de control con vista general de todas las herramientas</p>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/pm-26.png" alt="Vista del dashboard principal de Plan Maestro PRIME">
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Agenda y calendario integrado</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Estadísticas y métricas en tiempo real</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Tips diarios personalizados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan de Documentos -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Plan de Documentos</h3>
+                            <p>Editor avanzado de documentos con múltiples formatos de exportación</p>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/gestor-doc.png" alt="Editor Plan Docs - Plan de Documentos">
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-edit"></i>
+                            <span>Editor de texto optimizado para escritura</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Exportación a PDF, DOCX y TXT</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Sistema de zoom avanzado (50%-200%)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-columns"></i>
+                            <span>Vista de páginas con navegación</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-heading"></i>
+                            <span>Encabezados y pies de página personalizables</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-markdown"></i>
+                            <span>Conversión automática de Markdown</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-folder"></i>
+                            <span>Sistema de carpetas y organización</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tags"></i>
+                            <span>Etiquetas y sistema de búsqueda</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ChatGPT Integrado -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>ChatGPT Integrado</h3>
+                            <p>La plataforma de IA por excelencia disponible y sin límites</p>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/ChatGPT.png" alt="ChatGPT Integrado">
+                    </div>
+                    <div class="feature-list">
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Exportación a PDF, DOCX y TXT</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Sin límites de uso y consultas</span>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-tags"></i>
+                            <span>Versión de ChatGPT 5 ILIMITADA!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grabador de Audio y Recaudador  -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Grabador de Audio y Reproductor</h3>
+                            <p>Graba tus audios y reproduce los que la plataforma te produce</p>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/Graba audio.png" alt="Audio Integrado">
+                    </div>
+                    <div class="feature-list">
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Graba tu prompt y espera a que la plataforma te produzca el audio y el texto</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Producción de respuestas en audio simultáneas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generador de Imágenes -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Generador de Imágenes con IA</h3>
+                            <p>Crea imágenes únicas usando inteligencia artificial avanzada</p>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/gen-img.png" alt="Interfaz del generador de imágenes con IA">
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Generación por descripción de texto</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <span>Múltiples tamaños (256x256 a 1024x1024)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-star"></i>
+                            <span>Calidad estándar y alta definición</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Estilos vívido y natural</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-download"></i>
+                            <span>Descarga directa de imágenes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gestor de Documentos -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-file-upload"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Gestor Inteligente de Documentos </h3>
+                            <p>Sube y analiza documentos PDF, Word y TXT con agentes especializados</p>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/chat-doc.png" alt="Gestor inteligente de documentos: subir y analizar archivos">
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-upload"></i>
+                            <span>Subida de PDF, DOC, DOCX, TXT</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-robot"></i>
+                            <span>Agentes especializados de análisis</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Chat interactivo con documentos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Generación de mapas mentales</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Resúmenes automáticos de contenido</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Respuestas a preguntas específicas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulador de Prompts -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Formulador de Prompts Educativos</h3>
+                            <p>Genera prompts especializados para diferentes niveles y contenidos educativos</p>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/form-de-prompts.png" alt="Formulario del Formulador de Prompts Educativos">
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Contenidos por tramo educativo</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-book"></i>
+                            <span>Espacios curriculares específicos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Unidades curriculares organizadas</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sort-numeric-up"></i>
+                            <span>Niveles de grado (EBI - EMS)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>Contenidos específicos por nivel</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-copy"></i>
+                            <span>Copiado automático al portapapeles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mapas Mentales -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Sistema de Mapas Mentales</h3>
+                            <p>Visualización interactiva de conceptos y relaciones</p>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/mapa-mental.png" alt="Sistema de Mapas Mentales - visualización de conceptos">
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Creación automática desde documentos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span>Interfaz interactiva y navegable</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-expand"></i>
+                            <span>Zoom y panorámica fluida</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-eye"></i>
+                            <span>Vista completa del mapa</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Leyenda y controles integrados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Educativo -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Base de Datos Educativa</h3>
+                            <p>Contenidos curriculares completos para todos los niveles</p>
+                        </div>
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-database"></i>
+                            <span>Base de datos curricular extensa</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-search"></i>
+                            <span>Búsqueda avanzada de contenidos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-filter"></i>
+                            <span>Filtros por tramo y nivel</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-list"></i>
+                            <span>Organización jerárquica de contenidos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Características Técnicas -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Características Técnicas</h3>
+                            <p>Tecnologías de vanguardia para un rendimiento óptimo</p>
+                        </div>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/light-mode.png" alt="Interfaz en modo claro">
+                    </div>
+                    <div class="feature-image">
+                        <img class="phone-shot" src="../assets/images/cel.png" alt="Vista móvil - características técnicas">
+                    </div>
+                    
+                        <div class="feature-item">
+                            <i class="fas fa-moon"></i>
+                            <span>Tema oscuro/claro automático</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Totalmente responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloques Educativos -->
+                <div class="feature-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <div class="section-info">
+                            <h3>Bloques Educativos Especializados</h3>
+                            <p>Herramientas específicas para diferentes áreas educativas</p>
+                        </div>
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>EBI - EMS</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-atom"></i>
+                            <span>Bloque STEAM</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Bloque EVALÚA</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-magnet"></i>
+                            <span>Bloque IMÁN DE ALUMNOS</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Ludogram</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Agentes especializados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-footer">
+                <button class="btn-features-primary" >
+                    <i class="fas fa-check"></i>
+                    Entendido, ¡es impresionante Y TAN SOLO EL COMIENZO!
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
