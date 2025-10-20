@@ -687,6 +687,77 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-xl);
 }
 
+/* Plan Maestro 2026 Floating Button */
+.plan-maestro-float {
+    position: fixed;
+    bottom: 8rem;
+    right: 2rem;
+    width: 140px;
+    height: 80px;
+    background: var(--gradient-warning);
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    transition: var(--transition);
+    z-index: 1001;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+    animation: pulse-glow 2s infinite;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.plan-maestro-float:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 12px 35px rgba(245, 158, 11, 0.6);
+    color: white;
+    text-decoration: none;
+}
+
+.plan-maestro-float .float-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.plan-maestro-float .float-content i {
+    font-size: 20px;
+    margin-bottom: 4px;
+    animation: rocket-bounce 1.5s ease-in-out infinite;
+}
+
+.plan-maestro-float .float-text {
+    font-size: 11px;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.7), 0 0 20px rgba(245, 158, 11, 0.3);
+    }
+    100% {
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+    }
+}
+
+@keyframes rocket-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
 /* WhatsApp Float */
 .whatsapp-float {
     position: fixed;
