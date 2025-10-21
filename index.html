@@ -24,6 +24,25 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/modern-style.css">
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '687448820620688'); // Reemplaza con tu ID del pixel
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=687448820620688&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
 
 <body>
@@ -61,7 +80,7 @@
                     <a href="mailto:soporte@plan-maestro.com" class="btn btn-outline-light btn-sm me-2">
                         <i class="fas fa-envelope me-1"></i>Contacto
                     </a>
-                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-sm">
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-sm" onclick="fbq('track', 'Lead', {content_name: 'Header - Iniciar Sesión'});">
                         <i class="fas fa-rocket me-1"></i>Iniciar Sesión
                     </a>
                 </div>
@@ -87,7 +106,7 @@
                             Grandes docentes merecen <strong>GRANDES HERRAMIENTAS</strong>.
                         </p>
                         <div class="hero-buttons">
-                            <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg me-3">
+                            <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg me-3" onclick="fbq('track', 'Lead', {content_name: 'Hero CTA - Empezar Ahora'});">
                                 <i class="fas fa-rocket me-2"></i>Empezar Ahora
                             </a>
                             <a href="#inspirar" class="btn btn-outline-light btn-lg">
@@ -461,7 +480,7 @@
                 <div class="col-lg-8" data-aos="fade-up">
                     <h2 class="cta-title">¡Actualizado 2025!</h2>
                     <p class="cta-subtitle">Para construir planificaciones excelentes</p>
-                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg">
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg" onclick="fbq('track', 'InitiateCheckout', {content_name: 'CTA - Adquiere Ya'});">
                         <i class="fas fa-rocket me-2"></i>Adquiere Ya
                     </a>
                 </div>
@@ -670,7 +689,7 @@
                 <div class="col-lg-8" data-aos="fade-up">
                     <h2 class="final-cta-title">¡Adquiere Ya!</h2>
                     <p class="final-cta-subtitle">Potencia tu planificación con la herramienta del docente uruguayo por excelencia</p>
-                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg btn-glow">
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg btn-glow" onclick="fbq('track', 'Lead', {content_name: 'Final CTA - Iniciar Sesión'});">
                         <i class="fas fa-rocket me-2"></i>Iniciar Sesión
                     </a>
                 </div>
