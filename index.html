@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Plaɳ MaeŠtrɸ - La Calculadora del Pensamiento Docente Uruguayo | Planificación Educativa ANEP</title>
     <meta name="description" content="Revoluciona tu planificación educativa con Plaɳ MaeŠtrɸ. Herramienta completa para docentes uruguayos con documentación ANEP 2025, IA integrada y metodologías activas. ¡Optimiza tu tiempo de planificación!">
-    <meta name="keywords" content="planificación educativa, docentes uruguayos, ANEP, plan maestro, IA educativa, metodologías activas, tramos educativos, planificación docente, Uruguay educación">
+    <meta name="keywords" content="planificación ,planificación educativa, docentes uruguayos, ANEP, plan maestro, IA educativa, metodologías activas, tramos educativos, planificación docente, Uruguay educación">
     <meta name="author" content="Marcos Mello - Plan Maestro">
     <meta name="robots" content="index, follow">
     <meta name="language" content="es">
@@ -65,6 +65,69 @@
              src="https://www.facebook.com/tr?id=687448820620688&ev=PageView&noscript=1" />
     </noscript>
     <!-- End Facebook Pixel Code -->
+    
+    <!-- Meta Conversions API -->
+    <script>
+        // Meta Conversions API Configuration
+        const META_ACCESS_TOKEN = 'TU_ACCESS_TOKEN_AQUI'; // Reemplaza con tu Access Token
+        const META_PIXEL_ID = '687448820620688';
+        const META_API_VERSION = 'v18.0';
+        
+        // Function to send events to Meta Conversions API
+        function sendToMetaConversionsAPI(eventName, eventData) {
+            const eventDataWithPixel = {
+                ...eventData,
+                event_source_url: window.location.href,
+                action_source: 'website',
+                event_time: Math.floor(Date.now() / 1000),
+                user_data: {
+                    client_ip_address: '', // Se llenará del lado del servidor
+                    client_user_agent: navigator.userAgent,
+                    fbc: getCookie('_fbc'),
+                    fbp: getCookie('_fbp')
+                }
+            };
+            
+            // Send to your server endpoint that will forward to Meta
+            fetch('/api/meta-conversions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    pixel_id: META_PIXEL_ID,
+                    event_name: eventName,
+                    event_data: eventDataWithPixel,
+                    access_token: META_ACCESS_TOKEN
+                })
+            }).catch(error => {
+                console.log('Meta Conversions API error:', error);
+            });
+        }
+        
+        // Helper function to get cookies
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+        
+        // Enhanced Facebook Pixel with Conversions API
+        function fbqWithAPI(eventName, eventData) {
+            // Send to Facebook Pixel (client-side)
+            if (typeof fbq !== 'undefined') {
+                fbq('track', eventName, eventData);
+            }
+            
+            // Send to Conversions API (server-side)
+            sendToMetaConversionsAPI(eventName, eventData);
+        }
+        
+        // Override fbq function to include Conversions API
+        window.fbq = fbqWithAPI;
+    </script>
+    <!-- End Meta Conversions API -->
     
     <!-- Google Analytics 4 -->
     <!-- Replace GA_MEASUREMENT_ID with your actual Google Analytics 4 Measurement ID -->
