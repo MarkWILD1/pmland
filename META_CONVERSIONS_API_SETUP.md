@@ -41,7 +41,7 @@ const META_ACCESS_TOKEN = 'tu_token_real_aqui';
 npm install express axios
 ```
 
-Usa el archivo `api/meta-conversions.js` en tu servidor.
+Usa el archivo `api/meta-conversions-node.js` (para Node.js) o `api/meta-conversions.php` (para PHP) en tu servidor.
 
 #### Opción B: PHP
 Usa el archivo `api/meta-conversions.php` en tu servidor web.
