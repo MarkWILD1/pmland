@@ -1028,6 +1028,78 @@ html {
     background-attachment: fixed;
 }
 
+/* Documentation Section */
+.documentation-section {
+    background: var(--dark-color);
+    position: relative;
+}
+
+.documentation-content {
+    padding-right: 2rem;
+}
+
+.documentation-features {
+    margin-top: 1.5rem;
+}
+
+.documentation-features .feature-item {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.2);
+}
+
+.documentation-features .feature-item:hover {
+    background: rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+.documentation-icon-wrapper {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border-radius: 50%;
+    border: 3px solid rgba(6, 182, 212, 0.3);
+    transition: var(--transition);
+}
+
+.documentation-icon-wrapper:hover {
+    transform: scale(1.1) rotate(5deg);
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+}
+
+.documentation-icon-wrapper i {
+    font-size: 5rem;
+    color: var(--info-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.documentation-image {
+    padding: 2rem;
+}
+
+/* Documentation Section Parallax */
+.documentation-bg {
+    background-image: 
+        linear-gradient(45deg, rgba(6, 182, 212, 0.03) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(6, 182, 212, 0.03) 25%, transparent 25%),
+        radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+    background-size: 60px 60px, 60px 60px, 100% 100%;
+    background-attachment: fixed;
+}
+
 /* CTA Section Parallax */
 .cta-bg {
     background-image: 
