@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación - Plan Maestro</title>
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon.png">
+    <link rel="apple-touch-icon" href="assets/images/icon.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --spinner-color: black;
+            --background: #f8f7fa;
+            --text-color: #2c2c2c;
+            --text-color-sidebar: #2c2c2c;
+            --topbar-height: 64px;
+            --bg-topbar: #ffffff;
+            --bg-sidebar: #ffffff;
+            --bg-textbox: #ffffff;
+            --border-textbox: #7367f0;
+            --color-prime: #7367f0;
+            --bg-user-msg: #f8fafc;
+            --bg-assistant-msg: #ffffff;
+            --card-bg: #ffffff;
+            --border-color: #e7e7ff;
+            --accent-purple: #7367f0;
+            --accent-teal: #00cfe8;
+            --accent-green: #28c76f;
+            --accent-orange: #ff9f43;
+            --accent-red: #ea5455;
+            --text-muted: #6e6b7b;
+            --shadow-sm: 0 2px 8px 0 rgba(115, 103, 240, 0.08);
+            --shadow-md: 0 4px 24px 0 rgba(115, 103, 240, 0.12);
+            --shadow-lg: 0 8px 32px 0 rgba(115, 103, 240, 0.16);
+            --sidebar-bg: #ffffff;
+            --sidebar-border: #e7e7ff;
+            --sidebar-hover: #f0f0f1;
+            --sidebar-active: #7367f0;
+            --sidebar-text: #6e6b7b;
+            --sidebar-text-active: #ffffff;
+            --sidebar-icon-bg: #f8fafc;
+            --sidebar-icon-color: #7367f0;
+            --sidebar-width: 320px;
+        }
+
+        .dark {
+            --spinner-color: white;
+            --background: #161d31;
+            --text-color: #d0d2d6;
+            --text-color-sidebar: #d0d2d6;
+            --text-color-subtitle: rgba(255,255,255,0.7);
+            --bg-topbar: #283046;
+            --bg-sidebar: #283046;
+            --bg-textbox: #3b3556;
+            --border-textbox: #7367f0;
+            --color-prime: #7367f0;
+            --bg-user-msg: #3b3556;
+            --bg-assistant-msg: #283046;
+            --card-bg: #283046;
+            --border-color: #3b3556;
+            --accent-purple: #7367f0;
+            --accent-teal: #00cfe8;
+            --accent-green: #28c76f;
+            --accent-orange: #ff9f43;
+            --accent-red: #ea5455;
+            --text-muted: #b4b7bd;
+            --shadow-sm: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 24px 0 rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --sidebar-bg: #283046;
+            --sidebar-border: #3b3556;
+            --sidebar-hover: #3b3556;
+            --sidebar-active: #7367f0;
+            --sidebar-text: #b4b7bd;
+            --sidebar-text-active: #ffffff;
+            --sidebar-icon-bg: #3b3556;
+            --sidebar-icon-color: #7367f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--sidebar-border);
+            box-shadow: var(--shadow-md);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--sidebar-border);
+            background: linear-gradient(135deg, var(--accent-purple) 0%, #9c8cfc 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .sidebar-header p {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .theme-toggle {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 0.5rem;
+            color: white;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .sidebar-nav {
+            padding: 1rem;
+            flex: 1;
+        }
+
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--sidebar-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .sidebar-footer-logo {
+            width: 80px;
+            height: auto;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .sidebar-footer-logo:hover {
+            opacity: 1;
+        }
+
+        .nav-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--sidebar-text);
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin-bottom: 0.25rem;
+            transition: all 0.2s ease;
+            font-size: 0.9375rem;
+        }
+
+        .nav-item:hover {
+            background: var(--sidebar-hover);
+            color: var(--text-color);
+            transform: translateX(4px);
+        }
+
+        .nav-item.active {
+            background: var(--sidebar-active);
+            color: var(--sidebar-text-active);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doc-section {
+            margin-bottom: 3rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .doc-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-purple);
+            border-bottom: 3px solid var(--accent-purple);
+            padding-bottom: 0.5rem;
+        }
+
+        .doc-section h2 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-teal);
+        }
+
+        .doc-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+        }
+
+        .doc-section h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .doc-section p {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .doc-section ul, .doc-section ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .doc-section li {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .doc-section code {
+            background: var(--bg-textbox);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: var(--accent-purple);
+            border: 1px solid var(--border-color);
+        }
+
+        .doc-section pre {
+            background: var(--bg-textbox);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .doc-section pre code {
+            background: none;
+            padding: 0;
+            border: none;
+            color: var(--text-color);
+        }
+
+        .doc-section blockquote {
+            border-left: 4px solid var(--accent-purple);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .doc-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .doc-section table th,
+        .doc-section table td {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .doc-section table th {
+            background: var(--sidebar-hover);
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .badge-success {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .badge-warning {
+            background: var(--accent-orange);
+            color: white;
+        }
+
+        .badge-info {
+            background: var(--accent-teal);
+            color: white;
+        }
+
+        .badge-danger {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--border-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-purple);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9c8cfc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .menu-toggle {
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 1001;
+                background: var(--accent-purple);
+                color: white;
+                border: none;
+                padding: 0.75rem;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                box-shadow: var(--shadow-md);
+            }
+
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+
+            .sidebar-overlay.open {
+                display: block;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* Footer Styles */
+        .doc-footer {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--accent-purple) 0%, #9c8cfc 100%);
+            border-radius: 1rem;
+            color: white;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .doc-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .dark .doc-footer {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, #6b5ce6 100%);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-subtitle {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-style: italic;
+            margin-top: 0.5rem;
+            line-height: 1.5;
+            max-width: 280px;
+            text-align: center;
+        }
+
+        .footer-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .footer-developer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .developer-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .developer-photo:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .developer-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .developer-role {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            opacity: 0.95;
+        }
+
+        .info-item i {
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .flag-emoji {
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", "EmojiOne Mozilla", "Twemoji Mozilla", "Segoe UI", sans-serif;
+            font-size: 1.2em;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+            position: relative;
+        }
+
+        .flag-emoji::after {
+            content: "🇺🇾";
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", "EmojiOne Mozilla", "Twemoji Mozilla", sans-serif;
+        }
+
+        .flag-emoji img {
+            width: 20px;
+            height: 15px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 2px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        /* Fallback: si el emoji no funciona, mostrar imagen */
+        .flag-emoji-fallback {
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            background-image: url('https://flagcdn.com/w20/uy.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            vertical-align: middle;
+            margin: 0 2px;
+        }
+
+        @media (max-width: 768px) {
+            .doc-footer {
+                padding: 2rem 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()" style="display: none;">☰</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo-lateral.png" alt="Plan Maestro PRIME Logo" class="sidebar-logo">
+                <h1>📚 Documentación</h1>
+                <button class="theme-toggle" onclick="toggleTheme()">🌓 Cambiar Tema</button>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Inicio</div>
+                    <a href="#inicio" class="nav-item active" onclick="showSection('inicio')">Empezando</a>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Funcionalidades Principales</div>
+                    <a href="#mapas-mentales" class="nav-item" onclick="showSection('mapas-mentales')">🧠 Mapas Mentales</a>
+                    <a href="#gestor-documentos" class="nav-item" onclick="showSection('gestor-documentos')">📚 Gestor de Documentos</a>
+                    <a href="#audio-features" class="nav-item" onclick="showSection('audio-features')">🎤 Funcionalidades de Audio</a>
+                    <a href="#generador-imagenes" class="nav-item" onclick="showSection('generador-imagenes')">🎨 Generador de Imágenes</a>
+                    <a href="#formulador-prompts" class="nav-item" onclick="showSection('formulador-prompts')">📝 Formulador de Prompts</a>
+                    <a href="#plan-docs" class="nav-item" onclick="showSection('plan-docs')">📄 Plan Docs</a>
+                    <a href="#calendario" class="nav-item" onclick="showSection('calendario')">📅 Calendario y Recordatorios</a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Configuración</div>
+                    <a href="#markdown-support" class="nav-item" onclick="showSection('markdown-support')">📝 Soporte Markdown</a>
+                    <a href="#sistema-info" class="nav-item" onclick="showSection('sistema-info')">⚙️ Información del Sistema</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <img src="assets/images/icon.png" alt="Plan Maestro PRIME Icon" class="sidebar-footer-logo">
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Inicio -->
+            <section id="inicio" class="doc-section">
+                <h1>Bienvenido a la Documentación</h1>
+                <p>Esta es la documentación completa del sistema <span class="highlight">Plan Maestro PRIME</span>, una plataforma educativa integral que combina inteligencia artificial avanzada con herramientas de planificación pedagógica.</p>
+                
+                <div class="card">
+                    <h3>🚀 Características Principales</h3>
+                    <ul>
+                        <li><strong>Mapas Mentales:</strong> Generación automática de visualizaciones interactivas</li>
+                        <li><strong>Gestor de Documentos:</strong> Sube y analiza documentos con IA</li>
+                        <li><strong>Audio en Tiempo Real:</strong> Streaming de audio mientras se genera la respuesta</li>
+                        <li><strong>Generador de Imágenes:</strong> Crea imágenes únicas en HD y en diferentes tamaños</li>
+                        <li><strong>Formulador de Prompts:</strong> Genera prompts educativos estructurados</li>
+                        <li><strong>Plan Docs:</strong> Editor de documentos completo tipo Google Docs</li>
+                        <li><strong>Calendario y Recordatorios:</strong> Agenda eventos, clases y actividades con recordatorios automáticos</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Navegación</h3>
+                    <p>Usa la barra lateral para navegar entre las diferentes secciones de la documentación. Cada sección contiene información detallada sobre cómo usar las funcionalidades del sistema.</p>
+                </div>
+
+                <div class="card">
+                    <h3>💡 Consejos</h3>
+                    <ul>
+                        <li>Puedes cambiar entre tema claro y oscuro usando el botón en la parte superior de la sidebar</li>
+                        <li>En dispositivos móviles, usa el botón de menú para abrir/cerrar la navegación</li>
+                        <li>Todas las funcionalidades están diseñadas para ser intuitivas y fáciles de usar</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Mapas Mentales -->
+            <section id="mapas-mentales" class="doc-section" style="display: none;">
+                <h1>🧠 Sistema de Mapas Mentales</h1>
+                
+                <h2>Descripción General</h2>
+                <p>El sistema de mapas mentales permite generar visualizaciones interactivas y jerárquicas del contenido de documentos subidos al gestor. Esta funcionalidad analiza automáticamente la estructura del documento y crea un mapa mental organizado por temas principales, subtemas y detalles.</p>
+
+                <h2>Características Principales</h2>
+                
+                <h3>✨ Funcionalidades</h3>
+                <ul>
+                    <li><strong>Generación automática:</strong> Analiza el contenido del documento y extrae la estructura jerárquica</li>
+                    <li><strong>Visualización interactiva:</strong> Mapa mental con nodos expandibles/colapsables</li>
+                    <li><strong>Tipos de nodos:</strong> Diferentes categorías (main, sub, detail) con colores distintivos</li>
+                    <li><strong>Controles de zoom:</strong> Permite acercar/alejar la vista del mapa</li>
+                    <li><strong>Expansión masiva:</strong> Botones para expandir/colapsar todos los nodos</li>
+                    <li><strong>Responsive:</strong> Se adapta a diferentes tamaños de pantalla</li>
+                </ul>
+
+                <h3>🎨 Diseño Visual</h3>
+                <ul>
+                    <li><strong>Temas principales:</strong> Gradiente púrpura (🟣)</li>
+                    <li><strong>Subtemas:</strong> Gradiente azul (🔵)</li>
+                    <li><strong>Detalles:</strong> Gradiente gris (⚪)</li>
+                    <li><strong>Conectores:</strong> Líneas que unen los nodos jerárquicamente</li>
+                    <li><strong>Animaciones:</strong> Transiciones suaves al expandir/colapsar</li>
+                </ul>
+
+                <h2>Cómo Usar</h2>
+                
+                <h3>1. Subir un Documento</h3>
+                <ol>
+                    <li>Ve a la sección "Documentos" en el dashboard</li>
+                    <li>Sube un archivo PDF, TXT, DOC o DOCX</li>
+                    <li>Espera a que el documento se procese</li>
+                </ol>
+
+                <h3>2. Generar el Mapa Mental</h3>
+                <ol>
+                    <li>Selecciona el documento de la lista</li>
+                    <li>Haz clic en el botón "🧠 Generar Mapa Mental"</li>
+                    <li>Espera a que se procese el contenido</li>
+                    <li>El mapa mental se abrirá en una ventana modal</li>
+                </ol>
+
+                <h3>3. Interactuar con el Mapa Mental</h3>
+                <ul>
+                    <li><strong>Expandir nodo:</strong> Haz clic en cualquier nodo con hijos</li>
+                    <li><strong>Colapsar nodo:</strong> Haz clic nuevamente en un nodo expandido</li>
+                    <li><strong>Zoom:</strong> Usa los botones 🔍+ y 🔍- para ajustar el tamaño</li>
+                    <li><strong>Expandir todo:</strong> Botón "Expandir Todo" para mostrar toda la estructura</li>
+                    <li><strong>Colapsar todo:</strong> Botón "Colapsar Todo" para ocultar todos los detalles</li>
+                </ul>
+
+                
+            </section>
+
+            <!-- Gestor de Documentos -->
+            <section id="gestor-documentos" class="doc-section" style="display: none;">
+                <h1>📚 Gestor de Documentos</h1>
+                
+                <h2>Descripción</h2>
+                <p>El Gestor de Documentos es una funcionalidad que permite a los usuarios subir archivos PDF, TXT y Word, y luego interactuar con ellos usando agentes especializados de IA.</p>
+
+                <h2>Características Principales</h2>
+                
+                <h3>🚀 Subida de Archivos</h3>
+                <ul>
+                    <li><strong>Formatos soportados:</strong> PDF, TXT, DOC, DOCX</li>
+                    <li><strong>Tamaño máximo:</strong> 10MB por archivo</li>
+                    <li><strong>Validación:</strong> Tipo de archivo y tamaño</li>
+                    <li><strong>Almacenamiento:</strong> Seguro por usuario en carpetas separadas</li>
+                </ul>
+
+                <h3>🤖 Agentes Especializados</h3>
+                <div class="card">
+                    <h4>1. Analizador de Documentos 📄</h4>
+                    <ul>
+                        <li>Analiza documentos completos</li>
+                        <li>Proporciona insights detallados</li>
+                        <li>Responde preguntas generales</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. Resumidor de Contenido 📝</h4>
+                    <ul>
+                        <li>Crea resúmenes ejecutivos</li>
+                        <li>Identifica puntos clave</li>
+                        <li>Organiza información de manera lógica</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. Respondedor de Preguntas ❓</h4>
+                    <ul>
+                        <li>Responde consultas específicas</li>
+                        <li>Cita partes relevantes del documento</li>
+                        <li>Proporciona contexto adicional</li>
+                    </ul>
+                </div>
+
+                <h3>💬 Chat Inteligente</h3>
+                <ul>
+                    <li>Conversaciones contextuales sobre documentos</li>
+                    <li>Historial de mensajes persistente</li>
+                    <li>Respuestas basadas en el contenido real del archivo</li>
+                </ul>
+
+                <h2>Uso</h2>
+                
+                <h3>Subir Documentos</h3>
+                <ol>
+                    <li>Navegar a <code>/dashboard/documentos</code></li>
+                    <li>Arrastrar archivos o hacer clic en "Seleccionar Archivos"</li>
+                    <li>Esperar a que se complete la subida y procesamiento</li>
+                </ol>
+
+                <h3>Seleccionar Agente</h3>
+                <ol>
+                    <li>Hacer clic en un documento subido</li>
+                    <li>Elegir el agente más apropiado para la tarea</li>
+                    <li>Comenzar la conversación</li>
+                </ol>
+            </section>
+
+            <!-- Audio Features -->
+            <section id="audio-features" class="doc-section" style="display: none;">
+                <h1>🎤 Funcionalidades de Audio - Plan Maestro</h1>
+                
+                <h2>🎤 Grabación de Mensajes de Voz</h2>
+                
+                <h3>Características</h3>
+                <ul>
+                    <li><strong>Grabación de audio:</strong> Los docentes pueden grabar mensajes de voz directamente desde el navegador</li>
+                    <li><strong>Transcripción automática:</strong> Los mensajes de voz se transcriben automáticamente usando OpenAI Whisper</li>
+                    <li><strong>Edición de texto:</strong> Los usuarios pueden revisar y editar el texto transcrito antes de enviarlo</li>
+                    <li><strong>Calidad optimizada:</strong> Configuración optimizada para voz con cancelación de eco y supresión de ruido</li>
+                </ul>
+
+                <h3>Cómo usar</h3>
+                <ol>
+                    <li>Haz clic en el botón <strong>🎤 Audio</strong> en la interfaz de chat</li>
+                    <li>Se abrirá el panel de grabación de audio</li>
+                    <li>Haz clic en <strong>🎤 Grabar</strong> para iniciar la grabación</li>
+                    <li>Habla tu mensaje</li>
+                    <li>Haz clic en <strong>⏹ Detener</strong> cuando termines</li>
+                    <li>Revisa y edita el texto transcrito si es necesario</li>
+                    <li>Haz clic en <strong>📤 Enviar</strong> para enviar el mensaje</li>
+                </ol>
+
+                <h2>🔊 Audio en Tiempo Real (NUEVO!)</h2>
+                
+                <h3>Características</h3>
+                <ul>
+                    <li><strong>Audio en vivo:</strong> El Plan Maestro habla mientras escribe la respuesta</li>
+                    <li><strong>Streaming de audio:</strong> Generación y reproducción en tiempo real</li>
+                    <li><strong>Indicador visual:</strong> Ondas de sonido animadas mientras habla</li>
+                    <li><strong>Experiencia natural:</strong> Como conversar con alguien real</li>
+                    <li><strong>Control total:</strong> Activar/desactivar cuando quieras</li>
+                </ul>
+
+                <h3>Cómo usar</h3>
+                <ol>
+                    <li>Activa el toggle <strong>🎤 Audio en Vivo ON</strong> para habilitar el streaming</li>
+                    <li>Envía un mensaje normal (texto o voz)</li>
+                    <li><strong>El Plan Maestro empezará a hablar mientras escribe</strong></li>
+                    <li>Verás ondas de sonido animadas y el indicador "Plan Maestro hablando..."</li>
+                    <li>Escucha la respuesta en tiempo real mientras se va escribiendo</li>
+                </ol>
+
+                <h2>🎵 Respuestas de Audio Automáticas (Tradicional)</h2>
+                
+                <h3>Características</h3>
+                <ul>
+                    <li><strong>Generación automática:</strong> Las respuestas del Plan Maestro se pueden convertir automáticamente a audio</li>
+                    <li><strong>Síntesis de voz natural:</strong> Usa OpenAI TTS para generar audio de alta calidad</li>
+                    <li><strong>Control manual:</strong> Toggle para activar/desactivar la generación automática</li>
+                    <li><strong>Reproducción integrada:</strong> Reproductor de audio con controles completos</li>
+                </ul>
+
+                <h2>🔧 Configuración Técnica</h2>
+                
+                <h3>Características Técnicas:</h3>
+                <ul>
+                    <li>Transcripción de voz a texto</li>
+                    <li>Síntesis de texto a voz (normal y streaming)</li>
+                    <li>Grabación de audio en el sistema</li>
+                    <li>Reproducción de audio en tiempo real</li>
+                </ul>
+
+                <h3>Formatos Soportados</h3>
+                <ul>
+                    <li><strong>Grabación:</strong> WebM con codec Opus</li>
+                    <li><strong>Reproducción:</strong> MP3, WebM</li>
+                    <li><strong>Transcripción:</strong> Español (configurado por defecto)</li>
+                </ul>
+            </section>
+
+            <!-- Generador de Imágenes -->
+            <section id="generador-imagenes" class="doc-section" style="display: none;">
+                <h1>🎨 Generador de Imágenes con IA</h1>
+                
+                <p>Esta funcionalidad permite a los usuarios premium generar imágenes únicas.</p>
+
+                <h2>Características</h2>
+                <ul>
+                    <li><span class="badge badge-success">✅</span> Generación de imágenes en HD</li>
+                    <li><span class="badge badge-success">✅</span> Múltiples tamaños (1024x1024, 1024x1792, 1792x1024)</li>
+                    <li><span class="badge badge-success">✅</span> Calidad estándar y HD</li>
+                    <li><span class="badge badge-success">✅</span> Estilos vívido y natural</li>
+                    <li><span class="badge badge-success">✅</span> Descarga de imágenes generadas</li>
+                    <li><span class="badge badge-success">✅</span> Galería de imágenes generadas</li>
+                    <li><span class="badge badge-success">✅</span> Interfaz moderna y responsive</li>
+                    <li><span class="badge badge-success">✅</span> Integración con sistema de autenticación</li>
+                    <li><span class="badge badge-success">✅</span> Verificación de suscripción premium</li>
+                </ul>
+
+                <h2>Configuración</h2>
+                
+                <h3>1. Variables de Entorno</h3>
+                <p>Ejemplo de prompt para generar una imagen:</p>
+                <pre><code>Quiero una imagen de una docente enseñando en un aula con un estudiante en la silla dando la clase y la docente con un lápiz en la mano.</code></pre>
+
+                <h2>Uso</h2>
+                
+                <h3>Para Usuarios</h3>
+                <ol>
+                    <li>Accede a la página desde el sidebar: "Generador de Imágenes"</li>
+                    <li>Escribe una descripción detallada de la imagen que quieres generar</li>
+                    <li>Selecciona el tamaño, calidad y estilo deseados</li>
+                    <li>Haz clic en "Generar Imagen"</li>
+                    <li>Espera a que se procese la imagen (puede tomar unos segundos)</li>
+                    <li>Descarga la imagen haciendo clic en el botón de descarga</li>
+                </ol>
+
+                <h2>Limitaciones</h2>
+                <ul>
+                    <li>Solo usuarios premium pueden acceder</li>
+                    <li>Máximo 1000 caracteres por prompt</li>
+                    <li>Una imagen por solicitud</li>
+                    <li>Las imágenes se almacenan temporalmente (no se guardan en base de datos)</li>
+                </ul>
+
+                <h2>Imágenes Generadas</h2>
+                <ul>
+                    <li>Opción 1: (1024x1024, estándar) Cuadrada</li>
+                    <li>Opción 2: (1024x1792) Vertical</li>
+                    <li>Opción 3: (1792x1024) Horizontal</li>
+                </ul>
+            </section>
+
+            <!-- Formulador de Prompts -->
+            <section id="formulador-prompts" class="doc-section" style="display: none;">
+                <h1>📝 Formulador de Prompts</h1>
+                
+                <h2>Descripción</h2>
+                <p>El Formulador de Prompts es una herramienta que ayuda a los docentes a crear prompts educativos estructurados y específicos para la planificación de clases. Utiliza dropdowns dependientes basados en el contenido curricular del archivo <code>data.json</code> y genera prompts que pueden ser copiados y pegados en cualquier otro agente de IA.</p>
+
+                <h2>Características</h2>
+                <ul>
+                    <li><strong>Dropdowns Dependientes:</strong> Los dropdowns se filtran automáticamente según las selecciones previas</li>
+                    <li><strong>Generación de Prompts:</strong> Crea prompts estructurados sin necesidad de IA propia</li>
+                    <li><strong>Interfaz Intuitiva:</strong> Diseño moderno y fácil de usar</li>
+                    <li><strong>Copia al Portapapeles:</strong> Botón para copiar el prompt generado fácilmente</li>
+                    <li><strong>Prompt Estructurado:</strong> Genera prompts con formato específico para contenido educativo</li>
+                </ul>
+
+                <h2>Estructura de Dropdowns</h2>
+                <ol>
+                    <li><strong>Tramo:</strong> Selecciona el tramo educativo (ej: "Tramo 1", "Tramo 2", etc.)</li>
+                    <li><strong>Espacio Curricular:</strong> Se filtra según el tramo seleccionado (ej: "Matemática", "Lengua Española", etc.)</li>
+                    <li><strong>Grado:</strong> Se filtra según el espacio curricular (ej: "3 años", "4 años", "5 años", etc.)</li>
+                    <li><strong>Contenido:</strong> Se filtra según el grado seleccionado (contenidos específicos del currículo)</li>
+                </ol>
+
+                <h2>Flujo de Trabajo</h2>
+                <ol>
+                    <li>Selecciona el <strong>Tramo</strong> deseado</li>
+                    <li>Elige el <strong>Espacio Curricular</strong> correspondiente</li>
+                    <li>Selecciona el <strong>Grado</strong> específico</li>
+                    <li>Elige el <strong>Contenido</strong> curricular</li>
+                    <li>Haz clic en "Generar Prompt"</li>
+                    <li>El prompt se genera y se muestra en pantalla</li>
+                    <li>Haz clic en "📋 Copiar Prompt" para copiarlo al portapapeles</li>
+                    <li>Pega el prompt en cualquier otro agente de IA de tu elección</li>
+                </ol>
+
+                <h2>Formato del Prompt Generado</h2>
+                <p>El prompt generado sigue este formato:</p>
+                <pre><code>Quiero una clase para el Tramo: [Tramo Seleccionado], el espacio curricular es: [Espacio Curricular], para la unidad curricular [Espacio Curricular], para el grado: [Grado] y el contenido es: [Contenido].</code></pre>
+            </section>
+
+            <!-- Plan Docs -->
+            <section id="plan-docs" class="doc-section" style="display: none;">
+                <h1>📄 Plan Docs - Editor de Documentos Completo</h1>
+                
+                <h2>Descripción</h2>
+                <p>Plan Docs es un editor de texto completo tipo Google Docs integrado en la plataforma, diseñado específicamente para docentes que necesitan crear, editar y gestionar documentos profesionales con todas las funcionalidades avanzadas.</p>
+
+                <h2>Características Principales</h2>
+                
+                <h3>🎨 Editor Completo</h3>
+                <ul>
+                    <li><strong>Editor</strong> altamente eficiente y personalizable</li>
+                    <li>Interfaz intuitiva y familiar</li>
+                    <li>Barra de herramientas completa con todas las opciones de formato</li>
+                    <li>Menú desplegable con opciones avanzadas</li>
+                </ul>
+
+                <h3>📝 Funcionalidades de Edición</h3>
+                <ul>
+                    <li><strong>Formato de texto:</strong> Negrita, cursiva, subrayado, tachado</li>
+                    <li><strong>Colores:</strong> Color de texto y color de fondo</li>
+                    <li><strong>Alineación:</strong> Izquierda, centro, derecha, justificado</li>
+                    <li><strong>Listas:</strong> Numeradas, con viñetas, anidadas</li>
+                    <li><strong>Encabezados:</strong> H1, H2, H3, H4, H5, H6</li>
+                    <li><strong>Tablas:</strong> Insertar, editar, eliminar filas y columnas</li>
+                    <li><strong>Enlaces:</strong> Hipervínculos internos y externos</li>
+                    <li><strong>Imágenes:</strong> Insertar, redimensionar, alinear</li>
+                    <li><strong>Código:</strong> Bloques de código con resaltado de sintaxis</li>
+                    <li><strong>Citas:</strong> Bloques de citas estilizados</li>
+                </ul>
+
+                <h3>📁 Gestión de Documentos</h3>
+                <ul>
+                    <li><strong>Carpetas:</strong> Organización por carpetas personalizadas</li>
+                    <li><strong>Búsqueda:</strong> Búsqueda en títulos y contenido</li>
+                    <li><strong>Etiquetas:</strong> Sistema de etiquetas para categorización</li>
+                    <li><strong>Vista previa:</strong> Información de documentos en la sidebar</li>
+                    <li><strong>Ordenamiento:</strong> Por fecha de modificación</li>
+                </ul>
+
+                <h3>💾 Guardado y Sincronización</h3>
+                <ul>
+                    <li><strong>Auto-guardado:</strong> Cada 30 segundos automáticamente</li>
+                    <li><strong>Guardado manual:</strong> Botón de guardar con indicador visual</li>
+                    <li><strong>Sincronización:</strong> Datos guardados en MongoDB</li>
+                    <li><strong>Historial:</strong> Control de versiones automático</li>
+                </ul>
+
+                <h3>📤 Exportación</h3>
+                <ul>
+                    <li><strong>PDF:</strong> Exportación a PDF con formato preservado</li>
+                    <li><strong>DOCX:</strong> Exportación a Word con estructura completa</li>
+                    <li><strong>TXT:</strong> Exportación a texto plano</li>
+                    <li><strong>HTML:</strong> Código HTML del documento</li>
+                </ul>
+
+                <h2>Uso</h2>
+                
+                <h3>Crear un Nuevo Documento</h3>
+                <ol>
+                    <li>Hacer clic en "Nuevo documento" en la sidebar</li>
+                    <li>El documento se crea automáticamente en la carpeta seleccionada</li>
+                    <li>Comenzar a escribir inmediatamente</li>
+                </ol>
+
+                <h3>Exportar Documentos</h3>
+                <ol>
+                    <li>Hacer clic en "Exportar" en la barra superior</li>
+                    <li>Seleccionar formato deseado (PDF, DOCX, TXT)</li>
+                    <li>El archivo se descarga automáticamente</li>
+                </ol>
+            </section>
+
+            <!-- Calendario y Recordatorios -->
+            <section id="calendario" class="doc-section" style="display: none;">
+                <h1>📅 Calendario y Recordatorios</h1>
+                
+                <h2>Descripción</h2>
+                <p>El sistema de Calendario y Recordatorios de Plan Maestro PRIME es una herramienta integral que te permite organizar y gestionar todas tus actividades educativas, clases, reuniones y eventos importantes. Con recordatorios automáticos y una interfaz intuitiva, nunca olvidarás una fecha importante.</p>
+
+                <div class="card">
+                    <h3>🎯 ¿Por qué usar el Calendario?</h3>
+                    <ul>
+                        <li><strong>Organización completa:</strong> Centraliza todas tus actividades en un solo lugar</li>
+                        <li><strong>Recordatorios automáticos:</strong> Recibe notificaciones antes de tus eventos</li>
+                        <li><strong>Vista mensual, semanal y diaria:</strong> Visualiza tu agenda como prefieras</li>
+                        <li><strong>Sincronización en tiempo real:</strong> Accede desde cualquier dispositivo</li>
+                        <li><strong>Gestión de clases:</strong> Programa tus clases con horarios y lugares específicos</li>
+                    </ul>
+                </div>
+
+                <h2>Características Principales</h2>
+                
+                <h3>📆 Visualización de Fechas</h3>
+                <ul>
+                    <li><strong>Vista mensual:</strong> Calendario completo con todos los eventos del mes</li>
+                    <li><strong>Vista semanal:</strong> Agenda semanal detallada con horarios</li>
+                    <li><strong>Vista diaria:</strong> Lista de eventos del día actual</li>
+                    <li><strong>Navegación intuitiva:</strong> Fácil desplazamiento entre meses y años</li>
+                    <li><strong>Indicadores visuales:</strong> Colores distintivos para diferentes tipos de eventos</li>
+                </ul>
+
+                <h3>➕ Crear Eventos</h3>
+                <div class="card">
+                    <h4>Información del Evento</h4>
+                    <p>Al crear un evento, puedes especificar:</p>
+                    <ul>
+                        <li><strong>Título del evento:</strong> Nombre descriptivo (ej: "Clase de Matemática - Grado 3")</li>
+                        <li><strong>Fecha:</strong> Selección mediante calendario interactivo</li>
+                        <li><strong>Hora de inicio:</strong> Hora exacta en formato 24 horas o 12 horas</li>
+                        <li><strong>Hora de fin:</strong> Duración del evento</li>
+                        <li><strong>Lugar:</strong> Ubicación física o virtual (ej: "Aula 5", "Zoom Sala 3")</li>
+                        <li><strong>Descripción:</strong> Notas adicionales y detalles del evento</li>
+                        <li><strong>Categoría:</strong> Tipo de evento (Clase, Reunión, Evaluación, Evento, Personal)</li>
+                    </ul>
+                </div>
+
+                <h3>🔔 Sistema de Recordatorios</h3>
+                <p>El sistema de recordatorios te ayuda a no olvidar eventos importantes:</p>
+                
+                <div class="card">
+                    <h4>Tipos de Recordatorios</h4>
+                    <ul>
+                        <li><strong>Recordatorio inmediato:</strong> Al momento del evento</li>
+                        <li><strong>5 minutos antes:</strong> Útil para eventos cortos</li>
+                        <li><strong>15 minutos antes:</strong> Tiempo suficiente para prepararse</li>
+                        <li><strong>30 minutos antes:</strong> Para eventos importantes</li>
+                        <li><strong>1 hora antes:</strong> Para eventos que requieren preparación</li>
+                        <li><strong>1 día antes:</strong> Para eventos especiales</li>
+                        <li><strong>1 semana antes:</strong> Para eventos planificados con anticipación</li>
+                    </ul>
+                </div>
+
+                <h3>🎨 Categorías de Eventos</h3>
+                <p>Cada evento puede ser categorizado para mejor organización:</p>
+                <ul>
+                    <li><span class="badge badge-success">📚 Clase</span> - Actividades de enseñanza</li>
+                    <li><span class="badge badge-info">👥 Reunión</span> - Reuniones con colegas o padres</li>
+                    <li><span class="badge badge-warning">📝 Evaluación</span> - Exámenes y evaluaciones</li>
+                    <li><span class="badge badge-danger">🎉 Evento</span> - Actividades especiales</li>
+                    <li><span class="badge" style="background: var(--text-muted); color: white;">📌 Personal</span> - Eventos personales</li>
+                </ul>
+
+                <h2>Cómo Usar</h2>
+                
+                <h3>1. Acceder al Calendario</h3>
+                <ol>
+                    <li>Navega a la sección "Calendario" desde el menú principal</li>
+                    <li>El calendario mostrará la fecha actual por defecto</li>
+                    <li>Usa las flechas para navegar entre meses</li>
+                </ol>
+
+                <h3>2. Crear un Nuevo Evento</h3>
+                <ol>
+                    <li>Haz clic en el botón <strong>"➕ Nuevo Evento"</strong> o en cualquier día del calendario</li>
+                    <li>Completa el formulario con la información del evento:
+                        <ul>
+                            <li>Ingresa el título del evento</li>
+                            <li>Selecciona la fecha haciendo clic en el campo de fecha</li>
+                            <li>Establece la hora de inicio y fin</li>
+                            <li>Agrega el lugar (ej: "Aula 3", "Sala de profesores")</li>
+                            <li>Opcionalmente, agrega una descripción detallada</li>
+                            <li>Selecciona la categoría del evento</li>
+                        </ul>
+                    </li>
+                    <li>Configura el recordatorio:
+                        <ul>
+                            <li>Selecciona cuándo deseas recibir la notificación</li>
+                            <li>Puedes configurar múltiples recordatorios para el mismo evento</li>
+                        </ul>
+                    </li>
+                    <li>Haz clic en <strong>"Guardar Evento"</strong></li>
+                </ol>
+
+                <h3>3. Gestionar Eventos Existentes</h3>
+                <ul>
+                    <li><strong>Ver detalles:</strong> Haz clic en cualquier evento del calendario para ver su información completa</li>
+                    <li><strong>Editar:</strong> Haz clic en el botón "✏️ Editar" en los detalles del evento</li>
+                    <li><strong>Eliminar:</strong> Usa el botón "🗑️ Eliminar" para borrar un evento</li>
+                    <li><strong>Duplicar:</strong> Crea eventos similares rápidamente duplicando eventos existentes</li>
+                </ul>
+
+                <h3>4. Configurar Recordatorios</h3>
+                <ol>
+                    <li>Abre un evento existente o crea uno nuevo</li>
+                    <li>En la sección "Recordatorios", selecciona los tiempos deseados</li>
+                    <li>Los recordatorios se mostrarán como:
+                        <ul>
+                            <li>Notificaciones en el navegador</li>
+                            <li>Alertas en la aplicación (si está instalada)</li>
+                            <li>Recordatorios visuales en el calendario</li>
+                        </ul>
+                    </li>
+                    <li>Guarda los cambios</li>
+                </ol>
+
+                <h2>Ejemplos de Uso</h2>
+                
+                <div class="card">
+                    <h3>📚 Ejemplo 1: Programar una Clase</h3>
+                    <p><strong>Escenario:</strong> Necesitas programar una clase de Lengua Española para el 15 de marzo a las 9:00 AM.</p>
+                    <ol>
+                        <li>Título: "Clase de Lengua Española - Grado 3°B"</li>
+                        <li>Fecha: 15 de marzo de 2024</li>
+                        <li>Hora: 9:00 - 10:30</li>
+                        <li>Lugar: "Aula 5 - Edificio Principal"</li>
+                        <li>Descripción: "Clase sobre lectura comprensiva. Traer libro de texto."</li>
+                        <li>Categoría: Clase</li>
+                        <li>Recordatorio: 15 minutos antes</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>👥 Ejemplo 2: Reunión con Padres</h3>
+                    <p><strong>Escenario:</strong> Reunión de padres programada para el 20 de marzo a las 6:00 PM.</p>
+                    <ol>
+                        <li>Título: "Reunión de Padres - Grado 3°B"</li>
+                        <li>Fecha: 20 de marzo de 2024</li>
+                        <li>Hora: 18:00 - 19:30</li>
+                        <li>Lugar: "Sala de Reuniones"</li>
+                        <li>Descripción: "Revisión del progreso estudiantil. Preparar informes."</li>
+                        <li>Categoría: Reunión</li>
+                        <li>Recordatorio: 1 día antes y 1 hora antes</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>📝 Ejemplo 3: Evaluación</h3>
+                    <p><strong>Escenario:</strong> Examen de Matemática el 25 de marzo a las 10:00 AM.</p>
+                    <ol>
+                        <li>Título: "Evaluación de Matemática - Tema: Fracciones"</li>
+                        <li>Fecha: 25 de marzo de 2024</li>
+                        <li>Hora: 10:00 - 11:30</li>
+                        <li>Lugar: "Aula 5"</li>
+                        <li>Descripción: "Evaluación escrita. Preparar material de apoyo."</li>
+                        <li>Categoría: Evaluación</li>
+                        <li>Recordatorio: 1 día antes y 30 minutos antes</li>
+                    </ol>
+                </div>
+
+                <h2>Características Avanzadas</h2>
+                
+                <h3>🔍 Búsqueda y Filtros</h3>
+                <ul>
+                    <li><strong>Búsqueda por título:</strong> Encuentra eventos rápidamente</li>
+                    <li><strong>Filtro por categoría:</strong> Muestra solo eventos de un tipo específico</li>
+                    <li><strong>Filtro por fecha:</strong> Busca eventos en un rango de fechas</li>
+                    <li><strong>Filtro por lugar:</strong> Encuentra todos los eventos en un lugar específico</li>
+                </ul>
+
+                <h3>📊 Estadísticas</h3>
+                <p>El calendario proporciona estadísticas útiles:</p>
+                <ul>
+                    <li>Total de eventos del mes</li>
+                    <li>Eventos por categoría</li>
+                    <li>Horas totales de clases programadas</li>
+                    <li>Próximos eventos</li>
+                </ul>
+
+                <h3>📱 Sincronización</h3>
+                <ul>
+                    <li>Todos los eventos se guardan automáticamente en la nube</li>
+                    <li>Acceso desde cualquier dispositivo con tu cuenta</li>
+                    <li>Sincronización en tiempo real</li>
+                    <li>Respaldo automático de tus datos</li>
+                </ul>
+
+                <h2>Consejos y Mejores Prácticas</h2>
+                
+                <div class="card">
+                    <h3>💡 Tips para Organizarte Mejor</h3>
+                    <ul>
+                        <li><strong>Usa títulos descriptivos:</strong> Incluye grado, materia y tema en el título del evento</li>
+                        <li><strong>Configura recordatorios apropiados:</strong> Para clases diarias, usa 15 minutos. Para eventos especiales, usa 1 día antes</li>
+                        <li><strong>Agrega lugares específicos:</strong> Facilita encontrar dónde será el evento</li>
+                        <li><strong>Usa las categorías:</strong> Organiza visualmente tus eventos</li>
+                        <li><strong>Revisa tu calendario semanalmente:</strong> Planifica con anticipación</li>
+                        <li><strong>Duplica eventos recurrentes:</strong> Si tienes clases que se repiten, duplica el evento base</li>
+                    </ul>
+                </div>
+
+                <h2>Solución de Problemas</h2>
+                
+                <h3>❓ Preguntas Frecuentes</h3>
+                
+                <div class="card">
+                    <h4>¿Cómo cambio la vista del calendario?</h4>
+                    <p>Usa los botones en la parte superior del calendario para cambiar entre vista mensual, semanal y diaria.</p>
+                </div>
+
+                <div class="card">
+                    <h4>¿Los recordatorios funcionan si cierro el navegador?</h4>
+                    <p>Los recordatorios se mostrarán cuando vuelvas a abrir la aplicación. Para recordatorios continuos, mantén la aplicación abierta o instala la versión de escritorio.</p>
+                </div>
+
+                <div class="card">
+                    <h4>¿Puedo exportar mis eventos?</h4>
+                    <p>Sí, puedes exportar tus eventos en formato CSV o iCal para importarlos en otros calendarios como Google Calendar o Outlook.</p>
+                </div>
+
+                <div class="card">
+                    <h4>¿Cómo elimino múltiples eventos a la vez?</h4>
+                    <p>Actualmente, los eventos se eliminan uno por uno. Esta funcionalidad está en desarrollo.</p>
+                </div>
+            </section>
+
+            <!-- Markdown Support -->
+            <section id="markdown-support" class="doc-section" style="display: none;">
+                <h1>📝 Soporte para Markdown en Plan Docs</h1>
+                
+                <h2>🎯 Funcionalidad Agregada</h2>
+                <p>Plan Docs ahora incluye soporte completo para <strong>Markdown</strong>, permitiendo convertir automáticamente texto con formato Markdown a HTML rico cuando pegas contenido desde otros sistemas.</p>
+
+                <h2>✨ Características</h2>
+                
+                <h3>🔍 Detección Automática</h3>
+                <p>El sistema detecta automáticamente si el contenido pegado contiene elementos de Markdown como:</p>
+                <ul>
+                    <li><strong>Texto en negrita</strong> (<code>**texto**</code>)</li>
+                    <li><strong>Títulos</strong> (<code># Título</code>, <code>## Subtítulo</code>)</li>
+                    <li><strong>Listas</strong> (<code>- item</code>, <code>* item</code>)</li>
+                    <li><strong>Citas</strong> (<code>> texto</code>)</li>
+                    <li><strong>Código</strong> (<code>`código`</code>)</li>
+                    <li><strong>Enlaces</strong> (<code>[texto](url)</code>)</li>
+                    <li><strong>Tablas</strong> (<code>| columna |</code>)</li>
+                    <li><strong>Bloques de código</strong> (<code>``` ```</code>)</li>
+                </ul>
+
+                <h2>📝 Cómo Usar</h2>
+                
+                <h3>1. Pegado Automático</h3>
+                <ol>
+                    <li>Copia texto con formato Markdown desde cualquier fuente</li>
+                    <li>Pégalo en Plan Docs</li>
+                    <li>El sistema detectará automáticamente el formato Markdown</li>
+                    <li>Se convertirá a HTML rico instantáneamente</li>
+                </ol>
+
+                <h3>2. Conversión Manual</h3>
+                <ol>
+                    <li>Escribe o pega texto con formato Markdown</li>
+                    <li>Si el sistema detecta Markdown, aparecerá el botón "Convertir Markdown"</li>
+                    <li>Haz clic en el botón para convertir el contenido actual</li>
+                    <li>El texto se transformará en formato rico</li>
+                </ol>
+
+                <h2>🎨 Estilos Soportados</h2>
+                <ul>
+                    <li><span class="badge badge-success">✅</span> <strong>Negrita</strong> (<code>**texto**</code>)</li>
+                    <li><span class="badge badge-success">✅</span> <em>Cursiva</em> (<code>*texto*</code>)</li>
+                    <li><span class="badge badge-success">✅</span> <del>Tachado</del> (<code>~~texto~~</code>)</li>
+                    <li><span class="badge badge-success">✅</span> <code>Código inline</code> (<code>`código`</code>)</li>
+                    <li><span class="badge badge-success">✅</span> Encabezados (H1, H2, H3, etc.)</li>
+                    <li><span class="badge badge-success">✅</span> Listas ordenadas y no ordenadas</li>
+                    <li><span class="badge badge-success">✅</span> Citas y bloques de texto</li>
+                    <li><span class="badge badge-success">✅</span> Enlaces e imágenes</li>
+                    <li><span class="badge badge-success">✅</span> Tablas</li>
+                    <li><span class="badge badge-success">✅</span> Bloques de código</li>
+                </ul>
+            </section>
+
+            <!-- Información del Sistema -->
+            <section id="sistema-info" class="doc-section" style="display: none;">
+                <h1>⚙️ Información del Sistema</h1>
+                
+                <h2>Descripción General</h2>
+                <p>Plan Maestro PRIME es una plataforma educativa integral diseñada específicamente para docentes uruguayos. El sistema combina inteligencia artificial avanzada con herramientas de planificación pedagógica, proporcionando una solución completa para la gestión educativa.</p>
+
+                <div class="card">
+                    <h3>🎯 Objetivo del Sistema</h3>
+                    <p>Plan Maestro PRIME tiene como objetivo principal facilitar y optimizar la labor docente, reduciendo el tiempo de planificación y permitiendo a los educadores enfocarse en lo más importante: la enseñanza y el aprendizaje de sus estudiantes.</p>
+                </div>
+
+                <h2>Arquitectura del Sistema</h2>
+                
+                <h3>🔧 Tecnologías Principales</h3>
+                <div class="card">
+                    <h4>Frontend</h4>
+                    <ul>
+                        <li><strong>Interfaz moderna:</strong> Diseño responsivo y adaptativo</li>
+                        <li><strong>Experiencia de usuario:</strong> Interfaz intuitiva y fácil de usar</li>
+                        <li><strong>Compatibilidad:</strong> Soporte para múltiples navegadores y dispositivos</li>
+                        <li><strong>Rendimiento:</strong> Carga rápida y operaciones optimizadas</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Backend y Servicios</h4>
+                    <ul>
+                        <li><strong>Almacenamiento en la nube:</strong> Todos los datos se guardan de forma segura</li>
+                        <li><strong>Sincronización automática:</strong> Acceso desde cualquier dispositivo</li>
+                        <li><strong>API integrada:</strong> Comunicación eficiente entre componentes</li>
+                        <li><strong>Seguridad:</strong> Protección de datos y privacidad del usuario</li>
+                    </ul>
+                </div>
+
+                <h3>🤖 Inteligencia Artificial</h3>
+                <p>El sistema utiliza tecnologías de IA de vanguardia para:</p>
+                <ul>
+                    <li><strong>Análisis de documentos:</strong> Procesamiento inteligente de contenido educativo</li>
+                    <li><strong>Generación de contenido:</strong> Creación automática de materiales educativos</li>
+                    <li><strong>Transcripción de voz:</strong> Conversión de audio a texto en tiempo real</li>
+                    <li><strong>Síntesis de voz:</strong> Generación de audio a partir de texto</li>
+                    <li><strong>Generación de imágenes:</strong> Creación de imágenes educativas personalizadas</li>
+                </ul>
+
+                <h2>Características del Sistema</h2>
+                
+                <h3>📊 Capacidades Principales</h3>
+                <div class="card">
+                    <h4>Gestión de Contenido</h4>
+                    <ul>
+                        <li>Subida y análisis de documentos en múltiples formatos</li>
+                        <li>Generación automática de mapas mentales</li>
+                        <li>Editor de documentos completo con soporte Markdown</li>
+                        <li>Organización por carpetas y etiquetas</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Comunicación y Audio</h4>
+                    <ul>
+                        <li>Chat con IA contextual y especializado</li>
+                        <li>Grabación de mensajes de voz</li>
+                        <li>Audio en tiempo real durante las respuestas</li>
+                        <li>Transcripción automática de audio</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Planificación y Organización</h4>
+                    <ul>
+                        <li>Calendario integrado con eventos y recordatorios</li>
+                        <li>Gestión de clases y actividades</li>
+                        <li>Formulador de prompts educativos estructurados</li>
+                        <li>Búsqueda y filtrado avanzado</li>
+                    </ul>
+                </div>
+
+                <h2>Integración con el Currículo Uruguayo</h2>
+                
+                <h3>📚 Contenido Curricular</h3>
+                <p>Plan Maestro PRIME está diseñado específicamente para el sistema educativo uruguayo:</p>
+                <ul>
+                    <li><strong>Documentación ANEP:</strong> Integración con normativas y documentación oficial</li>
+                    <li><strong>Tramos educativos:</strong> Soporte completo para todos los tramos del sistema</li>
+                    <li><strong>Espacios curriculares:</strong> Adaptado a la estructura curricular uruguaya</li>
+                    <li><strong>Metodologías activas:</strong> Herramientas para implementar metodologías modernas</li>
+                    <li><strong>Evaluación:</strong> Soporte para diferentes tipos de evaluación</li>
+                </ul>
+
+                <h2>Seguridad y Privacidad</h2>
+                
+                <div class="card">
+                    <h3>🔒 Protección de Datos</h3>
+                    <ul>
+                        <li><strong>Autenticación segura:</strong> Acceso protegido con credenciales únicas</li>
+                        <li><strong>Encriptación:</strong> Datos transmitidos de forma segura</li>
+                        <li><strong>Almacenamiento privado:</strong> Cada usuario tiene su propio espacio</li>
+                        <li><strong>Respaldo automático:</strong> Protección contra pérdida de datos</li>
+                        <li><strong>Cumplimiento normativo:</strong> Respeto a las normativas de privacidad</li>
+                    </ul>
+                </div>
+
+                <h2>Rendimiento y Disponibilidad</h2>
+                
+                <h3>⚡ Optimizaciones</h3>
+                <ul>
+                    <li><strong>Carga rápida:</strong> Optimización de recursos y caché inteligente</li>
+                    <li><strong>Respuesta inmediata:</strong> Interfaz reactiva y fluida</li>
+                    <li><strong>Escalabilidad:</strong> Sistema preparado para crecer</li>
+                    <li><strong>Disponibilidad 24/7:</strong> Acceso continuo desde cualquier lugar</li>
+                </ul>
+
+                <h2>Casos de Uso Principales</h2>
+                
+                <div class="card">
+                    <h3>📝 Planificación de Clases</h3>
+                    <p>Los docentes pueden crear y gestionar sus planificaciones de manera eficiente, utilizando herramientas de IA para generar contenido educativo y estructurar las clases.</p>
+                </div>
+
+                <div class="card">
+                    <h3>📚 Gestión de Documentos</h3>
+                    <p>Sube, analiza y organiza documentos educativos, generando mapas mentales y obteniendo insights mediante agentes especializados de IA.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🗓️ Organización de Actividades</h3>
+                    <p>Mantén un registro completo de clases, reuniones, evaluaciones y eventos importantes con el sistema de calendario integrado.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🎨 Creación de Materiales</h3>
+                    <p>Genera imágenes educativas personalizadas, crea documentos profesionales y utiliza prompts estructurados para mejorar tus materiales didácticos.</p>
+                </div>
+
+                <h2>Compatibilidad y Requisitos</h2>
+                
+                <h3>💻 Navegadores Soportados</h3>
+                <ul>
+                    <li><span class="badge badge-success">✅</span> Google Chrome (recomendado)</li>
+                    <li><span class="badge badge-success">✅</span> Mozilla Firefox</li>
+                    <li><span class="badge badge-success">✅</span> Microsoft Edge</li>
+                    <li><span class="badge badge-success">✅</span> Safari</li>
+                    <li><span class="badge badge-info">ℹ️</span> Opera</li>
+                </ul>
+
+                <h3>📱 Dispositivos</h3>
+                <ul>
+                    <li><strong>Computadoras de escritorio:</strong> Experiencia completa con todas las funcionalidades</li>
+                    <li><strong>Tablets:</strong> Interfaz adaptada para pantallas táctiles</li>
+                    <li><strong>Móviles:</strong> Versión optimizada para dispositivos móviles</li>
+                </ul>
+
+                <h2>Actualizaciones y Mejoras</h2>
+                
+                <div class="card">
+                    <h3>🔄 Sistema de Actualizaciones</h3>
+                    <p>Plan Maestro PRIME se actualiza regularmente con nuevas funcionalidades, mejoras de rendimiento y correcciones. Todas las actualizaciones se aplican automáticamente sin interrumpir tu trabajo.</p>
+                </div>
+
+                <h3>✨ Funcionalidades Recientes</h3>
+                <ul>
+                    <li><strong>Audio en tiempo real:</strong> Streaming de audio durante las respuestas</li>
+                    <li><strong>Calendario integrado:</strong> Sistema completo de gestión de eventos</li>
+                    <li><strong>Soporte Markdown:</strong> Conversión automática en Plan Docs</li>
+                    <li><strong>Generador de imágenes:</strong> Creación de imágenes educativas</li>
+                </ul>
+
+                <h2>Ayuda y Soporte</h2>
+                
+                <div class="card">
+                    <h3>📖 Recursos Disponibles</h3>
+                    <ul>
+                        <li><strong>Documentación completa:</strong> Guías detalladas de todas las funcionalidades</li>
+                        <li><strong>Ejemplos prácticos:</strong> Casos de uso reales y ejemplos</li>
+                        <li><strong>FAQ:</strong> Respuestas a preguntas frecuentes</li>
+                        <li><strong>Mejores prácticas:</strong> Consejos para aprovechar al máximo el sistema</li>
+                        <li><strong>Ayuda en vivo:</strong> Agenda una videollamada para sacarte las dudas</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="doc-footer">
+        <div class="footer-content">
+            <!-- Logo Section -->
+            <div class="footer-logo-section">
+                <img src="assets/images/logo-lateral.png" alt="Plan Maestro PRIME Logo" class="footer-logo">
+                <p class="footer-subtitle">La Calculadora del Pensamiento Docente</p>
+                <p class="footer-tagline">Súper Herramienta de productividad y eficiencia en la labor de planificar, para que docentes puedan: inspirar, crear y transformar la educación</p>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="footer-stats">
+                <div class="stat-item">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Funcionalidades Principales</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">IA Integrada</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Disponibilidad</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Posibilidades</span>
+                </div>
+            </div>
+
+            <!-- Developer Section -->
+            <div class="footer-developer">
+                <img src="assets/images/profile.jpg" alt="Lic Marcos Mello" class="developer-photo">
+                <div class="developer-name">Lic. Marcos Mello</div>
+                <div class="developer-role">Desarrollador y Fundador</div>
+                <div class="footer-info">
+                    <div class="info-item">
+                        <i class="fas fa-code"></i>
+                        <span>Desarrollado con pasión y dedicación</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Una herramienta para grandes docentes</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Hecho en <span class="flag-emoji-fallback" title="Uruguay"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+        </main>
+    </div>
+
+    <script>
+        // Toggle theme
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark');
+        }
+
+        // Show section
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.doc-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show selected section
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = 'block';
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // Update active nav item
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Close sidebar on mobile
+            if (window.innerWidth <= 768) {
+                toggleSidebar();
+            }
+        }
+
+        // Toggle sidebar on mobile
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Show menu toggle on mobile
+        if (window.innerWidth <= 768) {
+            document.querySelector('.menu-toggle').style.display = 'block';
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.menu-toggle').style.display = 'block';
+            } else {
+                document.querySelector('.menu-toggle').style.display = 'none';
+                document.getElementById('sidebar').classList.remove('open');
+                document.querySelector('.sidebar-overlay').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
