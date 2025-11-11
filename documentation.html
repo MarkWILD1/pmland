@@ -732,7 +732,7 @@
                     <h3>🚀 Características Principales</h3>
                     <ul>
                         <li><strong>Mapas Mentales:</strong> Generación automática de visualizaciones interactivas</li>
-                        <li><strong>Gestor de Documentos:</strong> Sube y analiza documentos con IA</li>
+                        <li><strong>Gestor de Documentos:</strong> Sube y analiza documentos con IA, incluyendo videos de YouTube con transcripción automática</li>
                         <li><strong>Audio en Tiempo Real:</strong> Streaming de audio mientras se genera la respuesta</li>
                         <li><strong>Generador de Imágenes:</strong> Crea imágenes únicas en HD y en diferentes tamaños</li>
                         <li><strong>Formulador de Prompts:</strong> Genera prompts educativos estructurados</li>
@@ -818,7 +818,7 @@
                 <h1>📚 Gestor de Documentos</h1>
                 
                 <h2>Descripción</h2>
-                <p>El Gestor de Documentos es una funcionalidad que permite a los usuarios subir archivos PDF, TXT y Word, y luego interactuar con ellos usando agentes especializados de IA.</p>
+                <p>El Gestor de Documentos es una funcionalidad que permite a los usuarios subir archivos PDF, TXT y Word, así como cargar videos de YouTube, y luego interactuar con ellos usando agentes especializados de IA. Los videos se transcriben automáticamente y se pueden analizar y consultar como cualquier otro documento.</p>
 
                 <h2>Características Principales</h2>
                 
@@ -865,6 +865,33 @@
                     <li>Respuestas basadas en el contenido real del archivo</li>
                 </ul>
 
+                <h3>🎥 Videos de YouTube (NUEVO!)</h3>
+                <div class="card">
+                    <h4>Funcionalidad de Transcripción y Chat con Videos</h4>
+                    <p>Ahora puedes cargar videos de YouTube, transcribirlos automáticamente y chatear con su contenido como si fuera un documento.</p>
+                    
+                    <h5>✨ Características:</h5>
+                    <ul>
+                        <li><strong>Carga de videos:</strong> Ingresa la URL de cualquier video de YouTube</li>
+                        <li><strong>Transcripción automática:</strong> El sistema extrae y transcribe automáticamente el audio del video</li>
+                        <li><strong>Análisis inteligente:</strong> El contenido transcrito se procesa y se hace disponible para consultas</li>
+                        <li><strong>Chat interactivo:</strong> Haz preguntas sobre el contenido del video como si fuera un documento</li>
+                        <li><strong>Referencias temporales:</strong> Las respuestas pueden incluir referencias a momentos específicos del video</li>
+                        <li><strong>Resúmenes automáticos:</strong> Obtén resúmenes del contenido del video</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🎯 Casos de Uso</h4>
+                    <ul>
+                        <li><strong>Clases grabadas:</strong> Analiza videos educativos y haz preguntas sobre su contenido</li>
+                        <li><strong>Conferencias:</strong> Transcribe y analiza conferencias o charlas educativas</li>
+                        <li><strong>Material didáctico:</strong> Extrae información de videos tutoriales o explicativos</li>
+                        <li><strong>Preparación de clases:</strong> Analiza videos relevantes para tu planificación</li>
+                        <li><strong>Investigación:</strong> Extrae insights de videos académicos o profesionales</li>
+                    </ul>
+                </div>
+
                 <h2>Uso</h2>
                 
                 <h3>Subir Documentos</h3>
@@ -880,6 +907,51 @@
                     <li>Elegir el agente más apropiado para la tarea</li>
                     <li>Comenzar la conversación</li>
                 </ol>
+
+                <h3>Cargar y Analizar Videos de YouTube</h3>
+                <ol>
+                    <li>Navegar a <code>/dashboard/documentos</code></li>
+                    <li>Buscar la opción "Cargar Video de YouTube" o el botón correspondiente</li>
+                    <li>Pegar la URL del video de YouTube que deseas analizar</li>
+                    <li>Hacer clic en "Procesar Video" o "Transcribir"</li>
+                    <li>Esperar a que el sistema:
+                        <ul>
+                            <li>Extraiga el audio del video</li>
+                            <li>Transcriba el contenido automáticamente</li>
+                            <li>Procese y analice el texto transcrito</li>
+                        </ul>
+                    </li>
+                    <li>Una vez procesado, el video aparecerá en tu lista de documentos</li>
+                    <li>Hacer clic en el video para abrir el chat y comenzar a hacer preguntas</li>
+                </ol>
+
+                <h3>Chatear con Videos</h3>
+                <ol>
+                    <li>Seleccionar el video procesado de tu lista</li>
+                    <li>Elegir un agente especializado (Analizador, Resumidor, o Respondedor de Preguntas)</li>
+                    <li>Hacer preguntas sobre el contenido del video, por ejemplo:
+                        <ul>
+                            <li>"¿Cuál es el tema principal de este video?"</li>
+                            <li>"Resume los puntos clave mencionados"</li>
+                            <li>"¿Qué se dice sobre [tema específico]?"</li>
+                            <li>"¿En qué momento del video se habla de [concepto]?"</li>
+                        </ul>
+                    </li>
+                    <li>El sistema responderá basándose en la transcripción del video</li>
+                    <li>Las respuestas pueden incluir referencias a momentos específicos del video</li>
+                </ol>
+
+                <div class="card">
+                    <h4>💡 Consejos para Videos de YouTube</h4>
+                    <ul>
+                        <li><strong>Videos con subtítulos:</strong> Si el video tiene subtítulos, la transcripción será más precisa</li>
+                        <li><strong>Calidad de audio:</strong> Videos con mejor calidad de audio producen transcripciones más precisas</li>
+                        <li><strong>Idioma:</strong> El sistema detecta automáticamente el idioma del video</li>
+                        <li><strong>Duración:</strong> Videos más largos pueden tardar más en procesarse</li>
+                        <li><strong>Videos privados:</strong> Solo se pueden procesar videos públicos o no listados (con URL)</li>
+                        <li><strong>Videos con restricciones:</strong> Algunos videos pueden tener restricciones de acceso</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Audio Features -->

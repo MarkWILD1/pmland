@@ -37,11 +37,14 @@ Esta es una landing page moderna y minimalista que muestra todas las funcionalid
 
 #### 📚 Gestor de Documentos Inteligente
 - Subida de PDF, DOC, DOCX, TXT
+- 🎥 **NUEVO:** Carga videos de YouTube
+- Transcripción automática de videos
 - Agentes especializados de análisis
-- Chat interactivo con documentos
+- Chat interactivo con documentos y videos
 - Generación de mapas mentales
 - Resúmenes automáticos de contenido
 - Respuestas a preguntas específicas
+- Referencias temporales en videos
 
 #### 🤖 Formulador de Prompts Educativos
 - Contenidos por tramo educativo
