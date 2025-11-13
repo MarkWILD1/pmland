@@ -131,6 +131,21 @@
             height: auto;
             margin-bottom: 1rem;
             filter: brightness(0) invert(1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sidebar-logo-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-logo-link:hover {
+            transform: scale(1.05);
+        }
+
+        .sidebar-logo-link:hover .sidebar-logo {
+            opacity: 0.9;
         }
 
         .sidebar-header h1 {
@@ -690,7 +705,9 @@
     <div class="container">
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <img src="assets/images/logo-lateral.png" alt="Plan Maestro PRIME Logo" class="sidebar-logo">
+                <a href="index.html" class="sidebar-logo-link" title="Volver a la página principal">
+                    <img src="assets/images/logo-lateral.png" alt="Plan Maestro PRIME Logo" class="sidebar-logo">
+                </a>
                 <h1>📚 Documentación</h1>
                 <button class="theme-toggle" onclick="toggleTheme()">🌓 Cambiar Tema</button>
             </div>
@@ -773,6 +790,7 @@
                     <li><strong>Controles de zoom:</strong> Permite acercar/alejar la vista del mapa</li>
                     <li><strong>Expansión masiva:</strong> Botones para expandir/colapsar todos los nodos</li>
                     <li><strong>Responsive:</strong> Se adapta a diferentes tamaños de pantalla</li>
+                    <li><strong>Compartir con link:</strong> Genera un enlace único para compartir mapas mentales con otros usuarios</li>
                 </ul>
 
                 <h3>🎨 Diseño Visual</h3>
@@ -809,6 +827,27 @@
                     <li><strong>Expandir todo:</strong> Botón "Expandir Todo" para mostrar toda la estructura</li>
                     <li><strong>Colapsar todo:</strong> Botón "Colapsar Todo" para ocultar todos los detalles</li>
                 </ul>
+
+                <h3>4. Compartir Mapas Mentales</h3>
+                <div class="card">
+                    <h4>🔗 Compartir con un Link</h4>
+                    <p>Los mapas mentales pueden ser compartidos fácilmente con otros usuarios mediante un enlace único:</p>
+                    <ol>
+                        <li>Una vez generado el mapa mental, busca el botón <strong>"🔗 Compartir"</strong> o <strong>"📤 Compartir Link"</strong> en la interfaz</li>
+                        <li>Haz clic en el botón para generar un enlace único del mapa mental</li>
+                        <li>El sistema generará un link que puedes copiar al portapapeles</li>
+                        <li>Comparte el enlace con otros usuarios por correo, mensaje o cualquier medio de comunicación</li>
+                        <li>Los usuarios que reciban el link podrán acceder al mapa mental sin necesidad de tener acceso al documento original</li>
+                    </ol>
+                    
+                    <h5>✨ Características del Link Compartido:</h5>
+                    <ul>
+                        <li><strong>Acceso directo:</strong> El link permite ver el mapa mental completo sin necesidad de iniciar sesión</li>
+                        <li><strong>Interactividad completa:</strong> Los usuarios pueden expandir, colapsar y hacer zoom en el mapa compartido</li>
+                        <li><strong>Enlace único:</strong> Cada mapa mental tiene su propio enlace único y seguro</li>
+                        <li><strong>Compartición fácil:</strong> Copia y pega el link donde necesites compartirlo</li>
+                    </ul>
+                </div>
 
                 
             </section>
@@ -864,6 +903,30 @@
                     <li>Historial de mensajes persistente</li>
                     <li>Respuestas basadas en el contenido real del archivo</li>
                 </ul>
+
+                <h3>🧠 Mapas Mentales</h3>
+                <div class="card">
+                    <h4>Generación y Compartir de Mapas Mentales</h4>
+                    <p>Desde el gestor de documentos puedes generar mapas mentales interactivos de tus documentos y compartirlos fácilmente con otros usuarios.</p>
+                    
+                    <h5>✨ Características:</h5>
+                    <ul>
+                        <li><strong>Generación automática:</strong> Crea mapas mentales visuales a partir del contenido de tus documentos</li>
+                        <li><strong>Visualización interactiva:</strong> Nodos expandibles y colapsables con estructura jerárquica</li>
+                        <li><strong>Compartir con link:</strong> Genera un enlace único para compartir mapas mentales con otros usuarios</li>
+                        <li><strong>Acceso directo:</strong> Los usuarios que reciban el link pueden ver el mapa mental sin necesidad de iniciar sesión</li>
+                        <li><strong>Interactividad completa:</strong> Los mapas compartidos mantienen todas las funcionalidades (zoom, expandir, colapsar)</li>
+                    </ul>
+                    
+                    <h5>📋 Cómo compartir un mapa mental:</h5>
+                    <ol>
+                        <li>Selecciona un documento de tu lista</li>
+                        <li>Haz clic en el botón "🧠 Generar Mapa Mental"</li>
+                        <li>Una vez generado, busca el botón "🔗 Compartir" o "📤 Compartir Link"</li>
+                        <li>Copia el enlace generado y compártelo con quien necesites</li>
+                        <li>El receptor podrá acceder al mapa mental completo usando el link</li>
+                    </ol>
+                </div>
 
                 <h3>🎥 Videos de YouTube (NUEVO!)</h3>
                 <div class="card">
