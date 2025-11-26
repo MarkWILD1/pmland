@@ -719,8 +719,8 @@
                 
                 <div class="nav-section">
                     <div class="nav-section-title">Funcionalidades Principales</div>
-                    <a href="#mapas-mentales" class="nav-item" onclick="showSection('mapas-mentales')">🧠 Mapas Mentales</a>
                     <a href="#gestor-documentos" class="nav-item" onclick="showSection('gestor-documentos')">📚 Gestor de Documentos</a>
+                    <a href="#planificaciones" class="nav-item" onclick="showSection('planificaciones')">📋 Planificaciones</a>
                     <a href="#audio-features" class="nav-item" onclick="showSection('audio-features')">🎤 Funcionalidades de Audio</a>
                     <a href="#generador-imagenes" class="nav-item" onclick="showSection('generador-imagenes')">🎨 Generador de Imágenes</a>
                     <a href="#formulador-prompts" class="nav-item" onclick="showSection('formulador-prompts')">📝 Formulador de Prompts</a>
@@ -749,7 +749,8 @@
                     <h3>🚀 Características Principales</h3>
                     <ul>
                         <li><strong>Mapas Mentales:</strong> Generación automática de visualizaciones interactivas</li>
-                        <li><strong>Gestor de Documentos:</strong> Sube y analiza documentos con IA, incluyendo videos de YouTube con transcripción automática</li>
+                        <li><strong>Gestor de Documentos:</strong> Sube y analiza documentos con IA, incluyendo videos de YouTube con transcripción automática, páginas web, generación de mapas mentales y presentaciones compartibles</li>
+                        <li><strong>Planificaciones:</strong> Modo inteligente con Formulador de Prompts para crear planificaciones alineadas con el currículo uruguayo</li>
                         <li><strong>Audio en Tiempo Real:</strong> Streaming de audio mientras se genera la respuesta</li>
                         <li><strong>Generador de Imágenes:</strong> Crea imágenes únicas en HD y en diferentes tamaños</li>
                         <li><strong>Formulador de Prompts:</strong> Genera prompts educativos estructurados</li>
@@ -857,13 +858,15 @@
                 <h1>📚 Gestor de Documentos</h1>
                 
                 <h2>Descripción</h2>
-                <p>El Gestor de Documentos es una funcionalidad que permite a los usuarios subir archivos PDF, TXT y Word, así como cargar videos de YouTube, y luego interactuar con ellos usando agentes especializados de IA. Los videos se transcriben automáticamente y se pueden analizar y consultar como cualquier otro documento.</p>
+                <p>El Gestor de Documentos es una funcionalidad que permite a los usuarios subir archivos PDF, TXT y Word, cargar videos de YouTube, importar contenido de páginas web, y luego interactuar con ellos usando agentes especializados de IA. Los videos se transcriben automáticamente y todo el contenido se puede analizar, consultar, convertir en mapas mentales o presentaciones, y compartir fácilmente.</p>
 
                 <h2>Características Principales</h2>
                 
-                <h3>🚀 Subida de Archivos</h3>
+                <h3>🚀 Subida de Archivos y Contenido</h3>
                 <ul>
                     <li><strong>Formatos soportados:</strong> PDF, TXT, DOC, DOCX</li>
+                    <li><strong>Videos de YouTube:</strong> Carga videos mediante URL con transcripción automática</li>
+                    <li><strong>Páginas web:</strong> Importa contenido de cualquier página web mediante URL</li>
                     <li><strong>Tamaño máximo:</strong> 10MB por archivo</li>
                     <li><strong>Validación:</strong> Tipo de archivo y tamaño</li>
                     <li><strong>Almacenamiento:</strong> Seguro por usuario en carpetas separadas</li>
@@ -907,25 +910,111 @@
                 <h3>🧠 Mapas Mentales</h3>
                 <div class="card">
                     <h4>Generación y Compartir de Mapas Mentales</h4>
-                    <p>Desde el gestor de documentos puedes generar mapas mentales interactivos de tus documentos y compartirlos fácilmente con otros usuarios.</p>
+                    <p>Desde el gestor de documentos puedes generar mapas mentales interactivos a partir de cualquier fuente de contenido y compartirlos fácilmente con otros usuarios.</p>
+                    
+                    <h5>📄 Fuentes de Contenido Soportadas:</h5>
+                    <ul>
+                        <li><strong>Documentos:</strong> PDF, DOC, DOCX, TXT</li>
+                        <li><strong>Videos de YouTube:</strong> Contenido transcripto automáticamente</li>
+                        <li><strong>Páginas web:</strong> Contenido importado desde cualquier URL</li>
+                    </ul>
                     
                     <h5>✨ Características:</h5>
                     <ul>
-                        <li><strong>Generación automática:</strong> Crea mapas mentales visuales a partir del contenido de tus documentos</li>
+                        <li><strong>Generación automática:</strong> Crea mapas mentales visuales a partir del contenido de tus documentos, videos o páginas web</li>
                         <li><strong>Visualización interactiva:</strong> Nodos expandibles y colapsables con estructura jerárquica</li>
+                        <li><strong>Análisis inteligente:</strong> Extrae automáticamente la estructura jerárquica del contenido</li>
                         <li><strong>Compartir con link:</strong> Genera un enlace único para compartir mapas mentales con otros usuarios</li>
                         <li><strong>Acceso directo:</strong> Los usuarios que reciban el link pueden ver el mapa mental sin necesidad de iniciar sesión</li>
                         <li><strong>Interactividad completa:</strong> Los mapas compartidos mantienen todas las funcionalidades (zoom, expandir, colapsar)</li>
                     </ul>
                     
-                    <h5>📋 Cómo compartir un mapa mental:</h5>
+                    <h5>📋 Cómo generar y compartir un mapa mental:</h5>
                     <ol>
-                        <li>Selecciona un documento de tu lista</li>
+                        <li>Selecciona un documento, video de YouTube o página web de tu lista</li>
                         <li>Haz clic en el botón "🧠 Generar Mapa Mental"</li>
+                        <li>Espera a que el sistema procese el contenido y genere el mapa mental</li>
                         <li>Una vez generado, busca el botón "🔗 Compartir" o "📤 Compartir Link"</li>
-                        <li>Copia el enlace generado y compártelo con quien necesites</li>
-                        <li>El receptor podrá acceder al mapa mental completo usando el link</li>
+                        <li>Haz clic en el botón para generar un enlace único</li>
+                        <li>Copia el enlace generado y compártelo por correo, mensaje o cualquier medio</li>
+                        <li>El receptor podrá acceder al mapa mental completo usando el link, sin necesidad de iniciar sesión</li>
                     </ol>
+                </div>
+
+                <h3>📊 Crear Presentaciones</h3>
+                <div class="card">
+                    <h4>Generación Automática de Presentaciones</h4>
+                    <p>Transforma cualquier contenido en presentaciones profesionales y visualmente atractivas de forma automática.</p>
+                    
+                    <h5>📄 Fuentes de Contenido Soportadas:</h5>
+                    <ul>
+                        <li><strong>Documentos:</strong> PDF, DOC, DOCX, TXT</li>
+                        <li><strong>Videos de YouTube:</strong> Contenido transcripto automáticamente convertido en diapositivas</li>
+                        <li><strong>Páginas web:</strong> Contenido importado desde cualquier URL transformado en presentación</li>
+                    </ul>
+                    
+                    <h5>✨ Características:</h5>
+                    <ul>
+                        <li><strong>Generación automática:</strong> Crea presentaciones profesionales a partir del contenido de tus documentos, videos o páginas web</li>
+                        <li><strong>Estructura inteligente:</strong> Organiza automáticamente el contenido en diapositivas lógicas y coherentes</li>
+                        <li><strong>Diseño profesional:</strong> Presentaciones con formato moderno y visualmente atractivo</li>
+                        <li><strong>Múltiples estilos:</strong> Diferentes plantillas y estilos disponibles para adaptarse a tus necesidades</li>
+                        <li><strong>Edición posterior:</strong> Puedes editar y personalizar las presentaciones generadas</li>
+                        <li><strong>Exportación:</strong> Exporta tus presentaciones en diferentes formatos (PDF, PPTX)</li>
+                    </ul>
+                    
+                    <h5>📋 Cómo crear una presentación:</h5>
+                    <ol>
+                        <li>Selecciona un documento, video de YouTube o página web de tu lista</li>
+                        <li>Haz clic en el botón "📊 Crear Presentación" o "🎨 Generar Presentación"</li>
+                        <li>El sistema analizará el contenido y generará una estructura de presentación</li>
+                        <li>Espera a que se procese el contenido y se generen las diapositivas</li>
+                        <li>Revisa y edita la presentación generada según tus necesidades</li>
+                        <li>Personaliza el diseño, colores y formato si lo deseas</li>
+                        <li>Guarda la presentación para uso futuro o compártela directamente</li>
+                    </ol>
+                </div>
+
+                <h3>🔗 Compartir Presentaciones</h3>
+                <div class="card">
+                    <h4>Compartir Presentaciones con Link Único</h4>
+                    <p>Comparte tus presentaciones fácilmente con estudiantes, colegas o cualquier persona mediante un enlace único y seguro.</p>
+                    
+                    <h5>✨ Características del Link Compartido:</h5>
+                    <ul>
+                        <li><strong>Enlace único:</strong> Cada presentación tiene su propio enlace único y seguro</li>
+                        <li><strong>Acceso directo:</strong> Los usuarios pueden acceder a la presentación sin necesidad de iniciar sesión</li>
+                        <li><strong>Visualización completa:</strong> Acceso a todas las diapositivas de la presentación</li>
+                        <li><strong>Navegación intuitiva:</strong> Controles para avanzar, retroceder y navegar entre diapositivas</li>
+                        <li><strong>Modo presentación:</strong> Vista optimizada para presentaciones en pantalla completa</li>
+                        <li><strong>Compartición fácil:</strong> Copia y pega el link donde necesites compartirlo</li>
+                    </ul>
+                    
+                    <h5>📋 Cómo compartir una presentación:</h5>
+                    <ol>
+                        <li>Abre la presentación que deseas compartir</li>
+                        <li>Busca el botón "🔗 Compartir" o "📤 Compartir Presentación" en la interfaz</li>
+                        <li>Haz clic en el botón para generar un enlace único de la presentación</li>
+                        <li>El sistema generará un link que puedes copiar al portapapeles</li>
+                        <li>Comparte el enlace con otros usuarios por correo, mensaje, WhatsApp o cualquier medio de comunicación</li>
+                        <li>Los usuarios que reciban el link podrán:
+                            <ul>
+                                <li>Ver todas las diapositivas de la presentación</li>
+                                <li>Navegar entre las diapositivas</li>
+                                <li>Usar el modo presentación para proyectar</li>
+                                <li>Acceder sin necesidad de tener cuenta en el sistema</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <h5>💡 Casos de Uso:</h5>
+                    <ul>
+                        <li><strong>Clases:</strong> Comparte presentaciones con tus estudiantes para que las revisen después de la clase</li>
+                        <li><strong>Reuniones:</strong> Envía presentaciones a colegas o padres antes o después de reuniones</li>
+                        <li><strong>Material de estudio:</strong> Comparte presentaciones como material de apoyo para tus estudiantes</li>
+                        <li><strong>Colaboración:</strong> Comparte presentaciones con otros docentes para colaboración y feedback</li>
+                        <li><strong>Presentaciones públicas:</strong> Comparte links de presentaciones para eventos o conferencias</li>
+                    </ul>
                 </div>
 
                 <h3>🎥 Videos de YouTube (NUEVO!)</h3>
@@ -941,6 +1030,8 @@
                         <li><strong>Chat interactivo:</strong> Haz preguntas sobre el contenido del video como si fuera un documento</li>
                         <li><strong>Referencias temporales:</strong> Las respuestas pueden incluir referencias a momentos específicos del video</li>
                         <li><strong>Resúmenes automáticos:</strong> Obtén resúmenes del contenido del video</li>
+                        <li><strong>Mapas mentales:</strong> Genera mapas mentales interactivos a partir del contenido transcripto</li>
+                        <li><strong>Presentaciones:</strong> Crea presentaciones profesionales automáticamente desde el contenido del video</li>
                     </ul>
                 </div>
 
@@ -988,6 +1079,23 @@
                     <li>Hacer clic en el video para abrir el chat y comenzar a hacer preguntas</li>
                 </ol>
 
+                <h3>Cargar y Analizar Páginas Web</h3>
+                <ol>
+                    <li>Navegar a <code>/dashboard/documentos</code></li>
+                    <li>Buscar la opción "Cargar Página Web" o "Importar URL" o el botón correspondiente</li>
+                    <li>Pegar la URL de la página web que deseas analizar</li>
+                    <li>Hacer clic en "Procesar Página" o "Importar Contenido"</li>
+                    <li>Esperar a que el sistema:
+                        <ul>
+                            <li>Extraiga el contenido de la página web</li>
+                            <li>Procese y analice el texto extraído</li>
+                            <li>Organice el contenido de manera estructurada</li>
+                        </ul>
+                    </li>
+                    <li>Una vez procesado, la página web aparecerá en tu lista de documentos</li>
+                    <li>Hacer clic en la página web para abrir el chat, generar mapas mentales o crear presentaciones</li>
+                </ol>
+
                 <h3>Chatear con Videos</h3>
                 <ol>
                     <li>Seleccionar el video procesado de tu lista</li>
@@ -1004,6 +1112,35 @@
                     <li>Las respuestas pueden incluir referencias a momentos específicos del video</li>
                 </ol>
 
+                <h3>Generar Mapas Mentales desde Contenido</h3>
+                <ol>
+                    <li>Selecciona un documento, video de YouTube o página web de tu lista</li>
+                    <li>Haz clic en el botón "🧠 Generar Mapa Mental"</li>
+                    <li>Espera a que el sistema procese el contenido y genere el mapa mental</li>
+                    <li>Interactúa con el mapa mental: expande, colapsa y haz zoom</li>
+                    <li>Para compartir, haz clic en "🔗 Compartir" y copia el enlace generado</li>
+                </ol>
+
+                <h3>Crear Presentaciones desde Contenido</h3>
+                <ol>
+                    <li>Selecciona un documento, video de YouTube o página web de tu lista</li>
+                    <li>Haz clic en el botón "📊 Crear Presentación" o "🎨 Generar Presentación"</li>
+                    <li>Espera a que el sistema analice el contenido y genere las diapositivas</li>
+                    <li>Revisa y edita la presentación según tus necesidades</li>
+                    <li>Personaliza el diseño, colores y formato si lo deseas</li>
+                    <li>Guarda la presentación para uso futuro</li>
+                </ol>
+
+                <h3>Compartir Mapas Mentales y Presentaciones</h3>
+                <ol>
+                    <li>Abre el mapa mental o presentación que deseas compartir</li>
+                    <li>Busca el botón "🔗 Compartir" o "📤 Compartir Link"</li>
+                    <li>Haz clic en el botón para generar un enlace único</li>
+                    <li>Copia el enlace al portapapeles</li>
+                    <li>Comparte el enlace por correo, mensaje, WhatsApp o cualquier medio</li>
+                    <li>Los receptores podrán acceder sin necesidad de iniciar sesión</li>
+                </ol>
+
                 <div class="card">
                     <h4>💡 Consejos para Videos de YouTube</h4>
                     <ul>
@@ -1015,6 +1152,95 @@
                         <li><strong>Videos con restricciones:</strong> Algunos videos pueden tener restricciones de acceso</li>
                     </ul>
                 </div>
+
+                <div class="card">
+                    <h4>💡 Consejos para Páginas Web</h4>
+                    <ul>
+                        <li><strong>URLs públicas:</strong> Solo se pueden procesar páginas web accesibles públicamente</li>
+                        <li><strong>Contenido estructurado:</strong> Las páginas con contenido bien estructurado producen mejores resultados</li>
+                        <li><strong>Idioma:</strong> El sistema detecta automáticamente el idioma de la página</li>
+                        <li><strong>Tamaño de página:</strong> Páginas muy grandes pueden tardar más en procesarse</li>
+                        <li><strong>Restricciones de acceso:</strong> Algunas páginas pueden tener restricciones que impidan la extracción de contenido</li>
+                        <li><strong>Contenido dinámico:</strong> El sistema extrae el contenido visible de la página</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Planificaciones -->
+            <section id="planificaciones" class="doc-section" style="display: none;">
+                <h1>📋 Planificaciones</h1>
+                
+                <h2>Descripción</h2>
+                <p>El sistema de Planificaciones de Plan Maestro PRIME ofrece herramientas inteligentes para facilitar la creación de planificaciones educativas estructuradas y alineadas con el currículo uruguayo. Con el modo inteligente del Formulador de Prompts, puedes generar planificaciones precisas y contextualizadas de manera eficiente.</p>
+
+                <h2>Modo Inteligente: Formulador de Prompts</h2>
+                <div class="card">
+                    <h3>🎯 Sistema Inteligente de Planificación</h3>
+                    <p>El sistema cuenta con un <strong>modo inteligente</strong> que es el <strong>Formulador de Prompts</strong>, una herramienta especializada que te permite crear planificaciones educativas de forma estructurada y precisa mediante la selección de parámetros curriculares específicos.</p>
+                    
+                    <h4>✨ Características del Modo Inteligente:</h4>
+                    <ul>
+                        <li><strong>Selección de Unidad Curricular:</strong> Elige el espacio curricular específico que deseas planificar (ej: Matemática, Lengua Española, Ciencias Naturales, etc.)</li>
+                        <li><strong>Selección de Grado:</strong> Especifica el grado o nivel educativo para el cual vas a planificar (ej: 3 años, 4 años, 5 años, 1ro, 2do, etc.)</li>
+                        <li><strong>Selección de Contenido:</strong> Elige el contenido específico perteneciente al grado seleccionado, alineado con el currículo uruguayo</li>
+                        <li><strong>Dropdowns Dependientes:</strong> Los menús se filtran automáticamente según tus selecciones previas, facilitando la navegación</li>
+                        <li><strong>Generación Automática:</strong> El sistema genera prompts estructurados listos para usar con agentes de IA</li>
+                    </ul>
+                </div>
+
+                <h3>📚 Estructura de Selección</h3>
+                <p>El Formulador de Prompts utiliza una estructura jerárquica que te guía paso a paso:</p>
+                <ol>
+                    <li><strong>Tramo Educativo:</strong> Selecciona el tramo correspondiente (Tramo 1, Tramo 2, etc.)</li>
+                    <li><strong>Unidad Curricular (Espacio Curricular):</strong> Elige la materia o área curricular específica</li>
+                    <li><strong>Grado:</strong> Selecciona el grado o nivel educativo</li>
+                    <li><strong>Contenido:</strong> Elige el contenido específico del currículo perteneciente a ese grado</li>
+                </ol>
+
+                <h3>🚀 Cómo Usar el Modo Inteligente</h3>
+                <div class="card">
+                    <h4>Pasos para Crear una Planificación:</h4>
+                    <ol>
+                        <li>Accede al <strong>Formulador de Prompts</strong> desde el menú principal</li>
+                        <li>Selecciona el <strong>Tramo</strong> educativo correspondiente</li>
+                        <li>Elige la <strong>Unidad Curricular</strong> (espacio curricular) que deseas planificar</li>
+                        <li>Selecciona el <strong>Grado</strong> específico para el cual vas a crear la planificación</li>
+                        <li>Elige el <strong>Contenido</strong> perteneciente a ese grado del currículo uruguayo</li>
+                        <li>Haz clic en <strong>"Generar Prompt"</strong></li>
+                        <li>El sistema generará un prompt estructurado con toda la información seleccionada</li>
+                        <li>Copia el prompt generado y úsalo con cualquier agente de IA para crear tu planificación completa</li>
+                    </ol>
+                </div>
+
+                <h3>💡 Ventajas del Modo Inteligente</h3>
+                <ul>
+                    <li><strong>Precisión Curricular:</strong> Asegura que tus planificaciones estén alineadas con el currículo oficial uruguayo</li>
+                    <li><strong>Ahorro de Tiempo:</strong> Evita tener que escribir manualmente toda la información curricular</li>
+                    <li><strong>Consistencia:</strong> Genera prompts estructurados y consistentes para todas tus planificaciones</li>
+                    <li><strong>Facilidad de Uso:</strong> Interfaz intuitiva con dropdowns que se filtran automáticamente</li>
+                    <li><strong>Flexibilidad:</strong> Los prompts generados pueden usarse con cualquier agente de IA de tu preferencia</li>
+                </ul>
+
+                <h3>🎓 Casos de Uso</h3>
+                <div class="card">
+                    <h4>Ejemplos de Planificaciones:</h4>
+                    <ul>
+                        <li><strong>Planificación de Clase:</strong> Crea planificaciones detalladas para clases específicas usando el contenido curricular seleccionado</li>
+                        <li><strong>Planificación Mensual:</strong> Genera planificaciones mensuales estructuradas por unidad curricular y grado</li>
+                        <li><strong>Planificación Anual:</strong> Organiza tus planificaciones anuales basadas en los contenidos del currículo</li>
+                        <li><strong>Material Didáctico:</strong> Usa los prompts para generar materiales educativos alineados con el currículo</li>
+                        <li><strong>Evaluaciones:</strong> Crea evaluaciones basadas en los contenidos específicos del grado seleccionado</li>
+                    </ul>
+                </div>
+
+                <h3>📖 Integración con el Currículo Uruguayo</h3>
+                <p>El sistema está completamente integrado con el currículo educativo uruguayo, lo que significa que:</p>
+                <ul>
+                    <li>Todos los espacios curriculares están disponibles según el tramo seleccionado</li>
+                    <li>Los grados y contenidos están organizados según la estructura oficial</li>
+                    <li>Los prompts generados incluyen la terminología y estructura correcta del currículo</li>
+                    <li>Las planificaciones resultantes están alineadas con las normativas educativas uruguayas</li>
+                </ul>
             </section>
 
             <!-- Audio Features -->
@@ -1740,7 +1966,7 @@
             <!-- Stats Section -->
             <div class="footer-stats">
                 <div class="stat-item">
-                    <span class="stat-number">6+</span>
+                    <span class="stat-number">10+</span>
                     <span class="stat-label">Funcionalidades Principales</span>
                 </div>
                 <div class="stat-item">
