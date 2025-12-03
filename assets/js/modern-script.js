@@ -170,7 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(updateCounter);
     }
 
-    // Parallax effect for hero section
+    // Parallax effect for hero section - DISABLED (Handled by GSAP)
+    /*
     const heroSection = document.querySelector('.hero-section');
     if (heroSection) {
         window.addEventListener('scroll', function() {
@@ -179,6 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
             heroSection.style.transform = `translateY(${rate}px)`;
         });
     }
+    */
 
     // Feature cards hover effect
     const featureCards = document.querySelectorAll('.feature-card');
@@ -241,7 +243,8 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    // Typing effect for hero title
+    // Typing effect for hero title - DISABLED (Handled by GSAP)
+    /*
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         // Store the original HTML structure
@@ -271,6 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Start typing effect after a delay
         setTimeout(typeWriter, 1000);
     }
+    */
 
     // Lazy loading for images
     const images = document.querySelectorAll('img[data-src]');
