@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Maestro PRIME - Ecosistema Completo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.02em;
+        }
+
+        .mindmap {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 150px);
+            min-height: 800px;
+            overflow: hidden;
+        }
+
+        .node {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .node:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .node-center {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #7367f0 0%, #9c88ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(115, 103, 240, 0.4);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            z-index: 100;
+        }
+
+        .node-center:hover {
+            transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 15px 60px rgba(115, 103, 240, 0.6);
+        }
+
+        .node-primary {
+            background: linear-gradient(135deg, #00cfe8 0%, #00d4ff 100%);
+            border-radius: 20px;
+            padding: 20px 30px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 8px 30px rgba(0, 207, 232, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            min-width: 180px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .node-primary:hover {
+            box-shadow: 0 12px 40px rgba(0, 207, 232, 0.5);
+        }
+
+        .node-secondary {
+            background: linear-gradient(135deg, #28c76f 0%, #48d597 100%);
+            border-radius: 15px;
+            padding: 12px 20px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.9rem;
+            box-shadow: 0 6px 20px rgba(40, 199, 111, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            min-width: 140px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .node-secondary:hover {
+            box-shadow: 0 10px 30px rgba(40, 199, 111, 0.5);
+        }
+
+        .node-tertiary {
+            background: linear-gradient(135deg, #ff9f43 0%, #ffb85c 100%);
+            border-radius: 12px;
+            padding: 8px 16px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 15px rgba(255, 159, 67, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            min-width: 120px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .node-tertiary:hover {
+            box-shadow: 0 8px 25px rgba(255, 159, 67, 0.5);
+        }
+
+        .connection {
+            position: absolute;
+            stroke: rgba(255, 255, 255, 0.3);
+            stroke-width: 2;
+            fill: none;
+            pointer-events: none;
+            z-index: 0;
+            transition: all 0.4s ease;
+        }
+
+        .connection:hover {
+            stroke: rgba(255, 255, 255, 0.6);
+            stroke-width: 3;
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #667eea;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-btn:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10000;
+            max-width: 250px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .node-center {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .mindmap {
+                height: auto;
+                min-height: 600px;
+            }
+
+            .node-center {
+                width: 150px;
+                height: 150px;
+                font-size: 1.2rem;
+            }
+
+            .node-primary {
+                padding: 15px 20px;
+                font-size: 0.9rem;
+                min-width: 150px;
+            }
+
+            .controls {
+                bottom: 15px;
+                right: 15px;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🧠 Plan Maestro PRIME</h1>
+        <div class="mindmap" id="mindmap">
+            <!-- Nodos se generarán dinámicamente -->
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="control-btn" onclick="resetView()">🔄 Reset</button>
+        <button class="control-btn" onclick="toggleAnimations()">⏸️ Pausar</button>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        const mindmapData = {
+            center: {
+                x: 50,
+                y: 50,
+                label: "Plan Maestro\nPRIME"
+            },
+            primary: [
+                {
+                    id: 'tech',
+                    label: '🏗️ Arquitectura Técnica',
+                    x: 15,
+                    y: 20,
+                    children: [
+                        { label: 'Next.js 14', icon: '⚛️' },
+                        { label: 'React 18', icon: '⚛️' },
+                        { label: 'TypeScript', icon: '📘' },
+                        { label: 'MongoDB', icon: '🍃' },
+                        { label: 'Tailwind CSS', icon: '🎨' },
+                        { label: 'Docker', icon: '🐳' }
+                    ]
+                },
+                {
+                    id: 'ai',
+                    label: '🤖 Inteligencia Artificial',
+                    x: 85,
+                    y: 20,
+                    children: [
+                        { label: 'GPT-4', icon: '🧠' },
+                        { label: 'DALL-E', icon: '🎨' },
+                        { label: 'Whisper', icon: '🎤' },
+                        { label: 'Agentes Especializados', icon: '👥' },
+                        { label: 'Streaming en Tiempo Real', icon: '⚡' },
+                        { label: 'Análisis de Documentos', icon: '📄' }
+                    ]
+                },
+                {
+                    id: 'content',
+                    label: '📚 Gestión de Contenido',
+                    x: 15,
+                    y: 50,
+                    children: [
+                        { label: 'Base de Datos Curricular', icon: '📖' },
+                        { label: 'Maternal (0-6 años)', icon: '👶' },
+                        { label: 'EBI Tramos 1-4', icon: '🎓' },
+                        { label: 'EMS Secundaria/UTU', icon: '🏫' },
+                        { label: 'Metodologías Activas', icon: '💡' },
+                        { label: 'DUA', icon: '♿' }
+                    ]
+                },
+                {
+                    id: 'planning',
+                    label: '🗓️ Planificación',
+                    x: 85,
+                    y: 50,
+                    children: [
+                        { label: 'Generador de Planes', icon: '📋' },
+                        { label: 'Evaluaciones', icon: '✅' },
+                        { label: 'Actividades', icon: '🎯' },
+                        { label: 'Secuencias Didácticas', icon: '📝' },
+                        { label: 'Calendario Integrado', icon: '📅' },
+                        { label: 'Cronogramas', icon: '⏰' }
+                    ]
+                },
+                {
+                    id: 'docs',
+                    label: '📄 Plan Docs',
+                    x: 15,
+                    y: 80,
+                    children: [
+                        { label: 'Editor WYSIWYG', icon: '✏️' },
+                        { label: 'TinyMCE 6', icon: '📝' },
+                        { label: 'Auto-guardado', icon: '💾' },
+                        { label: 'Exportación PDF/DOCX', icon: '📤' },
+                        { label: 'Gestión de Carpetas', icon: '📁' },
+                        { label: 'Búsqueda Inteligente', icon: '🔍' }
+                    ]
+                },
+                {
+                    id: 'mindmaps',
+                    label: '🧠 Mapas Mentales',
+                    x: 85,
+                    y: 80,
+                    children: [
+                        { label: 'Generación Automática', icon: '🎨' },
+                        { label: 'Visualización Interactiva', icon: '👁️' },
+                        { label: 'Zoom y Navegación', icon: '🔍' },
+                        { label: 'Expansión/Colapso', icon: '↕️' },
+                        { label: 'Tipos de Nodos', icon: '🎯' },
+                        { label: 'Exportación', icon: '💾' }
+                    ]
+                },
+                {
+                    id: 'chat',
+                    label: '💬 Chat Avanzado',
+                    x: 50,
+                    y: 15,
+                    children: [
+                        { label: 'Conversaciones Persistentes', icon: '💭' },
+                        { label: 'Múltiples Ventanas', icon: '🪟' },
+                        { label: 'Markdown Support', icon: '📝' },
+                        { label: 'Fórmulas Matemáticas', icon: '🔢' },
+                        { label: 'Adjuntar Archivos', icon: '📎' },
+                        { label: 'Exportar Conversaciones', icon: '💾' }
+                    ]
+                },
+                {
+                    id: 'audio',
+                    label: '🎤 Audio y Voz',
+                    x: 50,
+                    y: 85,
+                    children: [
+                        { label: 'Text-to-Speech', icon: '🔊' },
+                        { label: 'Speech-to-Text', icon: '🎙️' },
+                        { label: 'Grabación de Audio', icon: '⏺️' },
+                        { label: 'Streaming en Vivo', icon: '📡' },
+                        { label: 'Múltiples Voces', icon: '👤' },
+                        { label: 'Transcripción Automática', icon: '📝' }
+                    ]
+                },
+                {
+                    id: 'payments',
+                    label: '💳 Pagos y Suscripciones',
+                    x: 30,
+                    y: 35,
+                    children: [
+                        { label: 'MercadoPago', icon: '💵' },
+                        { label: 'Planes Premium', icon: '⭐' },
+                        { label: 'Renovación Automática', icon: '🔄' },
+                        { label: 'Facturación', icon: '🧾' },
+                        { label: 'Webhooks', icon: '🔗' }
+                    ]
+                },
+                {
+                    id: 'security',
+                    label: '🔐 Seguridad',
+                    x: 70,
+                    y: 35,
+                    children: [
+                        { label: 'Google OAuth', icon: '🔑' },
+                        { label: 'JWT Tokens', icon: '🎫' },
+                        { label: 'Control de Acceso', icon: '🛡️' },
+                        { label: 'Encriptación', icon: '🔒' },
+                        { label: 'GDPR Compliance', icon: '📜' }
+                    ]
+                },
+                {
+                    id: 'ui',
+                    label: '🎨 Interfaz Moderna',
+                    x: 30,
+                    y: 65,
+                    children: [
+                        { label: 'Tema Claro/Oscuro', icon: '🌓' },
+                        { label: 'Diseño Responsive', icon: '📱' },
+                        { label: 'Animaciones Suaves', icon: '✨' },
+                        { label: 'Componentes Reutilizables', icon: '🧩' },
+                        { label: 'PWA Ready', icon: '📲' }
+                    ]
+                },
+                {
+                    id: 'integrations',
+                    label: '🔗 Integraciones',
+                    x: 70,
+                    y: 65,
+                    children: [
+                        { label: 'OpenAI API', icon: '🤖' },
+                        { label: 'Google APIs', icon: '🔍' },
+                        { label: 'Email Services', icon: '📧' },
+                        { label: 'Redis Cache', icon: '⚡' },
+                        { label: 'BullMQ', icon: '📬' }
+                    ]
+                }
+            ]
+        };
+
+        let animationsEnabled = true;
+        let tooltip = document.getElementById('tooltip');
+        const mindmap = document.getElementById('mindmap');
+        let containerWidth = mindmap.offsetWidth || window.innerWidth;
+        let containerHeight = mindmap.offsetHeight || window.innerHeight;
+
+        let svgContainer = null;
+
+        function createNode(data, level) {
+            const node = document.createElement('div');
+            node.className = `node node-${level}`;
+            
+            const label = data.label.replace(/\n/g, '<br>');
+            node.innerHTML = label;
+            node.dataset.level = level;
+            node.dataset.id = data.id || '';
+            
+            if (data.children) {
+                node.dataset.hasChildren = 'true';
+                node.dataset.children = JSON.stringify(data.children);
+            }
+            
+            node.addEventListener('mouseenter', (e) => {
+                if (data.children && data.children.length > 0) {
+                    showTooltip(e.target, data.children);
+                }
+            });
+            
+            node.addEventListener('mouseleave', () => {
+                hideTooltip();
+            });
+            
+            return node;
+        }
+
+        function createConnection(x1, y1, x2, y2) {
+            if (!svgContainer) {
+                svgContainer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svgContainer.className = 'connection';
+                svgContainer.style.position = 'absolute';
+                svgContainer.style.left = '0';
+                svgContainer.style.top = '0';
+                svgContainer.style.width = '100%';
+                svgContainer.style.height = '100%';
+                svgContainer.style.pointerEvents = 'none';
+                svgContainer.setAttribute('preserveAspectRatio', 'none');
+                mindmap.appendChild(svgContainer);
+            }
+            
+            // Actualizar viewBox si es necesario
+            svgContainer.setAttribute('viewBox', `0 0 ${containerWidth} ${containerHeight}`);
+            
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            const dx = x2 - x1;
+            const dy = y2 - y1;
+            const controlX1 = x1 + dx * 0.5;
+            const controlY1 = y1;
+            const controlX2 = x2 - dx * 0.5;
+            const controlY2 = y2;
+            
+            const pathData = `M ${x1} ${y1} C ${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${x2} ${y2}`;
+            path.setAttribute('d', pathData);
+            path.setAttribute('stroke', 'rgba(255, 255, 255, 0.3)');
+            path.setAttribute('stroke-width', '2');
+            path.setAttribute('fill', 'none');
+            path.style.transition = 'all 0.4s ease';
+            
+            svgContainer.appendChild(path);
+            return path;
+        }
+
+        function showTooltip(element, children) {
+            const rect = element.getBoundingClientRect();
+            const mindmapRect = mindmap.getBoundingClientRect();
+            
+            tooltip.innerHTML = children.map(child => {
+                const icon = child.icon || '•';
+                return `<div style="margin: 4px 0; line-height: 1.6;">${icon} ${child.label}</div>`;
+            }).join('');
+            
+            const tooltipX = rect.left - mindmapRect.left + rect.width / 2;
+            const tooltipY = rect.top - mindmapRect.top + rect.height + 15;
+            
+            tooltip.style.left = `${tooltipX}px`;
+            tooltip.style.top = `${tooltipY}px`;
+            tooltip.style.transform = 'translateX(-50%)';
+            tooltip.classList.add('show');
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove('show');
+        }
+
+        function renderMindmap() {
+            mindmap.innerHTML = '';
+            svgContainer = null;
+            
+            const centerX = containerWidth / 2;
+            const centerY = containerHeight / 2;
+            
+            // Nodo central
+            const centerNode = createNode(mindmapData.center, 'center');
+            mindmap.appendChild(centerNode);
+            
+            // Nodos primarios y conexiones
+            mindmapData.primary.forEach(primary => {
+                const primaryX = (primary.x / 100) * containerWidth;
+                const primaryY = (primary.y / 100) * containerHeight;
+                
+                // Crear conexión
+                createConnection(centerX, centerY, primaryX, primaryY);
+                
+                // Crear nodo primario
+                const primaryNode = createNode(primary, 'primary');
+                primaryNode.style.left = `${primaryX}px`;
+                primaryNode.style.top = `${primaryY}px`;
+                primaryNode.style.transform = 'translate(-50%, -50%)';
+                mindmap.appendChild(primaryNode);
+            });
+        }
+
+        function resetView() {
+            renderMindmap();
+        }
+
+        function toggleAnimations() {
+            animationsEnabled = !animationsEnabled;
+            const centerNode = document.querySelector('.node-center');
+            if (centerNode) {
+                if (animationsEnabled) {
+                    centerNode.style.animation = 'pulse 3s ease-in-out infinite';
+                } else {
+                    centerNode.style.animation = 'none';
+                }
+            }
+        }
+
+        // Inicializar cuando se carga la página
+        function init() {
+            // Actualizar dimensiones
+            containerWidth = mindmap.offsetWidth || window.innerWidth;
+            containerHeight = mindmap.offsetHeight || window.innerHeight;
+            renderMindmap();
+        }
+
+        // Inicializar cuando el DOM está listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            // Pequeño delay para asegurar que el DOM esté completamente renderizado
+            setTimeout(init, 100);
+        }
+
+        // Re-renderizar cuando cambia el tamaño de la ventana
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                containerWidth = mindmap.offsetWidth;
+                containerHeight = mindmap.offsetHeight;
+                renderMindmap();
+            }, 250);
+        });
+    </script>
+</body>
+</html>

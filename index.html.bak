@@ -47,56 +47,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/modern-style.css">
     
-    <!-- Mi Memoria Feature Styles -->
-    <style>
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        @keyframes glow {
-            0% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.4); }
-            100% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
-        }
-        
-        .hero-float-card.card-5 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            padding: 15px 25px;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .hero-float-card.card-5 i {
-            font-size: 24px;
-            margin-right: 8px;
-        }
-        
-        .memory-highlight-banner {
-            background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 10px 40px rgba(138, 43, 226, 0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .memory-highlight-banner i {
-            font-size: 28px;
-        }
-    </style>
-    
     <!-- Facebook Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -261,10 +211,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#lanzamiento2026">Funcionalidades</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#inspirar">Qué es?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#porqueusar">Por qué Usar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#inspirar">Qué es Plaɳ MaeŠtrɸ?</a></li>
                     <li class="nav-item"><a class="nav-link" href="#ecosistema">Ecosistema</a></li>
                     <li class="nav-item"><a class="nav-link" href="./documentation.html">Documentación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./landing-modal/index.html">Lanzamiento</a></li>
                 </ul>
                 
                 <div class="header-actions ms-3">
@@ -290,47 +241,60 @@
                     <div class="hero-content parallax-content" data-speed="0.3">
                         <span class="badge bg-warning text-dark mb-3">Nuevo 2026</span>
                         <h1 class="hero-title">
-                            <span class="text-gradient">Plan Maestro PRIME - 2026</span>
-                            <br>Plataforma Educativa con IA
+                            La Calculadora del <span class="text-gradient">Pensamiento Docente</span> Uruguayo
                         </h1>
                         <p class="hero-subtitle">
-                            La herramienta definitiva para educadores modernos. <br>
-                            Planifica, crea y evalúa con inteligencia artificial.
+                            La herramienta que te produce el verdadero placer de PLANIFICAR!<br>
+                            Grandes docentes merecen <strong>GRANDES HERRAMIENTAS</strong>.
                         </p>
                         <div class="hero-buttons">
                             <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg me-3" onclick="fbq('track', 'Lead', {content_name: 'Hero CTA - Empezar Ahora'});">
                                 <i class="fas fa-rocket me-2"></i>Empezar Ahora
                             </a>
-                            <a href="#lanzamiento2026" class="btn btn-outline-light btn-lg">
-                                <i class="fas fa-arrow-down me-2"></i>Descubre Funcionalidades
+                            <a href="#inspirar" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-play me-2"></i>Que es?
                             </a>
+                        </div>
+                        <div class="hero-stats mt-5">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <h3>100%</h3>
+                                        <p>Documentación ANEP</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <h3>24/7</h3>
+                                        <p>Disponibilidad</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <h3>+ con - tiempo</h3>
+                                        <p>Produce y enriquece tus planificaciones en tiempo récord!</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
-                    <!-- New Hero Visual from Modal -->
-                    <div class="hero-visual">
-                        <div class="floating-cards">
-                            <div class="hero-float-card card-1">
-                                <i class="fas fa-brain"></i>
-                                <span>Creatividad Inteligente</span>
+                    <div class="hero-image parallax-content" data-speed="0.1">
+                        <div class="hero-illustration">
+                            <!-- Imagen real de las mujeres -->
+                            <div class="real-people-image">
+                                <img src="assets/images/imgplan.png" alt="Docentes usando Plan MaeŠtrɸ" class="img-fluid">
                             </div>
-                            <div class="hero-float-card card-2">
-                                <i class="fas fa-file-alt"></i>
-                                <span>Plan Docs</span>
-                            </div>
-                            <div class="hero-float-card card-3">
-                                <i class="fas fa-images"></i>
-                                <span>Generador de Imágenes</span>
-                            </div>
-                            <div class="hero-float-card card-4">
-                                <i class="fas fa-map"></i>
-                                <span>Mapas Mentales</span>
-                            </div>
-                            <!-- Nueva card de Mi Memoria - Destacada -->
-                            <div class="hero-float-card card-5" style="background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite alternate; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                                <i class="fas fa-memory" style="color: white;"></i>
-                                <span style="color: white;">🆕 Mi Memoria</span>
+                            
+                            <!-- Elementos decorativos animados -->
+                            <div class="decorative-elements">
+                                <div class="floating-icon floating-icon-1">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="floating-icon floating-icon-3">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -339,10 +303,10 @@
         </div>
     </section>
 
-    <!-- Detailed Features Section (Replaces Launch 2026 Overview) -->
+    <!-- Launch 2026 Overview for Docentes -->
     <section id="lanzamiento2026" class="py-5 parallax-section">
         <div class="parallax-bg cta-bg" data-speed="0.35"></div>
-        <div class="container detailed-features-container">
+        <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-9" data-aos="fade-up">
                     <div class="launch-ticker mb-4" aria-label="Lanzamiento Plan Maestro 2026">
@@ -350,374 +314,206 @@
                             <span class="launch-pill">Lanzamiento · Plan Maestro 2026</span>
                             <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
                             <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
+                            <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
+                            <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
+                            <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
+                            <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
+                            <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
                         </div>
                     </div>
-                    
-                    <!-- Banner destacado Mi Memoria -->
-                    <div class="memory-highlight-banner mb-4">
-                        <i class="fas fa-brain"></i>
-                        <div>
-                            <strong>🆕 ¡NUEVO! Mi Memoria</strong>
-                            <span style="opacity: 0.9;"> - La IA que aprende de ti y personaliza cada respuesta</span>
-                        </div>
-                        <i class="fas fa-arrow-down" style="animation: float 1.5s ease-in-out infinite;"></i>
+                    <h2 class="section-title">Todo lo que usarás desde el primer día</h2>
+                    <p class="section-subtitle">Un resumen claro de las herramientas clave pensadas para facilitar tu planificación, creación y evaluación en aula</p>
+
+                    <!-- Preview del Dashboard 2026 -->
+                    <div class="text-center mb-5">
+                        <a href="#" class="d-inline-block img-hover-zoom" data-bs-toggle="modal" data-bs-target="#pm26Modal" aria-label="Ampliar vista del dashboard 2026">
+                            <img src="assets/images/pm-26.png" alt="Dashboard Plan Maestro 2026" class="img-fluid rounded-4 shadow-lg" style="max-height: 340px;">
+                        </a>
+                        <div class="small text-muted mt-2">Haz clic para ampliar</div>
                     </div>
-                    
-                    <h2 class="section-title">Todas las funcionalidades de Plan Maestro PRIME</h2>
-                    <p class="section-subtitle">Un ecosistema completo de herramientas para potenciar tu labor docente</p>
                 </div>
             </div>
 
-            <!-- Dashboard Principal -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>Dashboard Principal</h3>
-                        <p>Centro de control con vista general de todas las herramientas</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="50">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h4>Plan de Documentos</h4>
+                        <p>Redacta, organiza y exporta tus planificaciones y documentos en segundos.</p>
                     </div>
                 </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <img src="assets/images/pm-26.png" alt="Vista del dashboard principal de Plan Maestro PRIME" class="img-fluid">
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>Prompts Educativos</h4>
+                        <p>Genera ideas y consignas por tramo, espacio y grado para empezar fuerte.</p>
                     </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Agenda y calendario integrado</span>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Estadísticas y métricas en tiempo real</span>
+                        <h4>Mapas Mentales</h4>
+                        <p>Visualiza contenidos y relaciones para preparar clases con enfoque.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-images"></i>
                         </div>
-                        <div class="detailed-feature-item">
+                        <h4>Imágenes con IA</h4>
+                        <p>Crea recursos visuales para tus materiales y disparadores iniciales.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>Base de Conocimientos 2026</h4>
+                        <p>Accede a toda la documentación y programas actualizados al ciclo lectivo 2026.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h4>Evalúa</h4>
+                        <p>Rúbricas, listas de cotejo y descripciones fundadas listas para usar.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="350">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-magnet"></i>
+                        </div>
+                        <h4>Imán de Alumnos</h4>
+                        <p>Textos persuasivos y gatillos mentales para activar el interés.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h4>Agentes IA Integrados</h4>
+                        <p>Múltiples agentes inteligentes trabajando en conjunto para potenciar tu creatividad.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-5">
+                <div class="col-auto" data-aos="zoom-in">
+                    <a href="./landing-modal/index.html" class="btn btn-warning btn-lg">
+                        <i class="fas fa-magic me-2"></i>Ver todas las herramientas del lanzamiento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal: PM-26 Preview -->
+    <div class="modal fade" id="pm26Modal" tabindex="-1" aria-labelledby="pm26ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-0">
+                <div class="modal-body p-0">
+                    <img src="assets/images/pm-26.png" alt="Dashboard Plan Maestro 2026" class="img-fluid w-100 rounded-3">
+                </div>
+                <div class="modal-footer bg-dark border-0 justify-content-between">
+                    <span class="text-light-50 small">Dashboard 2026</span>
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="porqueusar" class="features-section py-5 parallax-section">
+        <div class="parallax-bg features-bg" data-speed="0.2"></div>
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge bg-primary mb-3">Características</span>
+                    <h2 class="section-title">¿Por qué elegir Plaɳ MaeŠtrɸ?</h2>
+                    <p class="section-subtitle">Descubre las ventajas que hacen de nuestra plataforma la herramienta preferida de los docentes uruguayos</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Velocidad</h4>
+                        <p>Planificaciones hechas en tiempo récord con nuestra IA optimizada</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Sistema Adaptado</h4>
+                        <p>Diseñado específicamente para las necesidades del docente uruguayo</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <i class="fas fa-lightbulb"></i>
-                            <span>Tips diarios personalizados</span>
                         </div>
+                        <h4>Enciende tus Ideas</h4>
+                        <p>El disparador perfecto para encender tu creatividad de forma instantánea</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Plan de Documentos -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>Plan de Documentos</h3>
-                        <p>Editor avanzado de documentos con múltiples formatos de exportación</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <img src="assets/images/gestor-doc.png" alt="Editor Plan Docs - Plan de Documentos" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-edit"></i>
-                            <span>Editor de texto optimizado para escritura</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-file-pdf"></i>
-                            <span>Exportación a PDF, DOCX y TXT</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fab fa-markdown"></i>
-                            <span>Conversión automática de Markdown</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-folder"></i>
-                            <span>Sistema de carpetas y organización</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ChatGPT Integrado -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>ChatGPT Integrado</h3>
-                        <p>La plataforma de IA por excelencia disponible y sin límites</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <img src="assets/images/ChatGPT.png" alt="ChatGPT Integrado" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-infinity"></i>
-                            <span>Sin límites de uso y consultas</span>
-                        </div>
-                        <div class="detailed-feature-item">
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <i class="fas fa-rocket"></i>
-                            <span>Versión de ChatGPT 5 ILIMITADA!</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-history"></i>
-                            <span>Historial de conversaciones guardado</span>
+                        <h4>Vanguardista</h4>
+                        <p>La educación por encima en la era tecnológica con herramientas de última generación</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
                         </div>
+                        <h4>Más Tiempo Libre</h4>
+                        <p>Optimiza tu tiempo para potenciar la calidad y el desarrollo profesional</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Calidad Garantizada</h4>
+                        <p>Herramienta pensada para trabajos completos y profesionales</p>
                     </div>
                 </div>
             </div>
-
-            <!-- MI MEMORIA - NUEVA FEATURE DESTACADA -->
-            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(0, 207, 232, 0.1) 100%); border: 2px solid rgba(138, 43, 226, 0.3); position: relative; overflow: hidden;">
-                <!-- Badge NUEVO -->
-                <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4); animation: pulse 2s infinite;">
-                    🆕 NUEVA FUNCIÓN
-                </div>
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3 style="background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🧠 Mi Memoria - IA que te Conoce</h3>
-                        <p>El sistema aprende de tus conversaciones y personaliza cada respuesta según tu perfil docente</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image" style="position: relative;">
-                        <!-- Visual representation of memory system -->
-                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
-                            <!-- Animated background circles -->
-                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(138, 43, 226, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
-                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(6, 182, 212, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
-                            
-                            <!-- Main brain icon -->
-                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">🧠</div>
-                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px;">Memoria Híbrida Inteligente</h4>
-                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto;">
-                                Cada conversación enriquece tu perfil. La IA recuerda tus preferencias, tu contexto educativo y adapta las respuestas a TU forma de trabajar.
-                            </p>
-                            
-                            <!-- Memory cards floating -->
-                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
-                                <div style="background: rgba(138, 43, 226, 0.2); padding: 10px 20px; border-radius: 30px; color: #A78BFA; font-size: 14px; border: 1px solid rgba(138, 43, 226, 0.3);">
-                                    ⚙️ Preferencias
-                                </div>
-                                <div style="background: rgba(59, 130, 246, 0.2); padding: 10px 20px; border-radius: 30px; color: #60A5FA; font-size: 14px; border: 1px solid rgba(59, 130, 246, 0.3);">
-                                    📋 Hechos
-                                </div>
-                                <div style="background: rgba(16, 185, 129, 0.2); padding: 10px 20px; border-radius: 30px; color: #34D399; font-size: 14px; border: 1px solid rgba(16, 185, 129, 0.3);">
-                                    🎓 Contexto
-                                </div>
-                                <div style="background: rgba(249, 115, 22, 0.2); padding: 10px 20px; border-radius: 30px; color: #FB923C; font-size: 14px; border: 1px solid rgba(249, 115, 22, 0.3);">
-                                    💬 Resúmenes
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detailed-feature-list" style="opacity: 1 !important;">
-                        <div class="detailed-feature-item" style="background: rgba(138, 43, 226, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
-                            <i class="fas fa-user-graduate" style="color: #8B5CF6; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Aprende tu perfil:</strong> Recuerda si enseñas primaria, secundaria, tu materia y tipo de institución</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(6, 182, 212, 0.15); border-left: 4px solid #06B6D4; opacity: 1 !important;">
-                            <i class="fas fa-magic" style="color: #06B6D4; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Respuestas personalizadas:</strong> Adapta el tono, longitud y ejemplos según tus preferencias</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
-                            <i class="fas fa-sync-alt" style="color: #10B981; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Extracción automática:</strong> Aprende de cada conversación sin que hagas nada</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
-                            <i class="fas fa-sliders-h" style="color: #F97316; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Control total:</strong> Agrega, edita o elimina memorias desde tu panel personal</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
-                            <i class="fas fa-chart-line" style="color: #EC4899; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Mejora continua:</strong> Mientras más uses la plataforma, mejor te conoce</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
-                            <i class="fas fa-shield-alt" style="color: #6366F1; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Privacidad garantizada:</strong> Tus datos están protegidos y solo tú decides qué compartir</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
-                            <i class="fas fa-search" style="color: #0EA5E9; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Búsqueda inteligente:</strong> Encuentra rápidamente cualquier memoria guardada con búsqueda avanzada</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Call to action para usuarios antiguos -->
-                <div style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: center;">
-                    <p style="margin: 0 0 15px 0; font-size: 16px; color: rgba(255,255,255,0.7);;">
-                        <strong>👋 ¿Ya eres usuario de Plan Maestro?</strong> Tu sistema de memoria ya está activo. 
-                        <br>¡Empieza a chatear y observa cómo las respuestas se vuelven más personalizadas!
-                    </p>
-                    <!-- <a href="https://prime.plan-maestro.com/dashboard/memoria" target="_blank" class="btn btn-outline-primary btn-sm" style="border-color: #8B5CF6; color: #8B5CF6;">
-                        <i class="fas fa-external-link-alt me-2"></i>Ver Mi Memoria
-                    </a> -->
-                </div>
-            </div>
-
-            <!-- Grabador de Audio -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-microphone"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>Grabador de Audio y Reproductor</h3>
-                        <p>Graba tus audios y reproduce los que la plataforma te produce</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <img src="assets/images/Graba audio.png" alt="Audio Integrado" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-comment-dots"></i>
-                            <span>Graba tu prompt y obtén audio y texto</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-headphones"></i>
-                            <span>Producción de respuestas en audio simultáneas</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Generador de Imágenes -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-images"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>Generador de Imágenes con IA</h3>
-                        <p>Crea imágenes únicas usando inteligencia artificial avanzada</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <img src="assets/images/gen-img.png" alt="Interfaz del generador de imágenes con IA" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-paint-brush"></i>
-                            <span>Generación por descripción de texto</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                            <span>Múltiples tamaños y calidades</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-download"></i>
-                            <span>Descarga directa de imágenes</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gestor de Documentos -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-file-upload"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>Gestor Inteligente de Documentos</h3>
-                        <p>Sube y analiza documentos PDF, Word, TXT, videos de YouTube y páginas web</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <img src="assets/images/gestor-docs-2.png" alt="Gestor inteligente de documentos" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-upload"></i>
-                            <span>Subida de PDF, DOC, DOCX, TXT</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fab fa-youtube"></i>
-                            <span>Carga y transcripción de videos de YouTube</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-globe"></i>
-                            <span>Importa contenido de páginas web</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-comments"></i>
-                            <span>Chat interactivo con documentos</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Formulador de Prompts -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-terminal"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>Formulador de Prompts Educativos</h3>
-                        <p>Genera prompts especializados para diferentes niveles y contenidos educativos</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <img src="assets/images/form-de-prompts.png" alt="Formulador de Prompts Educativos" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Contenidos por tramo y nivel educativo</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-layer-group"></i>
-                            <span>Unidades curriculares organizadas</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-filter"></i>
-                            <span>Filtros automáticos por grado</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-             <!-- Mapas Mentales -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>Sistema de Mapas Mentales</h3>
-                        <p>Visualización interactiva de conceptos y relaciones</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <img src="assets/images/mapa-mental.png" alt="Sistema de Mapas Mentales" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-plus-circle"></i>
-                            <span>Creación automática desde documentos</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-mouse-pointer"></i>
-                            <span>Interfaz interactiva y navegable</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-share-alt"></i>
-                            <span>Compartir mapas con link único</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -746,10 +542,6 @@
                             <div class="feature-item">
                                 <i class="fas fa-check-circle text-success"></i>
                                 <span>Banco de datos que se enriquece y aprende con cada registro</span>
-                            </div>
-                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%); padding: 10px 15px; border-radius: 10px; margin-top: 10px; border-left: 3px solid #8B5CF6;">
-                                <i class="fas fa-brain" style="color: #8B5CF6;"></i>
-                                <span><strong style="color: #8B5CF6;">🆕 NUEVO:</strong> Sistema "Mi Memoria" - La IA que te conoce y personaliza cada respuesta según tu perfil docente</span>
                             </div>
                         </div>
                     </div>
@@ -845,33 +637,13 @@
             
             <div class="row g-4">
 
-                <!-- MI MEMORIA - Card destacada del ecosistema -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
-                    <div class="ecosystem-card" style="border: 2px solid rgba(138, 43, 226, 0.5); background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%); position: relative; overflow: hidden;">
-                        <!-- Badge NUEVO -->
-                        <div style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 12px; z-index: 2;">
-                            🆕 NUEVO
-                        </div>
-                        <!-- Visual de cerebro -->
-                        <div class="card-img-top" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
-                            <div style="font-size: 80px; animation: pulse 3s ease-in-out infinite;">🧠</div>
-                            <!-- Partículas decorativas -->
-                            <div style="position: absolute; width: 60px; height: 60px; border-radius: 50%; background: rgba(138, 43, 226, 0.2); top: 20px; left: 20px; animation: float 4s ease-in-out infinite;"></div>
-                            <div style="position: absolute; width: 40px; height: 40px; border-radius: 50%; background: rgba(6, 182, 212, 0.2); bottom: 30px; right: 30px; animation: float 5s ease-in-out infinite reverse;"></div>
-                        </div>
-                        <div class="card-body">
-                            <h5 style="background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🧠 Mi Memoria</h5>
-                            <p>IA que aprende de ti: recuerda tus preferencias, contexto educativo y personaliza cada respuesta</p>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="ecosystem-card">
                         <img src="assets/images/cpt2.png" alt="Contenidos por tramo" class="card-img-top">
                         <div class="card-body">
                             <h5>Contenidos por tramo</h5>
                             <p>Absolutamente todos los contenidos organizados por tramo y grado correspondiente</p>
+                            <!-- <a href="./assets/pages/tramos1a4.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -882,6 +654,7 @@
                         <div class="card-body">
                             <h5>Evalúa</h5>
                             <p>Descripciones fundadas, listas de cotejo, rúbrica -> Cuenta con todos los instrumentos para evaluar</p>
+                            <!-- <a href="./assets/pages/tramos1a4.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -892,6 +665,7 @@
                         <div class="card-body">
                             <h5>Maternal 0 a 6 años</h5>
                             <p>Desde el nacimiento hasta los 6 años</p>
+                            <!-- <a href="./assets/pages/tramos1a4.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -902,6 +676,7 @@
                         <div class="card-body">
                             <h5>Tramos 1 a 4</h5>
                             <p>Este bloque comprende toda la educación primaria separada por TRAMOS</p>
+                           <!--  <a href="./assets/pages/tramos5y6.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -912,6 +687,7 @@
                         <div class="card-body">
                             <h5>Multigrado</h5>
                             <p>Multigrado unidocente - Planifica de forma más efectiva para todos los grados!</p>
+                           <!--  <a href="./assets/pages/tramos5y6.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -922,6 +698,7 @@
                         <div class="card-body">
                             <h5>Tramos 5 y 6</h5>
                             <p>Este bloque comprende los grados 7, 8 y 9</p>
+                           <!--  <a href="./assets/pages/tramos5y6.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -932,6 +709,7 @@
                         <div class="card-body">
                             <h5>EMS - DGES</h5>
                             <p>Unidades curriculares de EMS 1, 2 y 3 - DGES</p>
+                            <!-- <a href="./assets/pages/ems-dges.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -942,6 +720,7 @@
                         <div class="card-body">
                             <h5>EMS - DGETP</h5>
                             <p>Unidades curriculares de EMS 1, 2 y 3 - DGETP</p>
+                            <!-- <a href="./assets/pages/ems-dges.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -952,6 +731,7 @@
                         <div class="card-body">
                             <h5>Segundas Lenguas</h5>
                             <p>Comprende todos los tramos - Inglés y Portugués</p>
+                            <!-- <a href="./assets/pages/ems-dges.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -962,6 +742,7 @@
                         <div class="card-body">
                             <h5>Educación Física</h5>
                             <p>Comprende todos los tramos - Incluyendo talleres de DGETP - Utu</p>
+                            <!-- <a href="./assets/pages/ems-dges.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -972,6 +753,7 @@
                         <div class="card-body">
                             <h5>Metodologías Activas</h5>
                             <p>Todas las metodologías activas mencionadas en el MCN</p>
+                            <!-- <a href="./assets/pages/metodologias-activas.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->  
                         </div>
                     </div>
                 </div>
@@ -982,6 +764,7 @@
                         <div class="card-body">
                             <h5>Diseño Universal de Aprendizaje</h5>
                             <p>Adapta el contenido para diferentes estilos de aprendizaje</p>
+                            <!-- <a href="./assets/pages/dua.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -992,6 +775,7 @@
                         <div class="card-body">
                             <h5>STEAM</h5>
                             <p>Relaciona el contenido a un eje interdisciplinario</p>
+                            <!-- <a href="./assets/pages/steam.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -1002,6 +786,7 @@
                         <div class="card-body">
                             <h5>Imán de Alumnos</h5>
                             <p>Genera texto persuasivo para el disparador inicial de la clase</p>
+                            <!-- <a href="./assets/pages/steam.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -1012,6 +797,7 @@
                         <div class="card-body">
                             <h5>Gatillos Mentales</h5>
                             <p>Utiliza gatillos mentales para generar hiperfoco en el alumno</p>
+                            <!-- <a href="./assets/pages/steam.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -1022,6 +808,7 @@
                         <div class="card-body">
                             <h5>Estatuto Docente</h5>
                             <p>Responde de forma clara y precisa referente al estatuto docente!</p>
+                            <!-- <a href="./assets/pages/steam.html" class="btn btn-outline-primary btn-sm">Ver más</a> -->
                         </div>
                     </div>
                 </div>
@@ -1078,15 +865,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!-- GSAP for advanced animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
     <script src="assets/js/modern-script.js"></script>
-    <script src="assets/js/gsap-script.js"></script>
 </body>
 
 </html>
-
-

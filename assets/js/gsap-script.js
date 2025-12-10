@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Stagger list items
+        // Stagger list items - solo animación de movimiento, sin afectar opacidad
         const listItems = section.querySelectorAll('.detailed-feature-item');
         if (listItems.length > 0) {
             gsap.from(listItems, {
@@ -95,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     start: "top 75%",
                 },
                 x: 20,
-                opacity: 0,
                 duration: 0.5,
                 stagger: 0.1,
                 ease: "power1.out"

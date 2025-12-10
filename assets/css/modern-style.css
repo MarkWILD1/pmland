@@ -964,6 +964,10 @@ h1, h2, h3, h4, h5, h6 {
         animation-delay: 1.5s;
     }
     
+    .hero-float-card.card-5 {
+        animation-delay: 2s;
+    }
+    
     .hero-float-card i {
         font-size: 1.4rem !important;
         margin-bottom: 0.4rem;
@@ -1772,16 +1776,25 @@ html {
     animation-delay: 4.5s;
 }
 
+.hero-float-card.card-5 {
+    top: 5%;
+    left: 45%;
+    animation-delay: 2.25s;
+    z-index: 15;
+}
+
 /* Mobile: Reset all positioning */
 @media (max-width: 768px) {
     .hero-float-card.card-1,
     .hero-float-card.card-2,
     .hero-float-card.card-3,
-    .hero-float-card.card-4 {
+    .hero-float-card.card-4,
+    .hero-float-card.card-5 {
         top: auto;
         left: auto;
         right: auto;
         bottom: auto;
+        transform: none;
         animation-delay: 0s;
     }
 }
@@ -1878,27 +1891,38 @@ html {
 .detailed-feature-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.03);
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .detailed-feature-item:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .detailed-feature-item i {
     color: var(--info-color);
-    font-size: 1.2rem;
-    width: 24px;
+    font-size: 1.5rem;
+    width: 32px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .detailed-feature-item span {
-    color: #e2e8f0;
+    color: #f1f5f9;
     font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.detailed-feature-item span strong {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.05rem;
 }
