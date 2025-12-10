@@ -964,10 +964,6 @@ h1, h2, h3, h4, h5, h6 {
         animation-delay: 1.5s;
     }
     
-    .hero-float-card.card-5 {
-        animation-delay: 2s;
-    }
-    
     .hero-float-card i {
         font-size: 1.4rem !important;
         margin-bottom: 0.4rem;
@@ -1776,20 +1772,12 @@ html {
     animation-delay: 4.5s;
 }
 
-.hero-float-card.card-5 {
-    top: 5%;
-    left: 45%;
-    animation-delay: 2.25s;
-    z-index: 15;
-}
-
 /* Mobile: Reset all positioning */
 @media (max-width: 768px) {
     .hero-float-card.card-1,
     .hero-float-card.card-2,
     .hero-float-card.card-3,
-    .hero-float-card.card-4,
-    .hero-float-card.card-5 {
+    .hero-float-card.card-4 {
         top: auto;
         left: auto;
         right: auto;
