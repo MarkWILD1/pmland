@@ -95,6 +95,190 @@
         .memory-highlight-banner i {
             font-size: 28px;
         }
+
+        /* Footer Styles */
+        .doc-footer {
+            margin-top: 0;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #7367f0 0%, #9c8cfc 100%);
+            color: white;
+            box-shadow: 0 8px 32px 0 rgba(115, 103, 240, 0.16);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .doc-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-subtitle {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-style: italic;
+            margin-top: 0.5rem;
+            line-height: 1.5;
+            max-width: 280px;
+            text-align: center;
+        }
+
+        .footer-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .footer-developer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .developer-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .developer-photo:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .developer-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .developer-role {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            opacity: 0.95;
+        }
+
+        .info-item i {
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .flag-emoji-fallback {
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            background-image: url('https://flagcdn.com/w20/uy.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            vertical-align: middle;
+            margin: 0 2px;
+        }
+
+        @media (max-width: 768px) {
+            .doc-footer {
+                padding: 2rem 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-stats {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     
     <!-- Facebook Pixel Code -->
@@ -1056,17 +1240,57 @@
     </a>
 
     <!-- Footer -->
-    <footer class="footer py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Desarrollado con ❤️ por Marcos Mello</h5>
+    <footer class="doc-footer">
+        <div class="footer-content">
+            <!-- Logo Section -->
+            <div class="footer-logo-section">
+                <img src="assets/images/logo-lateral.png" alt="Plan Maestro PRIME Logo" class="footer-logo">
+                <p class="footer-subtitle">La Calculadora del Pensamiento Docente</p>
+                <p class="footer-tagline">Súper Herramienta de productividad y eficiencia en la labor de planificar, para que docentes puedan: inspirar, crear y transformar la educación</p>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="footer-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Funcionalidades Principales</span>
                 </div>
-                <div class="col-md-4">
-                    <h5>Social Media y soporte: Cristiane Hernández</h5>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">IA Integrada</span>
                 </div>
-                <div class="col-md-4">
-                    <h5>Plaɳ MaeŠtrɸ - 2026</h5>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Disponibilidad</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Posibilidades</span>
+                </div>
+            </div>
+
+            <!-- Developer Section -->
+            <div class="footer-developer">
+                <img src="assets/images/profile.jpg" alt="Lic Marcos Mello" class="developer-photo">
+                <div class="developer-name">Lic. Marcos Mello</div>
+                <div class="developer-role">Desarrollador y Fundador</div>
+                <div class="footer-info">
+                    <div class="info-item">
+                        <i class="fas fa-code"></i>
+                        <span>Desarrollado con pasión y dedicación</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Una herramienta para grandes docentes</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Hecho en <span class="flag-emoji-fallback" title="Uruguay"></span></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-headset"></i>
+                        <span>Social media, soporte y atención al cliente: Cris Hernández</span>
+                    </div>
                 </div>
             </div>
         </div>
