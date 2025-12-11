@@ -440,6 +440,400 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* El placer de planificar - Estilos destacados */
+        .el-placer-de-planificar-section {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                rgba(15, 23, 42, 0.95) 0%, 
+                rgba(30, 64, 175, 0.9) 25%,
+                rgba(138, 43, 226, 0.85) 50%,
+                rgba(236, 72, 153, 0.9) 75%,
+                rgba(251, 146, 60, 0.95) 100%);
+            padding: 8rem 0 !important;
+        }
+
+        .el-placer-de-planificar-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .el-placer-de-planificar-content {
+            position: relative;
+            z-index: 3;
+            padding: 3rem 2rem;
+        }
+
+        .el-placer-de-planificar-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .el-placer-de-planificar-badge i {
+            color: #ff6b9d;
+            font-size: 1.2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .el-placer-de-planificar-badge span {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .el-placer-de-planificar-title {
+            font-size: clamp(3.5rem, 8vw, 7rem) !important;
+            font-weight: 900 !important;
+            line-height: 1.1 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            letter-spacing: -2px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .el-placer-de-planificar-title .title-word {
+            background: linear-gradient(135deg, 
+                #ffffff 0%, 
+                #f0f9ff 25%,
+                #e0f2fe 50%,
+                #bae6fd 75%,
+                #7dd3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            text-shadow: 0 0 80px rgba(255, 255, 255, 0.5),
+                         0 0 120px rgba(139, 92, 246, 0.4),
+                         0 0 160px rgba(59, 130, 246, 0.3);
+            position: relative;
+            animation: glow-text 3s ease-in-out infinite alternate;
+        }
+
+        .el-placer-de-planificar-title .title-word-1 {
+            animation-delay: 0s;
+        }
+
+        .el-placer-de-planificar-title .title-word-2 {
+            animation-delay: 0.5s;
+            background: linear-gradient(135deg, 
+                #fef3c7 0%, 
+                #fde68a 25%,
+                #fcd34d 50%,
+                #fbbf24 75%,
+                #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(251, 191, 36, 0.6),
+                         0 0 120px rgba(245, 158, 11, 0.5),
+                         0 0 160px rgba(217, 119, 6, 0.4);
+        }
+
+        @keyframes glow-text {
+            0% {
+                filter: brightness(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+            }
+            100% {
+                filter: brightness(1.3) drop-shadow(0 0 40px rgba(139, 92, 246, 0.6));
+            }
+        }
+
+        .el-placer-de-planificar-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .decoration-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.5) 50%, 
+                transparent 100%);
+            position: relative;
+            animation: line-expand 2s ease-in-out infinite;
+        }
+
+        .decoration-line::before,
+        .decoration-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .decoration-line::before {
+            left: -10px;
+        }
+
+        .decoration-line::after {
+            right: -10px;
+        }
+
+        @keyframes line-expand {
+            0%, 100% {
+                width: 80px;
+                opacity: 0.7;
+            }
+            50% {
+                width: 150px;
+                opacity: 1;
+            }
+        }
+
+        .decoration-star {
+            font-size: 2rem;
+            color: #fbbf24;
+            animation: star-spin 4s linear infinite, star-glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+        }
+
+        @keyframes star-spin {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.2);
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        @keyframes star-glow {
+            0% {
+                text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 40px rgba(251, 191, 36, 1), 
+                             0 0 60px rgba(245, 158, 11, 0.8);
+            }
+        }
+
+        .el-placer-de-planificar-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .el-placer-de-planificar-particles .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: particle-float 8s ease-in-out infinite;
+        }
+
+        .el-placer-de-planificar-particles .particle:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 10s;
+        }
+
+        .el-placer-de-planificar-particles .particle:nth-child(2) {
+            left: 30%;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .el-placer-de-planificar-particles .particle:nth-child(3) {
+            left: 50%;
+            animation-delay: 4s;
+            animation-duration: 9s;
+        }
+
+        .el-placer-de-planificar-particles .particle:nth-child(4) {
+            left: 70%;
+            animation-delay: 1s;
+            animation-duration: 11s;
+        }
+
+        .el-placer-de-planificar-particles .particle:nth-child(5) {
+            left: 90%;
+            animation-delay: 3s;
+            animation-duration: 13s;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(50px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .el-placer-de-planificar-logo {
+            margin-top: 3.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .el-placer-de-planificar-logo .logo-image {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.4))
+                    drop-shadow(0 0 60px rgba(139, 92, 246, 0.3))
+                    drop-shadow(0 0 90px rgba(59, 130, 246, 0.2))
+                    brightness(1.1);
+            transition: all 0.5s ease;
+            animation: logo-glow 4s ease-in-out infinite alternate;
+            opacity: 0.95;
+        }
+
+        @keyframes logo-glow {
+            0% {
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))
+                        drop-shadow(0 0 40px rgba(139, 92, 246, 0.25))
+                        drop-shadow(0 0 60px rgba(59, 130, 246, 0.15))
+                        brightness(1);
+                transform: scale(1);
+            }
+            100% {
+                filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.5))
+                        drop-shadow(0 0 80px rgba(139, 92, 246, 0.4))
+                        drop-shadow(0 0 120px rgba(59, 130, 246, 0.3))
+                        brightness(1.2);
+                transform: scale(1.02);
+            }
+        }
+
+        .el-placer-de-planificar-logo:hover .logo-image {
+            animation: none;
+            filter: drop-shadow(0 0 50px rgba(255, 255, 255, 0.6))
+                    drop-shadow(0 0 100px rgba(139, 92, 246, 0.5))
+                    drop-shadow(0 0 150px rgba(59, 130, 246, 0.4))
+                    brightness(1.3);
+            transform: scale(1.05);
+        }
+
+        .el-placer-de-planificar-logo::before,
+        .el-placer-de-planificar-logo::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 100%);
+            top: 50%;
+            transform: translateY(-50%);
+            animation: logo-line-expand 3s ease-in-out infinite;
+        }
+
+        .el-placer-de-planificar-logo::before {
+            left: -120px;
+            animation-delay: 0s;
+        }
+
+        .el-placer-de-planificar-logo::after {
+            right: -120px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes logo-line-expand {
+            0%, 100% {
+                width: 80px;
+                opacity: 0.5;
+            }
+            50% {
+                width: 120px;
+                opacity: 0.8;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .el-placer-de-planificar-section {
+                padding: 5rem 0 !important;
+                min-height: 40vh;
+            }
+
+            .el-placer-de-planificar-title {
+                font-size: clamp(2.5rem, 10vw, 4rem) !important;
+                gap: 0.3rem;
+            }
+
+            .el-placer-de-planificar-content {
+                padding: 2rem 1rem;
+            }
+
+            .decoration-line {
+                width: 60px;
+            }
+
+            .decoration-star {
+                font-size: 1.5rem;
+            }
+
+            .el-placer-de-planificar-logo {
+                margin-top: 2.5rem;
+            }
+
+            .el-placer-de-planificar-logo .logo-image {
+                max-width: 200px;
+            }
+
+            .el-placer-de-planificar-logo::before,
+            .el-placer-de-planificar-logo::after {
+                width: 50px;
+                display: none;
+            }
+        }
     </style>
     
     <!-- Facebook Pixel Code -->
@@ -1183,6 +1577,44 @@
         </div>
     </section>
 
+    <!-- El placer de planificar! -->
+    <section id="el-placer-de-planificar" class="el-placer-de-planificar-section py-5 parallax-section">
+        <div class="parallax-bg el-placer-de-planificar-bg" data-speed="0.3"></div>
+        <div class="el-placer-de-planificar-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10 col-xl-9" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="el-placer-de-planificar-content">
+                        <div class="el-placer-de-planificar-badge" data-aos="fade-down" data-aos-delay="200">
+                            <i class="fas fa-heart"></i>
+                            <span>Descubre la magia</span>
+                        </div>
+                        <h2 class="el-placer-de-planificar-title">
+                            <span class="title-word title-word-1">El placer</span>
+                            <span class="title-word title-word-2">de planificar!</span>
+                        </h2>
+                        <div class="el-placer-de-planificar-decoration" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="decoration-line"></div>
+                            <div class="decoration-star"><i class="fas fa-star"></i></div>
+                            <div class="decoration-line"></div>
+                        </div>
+                        <div class="el-placer-de-planificar-logo" data-aos="fade-up" data-aos-delay="600">
+                            <img src="assets/images/logo-lateral.png" alt="Plaɳ MaeŠtrɸ Logo" class="logo-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="el-placer-de-planificar-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </section>
+
+    
     <!-- About Section -->
     <section id="inspirar" class="about-section py-5 parallax-section">
         <div class="parallax-bg about-bg" data-speed="0.3"></div>
@@ -1190,8 +1622,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="about-content">
-                        <span class="badge bg-success mb-3">Plaɳ MaeŠtrɸ PRIME</span>
-                        <h2 class="section-title">¿Qué es Plaɳ MaeŠtrɸ PRIME?</h2>
+                        <span class="badge bg-success mb-3">Membresía PRIME</span>
+                        <h2 class="section-title">¿Qué es Plaɳ MaeŠtrɸ ?</h2>
                         <div class="feature-list">
                             <div class="feature-item">
                                 <i class="fas fa-check-circle text-success"></i>
