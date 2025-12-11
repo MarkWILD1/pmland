@@ -59,9 +59,26 @@
             50% { transform: translateY(-15px); }
         }
         
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         @keyframes glow {
             0% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.4); }
             100% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
+        }
+        
+        .hero-accent-pop {
+            background: linear-gradient(120deg, #fbbf24, #ec4899, #8b5cf6, #22d3ee, #f97316);
+            background-size: 260% 260%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 18px rgba(255, 255, 255, 0.35), 0 14px 30px rgba(0, 0, 0, 0.35);
+            letter-spacing: 0.8px;
+            animation: rainbowShift 4.5s ease-in-out infinite;
         }
         
         .hero-float-card.card-5 {
@@ -419,6 +436,213 @@
             color: #cbd5e1;
             margin-top: 18px;
             font-size: 0.95rem;
+        }
+
+        /* Ecosystem backdrop fade */
+        .ecosystem-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ecosystem-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 62%;
+            max-width: 760px;
+            background: linear-gradient(90deg,
+                rgba(15, 23, 42, 0.85) 0%,
+                rgba(76, 29, 149, 0.55) 70%,
+                rgba(76, 29, 149, 0) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ecosystem-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Ecosystem split layout */
+        .ecosystem-visual {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.78) 0%, rgba(76, 29, 149, 0.58) 100%);
+            padding: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 520px;
+        }
+
+        /* Ecosystem cards */
+        .ecosystem-card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.12) 0%, rgba(6, 182, 212, 0.12) 100%);
+            border: 2px solid rgba(138, 43, 226, 0.35);
+            border-radius: 18px;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .ecosystem-card::before,
+        .ecosystem-card::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(26px);
+            opacity: 0.35;
+            pointer-events: none;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .ecosystem-card::before {
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.35), rgba(6, 182, 212, 0.05));
+            top: -40px;
+            right: -60px;
+        }
+
+        .ecosystem-card::after {
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.3), rgba(139, 92, 246, 0.08));
+            bottom: -30px;
+            left: -50px;
+        }
+
+        .ecosystem-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(138, 43, 226, 0.55);
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
+        }
+
+        .ecosystem-card:hover::before,
+        .ecosystem-card:hover::after {
+            opacity: 0.5;
+            transform: scale(1.05);
+        }
+
+        .ecosystem-card .ecosystem-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 12px;
+            z-index: 3;
+            box-shadow: 0 6px 16px rgba(6, 182, 212, 0.35);
+        }
+
+        .card-visual {
+            position: relative;
+            height: 200px;
+            margin: 14px 14px 0;
+            border-radius: 14px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #111827 0%, #0f172a 60%, #0b162e 100%);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            isolation: isolate;
+        }
+
+        .card-visual::before,
+        .card-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.16), transparent 45%),
+                        radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.18), transparent 40%);
+            mix-blend-mode: screen;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .card-visual::after {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.05));
+            opacity: 0.6;
+        }
+
+        .card-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            position: relative;
+            z-index: 2;
+            filter: saturate(1.05);
+        }
+
+        .card-visual.visual-emoji {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 45%, #0e7490 100%);
+        }
+
+        .card-visual .visual-icon {
+            font-size: 78px;
+            position: relative;
+            z-index: 2;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .ecosystem-card .card-body {
+            position: relative;
+            z-index: 2;
+            padding: 16px 18px 18px;
+        }
+
+        .ecosystem-card .card-body h5 {
+            margin-bottom: 8px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ecosystem-card .card-body p {
+            color: #cbd5e1;
+            margin-bottom: 0;
+        }
+
+        .ecosystem-card.highlighted {
+            border-color: rgba(139, 92, 246, 0.65);
+            box-shadow: 0 18px 52px rgba(76, 29, 149, 0.32);
+        }
+
+        .ecosystem-visual.half-face {
+            background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.78) 0%, rgba(76, 29, 149, 0.58) 100%), url('assets/images/model1.png');
+            background-size: 200% auto;
+            background-position: right center;
+            background-repeat: no-repeat;
+        }
+
+        .ecosystem-visual img {
+            width: 100%;
+            height: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+        }
+
+        @media (max-width: 991px) {
+            .ecosystem-visual {
+                margin-bottom: 1.5rem;
+                min-height: 420px;
+            }
         }
 
         @keyframes testimonial-marquee {
@@ -1035,7 +1259,7 @@
                             <br>
                         </h1>
                         <p class="hero-subtitle">
-                            Porque Grandes Docentes merecen <em>GRANDES HERRAMIENTAS!</em>.
+                            ...porque Grandes Docentes merecen <em class="hero-accent-pop">GRANDES HERRAMIENTAS!</em>.
                         </p>
                         <div class="hero-buttons">
                             <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg me-3" onclick="fbq('track', 'Lead', {content_name: 'Hero CTA - Empezar Ahora'});">
@@ -1737,187 +1961,220 @@
                 </div>
             </div>
             
-            <div class="row g-4">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <div class="row g-4">
 
-                <!-- MI MEMORIA - Card destacada del ecosistema -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
-                    <div class="ecosystem-card" style="border: 2px solid rgba(138, 43, 226, 0.5); background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%); position: relative; overflow: hidden;">
-                        <!-- Badge NUEVO -->
-                        <div style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 12px; z-index: 2;">
-                            🆕 NUEVO
+                        <!-- MI MEMORIA - Card destacada del ecosistema -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="50">
+                            <div class="ecosystem-card highlighted">
+                                <div class="ecosystem-badge">🆕 NUEVO</div>
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🧠</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>🧠 Mi Memoria</h5>
+                                    <p>IA que aprende de ti: recuerda tus preferencias, contexto educativo y personaliza cada respuesta</p>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Visual de cerebro -->
-                        <div class="card-img-top" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
-                            <div style="font-size: 80px; animation: pulse 3s ease-in-out infinite;">🧠</div>
-                            <!-- Partículas decorativas -->
-                            <div style="position: absolute; width: 60px; height: 60px; border-radius: 50%; background: rgba(138, 43, 226, 0.2); top: 20px; left: 20px; animation: float 4s ease-in-out infinite;"></div>
-                            <div style="position: absolute; width: 40px; height: 40px; border-radius: 50%; background: rgba(6, 182, 212, 0.2); bottom: 30px; right: 30px; animation: float 5s ease-in-out infinite reverse;"></div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">📚</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Contenidos por tramo</h5>
+                                    <p>Absolutamente todos los contenidos organizados por tramo y grado correspondiente</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h5 style="background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🧠 Mi Memoria</h5>
-                            <p>IA que aprende de ti: recuerda tus preferencias, contexto educativo y personaliza cada respuesta</p>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">📝</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Evalúa</h5>
+                                    <p>Descripciones fundadas, listas de cotejo, rúbrica -> Cuenta con todos los instrumentos para evaluar</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">👶</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Maternal 0 a 6 años</h5>
+                                    <p>Desde el nacimiento hasta los 6 años</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">📘</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Tramos 1 a 4</h5>
+                                    <p>Este bloque comprende toda la educación primaria separada por TRAMOS</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🧑‍🏫</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Multigrado</h5>
+                                    <p>Multigrado unidocente - Planifica de forma más efectiva para todos los grados!</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🧩</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Tramos 5 y 6</h5>
+                                    <p>Este bloque comprende los grados 7, 8 y 9</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🎓</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>EMS - DGES</h5>
+                                    <p>Unidades curriculares de EMS 1, 2 y 3 - DGES</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🛠️</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>EMS - DGETP</h5>
+                                    <p>Unidades curriculares de EMS 1, 2 y 3 - DGETP</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🌎</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Segundas Lenguas</h5>
+                                    <p>Comprende todos los tramos - Inglés y Portugués</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🏃‍♂️</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Educación Física</h5>
+                                    <p>Comprende todos los tramos - Incluyendo talleres de DGETP - Utu</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🧪</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Metodologías Activas</h5>
+                                    <p>Todas las metodologías activas mencionadas en el MCN</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🎯</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Diseño Universal de Aprendizaje</h5>
+                                    <p>Adapta el contenido para diferentes estilos de aprendizaje</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🚀</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>STEAM</h5>
+                                    <p>Relaciona el contenido a un eje interdisciplinario</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">🧲</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Imán de Alumnos</h5>
+                                    <p>Genera texto persuasivo para el disparador inicial de la clase</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">💡</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Gatillos Mentales</h5>
+                                    <p>Utiliza gatillos mentales para generar hiperfoco en el alumno</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                            <div class="ecosystem-card">
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">📜</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Estatuto Docente</h5>
+                                    <p>Responde de forma clara y precisa referente al estatuto docente!</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/cpt2.png" alt="Contenidos por tramo" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Contenidos por tramo</h5>
-                            <p>Absolutamente todos los contenidos organizados por tramo y grado correspondiente</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/evalua.jpg" alt="Contenidos por tramo" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Evalúa</h5>
-                            <p>Descripciones fundadas, listas de cotejo, rúbrica -> Cuenta con todos los instrumentos para evaluar</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/0a6.png" alt="Maternal 0 a 6 años" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Maternal 0 a 6 años</h5>
-                            <p>Desde el nacimiento hasta los 6 años</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/tramos1a4.png" alt="Tramos 5 y 6" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Tramos 1 a 4</h5>
-                            <p>Este bloque comprende toda la educación primaria separada por TRAMOS</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/multigrado.png" alt="Tramos 5 y 6" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Multigrado</h5>
-                            <p>Multigrado unidocente - Planifica de forma más efectiva para todos los grados!</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/dges-dgetp.jpg" alt="Tramos 5 y 6" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Tramos 5 y 6</h5>
-                            <p>Este bloque comprende los grados 7, 8 y 9</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/ems-dges.jpg" alt="EMS - DGES" class="card-img-top">
-                        <div class="card-body">
-                            <h5>EMS - DGES</h5>
-                            <p>Unidades curriculares de EMS 1, 2 y 3 - DGES</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/ems-dgetp.jpg" alt="EMS - DGES" class="card-img-top">
-                        <div class="card-body">
-                            <h5>EMS - DGETP</h5>
-                            <p>Unidades curriculares de EMS 1, 2 y 3 - DGETP</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/segundas-lenguas.jpg" alt="EMS - DGES" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Segundas Lenguas</h5>
-                            <p>Comprende todos los tramos - Inglés y Portugués</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/educacion-fisica.jpg" alt="EMS - DGES" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Educación Física</h5>
-                            <p>Comprende todos los tramos - Incluyendo talleres de DGETP - Utu</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/metodologias-activas.jpg" alt="Metodologías Activas" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Metodologías Activas</h5>
-                            <p>Todas las metodologías activas mencionadas en el MCN</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/dua.jpg" alt="DUA" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Diseño Universal de Aprendizaje</h5>
-                            <p>Adapta el contenido para diferentes estilos de aprendizaje</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/steam.jpg" alt="STEAM" class="card-img-top">
-                        <div class="card-body">
-                            <h5>STEAM</h5>
-                            <p>Relaciona el contenido a un eje interdisciplinario</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/iman-de-alumnos.jpg" alt="STEAM" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Imán de Alumnos</h5>
-                            <p>Genera texto persuasivo para el disparador inicial de la clase</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/gatillos-m.png" alt="STEAM" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Gatillos Mentales</h5>
-                            <p>Utiliza gatillos mentales para generar hiperfoco en el alumno</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="ecosystem-card">
-                        <img src="assets/images/estatuto.png" alt="STEAM" class="card-img-top">
-                        <div class="card-body">
-                            <h5>Estatuto Docente</h5>
-                            <p>Responde de forma clara y precisa referente al estatuto docente!</p>
-                        </div>
-                    </div>
+                <div class="col-lg-6 order-lg-2 order-1" data-aos="fade-left" data-aos-delay="50">
+                    <div class="ecosystem-visual half-face h-100" aria-hidden="true"></div>
                 </div>
             </div>
         </div>
@@ -1959,11 +2216,16 @@
     </section>
 
     <!-- Plan Maestro 2026 Floating Button -->
-    <a href="./landing-modal/index.html" class="plan-maestro-float" aria-label="Lanzamiento Plan Maestro 2026">
+    <!-- <a href="./landing-modal/index.html" class="plan-maestro-float" aria-label="Lanzamiento Plan Maestro 2026">
         <div class="float-content">
             <i class="fas fa-rocket"></i>
             <span class="float-text">Lanzamiento<br>2026</span>
         </div>
+    </a> -->
+
+    <!-- Logo Flotante Animado -->
+    <a href="#inspirar" class="logo-float" aria-label="¿Qué es Plan Maestro?">
+        <img src="assets/images/icon.png" alt="Plan Maestro Logo" class="logo-float-img">
     </a>
 
     <!-- WhatsApp Button -->
