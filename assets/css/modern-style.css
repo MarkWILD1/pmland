@@ -788,6 +788,100 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Logo Flotante Animado */
+.logo-float {
+    position: fixed !important;
+    bottom: 8.5rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #261e41 0%, #3d2f5e 50%, #261e41 100%) !important;
+    border-radius: 50%;
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    box-shadow: 0 4px 20px rgba(38, 30, 65, 0.6), 
+                0 0 0 2px rgba(138, 43, 226, 0.3),
+                inset 0 2px 10px rgba(255, 255, 255, 0.15),
+                0 0 20px rgba(138, 43, 226, 0.2);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1001 !important;
+    text-decoration: none;
+    animation: float-gentle 3s ease-in-out infinite;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    overflow: visible;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.logo-float::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.logo-float:hover::before {
+    opacity: 1;
+}
+
+.logo-float:hover {
+    transform: translateY(-8px) scale(1.15);
+    box-shadow: 0 10px 40px rgba(138, 43, 226, 0.5), 
+                0 0 0 3px rgba(138, 43, 226, 0.4),
+                0 0 30px rgba(138, 43, 226, 0.3),
+                inset 0 2px 15px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #3d2f5e 0%, #5a4299 50%, #3d2f5e 100%);
+}
+
+.logo-float:active {
+    transform: translateY(-6px) scale(1.1);
+    transition: all 0.1s ease;
+}
+
+.logo-float-img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5)) 
+            brightness(1.4) 
+            contrast(1.3)
+            invert(0);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    z-index: 2;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.logo-float:hover .logo-float-img {
+    transform: scale(1.1) rotate(10deg);
+    filter: drop-shadow(0 4px 12px rgba(138, 43, 226, 0.6)) 
+            brightness(1.3) 
+            contrast(1.2);
+}
+
+@keyframes float-gentle {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
 /* WhatsApp Float */
 .whatsapp-float {
     position: fixed;
@@ -831,6 +925,19 @@ h1, h2, h3, h4, h5, h6 {
     /* Ocultar navbar en mviles */
     .navbar {
         display: none !important;
+    }
+    
+    /* Ajustar logo flotante para móviles */
+    .logo-float {
+        bottom: 7.5rem;
+        right: 1.5rem;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .logo-float-img {
+        width: 38px;
+        height: 38px;
     }
     
     /* Ajustar hero section para que ocupe toda la pantalla sin navbar */
@@ -1049,6 +1156,19 @@ h1, h2, h3, h4, h5, h6 {
     /* Asegurar que navbar estǸ oculta en pantallas muy pequeas */
     .navbar {
         display: none !important;
+    }
+    
+    /* Ajustar logo flotante para pantallas muy pequeñas */
+    .logo-float {
+        bottom: 7rem;
+        right: 1rem;
+        width: 48px;
+        height: 48px;
+    }
+    
+    .logo-float-img {
+        width: 36px;
+        height: 36px;
     }
     
     .hero-section {
