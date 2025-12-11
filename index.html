@@ -365,7 +365,7 @@
         }
 
         .testimonial-card {
-            min-width: 320px;
+            min-width: 300px;
             max-width: 360px;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -436,6 +436,21 @@
             color: #cbd5e1;
             margin-top: 18px;
             font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-track {
+                gap: 12px;
+                animation-duration: 60s;
+            }
+
+            .testimonial-card {
+                min-width: 260px;
+                max-width: 280px;
+                backdrop-filter: none;
+                background: rgba(255, 255, 255, 0.08);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+            }
         }
 
         /* Ecosystem backdrop fade */
@@ -2308,6 +2323,9 @@
             const track = document.getElementById('testimonialTrack');
             if (!track) return;
 
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            const maxItems = isMobile ? 12 : testimonials.length;
+
             const createCard = ({ name, role, quote }) => {
                 const initials = name.split(' ').map(n => n[0]).filter(Boolean).slice(0, 2).join('');
                 const card = document.createElement('article');
@@ -2328,13 +2346,19 @@
                 return card;
             };
 
-            testimonials.forEach(item => track.appendChild(createCard(item)));
-            testimonials.forEach(item => track.appendChild(createCard(item))); // dup for seamless loop
+            const visibleTestimonials = testimonials.slice(0, maxItems);
+            const repeatCount = 2;
+
+            for (let i = 0; i < repeatCount; i++) {
+                visibleTestimonials.forEach(item => track.appendChild(createCard(item)));
+            }
 
             const updateDuration = () => {
                 const width = track.scrollWidth / 2;
                 const viewport = Math.max(window.innerWidth, 360);
-                const seconds = Math.max(55, Math.min(140, (width / viewport) * 15));
+                const seconds = isMobile
+                    ? Math.max(45, Math.min(90, (width / viewport) * 10))
+                    : Math.max(55, Math.min(140, (width / viewport) * 15));
                 track.style.setProperty('--marquee-duration', `${seconds}s`);
             };
 
