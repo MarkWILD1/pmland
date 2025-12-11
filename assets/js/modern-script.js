@@ -425,6 +425,7 @@ window.PlanMaestroUtils = {
 // ===== PARALLAX EFFECTS =====
 class ParallaxEffect {
     constructor() {
+        this.isMobile = window.matchMedia('(max-width: 768px)').matches;
         this.parallaxElements = document.querySelectorAll('[data-speed]');
         this.parallaxSections = document.querySelectorAll('.parallax-section');
         this.isScrolling = false;
@@ -434,6 +435,9 @@ class ParallaxEffect {
     }
     
     init() {
+        if (this.isMobile) {
+            return;
+        }
         if (this.parallaxElements.length > 0) {
             this.bindEvents();
             this.updateParallax();
