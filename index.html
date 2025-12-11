@@ -265,6 +265,167 @@
             margin: 0 2px;
         }
 
+        /* Testimonials */
+        .testimonials-section {
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 20% 20%, rgba(115, 103, 240, 0.15), transparent 35%),
+                        radial-gradient(circle at 80% 30%, rgba(14, 165, 233, 0.18), transparent 40%),
+                        #0f172a;
+            color: #f8fafc;
+        }
+
+        .testimonials-bg {
+            background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(99, 102, 241, 0.4)),
+                              url('assets/images/testimonios-1.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.28;
+            filter: blur(1px);
+        }
+
+        .testimonials-section .section-title {
+            color: #f8fafc;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .testimonials-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #c7d2fe;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .testimonial-marquee {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            padding: 18px 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.22) 0%, rgba(14, 165, 233, 0.12) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .testimonial-marquee::before,
+        .testimonial-marquee::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 120px;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .testimonial-marquee::before {
+            left: 0;
+            background: linear-gradient(90deg, #0f172a 0%, rgba(15, 23, 42, 0) 100%);
+        }
+
+        .testimonial-marquee::after {
+            right: 0;
+            background: linear-gradient(270deg, #0f172a 0%, rgba(15, 23, 42, 0) 100%);
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 16px;
+            width: max-content;
+            animation: testimonial-marquee var(--marquee-duration, 95s) linear infinite;
+            will-change: transform;
+        }
+
+        .testimonial-track:hover {
+            animation-play-state: paused;
+        }
+
+        .testimonial-card {
+            min-width: 320px;
+            max-width: 360px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 18px 18px 16px;
+            color: #e2e8f0;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .testimonial-quote {
+            font-size: 0.95rem;
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+
+        .testimonial-quote i {
+            color: #fbbf24;
+            margin-right: 8px;
+        }
+
+        .testimonial-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #22d3ee);
+            display: grid;
+            place-items: center;
+            color: #0f172a;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .testimonial-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #fbbf24;
+            font-size: 0.9rem;
+            margin-top: 6px;
+        }
+
+        .testimonial-highlight {
+            text-align: center;
+            color: #cbd5e1;
+            margin-top: 18px;
+            font-size: 0.95rem;
+        }
+
+        @keyframes testimonial-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         @media (max-width: 768px) {
             .doc-footer {
                 padding: 2rem 1rem;
@@ -480,8 +641,7 @@
                             <br>
                         </h1>
                         <p class="hero-subtitle">
-                            La herramienta definitiva para educadores modernos. <br>
-                            Planifica, crea y evalúa con inteligencia artificial.
+                            Porque Grandes Docentes merecen <em>GRANDES HERRAMIENTAS!</em>.
                         </p>
                         <div class="hero-buttons">
                             <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg me-3" onclick="fbq('track', 'Lead', {content_name: 'Hero CTA - Empezar Ahora'});">
@@ -520,6 +680,25 @@
         </div>
     </section>
 
+    <!-- Core Highlight Section -->
+    <section class="core-highlight py-5" style="position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(51,104,134,0.45) 0%, rgba(14,25,46,0.75) 100%), url('assets/images/imgplan.png') center -6vh / cover no-repeat; min-height: 70vh; display: flex; align-items: center;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0) 45%), radial-gradient(circle at 80% 30%, rgba(0,0,0,0.25), rgba(0,0,0,0) 50%);"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10" data-aos="fade-up" data-aos-delay="150">
+                    <div style="position: relative; border-radius: 22px; padding: 34px 36px; background: rgba(14, 25, 46, 0.72); box-shadow: 0 25px 65px rgba(6, 182, 212, 0.25), 0 0 0 1px rgba(103, 232, 249, 0.2); backdrop-filter: blur(6px);">
+                        <p style="margin: 0; color: #f8fafc; font-weight: 800; font-size: clamp(1.35rem, 2vw + 1rem, 1.8rem); line-height: 1.5; letter-spacing: 0.4px; text-align: center; text-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 1px rgba(255,255,255,0.35);">
+                            Diseña proyectos, secuencias didácticas completas, descripción fundada, rúbricas y planificaciones con cada componente del <em>QUEHACER EDUCATIVO</em>, listos para brillar de forma <em>CREATIVA</em> y <em>CAUTIVADORA!</em>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; justify-content: center;">
+            <img src="assets/images/logo-lateral.png" alt="Logo Plan Maestro" style="max-width: 180px; width: 32vw; opacity: 0.9;">
+        </div>
+    </section>
+
     <!-- Detailed Features Section (Replaces Launch 2026 Overview) -->
     <section id="lanzamiento2026" class="py-5 parallax-section">
         <div class="parallax-bg cta-bg" data-speed="0.35"></div>
@@ -544,8 +723,74 @@
                         <i class="fas fa-arrow-down" style="animation: float 1.5s ease-in-out infinite;"></i>
                     </div>
                     
-                    <h2 class="section-title">Todas las funcionalidades de Plan Maestro PRIME</h2>
+                    <h2 class="section-title">Todas las funcionalidades de esta SÚPER HERRAMIENTA</h2>
                     <p class="section-subtitle">Un ecosistema completo de herramientas para potenciar tu labor docente</p>
+                </div>
+            </div>
+
+            
+
+            <!-- Planificaciones con IA (Core) -->
+            <div class="detailed-feature-section" style="border: 2px solid rgba(6, 182, 212, 0.25);">
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%);">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3>Planificaciones altamente eficientes y creativas con IA</h3>
+                        <p>Motor central para crear y adaptar planificaciones docentes con IA</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div style="background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, rgba(8,47,73,0.75) 100%); border-radius: 20px; padding: 30px; min-height: 280px; display: flex; flex-direction: column; gap: 14px; color: #e0f2fe; box-shadow: 0 15px 45px rgba(6,182,212,0.25);">
+                            <div style="font-size: 46px;">🧭</div>
+                            <h4 style="color: #fff; margin: 0;">Planificador inteligente</h4>
+                            <p style="grid-column: 1 / -1; width: 100%; margin: 0; padding: 16px 18px; border-radius: 14px; background: linear-gradient(135deg, rgba(103, 232, 249, 0.18) 0%, rgba(14, 165, 233, 0.28) 60%, rgba(8, 47, 73, 0.7) 100%); color: #e0f2fe; font-weight: 700; letter-spacing: 0.35px; box-shadow: 0 12px 38px rgba(14,165,233,0.28); text-align: left;">
+                                Diseña proyectos, secuencias didácticas completas, descripción fundada, rúbricas, planificaciones y todo lo que implica el QUEHACER EDUCATIVO con absolutamente todos los componentes requeridos para la planificación de forma creativa y cautivadora
+                            </p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 10px;">
+                                <div style="background: rgba(6,182,212,0.18); border: 1px solid rgba(6,182,212,0.35); border-radius: 14px; padding: 12px;">
+                                    <strong style="color: #67e8f9;">📑 Plantillas vivas</strong>
+                                    <p style="margin: 6px 0 0; opacity: 0.85;">Objetivos, competencias, actividades, evaluación y recursos.</p>
+                                </div>
+                                <div style="background: rgba(14,165,233,0.18); border: 1px solid rgba(14,165,233,0.35); border-radius: 14px; padding: 12px;">
+                                    <strong style="color: #bae6fd;">⚙️ Ajuste dinámico</strong>
+                                    <p style="margin: 6px 0 0; opacity: 0.85;">Edita y re-genera secciones sin perder el contexto de la clase.</p>
+                                </div>
+                                <div style="background: rgba(56,189,248,0.18); border: 1px solid rgba(56,189,248,0.35); border-radius: 14px; padding: 12px;">
+                                    <strong style="color: #cffafe;">🧠 IA contextual</strong>
+                                    <p style="margin: 6px 0 0; opacity: 0.85;">Personaliza según grupo, nivel y preferencias docentes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-database"></i>
+                            <span>Base de conocimientos con absolutamente TODA LA DOCUMENTACIÓN OFICIAL DE ANEP</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-magic"></i>
+                            <span>Generación de planificaciones con IA: Criterios de Logro, Contenidos, Metas de aprendizaje, Plan de Aprendizaje, Desarrollo de actividades, ejemplos de evaluación y todos los componentes altamente detallados y personalizados!</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Atrapa al estudiante de forma CREATIVA y CAUTIVANTE!</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Versionado: guarda variaciones de la misma planificación para iterar rápido</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-share-square"></i>
+                            <span>Exporta o comparte: PDF, DOCX y links internos para colaboración</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Alineación curricular automática con los lineamientos vigentes de ANEP</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1246,6 +1491,25 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section py-5 parallax-section">
+        <div class="parallax-bg testimonials-bg" data-speed="0.35"></div>
+        <div class="container position-relative">
+            <div class="row justify-content-center text-center mb-4">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <span class="testimonials-eyebrow"><i class="fas fa-bolt"></i>+1000 historias reales</span>
+                    <h2 class="section-title mt-3">Docentes que ya usan Plaɳ MaeŠtrɸ todos los días</h2>
+                </div>
+            </div>
+            <div class="testimonial-marquee" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-track" id="testimonialTrack"></div>
+            </div>
+            <p class="testimonial-highlight" data-aos="fade-up" data-aos-delay="200">
+                Pasa el dedo o coloca el mouse encima para pausar y leer con calma. Todos ya la tienen en su cel.
+            </p>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section id="lanzamiento" class="final-cta-section py-5 parallax-section">
         <div class="parallax-bg final-cta-bg" data-speed="0.5"></div>
@@ -1342,6 +1606,48 @@
     
     <script src="assets/js/modern-script.js"></script>
     <script src="assets/js/gsap-script.js"></script>
+    <script src="assets/js/testimonials-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testimonials = window.testimonialsData || [];
+
+            const track = document.getElementById('testimonialTrack');
+            if (!track) return;
+
+            const createCard = ({ name, role, quote }) => {
+                const initials = name.split(' ').map(n => n[0]).filter(Boolean).slice(0, 2).join('');
+                const card = document.createElement('article');
+                card.className = 'testimonial-card';
+                card.innerHTML = `
+                    <p class="testimonial-quote"><i class="fas fa-quote-left"></i>${quote}</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar">${initials}</div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-name">${name}</span>
+                            <span class="testimonial-role">${role}</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                return card;
+            };
+
+            testimonials.forEach(item => track.appendChild(createCard(item)));
+            testimonials.forEach(item => track.appendChild(createCard(item))); // dup for seamless loop
+
+            const updateDuration = () => {
+                const width = track.scrollWidth / 2;
+                const viewport = Math.max(window.innerWidth, 360);
+                const seconds = Math.max(55, Math.min(140, (width / viewport) * 15));
+                track.style.setProperty('--marquee-duration', `${seconds}s`);
+            };
+
+            updateDuration();
+            window.addEventListener('resize', () => window.requestAnimationFrame(updateDuration));
+        });
+    </script>
 </body>
 
 </html>
