@@ -11,7 +11,7 @@
     <meta name="author" content="Marcos Mello - Plan Maestro">
     <meta name="robots" content="index, follow">
     <meta name="language" content="es">
-    <meta name="geo.region" content="UY">
+    <meta name="geo.region" content="UY"> 
     <meta name="geo.country" content="Uruguay">
     
     <!-- Open Graph / Facebook -->
@@ -1086,6 +1086,319 @@
                 display: none;
             }
         }
+
+        /* Logo animations */
+        @keyframes logo-glow {
+            0% {
+                filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.4)) drop-shadow(0 0 40px rgba(139, 92, 246, 0.2));
+                transform: scale(1);
+            }
+            100% {
+                filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.8)) drop-shadow(0 0 80px rgba(139, 92, 246, 0.5));
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(200%) translateY(200%) rotate(45deg);
+            }
+        }
+
+        .about-image img:hover {
+            animation: logo-glow 1s ease-in-out infinite alternate, float 4s ease-in-out infinite !important;
+            filter: drop-shadow(0 0 50px rgba(99, 102, 241, 0.9)) drop-shadow(0 0 100px rgba(139, 92, 246, 0.6)) !important;
+            transform: scale(1.05) !important;
+        }
+
+        /* Perfect Tool Section */
+        .perfect-tool-section {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                rgba(15, 23, 42, 0.98) 0%, 
+                rgba(30, 64, 175, 0.95) 25%,
+                rgba(138, 43, 226, 0.95) 50%,
+                rgba(236, 72, 153, 0.95) 75%,
+                rgba(251, 146, 60, 0.98) 100%);
+            padding: 6rem 0 !important;
+        }
+
+        .perfect-tool-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .perfect-tool-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .perfect-tool-title {
+            font-size: clamp(3rem, 8vw, 6rem) !important;
+            font-weight: 900 !important;
+            line-height: 1.1 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            letter-spacing: -2px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: center;
+        }
+
+        .perfect-tool-title .title-word {
+            background: linear-gradient(135deg, 
+                #ffffff 0%, 
+                #f0f9ff 25%,
+                #e0f2fe 50%,
+                #bae6fd 75%,
+                #7dd3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            text-shadow: 0 0 80px rgba(255, 255, 255, 0.5),
+                         0 0 120px rgba(139, 92, 246, 0.4),
+                         0 0 160px rgba(59, 130, 246, 0.3);
+            position: relative;
+            animation: perfect-tool-glow 3s ease-in-out infinite alternate;
+        }
+
+        .perfect-tool-title .title-word-1 {
+            animation-delay: 0s;
+        }
+
+        .perfect-tool-title .title-word-2 {
+            animation-delay: 0.3s;
+            background: linear-gradient(135deg, 
+                #fef3c7 0%, 
+                #fde68a 25%,
+                #fcd34d 50%,
+                #fbbf24 75%,
+                #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(251, 191, 36, 0.6),
+                         0 0 120px rgba(245, 158, 11, 0.5),
+                         0 0 160px rgba(217, 119, 6, 0.4);
+        }
+
+        .perfect-tool-title .title-word-3 {
+            animation-delay: 0.6s;
+            background: linear-gradient(135deg, 
+                #ddd6fe 0%, 
+                #c4b5fd 25%,
+                #a78bfa 50%,
+                #8b5cf6 75%,
+                #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(139, 92, 246, 0.6),
+                         0 0 120px rgba(124, 58, 237, 0.5),
+                         0 0 160px rgba(109, 40, 217, 0.4);
+        }
+
+        @keyframes perfect-tool-glow {
+            0% {
+                filter: brightness(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+            }
+            100% {
+                filter: brightness(1.3) drop-shadow(0 0 40px rgba(139, 92, 246, 0.6));
+            }
+        }
+
+        .perfect-tool-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .perfect-tool-particles .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            animation: perfect-tool-particle-float 10s ease-in-out infinite;
+        }
+
+        .perfect-tool-particles .particle:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 12s;
+        }
+
+        .perfect-tool-particles .particle:nth-child(2) {
+            left: 30%;
+            animation-delay: 2s;
+            animation-duration: 14s;
+        }
+
+        .perfect-tool-particles .particle:nth-child(3) {
+            left: 50%;
+            animation-delay: 4s;
+            animation-duration: 11s;
+        }
+
+        .perfect-tool-particles .particle:nth-child(4) {
+            left: 70%;
+            animation-delay: 1s;
+            animation-duration: 13s;
+        }
+
+        .perfect-tool-particles .particle:nth-child(5) {
+            left: 90%;
+            animation-delay: 3s;
+            animation-duration: 15s;
+        }
+
+        @keyframes perfect-tool-particle-float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(50px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .perfect-tool-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .perfect-tool-line {
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%);
+            position: relative;
+            animation: perfect-tool-line-expand 2.5s ease-in-out infinite;
+        }
+
+        .perfect-tool-line::before,
+        .perfect-tool-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+        }
+
+        .perfect-tool-line::before {
+            left: -15px;
+        }
+
+        .perfect-tool-line::after {
+            right: -15px;
+        }
+
+        @keyframes perfect-tool-line-expand {
+            0%, 100% {
+                width: 100px;
+                opacity: 0.7;
+            }
+            50% {
+                width: 180px;
+                opacity: 1;
+            }
+        }
+
+        .perfect-tool-star {
+            font-size: 2.5rem;
+            color: #fbbf24;
+            animation: perfect-tool-star-spin 5s linear infinite, perfect-tool-star-glow 2.5s ease-in-out infinite alternate;
+            text-shadow: 0 0 25px rgba(251, 191, 36, 0.9);
+        }
+
+        @keyframes perfect-tool-star-spin {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.3);
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        @keyframes perfect-tool-star-glow {
+            0% {
+                text-shadow: 0 0 25px rgba(251, 191, 36, 0.9);
+            }
+            100% {
+                text-shadow: 0 0 50px rgba(251, 191, 36, 1), 
+                             0 0 75px rgba(245, 158, 11, 0.9);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .perfect-tool-section {
+                padding: 4rem 0 !important;
+                min-height: 50vh;
+            }
+
+            .perfect-tool-title {
+                font-size: clamp(2rem, 10vw, 3.5rem) !important;
+                gap: 0.3rem;
+            }
+
+            .perfect-tool-content {
+                padding: 2rem 1rem;
+            }
+
+            .perfect-tool-line {
+                width: 80px;
+            }
+
+            .perfect-tool-star {
+                font-size: 2rem;
+            }
+        }
     </style>
     
     <!-- Facebook Pixel Code -->
@@ -1456,13 +1769,13 @@
         <div class="container detailed-features-container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-9" data-aos="fade-up">
-                    <!-- <div class="launch-ticker mb-4" aria-label="Lanzamiento Plan Maestro 2026">
+                    <!--<div class="launch-ticker mb-4" aria-label="Lanzamiento Plan Maestro 2026">
                         <div class="launch-track">
                             <span class="launch-pill">Lanzamiento · Plan Maestro 2026</span>
                             <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
                             <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
                         </div>
-                    </div> -->
+                    </div>  -->
                     
                     <!-- Banner destacado Mi Memoria -->
                     <div class="memory-highlight-banner mb-4">
@@ -1577,37 +1890,89 @@
                 </div>
             </div>
 
-            <!-- Plan de Documentos -->
-            <div class="detailed-feature-section">
+            <!-- Quehacer Educativo Completo -->
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%); border: 2px solid rgba(99, 102, 241, 0.25);">
                 <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-file-alt"></i>
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
                     <div class="detailed-section-info">
-                        <h3>Plan de Documentos</h3>
-                        <p>Editor avanzado de documentos con múltiples formatos de exportación</p>
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Proyectos, Secuencias Didácticas completas, Descripción Fundada, Rúbricas y Planificaciones</h3>
+                        <p>Diseña proyectos, secuencias didácticas completas, descripción fundada, rúbricas y planificaciones con cada componente del quehacer educativo</p>
                     </div>
                 </div>
                 <div class="detailed-feature-content">
                     <div class="detailed-feature-image">
-                        <img src="assets/images/gestor-doc.png" alt="Editor Plan Docs - Plan de Documentos" class="img-fluid">
+                        <!-- Visual representation of Educational Work -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1e1b4b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background circles -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📚</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Quehacer Educativo Completo</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
+                                Proyectos, secuencias didácticas, descripciones fundadas, rúbricas y planificaciones con todos los componentes requeridos.
+                            </p>
+                            
+                            <!-- Feature buttons -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-project-diagram" style="font-size: 16px;"></i>
+                                    <span>Proyectos</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-list-ol" style="font-size: 16px;"></i>
+                                    <span>Secuencias</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-clipboard-check" style="font-size: 16px;"></i>
+                                    <span>Rúbricas</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-edit"></i>
-                            <span>Editor de texto optimizado para escritura</span>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-project-diagram" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Diseño de Proyectos Educativos:</strong> Crea proyectos completos con objetivos, actividades, cronograma, recursos y evaluación específica para tu nivel y contexto</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-file-pdf"></i>
-                            <span>Exportación a PDF, DOCX y TXT</span>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-list-ol" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Secuencias Didácticas Completas:</strong> Diseña secuencias estructuradas con momentos didácticos, actividades progresivas, recursos y evaluación integrada</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fab fa-markdown"></i>
-                            <span>Conversión automática de Markdown</span>
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-file-alt" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Descripción Fundada:</strong> Elabora descripciones detalladas y fundamentadas con justificación pedagógica, contexto y objetivos claros</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-folder"></i>
-                            <span>Sistema de carpetas y organización</span>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-clipboard-check" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Rúbricas de Evaluación:</strong> Genera rúbricas completas con criterios, niveles de logro, descriptores y escalas de evaluación personalizadas</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-calendar-alt" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Planificaciones Completas:</strong> Crea planificaciones con todos los componentes del quehacer educativo: objetivos, contenidos, competencias, actividades, recursos y evaluación</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-check-double" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Componentes del Quehacer Educativo:</strong> Incluye todos los elementos requeridos: criterios de logro, contenidos, metas de aprendizaje, plan de aprendizaje, desarrollo de actividades y evaluación</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
+                            <i class="fas fa-magic" style="color: #0EA5E9; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Alineación Curricular Automática:</strong> Todos los componentes están alineados con la documentación oficial ANEP 2026 y normativa vigente</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(168, 85, 247, 0.15); border-left: 4px solid #A855F7; opacity: 1 !important;">
+                            <i class="fas fa-sync-alt" style="color: #A855F7; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Re-generación Selectiva:</strong> Ajusta objetivos, actividades o recursos sin perder coherencia, regenerando secciones específicas manteniendo el contexto</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(34, 197, 94, 0.15); border-left: 4px solid #22C55E; opacity: 1 !important;">
+                            <i class="fas fa-layer-group" style="color: #22C55E; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Versionado Rápido:</strong> Guarda variaciones de la misma planificación para iterar rápido y comparar diferentes enfoques</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(251, 146, 60, 0.15); border-left: 4px solid #FB923C; opacity: 1 !important;">
+                            <i class="fas fa-palette" style="color: #FB923C; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Enfoque Creativo y Cautivador:</strong> Diseños que mantienen la alineación curricular y a la vez cautivan al estudiante con actividades innovadoras</span>
                         </div>
                     </div>
                 </div>
@@ -1626,7 +1991,37 @@
                 </div>
                 <div class="detailed-feature-content">
                     <div class="detailed-feature-image">
-                        <img src="assets/images/ChatGPT.png" alt="ChatGPT Integrado" class="img-fluid">
+                        <!-- Visual representation of ChatGPT Integrated -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1b2e1b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background circles -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="margin-bottom: 20px; animation: pulse 3s ease-in-out infinite; display: flex; align-items: center; justify-content: center;">
+                                <img src="assets/images/ChatGPT-Logo.png" alt="ChatGPT Logo" style="width: 120px; height: auto; filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.5));">
+                            </div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">ChatGPT Integrado</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
+                                La plataforma de IA por excelencia. ChatGPT 5 ilimitado con acceso completo y sin restricciones.
+                            </p>
+                            
+                            <!-- Feature buttons -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-infinity" style="font-size: 16px;"></i>
+                                    <span>Sin Límites</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-rocket" style="font-size: 16px;"></i>
+                                    <span>ChatGPT 5</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-history" style="font-size: 16px;"></i>
+                                    <span>Historial</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="detailed-feature-list">
                         <div class="detailed-feature-item">
@@ -1736,128 +2131,559 @@
             </div>
 
             <!-- Grabador de Audio -->
-            <div class="detailed-feature-section">
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(6, 182, 212, 0.12) 100%); border: 2px solid rgba(14, 165, 233, 0.25);">
                 <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);">
                         <i class="fas fa-microphone"></i>
                     </div>
                     <div class="detailed-section-info">
-                        <h3>Grabador de Audio y Reproductor</h3>
-                        <p>Graba tus audios y reproduce los que la plataforma te produce</p>
+                        <h3 style="background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Grabador de Audio y Reproductor</h3>
+                        <p>Sistema completo de audio: graba tus mensajes, transcribe automáticamente y reproduce respuestas en tiempo real</p>
                     </div>
                 </div>
                 <div class="detailed-feature-content">
                     <div class="detailed-feature-image">
-                        <img src="assets/images/Graba audio.png" alt="Audio Integrado" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-comment-dots"></i>
-                            <span>Graba tu prompt y obtén audio y texto</span>
+                        <!-- Visual representation of Audio Recorder -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #0e7490 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background circles -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(14, 165, 233, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(6, 182, 212, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">🎤</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Audio en Tiempo Real</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
+                                Graba tus mensajes, transcribe automáticamente y escucha respuestas mientras se generan.
+                            </p>
+                            
+                            <!-- Feature buttons -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-microphone" style="font-size: 16px;"></i>
+                                    <span>Grabar</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-headphones" style="font-size: 16px;"></i>
+                                    <span>Reproducir</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-text-width" style="font-size: 16px;"></i>
+                                    <span>Transcribir</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-headphones"></i>
-                            <span>Producción de respuestas en audio simultáneas</span>
+                    </div>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
+                            <i class="fas fa-microphone" style="color: #0EA5E9; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Grabación de mensajes de voz:</strong> Graba tus prompts directamente desde el navegador con calidad optimizada y cancelación de eco</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(6, 182, 212, 0.15); border-left: 4px solid #06B6D4; opacity: 1 !important;">
+                            <i class="fas fa-text-width" style="color: #06B6D4; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Transcripción automática:</strong> Los mensajes de voz se transcriben automáticamente usando OpenAI Whisper con alta precisión</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-edit" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Edición de texto transcrito:</strong> Revisa y edita el texto transcrito antes de enviarlo para mayor precisión</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-headphones" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Audio en tiempo real (streaming):</strong> El Plan Maestro habla mientras escribe la respuesta, con indicadores visuales de ondas de sonido</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-volume-up" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Respuestas de audio automáticas:</strong> Genera automáticamente audio de alta calidad usando OpenAI TTS para todas las respuestas</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-sliders-h" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Control manual de audio:</strong> Toggle para activar/desactivar la generación automática de audio según tus preferencias</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-play-circle" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Reproductor integrado:</strong> Reproductor de audio completo con controles de play, pause, volumen y progreso</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(34, 197, 94, 0.15); border-left: 4px solid #22C55E; opacity: 1 !important;">
+                            <i class="fas fa-waveform-lines" style="color: #22C55E; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Indicadores visuales:</strong> Ondas de sonido animadas mientras el sistema habla, mejorando la experiencia de usuario</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(168, 85, 247, 0.15); border-left: 4px solid #A855F7; opacity: 1 !important;">
+                            <i class="fas fa-language" style="color: #A855F7; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Soporte multiidioma:</strong> Transcripción y síntesis de voz en múltiples idiomas con detección automática</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-cog" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Configuración optimizada:</strong> Calidad de audio optimizada para voz con cancelación de eco y supresión de ruido</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Generador de Imágenes -->
-            <div class="detailed-feature-section">
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.12) 0%, rgba(249, 115, 22, 0.12) 100%); border: 2px solid rgba(236, 72, 153, 0.25);">
                 <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #EC4899 0%, #F97316 100%);">
                         <i class="fas fa-images"></i>
                     </div>
                     <div class="detailed-section-info">
-                        <h3>Generador de Imágenes con IA</h3>
-                        <p>Crea imágenes únicas usando inteligencia artificial avanzada</p>
+                        <h3 style="background: linear-gradient(135deg, #EC4899 0%, #F97316 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Generador de Imágenes con IA</h3>
+                        <p>Crea imágenes únicas y profesionales usando inteligencia artificial avanzada con múltiples opciones de personalización</p>
                     </div>
                 </div>
                 <div class="detailed-feature-content">
                     <div class="detailed-feature-image">
-                        <img src="assets/images/gen-img.png" alt="Interfaz del generador de imágenes con IA" class="img-fluid">
+                        <!-- Visual representation of Image Generator -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #2d1b1b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background circles -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(236, 72, 153, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(249, 115, 22, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">🎨</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Generador de Imágenes con IA</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
+                                Crea imágenes únicas y profesionales con inteligencia artificial. Múltiples tamaños, estilos y calidad HD.
+                            </p>
+                            
+                            <!-- Feature buttons -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: linear-gradient(135deg, #EC4899 0%, #F97316 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-paint-brush" style="font-size: 16px;"></i>
+                                    <span>Generar Imagen</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-palette" style="font-size: 16px;"></i>
+                                    <span>Estilos</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-download" style="font-size: 16px;"></i>
+                                    <span>Descargar</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-paint-brush"></i>
-                            <span>Generación por descripción de texto</span>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-paint-brush" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Generación por descripción de texto:</strong> Describe lo que quieres ver y la IA crea imágenes únicas hasta 1000 caracteres por prompt</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                            <span>Múltiples tamaños y calidades</span>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-expand-arrows-alt" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Múltiples tamaños disponibles:</strong> Cuadrada (1024x1024), Vertical (1024x1792) y Horizontal (1792x1024) para diferentes necesidades</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-download"></i>
-                            <span>Descarga directa de imágenes</span>
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-star" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Calidad estándar y HD:</strong> Elige entre calidad estándar para generación rápida o HD para máxima resolución y detalle</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-palette" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Estilos vívido y natural:</strong> Selecciona entre estilo vívido para colores intensos o natural para apariencia más realista</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-download" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Descarga directa:</strong> Descarga tus imágenes generadas inmediatamente en alta calidad para usar en tus materiales educativos</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
+                            <i class="fas fa-images" style="color: #0EA5E9; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Galería de imágenes generadas:</strong> Accede a un historial completo de todas tus creaciones para reutilizar o compartir</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(168, 85, 247, 0.15); border-left: 4px solid #A855F7; opacity: 1 !important;">
+                            <i class="fas fa-mobile-alt" style="color: #A855F7; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Interfaz moderna y responsive:</strong> Diseño intuitivo que se adapta perfectamente a cualquier dispositivo, móvil o escritorio</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-shield-alt" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Acceso premium exclusivo:</strong> Funcionalidad disponible para usuarios con membresía PRIME con verificación automática</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(34, 197, 94, 0.15); border-left: 4px solid #22C55E; opacity: 1 !important;">
+                            <i class="fas fa-magic" style="color: #22C55E; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Generación instantánea:</strong> Procesamiento rápido con tecnología de IA de última generación para resultados en segundos</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(251, 146, 60, 0.15); border-left: 4px solid #FB923C; opacity: 1 !important;">
+                            <i class="fas fa-infinity" style="color: #FB923C; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Sin límites de generación:</strong> Crea todas las imágenes que necesites para tus materiales educativos sin restricciones</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Gestor de Documentos -->
-            <div class="detailed-feature-section">
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(14, 165, 233, 0.12) 100%); border: 2px solid rgba(59, 130, 246, 0.25);">
                 <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);">
                         <i class="fas fa-file-upload"></i>
                     </div>
                     <div class="detailed-section-info">
-                        <h3>Gestor Inteligente de Documentos</h3>
-                        <p>Sube y analiza documentos PDF, Word, TXT, videos de YouTube y páginas web</p>
+                        <h3 style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Gestor Inteligente de Documentos</h3>
+                        <p>Sistema completo para subir, procesar, analizar y transformar documentos con inteligencia artificial</p>
                     </div>
                 </div>
                 <div class="detailed-feature-content">
                     <div class="detailed-feature-image">
-                        <img src="assets/images/gestor-docs-2.png" alt="Gestor inteligente de documentos" class="img-fluid">
+                        <!-- Visual representation of Document Manager -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background circles -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(59, 130, 246, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(14, 165, 233, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📚</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Gestor Inteligente de Documentos</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
+                                Sube, analiza y transforma documentos con IA. PDFs, videos de YouTube, páginas web y más en un solo lugar.
+                            </p>
+                            
+                            <!-- Feature buttons -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-upload" style="font-size: 16px;"></i>
+                                    <span>Subir Archivos</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-brain" style="font-size: 16px;"></i>
+                                    <span>Análisis IA</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-project-diagram" style="font-size: 16px;"></i>
+                                    <span>Mapas Mentales</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-upload"></i>
-                            <span>Subida de PDF, DOC, DOCX, TXT</span>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-upload" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Subida múltiple de archivos:</strong> PDF, DOC, DOCX, TXT hasta 50MB por archivo con validación y almacenamiento seguro</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fab fa-youtube"></i>
-                            <span>Carga y transcripción de videos de YouTube</span>
+                        <div class="detailed-feature-item" style="background: rgba(239, 68, 68, 0.15); border-left: 4px solid #EF4444; opacity: 1 !important;">
+                            <i class="fab fa-youtube" style="color: #EF4444; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Transcripción de videos de YouTube:</strong> Descarga, extrae audio y transcribe automáticamente videos de hasta 1 hora con Whisper AI</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-globe"></i>
-                            <span>Importa contenido de páginas web</span>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-globe" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Importación de páginas web:</strong> Extrae contenido completo de cualquier página web, preservando estructura y texto relevante</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-comments"></i>
-                            <span>Chat interactivo con documentos</span>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-brain" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Agentes especializados de IA:</strong> Analizador de documentos, Resumidor de contenido y Respondedor de preguntas específicas</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-comments" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Chat interactivo contextual:</strong> Conversa con tus documentos, haz preguntas específicas y obtén respuestas basadas en el contenido real</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-project-diagram" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Generación automática de mapas mentales:</strong> Convierte cualquier documento en un mapa mental interactivo y visual con estructura jerárquica</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
+                            <i class="fas fa-presentation" style="color: #0EA5E9; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Creación de presentaciones/slides:</strong> Genera automáticamente presentaciones profesionales desde el contenido de tus documentos</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(34, 197, 94, 0.15); border-left: 4px solid #22C55E; opacity: 1 !important;">
+                            <i class="fas fa-chart-bar" style="color: #22C55E; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Análisis avanzado y gráficos:</strong> Panel de análisis completo con estadísticas, visualizaciones y creación de gráficos personalizados</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(168, 85, 247, 0.15); border-left: 4px solid #A855F7; opacity: 1 !important;">
+                            <i class="fas fa-search" style="color: #A855F7; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Búsqueda avanzada semántica:</strong> Busca contenido en tus documentos usando inteligencia artificial para encontrar información relevante</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-tags" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Organización con etiquetas:</strong> Categoriza y organiza tus documentos con sistema de etiquetas personalizadas</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(251, 146, 60, 0.15); border-left: 4px solid #FB923C; opacity: 1 !important;">
+                            <i class="fas fa-save" style="color: #FB923C; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Almacenamiento seguro por usuario:</strong> Cada usuario tiene su propia carpeta protegida con acceso restringido y organizado</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(6, 182, 212, 0.15); border-left: 4px solid #06B6D4; opacity: 1 !important;">
+                            <i class="fas fa-history" style="color: #06B6D4; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Historial de conversaciones:</strong> Mantén registro de todas tus interacciones con documentos para referencia futura</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Formulador de Prompts -->
-            <div class="detailed-feature-section">
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%); border: 2px solid rgba(99, 102, 241, 0.25);">
                 <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
                         <i class="fas fa-terminal"></i>
                     </div>
                     <div class="detailed-section-info">
-                        <h3>Formulador de Prompts Educativos</h3>
-                        <p>Genera prompts especializados para diferentes niveles y contenidos educativos</p>
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Formulador de Prompts Educativos</h3>
+                        <p>Ahora ya no tienes que escribir!!. Formula prompts educativos con un par de clicks!</p>
                     </div>
                 </div>
                 <div class="detailed-feature-content">
                     <div class="detailed-feature-image">
-                        <img src="assets/images/form-de-prompts.png" alt="Formulador de Prompts Educativos" class="img-fluid">
+                        <img src="assets/images/form-de-prompts.png" alt="Formulador de Prompts Educativos" class="img-fluid rounded-3 shadow-sm">
                     </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Contenidos por tramo y nivel educativo</span>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-project-diagram" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>1. Proyecto:</strong> Crea proyectos educativos completos con objetivos, actividades, cronograma y evaluación específica para tu nivel y contexto</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-layer-group"></i>
-                            <span>Unidades curriculares organizadas</span>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-calendar-alt" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>2. Plan (Anual, Semestral, Quincenal, Semanal, etc.):</strong> Genera planificaciones adaptadas a diferentes periodos temporales con todas las especificidades curriculares requeridas</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-filter"></i>
-                            <span>Filtros automáticos por grado</span>
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-list-ol" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>3. Secuencia Didáctica:</strong> Diseña secuencias completas con momentos didácticos estructurados, actividades progresivas y evaluación integrada</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-file-alt" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>4. Planificaciones:</strong> Elabora planificaciones detalladas con todos los componentes del quehacer educativo según normativa ANEP vigente</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-graduation-cap" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Contenidos por tramo y nivel:</strong> Acceso a toda la base de contenidos organizados por tramo educativo, grado y unidad curricular</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-sliders-h" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Filtros inteligentes:</strong> Selecciona automáticamente contenido, competencias y objetivos según el tramo, grado y materia elegidos</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
+                            <i class="fas fa-magic" style="color: #0EA5E9; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Especificidades contextuales:</strong> Cada opción se adapta a tu contexto educativo específico con detalles personalizados para tu realidad docente</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(168, 85, 247, 0.15); border-left: 4px solid #A855F7; opacity: 1 !important;">
+                            <i class="fas fa-check-double" style="color: #A855F7; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Cumplimiento normativo:</strong> Todos los prompts generados están alineados con la documentación oficial ANEP 2026 y normativa vigente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Base de Conocimientos ANEP -->
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, rgba(14, 165, 233, 0.12) 100%); border: 2px solid rgba(6, 182, 212, 0.25);">
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%);">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Base de Conocimientos ANEP Integrada</h3>
+                        <p>Sistema alimentado con absolutamente toda la documentación oficial de ANEP integrada en la base de conocimientos</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <!-- Visual representation of ANEP Knowledge Base -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #0e7490 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background circles -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(6, 182, 212, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(14, 165, 233, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📚</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Base de Conocimientos ANEP</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
+                                Más de 40,000 líneas de código con toda la documentación oficial de ANEP integrada y actualizada.
+                            </p>
+                            
+                            <!-- Feature badges -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: rgba(6, 182, 212, 0.2); padding: 10px 20px; border-radius: 30px; color: #67E8F9; font-size: 14px; border: 1px solid rgba(6, 182, 212, 0.3);">
+                                    📋 Documentación Oficial
+                                </div>
+                                <div style="background: rgba(14, 165, 233, 0.2); padding: 10px 20px; border-radius: 30px; color: #7DD3FC; font-size: 14px; border: 1px solid rgba(14, 165, 233, 0.3);">
+                                    40,000+ Líneas
+                                </div>
+                                <div style="background: rgba(59, 130, 246, 0.2); padding: 10px 20px; border-radius: 30px; color: #60A5FA; font-size: 14px; border: 1px solid rgba(59, 130, 246, 0.3);">
+                                    🔄 Actualizado 2026
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(6, 182, 212, 0.15); border-left: 4px solid #06B6D4; opacity: 1 !important;">
+                            <i class="fas fa-database" style="color: #06B6D4; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Documentación ANEP completa:</strong> Absolutamente toda la documentación oficial de ANEP integrada y estructurada en nuestra base de conocimientos</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
+                            <i class="fas fa-code" style="color: #0EA5E9; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Más de 40,000 líneas de código:</strong> Base de conocimientos masiva con más de 40 mil líneas de código estructurado y organizado</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-sync-alt" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Actualización continua:</strong> Base de conocimientos actualizada constantemente con las normativas y documentación más reciente de ANEP</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-graduation-cap" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Todos los tramos educativos:</strong> Documentación completa para todos los tramos, desde maternal hasta educación media superior</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-book" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Unidades curriculares completas:</strong> Todas las unidades curriculares con sus contenidos, competencias y objetivos organizados</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-check-circle" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Alineación curricular garantizada:</strong> Todas las planificaciones y recursos están alineados automáticamente con la normativa ANEP vigente</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-brain" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>IA entrenada con documentación oficial:</strong> Sistema de inteligencia artificial entrenado específicamente con la documentación ANEP para respuestas precisas</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(34, 197, 94, 0.15); border-left: 4px solid #22C55E; opacity: 1 !important;">
+                            <i class="fas fa-search" style="color: #22C55E; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Búsqueda inteligente:</strong> Acceso rápido y preciso a cualquier información de la documentación ANEP mediante búsqueda semántica avanzada</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(168, 85, 247, 0.15); border-left: 4px solid #A855F7; opacity: 1 !important;">
+                            <i class="fas fa-calendar-check" style="color: #A855F7; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Documentación 2026:</strong> Base de conocimientos actualizada con toda la documentación oficial de ANEP correspondiente al año 2026</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-shield-alt" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Fuente confiable y verificada:</strong> Toda la información proviene directamente de la documentación oficial de ANEP, garantizando precisión y confiabilidad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asistente de Investigación - NUEVA FEATURE DESTACADA -->
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(239, 68, 68, 0.15) 100%); border: 2px solid rgba(251, 146, 60, 0.3); position: relative; overflow: hidden;">
+                <!-- Badge NUEVO -->
+                <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #F97316 0%, #EF4444 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4); animation: pulse 2s infinite; z-index: 10;">
+                    🆕 NUEVA FUNCIÓN
+                </div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #F97316 0%, #EF4444 100%);">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #F97316 0%, #EF4444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🔍 Asistente de Investigación con IA</h3>
+                        <p>Busca información en toda la web, sintetiza con inteligencia artificial y genera documentos PDF profesionales automáticamente</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image" style="position: relative;">
+                        <!-- Visual representation of research assistant -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #2d1b1b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background elements -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(249, 115, 22, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(239, 68, 68, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">🔍</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px;">Investigación Inteligente</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto;">
+                                Búsqueda web avanzada + Síntesis con IA + Generación automática de PDFs. Todo en un solo clic para tus investigaciones académicas.
+                            </p>
+                            
+                            <!-- Feature badges -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: rgba(249, 115, 22, 0.2); padding: 10px 20px; border-radius: 30px; color: #FB923C; font-size: 14px; border: 1px solid rgba(249, 115, 22, 0.3);">
+                                    🌐 Búsqueda Web
+                                </div>
+                                <div style="background: rgba(239, 68, 68, 0.2); padding: 10px 20px; border-radius: 30px; color: #F87171; font-size: 14px; border: 1px solid rgba(239, 68, 68, 0.3);">
+                                    🤖 Síntesis IA
+                                </div>
+                                <div style="background: rgba(59, 130, 246, 0.2); padding: 10px 20px; border-radius: 30px; color: #60A5FA; font-size: 14px; border: 1px solid rgba(59, 130, 246, 0.3);">
+                                    📄 PDF Automático
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-globe" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Búsqueda en toda la web:</strong> Utiliza Google Custom Search para encontrar información relevante de múltiples fuentes confiables</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(239, 68, 68, 0.15); border-left: 4px solid #EF4444; opacity: 1 !important;">
+                            <i class="fas fa-brain" style="color: #EF4444; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Síntesis inteligente:</strong> La IA analiza, organiza y sintetiza la información en secciones lógicas y coherentes</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-file-pdf" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>PDF profesional automático:</strong> Genera documentos completos con portada, secciones, resumen ejecutivo y referencias</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-magic" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Múltiples fuentes:</strong> Selecciona hasta 10 fuentes para crear investigaciones completas y fundamentadas</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-save" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Guardado automático:</strong> Los PDFs se guardan directamente en tu gestor de documentos para acceso inmediato</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-clock" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Ahorra tiempo:</strong> Reduce horas de investigación manual a minutos de trabajo automatizado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pizarra Virtual - NUEVA FEATURE DESTACADA -->
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%); border: 2px solid rgba(34, 197, 94, 0.3); position: relative; overflow: hidden;">
+                <!-- Badge NUEVO -->
+                <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #22C55E 0%, #10B981 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); animation: pulse 2s infinite; z-index: 10;">
+                    🆕 NUEVA FUNCIÓN
+                </div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #22C55E 0%, #10B981 100%);">
+                        <i class="fas fa-chalkboard"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #22C55E 0%, #10B981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🖊️ Pizarra Virtual Interactiva</h3>
+                        <p>Herramienta completa de dibujo, diagramación y creación visual con soporte para Mermaid, dibujo libre y colaboración en tiempo real</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image" style="position: relative;">
+                        <!-- Visual representation of whiteboard -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1b2e1b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background elements -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">🖊️</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px;">Creatividad Sin Límites</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto;">
+                                Dibuja, diagrama, crea diagramas de flujo, mapas conceptuales y mucho más. Todo en una pizarra digital potente y fácil de usar.
+                            </p>
+                            
+                            <!-- Feature badges -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: rgba(34, 197, 94, 0.2); padding: 10px 20px; border-radius: 30px; color: #4ADE80; font-size: 14px; border: 1px solid rgba(34, 197, 94, 0.3);">
+                                    ✏️ Dibujo Libre
+                                </div>
+                                <div style="background: rgba(16, 185, 129, 0.2); padding: 10px 20px; border-radius: 30px; color: #34D399; font-size: 14px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                                    📊 Mermaid
+                                </div>
+                                <div style="background: rgba(59, 130, 246, 0.2); padding: 10px 20px; border-radius: 30px; color: #60A5FA; font-size: 14px; border: 1px solid rgba(59, 130, 246, 0.3);">
+                                    🎨 Herramientas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(34, 197, 94, 0.15); border-left: 4px solid #22C55E; opacity: 1 !important;">
+                            <i class="fas fa-pencil-alt" style="color: #22C55E; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Dibujo libre completo:</strong> Lápiz, pincel, formas geométricas, texto y más herramientas profesionales de diseño</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-project-diagram" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Editor Mermaid integrado:</strong> Crea diagramas de flujo, secuencias, gráficos y más con sintaxis Mermaid</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-palette" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Paleta de colores avanzada:</strong> Selecciona colores personalizados, gradientes y estilos para tus creaciones</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-layer-group" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Capas y organización:</strong> Trabaja con múltiples capas, zoom, panorámica y herramientas de alineación</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-save" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Guardado automático:</strong> Tus pizarras se guardan automáticamente y puedes exportarlas en diferentes formatos</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-users" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Comparte y colabora:</strong> Comparte tus pizarras con estudiantes o colegas para trabajo colaborativo</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
+                            <i class="fas fa-expand" style="color: #0EA5E9; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Vista completa:</strong> Modo pantalla completa para presentaciones y trabajo inmersivo sin distracciones</span>
                         </div>
                     </div>
                 </div>
@@ -1978,38 +2804,108 @@
     <section id="inspirar" class="about-section py-5 parallax-section">
         <div class="parallax-bg about-bg" data-speed="0.3"></div>
         <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <span class="badge bg-success mb-3" style="font-size: 1rem; padding: 10px 25px; font-weight: 600;">Membresía PRIME</span>
+                    <h2 class="section-title mb-4">¿Qué es Plaɳ MaeŠtrɸ ?</h2>
+                    <p class="section-subtitle" style="font-size: 1.2rem; color: rgba(255,255,255,0.8); max-width: 800px; margin: 0 auto;">
+                        La Calculadora del Pensamiento Docente Uruguayo - Una plataforma educativa integral que combina inteligencia artificial avanzada con herramientas de planificación pedagógica
+                    </p>
+                </div>
+            </div>
+            
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="about-content">
-                        <span class="badge bg-success mb-3">Membresía PRIME</span>
-                        <h2 class="section-title">¿Qué es Plaɳ MaeŠtrɸ ?</h2>
-                        <div class="feature-list">
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-success"></i>
-                                <span>Plataforma completamente equipada con la documentación oficial de ANEP (2026)</span>
+                        <div class="feature-list" style="display: grid; gap: 1rem;">
+                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%); border-left: 4px solid #10B981; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                    <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+                                        <i class="fas fa-database" style="color: white; font-size: 1.5rem;"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">Documentación ANEP 2026 Completa</h5>
+                                        <p style="color: rgba(255,255,255,0.85); margin: 0; line-height: 1.6;">Plataforma completamente equipada con absolutamente toda la documentación oficial de ANEP (2026), más de 40,000 líneas de código integradas</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-success"></i>
-                                <span>Incluye la totalidad de tramos y unidades curriculares correspondientes actualizadas a 2026</span>
+                            
+                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(14, 165, 233, 0.15) 100%); border-left: 4px solid #3B82F6; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                    <div style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                                        <i class="fas fa-graduation-cap" style="color: white; font-size: 1.5rem;"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">Todos los Tramos y Unidades Curriculares</h5>
+                                        <p style="color: rgba(255,255,255,0.85); margin: 0; line-height: 1.6;">Incluye la totalidad de tramos y unidades curriculares correspondientes actualizadas a 2026, desde maternal hasta educación media superior</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-success"></i>
-                                <span>Sistema con Inteligencia Artificial entrenado a lo largo de los años lectivos de 2024-2025</span>
+                            
+                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%); border-left: 4px solid #8B5CF6; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                    <div style="background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);">
+                                        <i class="fas fa-robot" style="color: white; font-size: 1.5rem;"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">IA Entrenada y Especializada</h5>
+                                        <p style="color: rgba(255,255,255,0.85); margin: 0; line-height: 1.6;">Sistema con Inteligencia Artificial entrenado a lo largo de los años lectivos de 2024-2025, optimizado específicamente para educación uruguaya</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-success"></i>
-                                <span>Banco de datos que se enriquece y aprende con cada registro</span>
+                            
+                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(251, 146, 60, 0.15) 100%); border-left: 4px solid #F97316; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                    <div style="background: linear-gradient(135deg, #F97316 0%, #FB923C 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);">
+                                        <i class="fas fa-chart-line" style="color: white; font-size: 1.5rem;"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">Banco de Datos Inteligente</h5>
+                                        <p style="color: rgba(255,255,255,0.85); margin: 0; line-height: 1.6;">Base de datos que se enriquece y aprende con cada registro, mejorando continuamente las respuestas y personalización</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%); padding: 10px 15px; border-radius: 10px; margin-top: 10px; border-left: 3px solid #8B5CF6;">
-                                <i class="fas fa-brain" style="color: #8B5CF6;"></i>
-                                <span><strong style="color: #8B5CF6;">🆕 NUEVO:</strong> Sistema "Mi Memoria" - La IA que te conoce y personaliza cada respuesta según tu perfil docente</span>
+                            
+                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%); border-left: 4px solid #8B5CF6; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(138, 43, 226, 0.25); position: relative; overflow: hidden;">
+                                <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 4px 12px; border-radius: 0 12px 0 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    🆕 NUEVO
+                                </div>
+                                <div style="display: flex; align-items: flex-start; gap: 1rem; margin-top: 0.5rem;">
+                                    <div style="background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(138, 43, 226, 0.4);">
+                                        <i class="fas fa-brain" style="color: white; font-size: 1.5rem;"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Sistema "Mi Memoria"</h5>
+                                        <p style="color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; font-weight: 500;">La IA que te conoce y personaliza cada respuesta según tu perfil docente. Aprende de cada conversación y mejora continuamente</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="about-image">
-                        <img src="assets/images/pm-26.png" alt="Plaɳ MaeŠtrɸ Features" class="img-fluid rounded-4 shadow-lg">
+                    <div class="about-image" style="position: relative;">
+                        <div style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 3rem; display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                            <!-- Animated background glow -->
+                            <div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.2), transparent 70%); animation: pulse 4s ease-in-out infinite;"></div>
+                            <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.15), transparent 60%); animation: pulse 5s ease-in-out infinite; animation-delay: 1s;"></div>
+                            
+                            <!-- Logo with animations -->
+                            <img src="assets/images/logo-lateral.png" alt="Plaɳ MaeŠtrɸ Logo" class="img-fluid" style="display: block; max-width: 100%; height: auto; position: relative; z-index: 2; filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.5)) drop-shadow(0 0 60px rgba(139, 92, 246, 0.3)); animation: logo-glow 3s ease-in-out infinite alternate, float 6s ease-in-out infinite; transition: all 0.5s ease;">
+                            
+                            <!-- Shimmer effect -->
+                            <div style="position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%); transform: translateX(-100%); animation: shimmer 4s ease-in-out infinite; pointer-events: none; z-index: 3;"></div>
+                        </div>
+                        <!-- Floating stats cards -->
+                        <div style="position: absolute; top: -20px; right: -20px; background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); color: white; padding: 1rem 1.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4); z-index: 10; animation: float 3s ease-in-out infinite;">
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Documentación ANEP ocupando</div>
+                            <div style="font-size: 2rem; font-weight: 800; line-height: 1;">40,000+</div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Líneas de código</div>
+                        </div>
+                        <div style="position: absolute; bottom: -20px; left: -20px; background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); color: white; padding: 1rem 1.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4); z-index: 10; animation: float 3s ease-in-out infinite; animation-delay: 1s;">
+                            <div style="font-size: 2rem; font-weight: 800; line-height: 1;">100%</div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">ANEP 2026</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2334,6 +3230,37 @@
         </div>
     </section>
 
+    <!-- Perfect Tool Section -->
+    <section id="perfect-tool" class="perfect-tool-section py-5 parallax-section">
+        <div class="parallax-bg perfect-tool-bg" data-speed="0.3"></div>
+        <div class="perfect-tool-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10 col-xl-9" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="perfect-tool-content">
+                        <h2 class="perfect-tool-title">
+                            <span class="title-word title-word-1">La herramienta</span>
+                            <span class="title-word title-word-2">perfecta</span>
+                            <span class="title-word title-word-3">para el docente</span>
+                        </h2>
+                        <div class="perfect-tool-decoration" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="perfect-tool-line"></div>
+                            <div class="perfect-tool-star"><i class="fas fa-star"></i></div>
+                            <div class="perfect-tool-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="perfect-tool-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section id="lanzamiento" class="final-cta-section py-5 parallax-section">
         <div class="parallax-bg final-cta-bg" data-speed="0.5"></div>
@@ -2402,7 +3329,7 @@
             <div class="footer-developer">
                 <img src="assets/images/profile.jpg" alt="Lic Marcos Mello" class="developer-photo">
                 <div class="developer-name">Lic. Marcos Mello</div>
-                <div class="developer-role">Desarrollador y Fundador</div>
+                <div class="developer-role">Desarrollador y Fundador - Analista de sistemas - Docente</div>
                 <div class="footer-info">
                     <div class="info-item">
                         <i class="fas fa-code"></i>

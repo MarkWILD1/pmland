@@ -725,13 +725,13 @@
                     <a href="#audio-features" class="nav-item" onclick="showSection('audio-features')">🎤 Funcionalidades de Audio</a>
                     <a href="#generador-imagenes" class="nav-item" onclick="showSection('generador-imagenes')">🎨 Generador de Imágenes</a>
                     <a href="#formulador-prompts" class="nav-item" onclick="showSection('formulador-prompts')">📝 Formulador de Prompts</a>
-                    <a href="#plan-docs" class="nav-item" onclick="showSection('plan-docs')">📄 Plan Docs</a>
                     <a href="#calendario" class="nav-item" onclick="showSection('calendario')">📅 Calendario y Recordatorios</a>
+                    <a href="#asistente-investigacion" class="nav-item" onclick="showSection('asistente-investigacion')">🔍 Asistente de Investigación</a>
+                    <a href="#pizarra-virtual" class="nav-item" onclick="showSection('pizarra-virtual')">🖼️ Pizarra Virtual</a>
                 </div>
 
                 <div class="nav-section">
                     <div class="nav-section-title">Configuración</div>
-                    <a href="#markdown-support" class="nav-item" onclick="showSection('markdown-support')">📝 Soporte Markdown</a>
                     <a href="#sistema-info" class="nav-item" onclick="showSection('sistema-info')">⚙️ Información del Sistema</a>
                 </div>
             </nav>
@@ -756,8 +756,9 @@
                         <li><strong>Audio en Tiempo Real:</strong> Streaming de audio mientras se genera la respuesta</li>
                         <li><strong>Generador de Imágenes:</strong> Crea imágenes únicas en HD y en diferentes tamaños</li>
                         <li><strong>Formulador de Prompts:</strong> Genera prompts educativos estructurados</li>
-                        <li><strong>Plan Docs:</strong> Editor de documentos completo tipo Google Docs</li>
                         <li><strong>Calendario y Recordatorios:</strong> Agenda eventos, clases y actividades con recordatorios automáticos</li>
+                        <li><strong>Asistente de Investigación:</strong> Herramienta inteligente para búsqueda, análisis y síntesis de información educativa</li>
+                        <li><strong>Pizarra Virtual:</strong> Espacio colaborativo para dibujar, crear diagramas y trabajar en equipo en tiempo real</li>
                     </ul>
                 </div>
 
@@ -1647,79 +1648,6 @@
                 <pre><code>Quiero una clase para el Tramo: [Tramo Seleccionado], el espacio curricular es: [Espacio Curricular], para la unidad curricular [Espacio Curricular], para el grado: [Grado] y el contenido es: [Contenido].</code></pre>
             </section>
 
-            <!-- Plan Docs -->
-            <section id="plan-docs" class="doc-section" style="display: none;">
-                <h1>📄 Plan Docs - Editor de Documentos Completo</h1>
-                
-                <h2>Descripción</h2>
-                <p>Plan Docs es un editor de texto completo tipo Google Docs integrado en la plataforma, diseñado específicamente para docentes que necesitan crear, editar y gestionar documentos profesionales con todas las funcionalidades avanzadas.</p>
-
-                <h2>Características Principales</h2>
-                
-                <h3>🎨 Editor Completo</h3>
-                <ul>
-                    <li><strong>Editor</strong> altamente eficiente y personalizable</li>
-                    <li>Interfaz intuitiva y familiar</li>
-                    <li>Barra de herramientas completa con todas las opciones de formato</li>
-                    <li>Menú desplegable con opciones avanzadas</li>
-                </ul>
-
-                <h3>📝 Funcionalidades de Edición</h3>
-                <ul>
-                    <li><strong>Formato de texto:</strong> Negrita, cursiva, subrayado, tachado</li>
-                    <li><strong>Colores:</strong> Color de texto y color de fondo</li>
-                    <li><strong>Alineación:</strong> Izquierda, centro, derecha, justificado</li>
-                    <li><strong>Listas:</strong> Numeradas, con viñetas, anidadas</li>
-                    <li><strong>Encabezados:</strong> H1, H2, H3, H4, H5, H6</li>
-                    <li><strong>Tablas:</strong> Insertar, editar, eliminar filas y columnas</li>
-                    <li><strong>Enlaces:</strong> Hipervínculos internos y externos</li>
-                    <li><strong>Imágenes:</strong> Insertar, redimensionar, alinear</li>
-                    <li><strong>Código:</strong> Bloques de código con resaltado de sintaxis</li>
-                    <li><strong>Citas:</strong> Bloques de citas estilizados</li>
-                </ul>
-
-                <h3>📁 Gestión de Documentos</h3>
-                <ul>
-                    <li><strong>Carpetas:</strong> Organización por carpetas personalizadas</li>
-                    <li><strong>Búsqueda:</strong> Búsqueda en títulos y contenido</li>
-                    <li><strong>Etiquetas:</strong> Sistema de etiquetas para categorización</li>
-                    <li><strong>Vista previa:</strong> Información de documentos en la sidebar</li>
-                    <li><strong>Ordenamiento:</strong> Por fecha de modificación</li>
-                </ul>
-
-                <h3>💾 Guardado y Sincronización</h3>
-                <ul>
-                    <li><strong>Auto-guardado:</strong> Cada 30 segundos automáticamente</li>
-                    <li><strong>Guardado manual:</strong> Botón de guardar con indicador visual</li>
-                    <li><strong>Sincronización:</strong> Datos guardados en MongoDB</li>
-                    <li><strong>Historial:</strong> Control de versiones automático</li>
-                </ul>
-
-                <h3>📤 Exportación</h3>
-                <ul>
-                    <li><strong>PDF:</strong> Exportación a PDF con formato preservado</li>
-                    <li><strong>DOCX:</strong> Exportación a Word con estructura completa</li>
-                    <li><strong>TXT:</strong> Exportación a texto plano</li>
-                    <li><strong>HTML:</strong> Código HTML del documento</li>
-                </ul>
-
-                <h2>Uso</h2>
-                
-                <h3>Crear un Nuevo Documento</h3>
-                <ol>
-                    <li>Hacer clic en "Nuevo documento" en la sidebar</li>
-                    <li>El documento se crea automáticamente en la carpeta seleccionada</li>
-                    <li>Comenzar a escribir inmediatamente</li>
-                </ol>
-
-                <h3>Exportar Documentos</h3>
-                <ol>
-                    <li>Hacer clic en "Exportar" en la barra superior</li>
-                    <li>Seleccionar formato deseado (PDF, DOCX, TXT)</li>
-                    <li>El archivo se descarga automáticamente</li>
-                </ol>
-            </section>
-
             <!-- Calendario y Recordatorios -->
             <section id="calendario" class="doc-section" style="display: none;">
                 <h1>📅 Calendario y Recordatorios</h1>
@@ -1953,60 +1881,473 @@
                 </div>
             </section>
 
-            <!-- Markdown Support -->
-            <section id="markdown-support" class="doc-section" style="display: none;">
-                <h1>📝 Soporte para Markdown en Plan Docs</h1>
+            <!-- Asistente de Investigación -->
+            <section id="asistente-investigacion" class="doc-section" style="display: none;">
+                <h1>🔍 Asistente de Investigación</h1>
                 
-                <h2>🎯 Funcionalidad Agregada</h2>
-                <p>Plan Docs ahora incluye soporte completo para <strong>Markdown</strong>, permitiendo convertir automáticamente texto con formato Markdown a HTML rico cuando pegas contenido desde otros sistemas.</p>
+                <h2>Descripción</h2>
+                <p>El Asistente de Investigación es una herramienta inteligente que te ayuda a realizar investigaciones académicas y educativas de manera eficiente. Utiliza inteligencia artificial avanzada para buscar, analizar y sintetizar información relevante sobre cualquier tema educativo que necesites explorar.</p>
 
-                <h2>✨ Características</h2>
+                <div class="card">
+                    <h3>🎯 ¿Qué es el Asistente de Investigación?</h3>
+                    <p>Es un sistema especializado que combina capacidades de búsqueda inteligente con análisis profundo de contenido para ayudarte a:</p>
+                    <ul>
+                        <li>Encontrar información relevante sobre temas educativos</li>
+                        <li>Analizar y sintetizar múltiples fuentes de información</li>
+                        <li>Generar resúmenes estructurados y organizados</li>
+                        <li>Identificar conceptos clave y relaciones entre ideas</li>
+                        <li>Crear referencias y citas apropiadas</li>
+                    </ul>
+                </div>
+
+                <h2>Características Principales</h2>
                 
-                <h3>🔍 Detección Automática</h3>
-                <p>El sistema detecta automáticamente si el contenido pegado contiene elementos de Markdown como:</p>
+                <h3>🔎 Búsqueda Inteligente</h3>
+                <div class="card">
+                    <h4>Capacidades de Búsqueda</h4>
+                    <ul>
+                        <li><strong>Búsqueda semántica:</strong> Entiende el contexto y significado de tus consultas</li>
+                        <li><strong>Múltiples fuentes:</strong> Accede a bases de datos académicas y educativas</li>
+                        <li><strong>Filtrado inteligente:</strong> Encuentra información específica según tus criterios</li>
+                        <li><strong>Búsqueda contextual:</strong> Adapta los resultados a tu área educativa</li>
+                        <li><strong>Resultados relevantes:</strong> Prioriza información más útil para docentes</li>
+                    </ul>
+                </div>
+
+                <h3>📊 Análisis y Síntesis</h3>
+                <div class="card">
+                    <h4>Procesamiento de Información</h4>
+                    <ul>
+                        <li><strong>Análisis profundo:</strong> Examina múltiples documentos y fuentes</li>
+                        <li><strong>Síntesis automática:</strong> Combina información de diferentes fuentes</li>
+                        <li><strong>Extracción de conceptos clave:</strong> Identifica ideas principales y secundarias</li>
+                        <li><strong>Organización lógica:</strong> Estructura la información de manera coherente</li>
+                        <li><strong>Resúmenes ejecutivos:</strong> Crea resúmenes concisos y completos</li>
+                    </ul>
+                </div>
+
+                <h3>📝 Generación de Contenido</h3>
                 <ul>
-                    <li><strong>Texto en negrita</strong> (<code>**texto**</code>)</li>
-                    <li><strong>Títulos</strong> (<code># Título</code>, <code>## Subtítulo</code>)</li>
-                    <li><strong>Listas</strong> (<code>- item</code>, <code>* item</code>)</li>
-                    <li><strong>Citas</strong> (<code>> texto</code>)</li>
-                    <li><strong>Código</strong> (<code>`código`</code>)</li>
-                    <li><strong>Enlaces</strong> (<code>[texto](url)</code>)</li>
-                    <li><strong>Tablas</strong> (<code>| columna |</code>)</li>
-                    <li><strong>Bloques de código</strong> (<code>``` ```</code>)</li>
+                    <li><strong>Informes estructurados:</strong> Crea documentos de investigación organizados</li>
+                    <li><strong>Bibliografías:</strong> Genera listas de referencias apropiadas</li>
+                    <li><strong>Mapas conceptuales:</strong> Visualiza relaciones entre conceptos</li>
+                    <li><strong>Comparaciones:</strong> Analiza y compara diferentes enfoques o teorías</li>
+                    <li><strong>Recomendaciones:</strong> Sugiere recursos y materiales adicionales</li>
                 </ul>
 
-                <h2>📝 Cómo Usar</h2>
+                <h2>Cómo Usar</h2>
                 
-                <h3>1. Pegado Automático</h3>
+                <h3>1. Iniciar una Investigación</h3>
                 <ol>
-                    <li>Copia texto con formato Markdown desde cualquier fuente</li>
-                    <li>Pégalo en Plan Docs</li>
-                    <li>El sistema detectará automáticamente el formato Markdown</li>
-                    <li>Se convertirá a HTML rico instantáneamente</li>
+                    <li>Accede al <strong>Asistente de Investigación</strong> desde el menú principal</li>
+                    <li>Ingresa tu tema de investigación o pregunta en el campo de búsqueda</li>
+                    <li>Especifica el alcance de tu investigación (opcional):
+                        <ul>
+                            <li>Nivel educativo (primaria, secundaria, etc.)</li>
+                            <li>Área temática específica</li>
+                            <li>Tipo de información que necesitas</li>
+                        </ul>
+                    </li>
+                    <li>Haz clic en <strong>"Iniciar Investigación"</strong> o presiona Enter</li>
                 </ol>
 
-                <h3>2. Conversión Manual</h3>
+                <h3>2. Revisar Resultados</h3>
+                <div class="card">
+                    <h4>Información Proporcionada</h4>
+                    <p>El asistente te proporcionará:</p>
+                    <ul>
+                        <li><strong>Resumen ejecutivo:</strong> Visión general del tema</li>
+                        <li><strong>Conceptos clave:</strong> Ideas principales identificadas</li>
+                        <li><strong>Fuentes relevantes:</strong> Referencias y enlaces útiles</li>
+                        <li><strong>Análisis detallado:</strong> Información profunda sobre aspectos específicos</li>
+                        <li><strong>Recomendaciones:</strong> Sugerencias para profundizar en el tema</li>
+                    </ul>
+                </div>
+
+                <h3>3. Refinar la Búsqueda</h3>
                 <ol>
-                    <li>Escribe o pega texto con formato Markdown</li>
-                    <li>Si el sistema detecta Markdown, aparecerá el botón "Convertir Markdown"</li>
-                    <li>Haz clic en el botón para convertir el contenido actual</li>
-                    <li>El texto se transformará en formato rico</li>
+                    <li>Haz preguntas de seguimiento para profundizar en aspectos específicos</li>
+                    <li>Pide más información sobre conceptos que te interesen</li>
+                    <li>Solicita comparaciones entre diferentes enfoques</li>
+                    <li>Pide ejemplos prácticos o casos de estudio</li>
+                    <li>Genera mapas conceptuales o visualizaciones</li>
                 </ol>
 
-                <h2>🎨 Estilos Soportados</h2>
+                <h3>4. Exportar Resultados</h3>
                 <ul>
-                    <li><span class="badge badge-success">✅</span> <strong>Negrita</strong> (<code>**texto**</code>)</li>
-                    <li><span class="badge badge-success">✅</span> <em>Cursiva</em> (<code>*texto*</code>)</li>
-                    <li><span class="badge badge-success">✅</span> <del>Tachado</del> (<code>~~texto~~</code>)</li>
-                    <li><span class="badge badge-success">✅</span> <code>Código inline</code> (<code>`código`</code>)</li>
-                    <li><span class="badge badge-success">✅</span> Encabezados (H1, H2, H3, etc.)</li>
-                    <li><span class="badge badge-success">✅</span> Listas ordenadas y no ordenadas</li>
-                    <li><span class="badge badge-success">✅</span> Citas y bloques de texto</li>
-                    <li><span class="badge badge-success">✅</span> Enlaces e imágenes</li>
-                    <li><span class="badge badge-success">✅</span> Tablas</li>
-                    <li><span class="badge badge-success">✅</span> Bloques de código</li>
+                    <li><strong>Copiar al portapapeles:</strong> Copia información específica</li>
+                    <li><strong>Generar PDF:</strong> Exporta el informe completo en formato PDF</li>
+                    <li><strong>Compartir link:</strong> Comparte tu investigación con otros usuarios</li>
                 </ul>
+
+                <h2>Casos de Uso</h2>
+                
+                <div class="card">
+                    <h3>📚 Ejemplo 1: Investigación sobre Metodologías</h3>
+                    <p><strong>Escenario:</strong> Necesitas información sobre metodologías activas para implementar en tu clase.</p>
+                    <ol>
+                        <li>Consulta: "Metodologías activas para educación primaria"</li>
+                        <li>El asistente proporciona:
+                            <ul>
+                                <li>Definición y características de metodologías activas</li>
+                                <li>Ejemplos específicos (ABP, gamificación, STEAM)</li>
+                                <li>Ventajas y desafíos de implementación</li>
+                                <li>Recursos y materiales de apoyo</li>
+                            </ul>
+                        </li>
+                        <li>Puedes hacer preguntas de seguimiento como:
+                            <ul>
+                                <li>"¿Cómo implementar ABP en matemática de 3er año?"</li>
+                                <li>"¿Qué recursos necesito para gamificación?"</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>🎓 Ejemplo 2: Análisis Curricular</h3>
+                    <p><strong>Escenario:</strong> Necesitas comparar diferentes enfoques curriculares.</p>
+                    <ol>
+                        <li>Consulta: "Comparar enfoques curriculares: tradicional vs. competencial"</li>
+                        <li>El asistente genera:
+                            <ul>
+                                <li>Tabla comparativa de características</li>
+                                <li>Ventajas y desventajas de cada enfoque</li>
+                                <li>Casos de implementación exitosa</li>
+                                <li>Recomendaciones para tu contexto</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>📖 Ejemplo 3: Preparación de Clase</h3>
+                    <p><strong>Escenario:</strong> Necesitas información actualizada sobre un tema específico para tu clase.</p>
+                    <ol>
+                        <li>Consulta: "Enseñanza de fracciones en 4to año de primaria"</li>
+                        <li>El asistente proporciona:
+                            <ul>
+                                <li>Conceptos fundamentales sobre fracciones</li>
+                                <li>Estrategias didácticas efectivas</li>
+                                <li>Errores comunes de los estudiantes</li>
+                                <li>Actividades prácticas recomendadas</li>
+                                <li>Recursos digitales y materiales</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h2>Características Avanzadas</h2>
+                
+                <h3>🔗 Integración con Otras Herramientas</h3>
+                <ul>
+                    <li><strong>Gestor de Documentos:</strong> Guarda fuentes y referencias para consulta posterior</li>
+                    <li><strong>Mapas Mentales:</strong> Genera visualizaciones de conceptos investigados</li>
+                    <li><strong>Planificaciones:</strong> Incorpora información de investigación en tus planificaciones</li>
+                </ul>
+
+                <h3>💾 Historial de Investigaciones</h3>
+                <div class="card">
+                    <h4>Gestión de Investigaciones</h4>
+                    <ul>
+                        <li><strong>Guardar investigaciones:</strong> Almacena tus búsquedas para consulta posterior</li>
+                        <li><strong>Historial completo:</strong> Accede a todas tus investigaciones anteriores</li>
+                        <li><strong>Búsqueda en historial:</strong> Encuentra investigaciones pasadas rápidamente</li>
+                        <li><strong>Actualización automática:</strong> El sistema puede actualizar investigaciones guardadas</li>
+                    </ul>
+                </div>
+
+                <h2>Consejos y Mejores Prácticas</h2>
+                
+                <div class="card">
+                    <h3>💡 Tips para Investigaciones Efectivas</h3>
+                    <ul>
+                        <li><strong>Sé específico:</strong> Cuanto más detallada sea tu consulta, mejores serán los resultados</li>
+                        <li><strong>Haz preguntas de seguimiento:</strong> Profundiza en aspectos que te interesen</li>
+                        <li><strong>Combina con otras herramientas:</strong> Usa el asistente junto con el Gestor de Documentos</li>
+                        <li><strong>Guarda investigaciones importantes:</strong> Conserva información útil para referencia futura</li>
+                        <li><strong>Verifica fuentes:</strong> Siempre revisa las referencias proporcionadas</li>
+                        <li><strong>Personaliza resultados:</strong> Menciona tu contexto educativo para resultados más relevantes</li>
+                    </ul>
+                </div>
+
+                <h2>Limitaciones y Consideraciones</h2>
+                
+                <div class="card">
+                    <h3>⚠️ Importante</h3>
+                    <ul>
+                        <li><strong>Verificación:</strong> Siempre verifica la información crítica con fuentes oficiales</li>
+                        <li><strong>Actualización:</strong> La información puede no estar completamente actualizada</li>
+                        <li><strong>Contexto:</strong> Adapta la información a tu realidad educativa específica</li>
+                        <li><strong>Uso ético:</strong> Utiliza la información de manera responsable y cita fuentes apropiadamente</li>
+                    </ul>
+                </div>
             </section>
+
+            <!-- Pizarra Virtual -->
+            <section id="pizarra-virtual" class="doc-section" style="display: none;">
+                <h1>🖼️ Pizarra Virtual</h1>
+                
+                <h2>Descripción</h2>
+                <p>La Pizarra Virtual es una herramienta interactiva que te permite crear, dibujar y colaborar en tiempo real. Ideal para explicaciones visuales, brainstorming, planificación de clases y trabajo colaborativo con estudiantes o colegas.</p>
+
+                <div class="card">
+                    <h3>🎨 ¿Qué es la Pizarra Virtual?</h3>
+                    <p>Es un espacio de trabajo digital infinito donde puedes:</p>
+                    <ul>
+                        <li>Dibujar y escribir libremente</li>
+                        <li>Crear diagramas y esquemas visuales</li>
+                        <li>Colaborar en tiempo real con otros usuarios</li>
+                        <li>Insertar imágenes, formas y texto</li>
+                        <li>Organizar ideas y conceptos visualmente</li>
+                        <li>Guardar y compartir tus creaciones</li>
+                    </ul>
+                </div>
+
+                <h2>Características Principales</h2>
+                
+                <h3>✏️ Herramientas de Dibujo</h3>
+                <div class="card">
+                    <h4>Herramientas Disponibles</h4>
+                    <ul>
+                        <li><strong>Lápiz:</strong> Dibujo libre con diferentes grosores y colores</li>
+                        <li><strong>Marcador:</strong> Trazos más gruesos y opacos</li>
+                        <li><strong>Borrador:</strong> Elimina partes específicas del dibujo</li>
+                        <li><strong>Líneas:</strong> Dibuja líneas rectas perfectas</li>
+                        <li><strong>Flechas:</strong> Crea flechas para indicar direcciones o relaciones</li>
+                        <li><strong>Formas:</strong> Rectángulos, círculos, polígonos y más</li>
+                        <li><strong>Texto:</strong> Agrega texto con diferentes fuentes y tamaños</li>
+                    </ul>
+                </div>
+
+                <h3>🎨 Personalización</h3>
+                <ul>
+                    <li><strong>Paleta de colores:</strong> Amplia gama de colores personalizables</li>
+                    <li><strong>Grosor de trazo:</strong> Ajusta el tamaño del lápiz o marcador</li>
+                    <li><strong>Estilos de línea:</strong> Sólida, punteada, discontinua</li>
+                    <li><strong>Relleno de formas:</strong> Colores sólidos, degradados o transparentes</li>
+                    <li><strong>Fuentes de texto:</strong> Múltiples opciones tipográficas</li>
+                </ul>
+
+                <h3>📎 Elementos Multimedia</h3>
+                <div class="card">
+                    <h4>Contenido que Puedes Agregar</h4>
+                    <ul>
+                        <li><strong>Imágenes:</strong> Sube imágenes desde tu dispositivo</li>
+                        <li><strong>Stickers:</strong> Biblioteca de stickers educativos</li>
+                        <li><strong>Iconos:</strong> Colección de iconos para diagramas</li>
+                        <li><strong>Videos:</strong> Inserta videos de YouTube o archivos locales</li>
+                        <li><strong>Enlaces:</strong> Agrega hipervínculos a recursos externos</li>
+                    </ul>
+                </div>
+
+                <h3>👥 Colaboración en Tiempo Real</h3>
+                <ul>
+                    <li><strong>Múltiples usuarios:</strong> Hasta varios colaboradores simultáneos</li>
+                    <li><strong>Sincronización instantánea:</strong> Cambios visibles en tiempo real</li>
+                    <li><strong>Indicadores de presencia:</strong> Ve quién está trabajando en la pizarra</li>
+                    <li><strong>Chat integrado:</strong> Comunicación mientras colaboras</li>
+                    <li><strong>Permisos:</strong> Controla quién puede editar o solo ver</li>
+                </ul>
+
+                <h3>💾 Gestión de Pizarras</h3>
+                <ul>
+                    <li><strong>Guardado automático:</strong> Tus cambios se guardan automáticamente</li>
+                    <li><strong>Múltiples pizarras:</strong> Crea y gestiona varias pizarras</li>
+                    <li><strong>Organización:</strong> Organiza pizarras en carpetas</li>
+                    <li><strong>Búsqueda:</strong> Encuentra pizarras rápidamente</li>
+                    <li><strong>Versiones:</strong> Historial de versiones de tus pizarras</li>
+                </ul>
+
+                <h2>Cómo Usar</h2>
+                
+                <h3>1. Crear una Nueva Pizarra</h3>
+                <ol>
+                    <li>Accede a <strong>Pizarra Virtual</strong> desde el menú principal</li>
+                    <li>Haz clic en <strong>"Nueva Pizarra"</strong> o <strong>"Crear Pizarra"</strong></li>
+                    <li>Asigna un nombre a tu pizarra</li>
+                    <li>Selecciona el tamaño y orientación (horizontal, vertical, cuadrado)</li>
+                    <li>¡Comienza a dibujar!</li>
+                </ol>
+
+                <h3>2. Usar las Herramientas</h3>
+                <div class="card">
+                    <h4>Guía Rápida</h4>
+                    <ol>
+                        <li><strong>Selecciona una herramienta:</strong> Haz clic en el lápiz, marcador, formas, etc.</li>
+                        <li><strong>Ajusta el color:</strong> Elige un color de la paleta</li>
+                        <li><strong>Configura el grosor:</strong> Ajusta el tamaño del trazo</li>
+                        <li><strong>Dibuja o escribe:</strong> Haz clic y arrastra en la pizarra</li>
+                        <li><strong>Deshacer/Rehacer:</strong> Usa los botones para corregir errores</li>
+                    </ol>
+                </div>
+
+                <h3>3. Agregar Elementos</h3>
+                <ol>
+                    <li><strong>Imágenes:</strong>
+                        <ul>
+                            <li>Haz clic en el botón "Insertar Imagen"</li>
+                            <li>Selecciona una imagen de tu dispositivo</li>
+                            <li>Arrastra y redimensiona según necesites</li>
+                        </ul>
+                    </li>
+                    <li><strong>Texto:</strong>
+                        <ul>
+                            <li>Selecciona la herramienta de texto</li>
+                            <li>Haz clic donde quieres agregar texto</li>
+                            <li>Escribe y formatea según necesites</li>
+                        </ul>
+                    </li>
+                    <li><strong>Formas:</strong>
+                        <ul>
+                            <li>Selecciona una forma (rectángulo, círculo, etc.)</li>
+                            <li>Haz clic y arrastra para dibujar la forma</li>
+                            <li>Ajusta color y relleno</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>4. Colaborar con Otros</h3>
+                <ol>
+                    <li>Haz clic en <strong>"Compartir"</strong> o <strong>"Invitar"</strong></li>
+                    <li>Genera un enlace de colaboración o invita por email</li>
+                    <li>Establece permisos (editar o solo ver)</li>
+                    <li>Los colaboradores recibirán el enlace y podrán unirse</li>
+                    <li>Verás sus cambios en tiempo real</li>
+                </ol>
+
+                <h3>5. Guardar y Exportar</h3>
+                <ul>
+                    <li><strong>Guardado automático:</strong> Los cambios se guardan automáticamente</li>
+                    <li><strong>Exportar como imagen:</strong> Descarga como PNG o JPG</li>
+                    <li><strong>Exportar como PDF:</strong> Crea un documento PDF de la pizarra</li>
+                    <li><strong>Compartir link:</strong> Genera un enlace para compartir</li>
+                </ul>
+
+                <h2>Casos de Uso</h2>
+                
+                <div class="card">
+                    <h3>📚 Ejemplo 1: Explicación Visual en Clase</h3>
+                    <p><strong>Escenario:</strong> Necesitas explicar un concepto complejo de manera visual.</p>
+                    <ol>
+                        <li>Crea una nueva pizarra</li>
+                        <li>Dibuja diagramas y esquemas del concepto</li>
+                        <li>Agrega texto explicativo y etiquetas</li>
+                        <li>Usa colores para destacar partes importantes</li>
+                        <li>Comparte la pizarra con tus estudiantes</li>
+                        <li>Puedes proyectarla o compartir el link</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>🧠 Ejemplo 2: Brainstorming Colaborativo</h3>
+                    <p><strong>Escenario:</strong> Trabajas en equipo para planificar un proyecto.</p>
+                    <ol>
+                        <li>Crea una pizarra colaborativa</li>
+                        <li>Invita a tus colegas</li>
+                        <li>Cada uno puede agregar ideas, dibujos y notas</li>
+                        <li>Organiza las ideas con formas y conectores</li>
+                        <li>Usa diferentes colores para categorizar</li>
+                        <li>Guarda la pizarra para referencia futura</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>📋 Ejemplo 3: Planificación Visual de Clase</h3>
+                    <p><strong>Escenario:</strong> Quieres visualizar la estructura de una clase.</p>
+                    <ol>
+                        <li>Crea una pizarra para tu planificación</li>
+                        <li>Dibuja un timeline o flujo de actividades</li>
+                        <li>Agrega bloques para cada actividad</li>
+                        <li>Incluye tiempos y recursos necesarios</li>
+                        <li>Conecta actividades relacionadas</li>
+                        <li>Exporta como imagen para incluir en tu planificación</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>🎓 Ejemplo 4: Trabajo con Estudiantes</h3>
+                    <p><strong>Escenario:</strong> Los estudiantes trabajan en un proyecto grupal.</p>
+                    <ol>
+                        <li>Crea una pizarra compartida</li>
+                        <li>Invita a los estudiantes del grupo</li>
+                        <li>Cada estudiante puede contribuir con ideas</li>
+                        <li>Organizan visualmente su proyecto</li>
+                        <li>Puedes monitorear el progreso en tiempo real</li>
+                        <li>Proporcionas feedback directamente en la pizarra</li>
+                    </ol>
+                </div>
+
+                <h2>Características Avanzadas</h2>
+                
+                <h3>🔍 Zoom y Navegación</h3>
+                <ul>
+                    <li><strong>Zoom:</strong> Acerca o aleja la vista con la rueda del mouse o gestos</li>
+                    <li><strong>Pan:</strong> Arrastra para moverte por la pizarra</li>
+                    <li><strong>Vista general:</strong> Mini mapa para navegar pizarras grandes</li>
+                    <li><strong>Ajuste automático:</strong> Ajusta la vista para ver todo el contenido</li>
+                </ul>
+
+                <h3>📐 Alineación y Organización</h3>
+                <div class="card">
+                    <h4>Herramientas de Organización</h4>
+                    <ul>
+                        <li><strong>Guías de alineación:</strong> Líneas de ayuda para alinear elementos</li>
+                        <li><strong>Cuadrícula:</strong> Activa una cuadrícula para mejor organización</li>
+                        <li><strong>Agrupar:</strong> Agrupa elementos para moverlos juntos</li>
+                        <li><strong>Capas:</strong> Organiza elementos en capas para mejor control</li>
+                        <li><strong>Bloquear:</strong> Bloquea elementos para evitar cambios accidentales</li>
+                    </ul>
+                </div>
+
+                <h3>🎭 Plantillas</h3>
+                <ul>
+                    <li><strong>Plantillas educativas:</strong> Diagramas, esquemas y estructuras predefinidas</li>
+                    <li><strong>Plantillas de planificación:</strong> Formatos para planificar clases</li>
+                    <li><strong>Plantillas de brainstorming:</strong> Estructuras para lluvia de ideas</li>
+                    <li><strong>Personalización:</strong> Crea y guarda tus propias plantillas</li>
+                </ul>
+
+                <h2>Consejos y Mejores Prácticas</h2>
+                
+                <div class="card">
+                    <h3>💡 Tips para Usar la Pizarra Virtual</h3>
+                    <ul>
+                        <li><strong>Usa colores consistentes:</strong> Asigna colores específicos a categorías o conceptos</li>
+                        <li><strong>Organiza desde el inicio:</strong> Planifica la estructura antes de empezar</li>
+                        <li><strong>Guarda versiones:</strong> Guarda copias importantes antes de grandes cambios</li>
+                        <li><strong>Usa capas:</strong> Organiza elementos complejos en capas</li>
+                        <li><strong>Combina herramientas:</strong> Mezcla dibujo, texto e imágenes para mejores resultados</li>
+                        <li><strong>Establece reglas de colaboración:</strong> Define cómo trabajar juntos antes de empezar</li>
+                        <li><strong>Exporta regularmente:</strong> Guarda copias de seguridad de trabajos importantes</li>
+                    </ul>
+                </div>
+
+                <h2>Integración con Otras Herramientas</h2>
+                
+                <div class="card">
+                    <h3>🔗 Conexiones</h3>
+                    <ul>
+                        <li><strong>Planificaciones:</strong> Incluye diagramas de pizarras en tus planificaciones</li>
+                        <li><strong>Presentaciones:</strong> Usa pizarras como diapositivas</li>
+                        <li><strong>Gestor de Documentos:</strong> Guarda pizarras como recursos educativos</li>
+                        <li><strong>Compartir:</strong> Comparte pizarras fácilmente con estudiantes y colegas</li>
+                    </ul>
+                </div>
+
+                <h2>Limitaciones y Consideraciones</h2>
+                
+                <div class="card">
+                    <h3>⚠️ Importante</h3>
+                    <ul>
+                        <li><strong>Rendimiento:</strong> Pizarras muy grandes pueden afectar el rendimiento</li>
+                        <li><strong>Colaboración:</strong> Muchos colaboradores simultáneos pueden ralentizar la sincronización</li>
+                        <li><strong>Almacenamiento:</strong> Pizarras con muchas imágenes ocupan más espacio</li>
+                        <li><strong>Navegadores:</strong> Funciona mejor en navegadores modernos y actualizados</li>
+                    </ul>
+                </div>
+            </section>
+
 
             <!-- Información del Sistema -->
             <section id="sistema-info" class="doc-section" style="display: none;">
@@ -2061,7 +2402,6 @@
                     <ul>
                         <li>Subida y análisis de documentos en múltiples formatos</li>
                         <li>Generación automática de mapas mentales</li>
-                        <li>Editor de documentos completo con soporte Markdown</li>
                         <li>Organización por carpetas y etiquetas</li>
                     </ul>
                 </div>
@@ -2173,7 +2513,6 @@
                     <li style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%); padding: 8px 12px; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid #8B5CF6;"><strong style="color: #8B5CF6;">🧠 Mi Memoria (NUEVO!):</strong> IA que aprende de ti y personaliza respuestas según tu perfil</li>
                     <li><strong>Audio en tiempo real:</strong> Streaming de audio durante las respuestas</li>
                     <li><strong>Calendario integrado:</strong> Sistema completo de gestión de eventos</li>
-                    <li><strong>Soporte Markdown:</strong> Conversión automática en Plan Docs</li>
                     <li><strong>Generador de imágenes:</strong> Creación de imágenes educativas</li>
                 </ul>
 
@@ -2225,7 +2564,7 @@
             <div class="footer-developer">
                 <img src="assets/images/profile.jpg" alt="Lic Marcos Mello" class="developer-photo">
                 <div class="developer-name">Lic. Marcos Mello</div>
-                <div class="developer-role">Desarrollador y Fundador</div>
+                <div class="developer-role">Desarrollador y Fundador - Analista de sistemas - Docente</div>
                 <div class="footer-info">
                     <div class="info-item">
                         <i class="fas fa-code"></i>
