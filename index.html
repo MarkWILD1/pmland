@@ -1085,6 +1085,11 @@
                 width: 50px;
                 display: none;
             }
+
+            /* Ocultar badges de "Nueva Función" y "Nuevo 2026" en mobile */
+            .new-feature-badge {
+                display: none !important;
+            }
         }
 
         /* Logo animations */
@@ -1572,11 +1577,8 @@
                 </ul>
                 
                 <div class="header-actions ms-3">
-                    <a href="mailto:soporte@plan-maestro.com" class="btn btn-outline-light btn-sm me-2">
-                        <i class="fas fa-envelope me-1"></i>Contacto
-                    </a>
-                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-sm" onclick="fbq('track', 'Lead', {content_name: 'Header - Iniciar Sesión'});">
-                        <i class="fas fa-rocket me-1"></i>Iniciar Sesión
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg btn-glow" style="font-weight: 600; box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);" onclick="fbq('track', 'Lead', {content_name: 'Header - Iniciar Sesión'});">
+                        <i class="fas fa-rocket me-2"></i>Iniciar Sesión
                     </a>
                 </div>
             </div>
@@ -1592,7 +1594,7 @@
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
                     <div class="hero-content parallax-content" data-speed="0.3">
-                        <span class="badge bg-warning text-dark mb-3">Nuevo 2026</span>
+                        <span class="badge bg-warning text-dark mb-3 new-feature-badge">Nuevo 2026</span>
                         <h1 class="hero-title">
                             <h1 class="hero-title">
                                 La Calculadora del <span class="text-gradient">Pensamiento Docente</span> Uruguayo
@@ -2043,7 +2045,7 @@
             <!-- MI MEMORIA - NUEVA FEATURE DESTACADA -->
             <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(0, 207, 232, 0.1) 100%); border: 2px solid rgba(138, 43, 226, 0.3); position: relative; overflow: hidden;">
                 <!-- Badge NUEVO -->
-                <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4); animation: pulse 2s infinite;">
+                <div class="new-feature-badge" style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4); animation: pulse 2s infinite;">
                     🆕 NUEVA FUNCIÓN
                 </div>
                 <div class="detailed-section-header">
@@ -2542,7 +2544,7 @@
             <!-- Asistente de Investigación - NUEVA FEATURE DESTACADA -->
             <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(239, 68, 68, 0.15) 100%); border: 2px solid rgba(251, 146, 60, 0.3); position: relative; overflow: hidden;">
                 <!-- Badge NUEVO -->
-                <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #F97316 0%, #EF4444 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4); animation: pulse 2s infinite; z-index: 10;">
+                <div class="new-feature-badge" style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #F97316 0%, #EF4444 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4); animation: pulse 2s infinite; z-index: 10;">
                     🆕 NUEVA FUNCIÓN
                 </div>
                 <div class="detailed-section-header">
@@ -2615,7 +2617,7 @@
             <!-- Pizarra Virtual - NUEVA FEATURE DESTACADA -->
             <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%); border: 2px solid rgba(34, 197, 94, 0.3); position: relative; overflow: hidden;">
                 <!-- Badge NUEVO -->
-                <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #22C55E 0%, #10B981 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); animation: pulse 2s infinite; z-index: 10;">
+                <div class="new-feature-badge" style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #22C55E 0%, #10B981 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); animation: pulse 2s infinite; z-index: 10;">
                     🆕 NUEVA FUNCIÓN
                 </div>
                 <div class="detailed-section-header">
