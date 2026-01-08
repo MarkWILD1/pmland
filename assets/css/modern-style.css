@@ -2164,3 +2164,108 @@ html {
     font-weight: 600;
     font-size: 1.05rem;
 }
+
+/* Botón toggle para expandir/colapsar lista de características en móvil */
+.feature-list-toggle {
+    display: none; /* Oculto por defecto (visible solo en móvil) */
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+    border: 2px solid rgba(99, 102, 241, 0.4);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.feature-list-toggle:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+    border-color: rgba(99, 102, 241, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.feature-list-toggle .toggle-icon {
+    transition: transform 0.3s ease;
+    font-size: 0.875rem;
+}
+
+.feature-list-toggle.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Estilo específico para botón de Horarios y Cronograma (colores amarillos/dorados) */
+.feature-list-toggle[data-target="horarios-feature-list"] {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
+    border: 2px solid rgba(251, 191, 36, 0.4);
+}
+
+.feature-list-toggle[data-target="horarios-feature-list"]:hover {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.3) 0%, rgba(245, 158, 11, 0.3) 100%);
+    border-color: rgba(251, 191, 36, 0.6);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+/* Estilo específico para botón de Mapas Mentales (colores morados/azules) */
+.feature-list-toggle[data-target="mapas-mentales-feature-list"] {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(14, 165, 233, 0.2) 100%);
+    border: 2px solid rgba(99, 102, 241, 0.4);
+}
+
+.feature-list-toggle[data-target="mapas-mentales-feature-list"]:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(14, 165, 233, 0.3) 100%);
+    border-color: rgba(99, 102, 241, 0.6);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Estilo específico para botón de Pizarra Virtual (colores verdes) */
+.feature-list-toggle[data-target="pizarra-virtual-feature-list"] {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
+    border: 2px solid rgba(34, 197, 94, 0.4);
+}
+
+.feature-list-toggle[data-target="pizarra-virtual-feature-list"]:hover {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3) 0%, rgba(16, 185, 129, 0.3) 100%);
+    border-color: rgba(34, 197, 94, 0.6);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+/* Comportamiento colapsable en móvil */
+@media (max-width: 768px) {
+    .feature-list-toggle {
+        display: flex !important;
+    }
+    
+    .detailed-feature-list {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+        margin: 0;
+    }
+    
+    .detailed-feature-list.expanded {
+        max-height: 2000px;
+        opacity: 1 !important;
+        margin: 1rem 0;
+    }
+}
+
+/* Desktop: siempre visible */
+@media (min-width: 769px) {
+    .feature-list-toggle {
+        display: none !important;
+    }
+    
+    .detailed-feature-list {
+        max-height: none !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+    }
+}
