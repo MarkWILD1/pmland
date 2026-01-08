@@ -158,6 +158,126 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-lg);
 }
 
+/* Mobile Menu - Hamburger Button */
+.navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    position: relative;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+}
+
+.navbar-toggler:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Force hamburger button to be visible on mobile */
+@media (max-width: 991.98px) {
+    .navbar-expand-lg .navbar-toggler {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .navbar-toggler {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        border: 2px solid rgba(255, 255, 255, 0.5) !important;
+        padding: 0.4rem 0.6rem !important;
+        margin-right: 0 !important;
+    }
+    
+    .navbar-toggler-icon {
+        display: inline-block !important;
+        visibility: visible !important;
+        width: 1.5em !important;
+        height: 1.5em !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 991.98px) {
+    .navbar .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .navbar-brand {
+        order: 1;
+    }
+    
+    .navbar-toggler {
+        order: 2;
+        margin-left: auto;
+    }
+    
+    .navbar-collapse {
+        order: 3;
+        width: 100%;
+        background: rgba(31, 41, 55, 0.98);
+        backdrop-filter: blur(15px);
+        margin-top: 1rem;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .navbar-nav {
+        margin-bottom: 1rem;
+    }
+    
+    .nav-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1rem !important;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+    }
+    
+    .header-actions {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+    
+    .header-actions .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    .header-actions .flag-emoji-fallback {
+        display: none;
+    }
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
@@ -166,6 +286,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     background: linear-gradient(135deg, #253c41 0%, #15376d 50%, #202d40 100%);
     overflow: hidden;
+    padding-top: 80px; /* Espacio para navbar fija */
     padding-bottom: 0;
     margin-bottom: 0;
 }
@@ -922,9 +1043,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Ocultar navbar en mviles */
+    /* Mostrar navbar con botón hamburguesa en móviles */
     .navbar {
-        display: none !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Asegurar que el botón hamburguesa sea visible */
+    .navbar-toggler {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     /* Ajustar logo flotante para móviles */
@@ -940,9 +1070,9 @@ h1, h2, h3, h4, h5, h6 {
         height: 38px;
     }
     
-    /* Ajustar hero section para que ocupe toda la pantalla sin navbar */
+    /* Ajustar hero section para que tenga espacio con navbar visible */
     .hero-section {
-        padding-top: 2rem;
+        padding-top: 5rem; /* Espacio suficiente para navbar en móvil */
         padding-bottom: 2rem;
         min-height: auto;
         margin-bottom: 0;
@@ -1172,7 +1302,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .hero-section {
-        padding-top: 1.5rem;
+        padding-top: 5rem; /* Espacio suficiente para navbar en móvil pequeño */
         padding-bottom: 1.5rem;
         min-height: auto;
     }

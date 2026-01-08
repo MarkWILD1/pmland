@@ -126,6 +126,43 @@
             font-size: 28px;
         }
 
+        /* Mobile Hamburger Menu - Force visibility */
+        @media (max-width: 991.98px) {
+            .navbar-expand-lg .navbar-toggler,
+            .navbar .navbar-toggler {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                border: 2px solid rgba(255, 255, 255, 0.6) !important;
+                padding: 0.5rem 0.75rem !important;
+                margin-left: auto !important;
+                z-index: 1050 !important;
+            }
+            
+            .navbar-toggler-icon {
+                display: inline-block !important;
+                visibility: visible !important;
+                width: 1.5em !important;
+                height: 1.5em !important;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            }
+        }
+        
+        /* Asegurar navbar visible en pantallas muy pequeñas */
+        @media (max-width: 768px) {
+            .navbar {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .navbar-toggler {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+        }
+
         /* Footer Styles */
         .doc-footer {
             margin-top: 0;
@@ -1404,6 +1441,283 @@
                 font-size: 2rem;
             }
         }
+        
+        /* Hero Impact Phrase Animation */
+        @keyframes pulse-glow {
+            0%, 100% { 
+                transform: scale(1);
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.02);
+                filter: brightness(1.1);
+            }
+        }
+        
+        @keyframes color-transition {
+            0% { 
+                color: #f5b721;
+            }
+            33.33% { 
+                color: #e28b0d;
+            }
+            66.66% { 
+                color: #f7bf27;
+            }
+            100% { 
+                color: #f5b721;
+            }
+        }
+        
+        .hero-impact-phrase {
+            position: relative;
+        }
+        
+        .hero-impact-phrase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.05);
+            opacity: 0.3;
+        }
+        
+        .impact-phrase-text {
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .impact-phrase-text {
+                font-size: 1.75rem !important;
+            }
+        }
+        
+        /* Animaciones para la sección de transición persuasiva */
+        @keyframes transition-glow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.3),
+                            0 0 60px rgba(59, 130, 246, 0.2),
+                            inset 0 0 30px rgba(236, 72, 153, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(236, 72, 153, 0.5),
+                            0 0 100px rgba(59, 130, 246, 0.4),
+                            inset 0 0 50px rgba(236, 72, 153, 0.2);
+            }
+        }
+        
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes text-gradient-flow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes float-gentle {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.02);
+            }
+        }
+        
+        @keyframes particle-rotate {
+            0% {
+                transform: rotate(0deg) translateX(20px) rotate(0deg);
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: rotate(360deg) translateX(20px) rotate(-360deg);
+                opacity: 0.3;
+            }
+        }
+        
+        @keyframes border-pulse {
+            0%, 100% {
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+            50% {
+                border-color: rgba(236, 72, 153, 0.5);
+            }
+        }
+        
+        .transition-persuasive-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .transition-persuasive-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+            animation: particle-rotate 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        .transition-persuasive-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            animation: particle-rotate 25s linear infinite reverse;
+            pointer-events: none;
+        }
+        
+        .transition-persuasive-box {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 40px 20px;
+            margin: 30px 0;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+            background-size: 200% 200%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            animation: gradient-shift 8s ease infinite, transition-glow 3s ease-in-out infinite, float-gentle 6s ease-in-out infinite, border-pulse 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .transition-persuasive-box:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 60px rgba(236, 72, 153, 0.6),
+                        0 0 120px rgba(59, 130, 246, 0.4),
+                        inset 0 0 60px rgba(236, 72, 153, 0.2);
+        }
+        
+        .transition-persuasive-text {
+            background: linear-gradient(135deg, #EC4899 0%, #3B82F6 50%, #EC4899 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: text-gradient-flow 5s ease infinite;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .transition-persuasive-text strong {
+            color: #fff !important;
+            -webkit-text-fill-color: #fff !important;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            background-clip: unset !important;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(236, 72, 153, 0.4);
+            animation: text-shimmer 3s ease-in-out infinite;
+            display: inline-block;
+            font-weight: 700;
+        }
+        
+        @keyframes text-shimmer {
+            0%, 100% {
+                filter: brightness(1);
+            }
+            50% {
+                filter: brightness(1.3);
+            }
+        }
+        
+        .transition-decorative-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .transition-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: particle-float 8s ease-in-out infinite;
+        }
+        
+        .transition-particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .transition-particle:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .transition-particle:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        .transition-particle:nth-child(4) {
+            top: 40%;
+            right: 25%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes particle-float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-40px) translateX(-10px);
+                opacity: 0.5;
+            }
+            75% {
+                transform: translateY(-20px) translateX(5px);
+                opacity: 0.7;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .transition-persuasive-box {
+                padding: 25px 15px !important;
+            }
+            
+            .transition-persuasive-box p {
+                font-size: 1.2rem !important;
+            }
+        }
     </style>
     
     <!-- Facebook Pixel Code -->
@@ -1473,18 +1787,23 @@
         }
         
         // Enhanced Facebook Pixel with Conversions API
+        // Guardar la función original de fbq antes de sobrescribirla
+        const originalFbq = (typeof fbq !== 'undefined') ? fbq : null;
+        
         function fbqWithAPI(eventName, eventData) {
-            // Send to Facebook Pixel (client-side)
-            if (typeof fbq !== 'undefined') {
-                fbq('track', eventName, eventData);
+            // Send to Facebook Pixel (client-side) usando la función original
+            if (originalFbq) {
+                originalFbq('track', eventName, eventData);
             }
             
             // Send to Conversions API (server-side)
             sendToMetaConversionsAPI(eventName, eventData);
         }
         
-        // Override fbq function to include Conversions API
-        window.fbq = fbqWithAPI;
+        // Override fbq function to include Conversions API solo si fbq existe
+        if (originalFbq) {
+            window.fbq = fbqWithAPI;
+        }
     </script>
     <!-- End Meta Conversions API -->
     
@@ -1557,13 +1876,13 @@
     </div>
 
     <!-- Header -->
-    <header class="navbar navbar-expand-lg fixed-top">
+    <header class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="assets/images/logo-lateral-2_00000.png" alt="Plaɳ MaeŠtrɸ" height="50">
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
@@ -1576,10 +1895,11 @@
                     <li class="nav-item"><a class="nav-link" href="./documentation.html">Documentación</a></li>
                 </ul>
                 
-                <div class="header-actions ms-3">
+                <div class="header-actions ms-3 d-flex align-items-center">
                     <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg btn-glow" style="font-weight: 600; box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);" onclick="fbq('track', 'Lead', {content_name: 'Header - Iniciar Sesión'});">
-                        <i class="fas fa-rocket me-2"></i>Iniciar Sesión
+                        <i class="fas fa-rocket me-2"></i>Ingresar
                     </a>
+                    <span class="flag-emoji-fallback" title="Uruguay" style="margin: 20px;"></span>
                 </div>
             </div>
         </div>
@@ -1611,10 +1931,21 @@
                             <a href="#lanzamiento2026" class="btn btn-outline-light btn-lg me-3">
                                 <i class="fas fa-arrow-down me-2"></i>Descubre Funcionalidades
                             </a>
-                            <a href="https://prime.plan-maestro.com/whiteboard" target="_blank" class="btn btn-success btn-lg" onclick="fbq('track', 'Lead', {content_name: 'Hero CTA - Pizarra Virtual'});" style="position: relative;">
+                            <a href="javascript:void(0);" id="pizarra-btn-hero" class="btn btn-success btn-lg" style="position: relative; pointer-events: auto !important; background-color: #28a745 !important; border-color: #28a745 !important; cursor: pointer;">
                                 <i class="fas fa-chalkboard me-2"></i>Prueba la Pizarra Virtual
                                 <span class="badge bg-light text-dark ms-2" style="font-size: 0.7rem; padding: 2px 6px;">GRATIS</span>
                             </a>
+                            <style>
+                                a[href="#pizarra-virtual"]:hover {
+                                    background-color: #28a745 !important;
+                                    border-color: #28a745 !important;
+                                    color: #fff !important;
+                                    transform: none !important;
+                                }
+                                a[href="#pizarra-virtual"]:hover::after {
+                                    display: none !important;
+                                }
+                            </style>
                         </div>
                     </div>
                 </div>
@@ -1640,6 +1971,21 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frase de Efecto -->
+    <section class="hero-impact-phrase py-4" style="background: linear-gradient(135deg, #1b1e35 0%, #1d1e47 100%); position: relative; overflow: hidden;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center" data-aos="fade-up" data-aos-duration="600">
+                    <h2 class="impact-phrase-text" style="font-size: 2.5rem; font-weight: 800; color: #f5b721; margin: 0; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); animation: pulse-glow 3s ease-in-out infinite, color-transition 4s ease-in-out infinite;">
+                        <i class="fas fa-bolt me-2" style="color: #FBBF24;"></i>
+                        Reduce el tiempo de planificación de días a minutos!
+                        <i class="fas fa-bolt ms-2" style="color: #FBBF24;"></i>
+                    </h2>
                 </div>
             </div>
         </div>
@@ -1865,120 +2211,72 @@
             </div>
 
             <!-- Dashboard Principal -->
-            <div class="detailed-feature-section">
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%); border: 2px solid rgba(99, 102, 241, 0.25);">
                 <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
                     <div class="detailed-section-info">
-                        <h3>Dashboard Principal</h3>
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Dashboard Principal</h3>
                         <p>Centro de control con vista general de todas las herramientas</p>
                     </div>
                 </div>
                 <div class="detailed-feature-content">
                     <div class="detailed-feature-image">
-                        <img src="assets/images/pm-26.png" alt="Vista del dashboard principal de Plan Maestro PRIME" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Agenda y calendario integrado</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Estadísticas y métricas en tiempo real</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Tips diarios personalizados</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Horarios y Cronograma -->
-            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.12) 0%, rgba(245, 158, 11, 0.12) 100%); border: 2px solid rgba(251, 191, 36, 0.25);">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3 style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Horarios y Cronograma</h3>
-                        <p>Gestiona tus horarios de clase, crea cronogramas detallados y organiza tu tiempo docente de forma eficiente</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <!-- Visual representation of Schedule and Timeline -->
-                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #2d1b1b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                        <!-- Visual representation of Dashboard -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1e1b4b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
                             <!-- Animated background circles -->
-                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(251, 191, 36, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
-                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
                             
                             <!-- Main icon -->
-                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">⏰</div>
-                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Gestión de Horarios Inteligente</h4>
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📊</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Centro de Control</h4>
                             <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
-                                Crea y gestiona horarios de clase, cronogramas de actividades y organiza tu tiempo docente de forma eficiente y visual.
+                                Vista general de todas las herramientas y funcionalidades en un solo lugar.
                             </p>
                             
                             <!-- Feature buttons -->
                             <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
-                                <div style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); padding: 12px 24px; border-radius: 30px; color: #1a1a2e; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-calendar-week" style="font-size: 16px;"></i>
-                                    <span>Horarios</span>
+                                <div style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-calendar-alt" style="font-size: 16px;"></i>
+                                    <span>Agenda</span>
                                 </div>
-                                <div style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-tasks" style="font-size: 16px;"></i>
-                                    <span>Cronogramas</span>
+                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-chart-line" style="font-size: 16px;"></i>
+                                    <span>Estadísticas</span>
                                 </div>
-                                <div style="background: linear-gradient(135deg, #D97706 0%, #B45309 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-sync-alt" style="font-size: 16px;"></i>
-                                    <span>Sincronización</span>
+                                <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-lightbulb" style="font-size: 16px;"></i>
+                                    <span>Tips</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="detailed-feature-list" style="opacity: 1 !important;">
-                        <div class="detailed-feature-item" style="background: rgba(251, 191, 36, 0.15); border-left: 4px solid #FBBF24; opacity: 1 !important;">
-                            <i class="fas fa-calendar-week" style="color: #FBBF24; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Creación de horarios de clase:</strong> Diseña horarios semanales y mensuales con asignación de materias, grupos y espacios físicos</span>
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-calendar-alt" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Agenda y Calendario Integrado:</strong> Gestiona tus actividades, eventos y recordatorios en un calendario visual y organizado</span>
                         </div>
-                        <div class="detailed-feature-item" style="background: rgba(245, 158, 11, 0.15); border-left: 4px solid #F59E0B; opacity: 1 !important;">
-                            <i class="fas fa-tasks" style="color: #F59E0B; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Cronogramas de actividades:</strong> Planifica secuencias de actividades con fechas, duraciones y dependencias entre tareas</span>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-chart-line" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Estadísticas y Métricas en Tiempo Real:</strong> Visualiza el progreso de tus planificaciones, documentos generados y uso de herramientas con gráficos interactivos</span>
                         </div>
-                        <div class="detailed-feature-item" style="background: rgba(217, 119, 6, 0.15); border-left: 4px solid #D97706; opacity: 1 !important;">
-                            <i class="fas fa-calendar-alt" style="color: #D97706; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Vista de calendario:</strong> Visualiza todos tus horarios y cronogramas en formato calendario mensual, semanal o diario</span>
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-lightbulb" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Tips Diarios Personalizados:</strong> Recibe consejos y sugerencias adaptadas a tu contexto educativo y nivel de enseñanza</span>
                         </div>
-                        <div class="detailed-feature-item" style="background: rgba(180, 83, 9, 0.15); border-left: 4px solid #B45309; opacity: 1 !important;">
-                            <i class="fas fa-bell" style="color: #B45309; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Recordatorios y notificaciones:</strong> Configura alertas para clases, entregas y actividades importantes</span>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-th-large" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Acceso Rápido a Herramientas:</strong> Navega fácilmente entre todas las funcionalidades desde un panel centralizado</span>
                         </div>
-                        <div class="detailed-feature-item" style="background: rgba(251, 191, 36, 0.15); border-left: 4px solid #FBBF24; opacity: 1 !important;">
-                            <i class="fas fa-users" style="color: #FBBF24; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Múltiples grupos y materias:</strong> Gestiona horarios para diferentes grupos, materias y niveles educativos simultáneamente</span>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-bell" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Notificaciones Inteligentes:</strong> Mantente al día con alertas sobre tareas pendientes, actualizaciones y recordatorios importantes</span>
                         </div>
-                        <div class="detailed-feature-item" style="background: rgba(245, 158, 11, 0.15); border-left: 4px solid #F59E0B; opacity: 1 !important;">
-                            <i class="fas fa-edit" style="color: #F59E0B; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Edición flexible:</strong> Modifica horarios y cronogramas fácilmente con arrastrar y soltar, ajustando tiempos y actividades</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(217, 119, 6, 0.15); border-left: 4px solid #D97706; opacity: 1 !important;">
-                            <i class="fas fa-download" style="color: #D97706; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Exportación de horarios:</strong> Descarga tus horarios y cronogramas en PDF, Excel o formato de imagen para compartir o imprimir</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(180, 83, 9, 0.15); border-left: 4px solid #B45309; opacity: 1 !important;">
-                            <i class="fas fa-sync-alt" style="color: #B45309; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Sincronización con planificaciones:</strong> Los horarios se vinculan automáticamente con tus planificaciones y proyectos educativos</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(251, 191, 36, 0.15); border-left: 4px solid #FBBF24; opacity: 1 !important;">
-                            <i class="fas fa-chart-gantt" style="color: #FBBF24; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Vista de Gantt:</strong> Visualiza cronogramas complejos en formato de diagrama de Gantt para mejor planificación temporal</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(245, 158, 11, 0.15); border-left: 4px solid #F59E0B; opacity: 1 !important;">
-                            <i class="fas fa-mobile-alt" style="color: #F59E0B; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Acceso móvil:</strong> Consulta y edita tus horarios desde cualquier dispositivo, manteniendo sincronización en tiempo real</span>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-history" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Historial de Actividad:</strong> Revisa tus documentos recientes y accesos rápidos a tus trabajos más utilizados</span>
                         </div>
                     </div>
                 </div>
@@ -2118,17 +2416,25 @@
                         </div>
                     </div>
                     <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-infinity"></i>
-                            <span>Sin límites de uso y consultas</span>
+                        <div class="detailed-feature-item" style="background: rgba(138, 43, 226, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-infinity" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;">Sin límites de uso y consultas</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-rocket"></i>
-                            <span>Versión de ChatGPT 5 ILIMITADA!</span>
+                        <div class="detailed-feature-item" style="background: rgba(6, 182, 212, 0.15); border-left: 4px solid #06B6D4; opacity: 1 !important;">
+                            <i class="fas fa-rocket" style="color: #06B6D4; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;">Versión de ChatGPT 5 ILIMITADA!</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-history"></i>
-                            <span>Historial de conversaciones guardado</span>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-history" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;">Historial de conversaciones guardado para mejorar las respuestas SOBRE CUALQUIER TEMÁTICA</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-clock" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Ahorra horas semanales:</strong> Reduce el tiempo de transición de una herramienta a otra. TODO en la misma plataforma!</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-dollar-sign" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Inversión que se paga sola:</strong> El costo mensual es menor y el beneficio es INFINITO</span>
                         </div>
                     </div>
                 </div>
@@ -2397,6 +2703,24 @@
                             <span style="color: #ffffff;"><strong>Sin límites de generación:</strong> Crea todas las imágenes que necesites para tus materiales educativos sin restricciones</span>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Frase de transición persuasiva -->
+            <div class="transition-persuasive-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" style="text-align: center; padding: 40px 20px; margin: 30px 0;">
+                <div class="transition-decorative-particles">
+                    <div class="transition-particle"></div>
+                    <div class="transition-particle"></div>
+                    <div class="transition-particle"></div>
+                    <div class="transition-particle"></div>
+                </div>
+                <div class="transition-persuasive-box">
+                    <p style="font-size: 1.8rem; font-weight: 600; color: #ffffff; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 30px; border-radius: 15px; position: relative; z-index: 2;">
+                        <span class="transition-persuasive-text">
+                            Combina el poder de estas herramientas
+                            <strong>tu ecosistema educativo completo!</strong>
+                        </span>
+                    </p>
                 </div>
             </div>
 
@@ -2707,7 +3031,7 @@
             </div>
 
             <!-- Pizarra Virtual - NUEVA FEATURE DESTACADA -->
-            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%); border: 2px solid rgba(34, 197, 94, 0.3); position: relative; overflow: hidden;">
+            <div id="pizarra-virtual" class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%); border: 2px solid rgba(34, 197, 94, 0.3); position: relative; overflow: hidden;">
                 <!-- Badge NUEVO -->
                 <div class="new-feature-badge" style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #22C55E 0%, #10B981 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); animation: pulse 2s infinite; z-index: 10;">
                     🆕 NUEVA FUNCIÓN
@@ -2781,75 +3105,201 @@
                         </div>
                     </div>
                 </div>
+                <!-- Botón de acceso a la pizarra virtual -->
+                <div style="width: 100%; margin-top: 30px; text-align: center; padding: 25px; background: rgba(34, 197, 94, 0.1); border-radius: 15px; border: 2px dashed rgba(34, 197, 94, 0.4);">
+                    <div style="margin-bottom: 15px;">
+                        <i class="fas fa-info-circle" style="color: #22C55E; font-size: 1.2rem; margin-right: 8px;"></i>
+                        <span style="color: rgba(255,255,255,0.9); font-size: 20px;">
+                            <strong>Importante:</strong> Si es la primera vez que ingresas debes iniciar sesión con Google y luego hacer clic en el botón 
+                            <span style="display: inline-flex; align-items: center; background: rgba(34, 197, 94, 0.2); padding: 4px 10px; border-radius: 6px; margin: 0 5px; border: 1px solid rgba(34, 197, 94, 0.4);">
+                                <svg style="width: 16px; height: 16px; color: #22C55E; margin-right: 5px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;" viewBox="0 0 24 24">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                                <span style="color: #4ADE80; font-weight: 600;">de la barra superior</span>
+                            </span>
+                        </span>
+                    </div>
+                    <a href="https://prime.plan-maestro.com/whiteboard" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #22C55E 0%, #10B981 100%); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                        <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i>
+                        Acceder a la Pizarra Virtual
+                        <span style="position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: rgba(255,255,255,0.3); transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s;"></span>
+                    </a>
+                    <style>
+                        a[href="https://prime.plan-maestro.com/whiteboard"]:hover {
+                            transform: translateY(-2px);
+                            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.5);
+                        }
+                        a[href="https://prime.plan-maestro.com/whiteboard"]:hover span {
+                            width: 300px;
+                            height: 300px;
+                        }
+                    </style>
+                </div>
             </div>
 
             <!-- Stripe destacado: Crear Mapas Mentales -->
-            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(14, 165, 233, 0.15) 100%); border: 2px solid rgba(99, 102, 241, 0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(14, 165, 233, 0.15) 100%); border: 2px solid rgba(99, 102, 241, 0.3); position: relative; overflow: hidden;">
+                <!-- Badge NUEVO -->
+                <div class="new-feature-badge" style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #6366F1 0%, #0EA5E9 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); animation: pulse 2s infinite; z-index: 10;">
+                    🆕 NUEVA FUNCIÓN
+                </div>
                 <div class="detailed-section-header">
                     <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #0EA5E9 100%);">
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <div class="detailed-section-info">
-                        <h3 style="margin-bottom: 8px;">Crea mapas mentales en segundos</h3>
-                        <p>Convierte ideas o documentos en mapas visuales listos para usar</p>
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #0EA5E9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🧠 Crea Mapas Mentales en Segundos</h3>
+                        <p>Convierte ideas o documentos en mapas visuales listos para usar con estilos llamativos y jerarquías claras</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image" style="position: relative;">
+                        <!-- Visual representation of mind maps -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1e1b3e 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background elements -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(14, 165, 233, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">🧠</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px;">Visualización Intuitiva</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto;">
+                                Genera mapas mentales profesionales desde cualquier documento. Organiza ideas de forma visual y clara.
+                            </p>
+                            
+                            <!-- Feature badges -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: rgba(99, 102, 241, 0.2); padding: 10px 20px; border-radius: 30px; color: #818CF8; font-size: 14px; border: 1px solid rgba(99, 102, 241, 0.3);">
+                                    ⚡ Generación Rápida
+                                </div>
+                                <div style="background: rgba(14, 165, 233, 0.2); padding: 10px 20px; border-radius: 30px; color: #38BDF8; font-size: 14px; border: 1px solid rgba(14, 165, 233, 0.3);">
+                                    🎨 Estilos Profesionales
+                                </div>
+                                <div style="background: rgba(139, 92, 246, 0.2); padding: 10px 20px; border-radius: 30px; color: #A78BFA; font-size: 14px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                                    🔗 Compartir Fácil
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-bolt" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Generación instantánea:</strong> Crea un mapa mental desde cualquier documento en segundos</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
+                            <i class="fas fa-wand-magic-sparkles" style="color: #0EA5E9; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Estilos llamativos:</strong> Jerarquías claras y diseños profesionales en un solo clic</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-plus-circle" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Edición libre:</strong> Agrega nodos, arrastra, suelta y construye el mapa a tu ritmo</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
+                            <i class="fas fa-share-alt" style="color: #3B82F6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Comparte fácilmente:</strong> Comparte el mapa con tu clase al instante con link único</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-mouse-pointer" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Interfaz interactiva:</strong> Navega y explora tus mapas mentales de forma intuitiva y fluida</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-download" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Exportación flexible:</strong> Descarga tus mapas en diferentes formatos para usar en presentaciones</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Horarios y Cronograma -->
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.12) 0%, rgba(245, 158, 11, 0.12) 100%); border: 2px solid rgba(251, 191, 36, 0.25);">
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Horarios y Cronograma</h3>
+                        <p>Gestiona tus horarios de clase, crea cronogramas detallados y organiza tu tiempo docente de forma eficiente</p>
                     </div>
                 </div>
                 <div class="detailed-feature-content">
                     <div class="detailed-feature-image">
-                        <img src="assets/images/mapa-mental.png" alt="Crear mapas mentales de forma rápida" class="img-fluid rounded-3 shadow-sm">
+                        <!-- Visual representation of Schedule and Timeline -->
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #2d1b1b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <!-- Animated background circles -->
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(251, 191, 36, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            
+                            <!-- Main icon -->
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">⏰</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Gestión de Horarios Inteligente</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
+                                Crea y gestiona horarios de clase, cronogramas de actividades y organiza tu tiempo docente de forma eficiente y visual.
+                            </p>
+                            
+                            <!-- Feature buttons -->
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); padding: 12px 24px; border-radius: 30px; color: #1a1a2e; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-calendar-week" style="font-size: 16px;"></i>
+                                    <span>Horarios</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-tasks" style="font-size: 16px;"></i>
+                                    <span>Cronogramas</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #D97706 0%, #B45309 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-sync-alt" style="font-size: 16px;"></i>
+                                    <span>Sincronización</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-bolt"></i>
-                            <span>Genera un mapa mental desde cualquier prompt o documento</span>
+                    <div class="detailed-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(251, 191, 36, 0.15); border-left: 4px solid #FBBF24; opacity: 1 !important;">
+                            <i class="fas fa-calendar-week" style="color: #FBBF24; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Creación de horarios de clase:</strong> Diseña horarios semanales y mensuales con asignación de materias, grupos y espacios físicos</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-wand-magic-sparkles"></i>
-                            <span>Estilos llamativos y jerarquías claras en un clic</span>
+                        <div class="detailed-feature-item" style="background: rgba(245, 158, 11, 0.15); border-left: 4px solid #F59E0B; opacity: 1 !important;">
+                            <i class="fas fa-tasks" style="color: #F59E0B; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Cronogramas de actividades:</strong> Planifica secuencias de actividades con fechas, duraciones y dependencias entre tareas</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-plus-circle"></i>
-                            <span>Agrega nodos libremente: arrastra, suelta y construye el mapa a tu ritmo</span>
+                        <div class="detailed-feature-item" style="background: rgba(217, 119, 6, 0.15); border-left: 4px solid #D97706; opacity: 1 !important;">
+                            <i class="fas fa-calendar-alt" style="color: #D97706; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Vista de calendario:</strong> Visualiza todos tus horarios y cronogramas en formato calendario mensual, semanal o diario</span>
                         </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-share-alt"></i>
-                            <span>Descarga o comparte el mapa con tu clase al instante</span>
+                        <div class="detailed-feature-item" style="background: rgba(180, 83, 9, 0.15); border-left: 4px solid #B45309; opacity: 1 !important;">
+                            <i class="fas fa-bell" style="color: #B45309; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Recordatorios y notificaciones:</strong> Configura alertas para clases, entregas y actividades importantes</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(251, 191, 36, 0.15); border-left: 4px solid #FBBF24; opacity: 1 !important;">
+                            <i class="fas fa-users" style="color: #FBBF24; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Múltiples grupos y materias:</strong> Gestiona horarios para diferentes grupos, materias y niveles educativos simultáneamente</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(245, 158, 11, 0.15); border-left: 4px solid #F59E0B; opacity: 1 !important;">
+                            <i class="fas fa-edit" style="color: #F59E0B; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Edición flexible:</strong> Modifica horarios y cronogramas fácilmente con arrastrar y soltar, ajustando tiempos y actividades</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(217, 119, 6, 0.15); border-left: 4px solid #D97706; opacity: 1 !important;">
+                            <i class="fas fa-download" style="color: #D97706; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Exportación de horarios:</strong> Descarga tus horarios y cronogramas en PDF, Excel o formato de imagen para compartir o imprimir</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(180, 83, 9, 0.15); border-left: 4px solid #B45309; opacity: 1 !important;">
+                            <i class="fas fa-sync-alt" style="color: #B45309; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Sincronización con planificaciones:</strong> Los horarios se vinculan automáticamente con tus planificaciones y proyectos educativos</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(251, 191, 36, 0.15); border-left: 4px solid #FBBF24; opacity: 1 !important;">
+                            <i class="fas fa-chart-gantt" style="color: #FBBF24; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Vista de Gantt:</strong> Visualiza cronogramas complejos en formato de diagrama de Gantt para mejor planificación temporal</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(245, 158, 11, 0.15); border-left: 4px solid #F59E0B; opacity: 1 !important;">
+                            <i class="fas fa-mobile-alt" style="color: #F59E0B; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Acceso móvil:</strong> Consulta y edita tus horarios desde cualquier dispositivo, manteniendo sincronización en tiempo real</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-             <!-- Mapas Mentales -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>Sistema de Mapas Mentales</h3>
-                        <p>Visualización interactiva de conceptos y relaciones</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <img src="assets/images/mapa-mental.png" alt="Sistema de Mapas Mentales" class="img-fluid">
-                    </div>
-                    <div class="detailed-feature-list">
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-plus-circle"></i>
-                            <span>Creación automática desde documentos</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-mouse-pointer"></i>
-                            <span>Interfaz interactiva y navegable</span>
-                        </div>
-                        <div class="detailed-feature-item">
-                            <i class="fas fa-share-alt"></i>
-                            <span>Compartir mapas con link único</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </section>
@@ -2912,6 +3362,21 @@
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="about-content">
                         <div class="feature-list" style="display: grid; gap: 1rem;">
+                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(234, 67, 53, 0.2) 0%, rgba(66, 133, 244, 0.2) 50%, rgba(251, 188, 4, 0.2) 100%); border-left: 4px solid #EA4335; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(234, 67, 53, 0.3); position: relative; overflow: hidden;">
+                                <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #EA4335 0%, #4285F4 50%, #FBBC04 100%); color: white; padding: 4px 12px; border-radius: 0 12px 0 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    ⚡ ACCESO INMEDIATO
+                                </div>
+                                <div style="display: flex; align-items: flex-start; gap: 1rem; margin-top: 0.5rem;">
+                                    <div style="background: linear-gradient(135deg, #EA4335 0%, #4285F4 50%, #FBBC04 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(234, 67, 53, 0.4);">
+                                        <i class="fab fa-google" style="color: white; font-size: 1.5rem;"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #EA4335 0%, #4285F4 50%, #FBBC04 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Acceso Instantáneo con Google</h5>
+                                        <p style="color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; font-weight: 500;">Ingresa de forma súper fácil: solo con tu correo de Google. Sin contraseñas, sin nombres de usuario. El sistema te autoriza automáticamente y estás listo para comenzar</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="feature-item" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%); border-left: 4px solid #10B981; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                                 <div style="display: flex; align-items: flex-start; gap: 1rem;">
                                     <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
@@ -2960,7 +3425,7 @@
                                 </div>
                             </div>
                             
-                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%); border-left: 4px solid #8B5CF6; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(138, 43, 226, 0.25); position: relative; overflow: hidden;">
+                            <!-- <div class="feature-item" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%); border-left: 4px solid #8B5CF6; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(138, 43, 226, 0.25); position: relative; overflow: hidden;">
                                 <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 4px 12px; border-radius: 0 12px 0 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
                                     🆕 NUEVO
                                 </div>
@@ -2973,7 +3438,7 @@
                                         <p style="color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; font-weight: 500;">La IA que te conoce y personaliza cada respuesta según tu perfil docente. Aprende de cada conversación y mejora continuamente</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -3447,6 +3912,7 @@
     </footer>
 
     <!-- Scripts -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
@@ -3506,6 +3972,81 @@
             updateDuration();
             window.addEventListener('resize', () => window.requestAnimationFrame(updateDuration));
         });
+    </script>
+
+    <!-- Script específico para scroll a pizarra-virtual -->
+    <script>
+        (function() {
+            // Función para hacer scroll a pizarra virtual
+            function scrollToPizarraVirtual(e) {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                }
+                
+                console.log('Scroll to pizarra virtual iniciado');
+                
+                // Tracking de Facebook Pixel
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', {content_name: 'Hero CTA - Pizarra Virtual'});
+                }
+                
+                // Scroll preciso a la sección de Pizarra Virtual
+                const target = document.getElementById('pizarra-virtual');
+                if (!target) {
+                    console.error('No se encontró el elemento pizarra-virtual');
+                    return false;
+                }
+                
+                const navbar = document.querySelector('.navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 100;
+                
+                // Calcular posición con offset correcto
+                const targetRect = target.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const targetPosition = targetRect.top + scrollTop - navbarHeight - 30;
+                
+                console.log('Haciendo scroll a posición:', targetPosition);
+                
+                window.scrollTo({
+                    top: Math.max(0, targetPosition),
+                    behavior: 'smooth'
+                });
+                
+                return false;
+            }
+            
+            // Configurar el botón - ejecutar después de que todos los scripts se carguen
+            function setupPizarraButton() {
+                const pizarraBtn = document.getElementById('pizarra-btn-hero');
+                if (pizarraBtn) {
+                    console.log('Configurando botón pizarra');
+                    
+                    // Agregar el listener directamente con capture phase para máxima prioridad
+                    pizarraBtn.addEventListener('click', scrollToPizarraVirtual, true);
+                    
+                    // También agregar onclick como respaldo
+                    pizarraBtn.onclick = scrollToPizarraVirtual;
+                } else {
+                    console.error('No se encontró el botón pizarra-btn-hero');
+                }
+            }
+            
+            // Ejecutar después de que se carguen todos los scripts
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(setupPizarraButton, 1000);
+                });
+            } else {
+                setTimeout(setupPizarraButton, 1000);
+            }
+            
+            // También intentar después de que se cargue completamente
+            window.addEventListener('load', function() {
+                setTimeout(setupPizarraButton, 200);
+            });
+        })();
     </script>
 </body>
 

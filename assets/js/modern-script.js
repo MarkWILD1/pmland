@@ -293,20 +293,25 @@ document.addEventListener('DOMContentLoaded', function() {
         imageObserver.observe(img);
     });
 
-    // Mobile menu toggle
-    const navbarToggler = document.querySelector('.navbar-toggler');
+    // Close mobile menu when clicking on a link (using Bootstrap API)
     const navbarCollapse = document.querySelector('.navbar-collapse');
     
-    if (navbarToggler && navbarCollapse) {
-        navbarToggler.addEventListener('click', function() {
-            navbarCollapse.classList.toggle('show');
-        });
-
+    if (navbarCollapse && typeof bootstrap !== 'undefined') {
         // Close mobile menu when clicking on a link
         const mobileNavLinks = navbarCollapse.querySelectorAll('.nav-link');
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', function() {
-                navbarCollapse.classList.remove('show');
+                // Use Bootstrap API to hide the collapse
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) {
+                    bsCollapse.hide();
+                } else {
+                    // Fallback: create new instance and hide
+                    const collapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
+                    });
+                    collapse.hide();
+                }
             });
         });
     }
