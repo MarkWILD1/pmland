@@ -33,7 +33,7 @@
     <link rel="icon" href="./assets/images/icon.png" type="image/png">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -330,6 +330,16 @@
             background-position: center;
             vertical-align: middle;
             margin: 0 2px;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-size: 0.875rem;
+            opacity: 0.9;
         }
 
         /* Testimonials */
@@ -1568,6 +1578,9 @@
         .transition-persuasive-section {
             position: relative;
             overflow: hidden;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 50px 0;
         }
         
         .transition-persuasive-section::before {
@@ -1577,7 +1590,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
             animation: particle-rotate 20s linear infinite;
             pointer-events: none;
         }
@@ -1589,7 +1602,7 @@
             right: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
             animation: particle-rotate 25s linear infinite reverse;
             pointer-events: none;
         }
@@ -1598,21 +1611,77 @@
             position: relative;
             z-index: 1;
             text-align: center;
-            padding: 40px 20px;
-            margin: 30px 0;
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+            padding: 60px 40px;
+            margin: 0 auto;
+            max-width: 900px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             background-size: 200% 200%;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            animation: gradient-shift 8s ease infinite, transition-glow 3s ease-in-out infinite, float-gentle 6s ease-in-out infinite, border-pulse 4s ease-in-out infinite;
-            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: gradient-shift 8s ease infinite, transition-glow 4s ease-in-out infinite;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .transition-persuasive-box:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 0 60px rgba(236, 72, 153, 0.6),
-                        0 0 120px rgba(59, 130, 246, 0.4),
-                        inset 0 0 60px rgba(236, 72, 153, 0.2);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 60px rgba(236, 72, 153, 0.4),
+                        0 0 100px rgba(59, 130, 246, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        
+        .transition-icon-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .transition-main-icon {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #EC4899 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: icon-pulse 3s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.5));
+        }
+        
+        .transition-icon-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border: 3px solid rgba(236, 72, 153, 0.3);
+            border-radius: 50%;
+            animation: ring-pulse 2s ease-in-out infinite;
+        }
+        
+        .transition-icon-ring::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50%;
+            animation: ring-pulse 2s ease-in-out infinite 0.5s;
+        }
+        
+        .transition-persuasive-title {
+            margin: 0 0 15px 0;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
         }
         
         .transition-persuasive-text {
@@ -1624,26 +1693,123 @@
             animation: text-gradient-flow 5s ease infinite;
             position: relative;
             z-index: 2;
+            display: block;
         }
         
-        .transition-persuasive-text strong {
+        .transition-persuasive-subtitle {
+            margin: 0 0 35px 0;
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-weight: 600;
+        }
+        
+        .transition-persuasive-subtitle strong {
             color: #fff !important;
             -webkit-text-fill-color: #fff !important;
             background: none !important;
             -webkit-background-clip: unset !important;
             background-clip: unset !important;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(236, 72, 153, 0.4);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 
+                        0 0 60px rgba(236, 72, 153, 0.6),
+                        0 0 90px rgba(59, 130, 246, 0.4);
             animation: text-shimmer 3s ease-in-out infinite;
             display: inline-block;
             font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .transition-feature-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+        
+        .transition-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: badge-float 4s ease-in-out infinite;
+        }
+        
+        .transition-badge:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .transition-badge:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        
+        .transition-badge:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        
+        .transition-badge:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(236, 72, 153, 0.5);
+            box-shadow: 0 5px 20px rgba(236, 72, 153, 0.3);
+        }
+        
+        .transition-badge i {
+            color: #EC4899;
+            font-size: 1rem;
         }
         
         @keyframes text-shimmer {
             0%, 100% {
                 filter: brightness(1);
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 
+                            0 0 60px rgba(236, 72, 153, 0.6),
+                            0 0 90px rgba(59, 130, 246, 0.4);
             }
             50% {
-                filter: brightness(1.3);
+                filter: brightness(1.4);
+                text-shadow: 0 0 40px rgba(255, 255, 255, 1), 
+                            0 0 80px rgba(236, 72, 153, 0.8),
+                            0 0 120px rgba(59, 130, 246, 0.6);
+            }
+        }
+        
+        @keyframes icon-pulse {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.5));
+            }
+            50% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 30px rgba(236, 72, 153, 0.8));
+            }
+        }
+        
+        @keyframes ring-pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.2;
+            }
+        }
+        
+        @keyframes badge-float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
             }
         }
         
@@ -1659,63 +1825,224 @@
         
         .transition-particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.6);
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 50%;
-            animation: particle-float 8s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+            animation: particle-float 10s ease-in-out infinite;
         }
         
         .transition-particle:nth-child(1) {
-            top: 20%;
+            top: 15%;
             left: 10%;
             animation-delay: 0s;
+            width: 8px;
+            height: 8px;
         }
         
         .transition-particle:nth-child(2) {
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
+            top: 55%;
+            right: 12%;
+            animation-delay: 1.5s;
         }
         
         .transition-particle:nth-child(3) {
-            bottom: 30%;
-            left: 20%;
-            animation-delay: 4s;
+            bottom: 25%;
+            left: 15%;
+            animation-delay: 3s;
         }
         
         .transition-particle:nth-child(4) {
-            top: 40%;
-            right: 25%;
-            animation-delay: 1s;
+            top: 35%;
+            right: 20%;
+            animation-delay: 0.5s;
+            width: 5px;
+            height: 5px;
+        }
+        
+        .transition-particle:nth-child(5) {
+            top: 70%;
+            left: 25%;
+            animation-delay: 2.5s;
+        }
+        
+        .transition-particle:nth-child(6) {
+            bottom: 15%;
+            right: 30%;
+            animation-delay: 4s;
+            width: 7px;
+            height: 7px;
         }
         
         @keyframes particle-float {
             0%, 100% {
                 transform: translateY(0px) translateX(0px);
-                opacity: 0.3;
+                opacity: 0.4;
             }
             25% {
-                transform: translateY(-20px) translateX(10px);
-                opacity: 0.8;
+                transform: translateY(-30px) translateX(15px);
+                opacity: 1;
             }
             50% {
-                transform: translateY(-40px) translateX(-10px);
-                opacity: 0.5;
+                transform: translateY(-50px) translateX(-15px);
+                opacity: 0.6;
             }
             75% {
-                transform: translateY(-20px) translateX(5px);
-                opacity: 0.7;
+                transform: translateY(-30px) translateX(8px);
+                opacity: 0.9;
             }
         }
         
         @media (max-width: 768px) {
-            .transition-persuasive-box {
-                padding: 25px 15px !important;
+            .transition-persuasive-section {
+                padding: 40px 15px;
+                margin: 30px 0;
             }
             
-            .transition-persuasive-box p {
-                font-size: 1.2rem !important;
+            .transition-persuasive-box {
+                padding: 40px 25px !important;
+                border-radius: 20px;
+            }
+            
+            .transition-main-icon {
+                font-size: 3rem;
+            }
+            
+            .transition-icon-ring {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .transition-icon-ring::before {
+                width: 115px;
+                height: 115px;
+            }
+            
+            .transition-persuasive-title {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+            
+            .transition-persuasive-subtitle {
+                font-size: clamp(1.3rem, 4vw, 2rem);
+                margin-bottom: 25px;
+            }
+            
+            .transition-feature-badges {
+                gap: 12px;
+                margin-top: 25px;
+            }
+            
+            .transition-badge {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .transition-persuasive-box {
+                padding: 30px 20px !important;
+            }
+            
+            .transition-feature-badges {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .transition-badge {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Enhanced Scroll Story Animations */
+        .scroll-story-item {
+            margin: 0 0 14px 0;
+            color: #f8fafc;
+            font-weight: 800;
+            font-size: clamp(1.2rem, 1.8vw + 0.9rem, 1.6rem);
+            line-height: 1.6;
+            letter-spacing: 0.4px;
+            text-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 1px rgba(255,255,255,0.35);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            will-change: opacity, transform;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-story-item:hover {
+            transform: translateX(8px) scale(1.02);
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(103, 232, 249, 0.6), 0 10px 25px rgba(0,0,0,0.25);
+        }
+
+        .scroll-story-icon {
+            font-size: 1.4em;
+            flex-shrink: 0;
+            display: inline-block;
+            opacity: 0;
+            transform: scale(0) rotate(-180deg);
+            will-change: opacity, transform;
+            filter: drop-shadow(0 0 8px rgba(103, 232, 249, 0.5));
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .scroll-story-icon.animate {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        .scroll-story-text {
+            opacity: 0;
+            transform: translateX(-20px);
+            will-change: opacity, transform;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Delius', cursive;
+        }
+
+        .scroll-story-text.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-story-card {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            will-change: opacity, transform;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-story-card.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-story-item,
+            .scroll-story-icon,
+            .scroll-story-text,
+            .scroll-story-card {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .scroll-story-item {
+                font-size: clamp(1.1rem, 1.5vw + 0.8rem, 1.4rem);
+                gap: 10px;
+                margin: 0 0 12px 0;
+            }
+
+            .scroll-story-icon {
+                font-size: 1.3em;
             }
         }
     </style>
@@ -1925,27 +2252,18 @@
                             ...porque Grandes Docentes merecen <em class="hero-accent-pop">GRANDES HERRAMIENTAS!</em>.
                         </p>
                         <div class="hero-buttons">
-                            <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg me-3" onclick="fbq('track', 'Lead', {content_name: 'Hero CTA - Empezar Ahora'});">
-                                <i class="fas fa-rocket me-2"></i>Empezar Ahora
-                            </a>
-                            <a href="#lanzamiento2026" class="btn btn-outline-light btn-lg me-3">
-                                <i class="fas fa-arrow-down me-2"></i>Descubre Funcionalidades
-                            </a>
-                            <a href="javascript:void(0);" id="pizarra-btn-hero" class="btn btn-success btn-lg" style="position: relative; pointer-events: auto !important; background-color: #28a745 !important; border-color: #28a745 !important; cursor: pointer;">
+                            <div class="d-flex gap-3 mb-3">
+                                <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg flex-fill" onclick="fbq('track', 'Lead', {content_name: 'Hero CTA - Empezar Ahora'});">
+                                    <i class="fas fa-rocket me-2"></i>Empezar Ahora
+                                </a>
+                                <a href="#lanzamiento2026" class="btn btn-outline-light btn-lg flex-fill">
+                                    <i class="fas fa-arrow-down me-2"></i>Descubre Funcionalidades
+                                </a>
+                            </div>
+                            <a href="https://prime.plan-maestro.com/whiteboard" target="_blank" class="btn btn-success btn-lg w-100" style="position: relative; pointer-events: auto !important; background-color: #28a745 !important; border-color: #28a745 !important; cursor: pointer; transition: all 0.3s ease;">
                                 <i class="fas fa-chalkboard me-2"></i>Prueba la Pizarra Virtual
                                 <span class="badge bg-light text-dark ms-2" style="font-size: 0.7rem; padding: 2px 6px;">GRATIS</span>
-                            </a>
-                            <style>
-                                a[href="#pizarra-virtual"]:hover {
-                                    background-color: #28a745 !important;
-                                    border-color: #28a745 !important;
-                                    color: #fff !important;
-                                    transform: none !important;
-                                }
-                                a[href="#pizarra-virtual"]:hover::after {
-                                    display: none !important;
-                                }
-                            </style>
+                            </a>           
                         </div>
                     </div>
                 </div>
@@ -2101,11 +2419,52 @@
         <div style="position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0) 45%), radial-gradient(circle at 80% 30%, rgba(0,0,0,0.25), rgba(0,0,0,0) 50%);"></div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-10" data-aos="fade-up" data-aos-delay="150">
-                    <div style="position: relative; border-radius: 22px; padding: 34px 36px; background: rgba(14, 25, 46, 0.72); box-shadow: 0 25px 65px rgba(6, 182, 212, 0.25), 0 0 0 1px rgba(103, 232, 249, 0.2); backdrop-filter: blur(6px);">
-                        <p style="margin: 0; color: #f8fafc; font-weight: 800; font-size: clamp(1.35rem, 2vw + 1rem, 1.8rem); line-height: 1.5; letter-spacing: 0.4px; text-align: center; text-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 1px rgba(255,255,255,0.35);">
-                            Diseña proyectos, secuencias didácticas completas, descripción fundada, rúbricas y planificaciones con cada componente del <em>QUEHACER EDUCATIVO</em>, listos para brillar de forma <em>CREATIVA</em> y <em>CAUTIVADORA!</em>.
-                        </p>
+                <div class="col-12 col-lg-10 scroll-story-container">
+                    <div class="scroll-story-card" style="position: relative; border-radius: 22px; padding: 34px 36px; background: rgba(14, 25, 46, 0.72); box-shadow: 0 25px 65px rgba(6, 182, 212, 0.25), 0 0 0 1px rgba(103, 232, 249, 0.2); backdrop-filter: blur(6px);">
+                        <div style="text-align: center;">
+                            <ul class="scroll-story-list" style="list-style: none; padding: 0; margin: 0 0 24px 0; display: inline-block; text-align: left;">
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Proyectos</span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Secuencias didácticas</span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Descripción fundada</span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Rúbricas</span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Planificaciones</span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Investigaciones Académicas </span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Genera imágenes </span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Chat con documentos</span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">y mucho más...</span>
+                                </li>
+                                
+                            </ul>
+                            <!-- <p style="margin: 0; color: #f8fafc; font-weight: 800; font-size: clamp(1.35rem, 2vw + 1rem, 1.8rem); line-height: 1.5; letter-spacing: 0.4px; text-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 1px rgba(255,255,255,0.35);" data-aos="fade-up" data-aos-delay="700">
+                                con cada componente del <em>QUEHACER EDUCATIVO</em>, listos para brillar de forma <em>CREATIVA</em> y <em>CAUTIVADORA!</em>
+                            </p> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2120,27 +2479,8 @@
         <div class="parallax-bg cta-bg" data-speed="0.35"></div>
         <div class="container detailed-features-container">
             <div class="row justify-content-center text-center mb-5">
-                <div class="col-lg-9" data-aos="fade-up">
-                    <!--<div class="launch-ticker mb-4" aria-label="Lanzamiento Plan Maestro 2026">
-                        <div class="launch-track">
-                            <span class="launch-pill">Lanzamiento · Plan Maestro 2026</span>
-                            <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
-                            <span class="launch-pill" aria-hidden="true">Lanzamiento · Plan Maestro 2026</span>
-                        </div>
-                    </div>  -->
-                    
-                    <!-- Banner destacado Mi Memoria -->
-                    <!-- <div class="memory-highlight-banner mb-4">
-                        <i class="fas fa-brain"></i>
-                        <div>
-                            <strong>🆕 ¡NUEVO! Mi Memoria</strong>
-                            <span style="opacity: 0.9;"> - La IA que aprende de ti y personaliza cada respuesta</span>
-                        </div>
-                        <i class="fas fa-arrow-down" style="animation: float 1.5s ease-in-out infinite;"></i>
-                    </div> -->
-                    
+                <div class="col-lg-9" data-aos="fade-up">                   
                     <h2 class="section-title">Todas las funcionalidades de esta SÚPER HERRAMIENTA</h2>
-                    <!-- <p class="section-subtitle">Un ecosistema completo de herramientas para potenciar tu labor docente</p> -->
                 </div>
             </div>
 
@@ -2214,10 +2554,10 @@
             <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%); border: 2px solid rgba(99, 102, 241, 0.25);">
                 <div class="detailed-section-header">
                     <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-th-large"></i>
                     </div>
                     <div class="detailed-section-info">
-                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Dashboard Principal</h3>
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Panel de Control Integral de toda la plataforma</h3>
                         <!-- <p>Centro de control con vista general de todas las herramientas</p> -->
                     </div>
                 </div>
@@ -2240,7 +2580,7 @@
                             <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
                                 <div style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); display: flex; align-items: center; gap: 8px;">
                                     <i class="fas fa-calendar-alt" style="font-size: 16px;"></i>
-                                    <span>Agenda</span>
+                                    <span>Fácil manejo y navegación</span>
                                 </div>
                                 <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
                                     <i class="fas fa-chart-line" style="font-size: 16px;"></i>
@@ -2261,7 +2601,7 @@
                     <div class="detailed-feature-list" id="dashboard-principal-feature-list" style="opacity: 1 !important;">
                         <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
                             <i class="fas fa-calendar-alt" style="color: #6366F1; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Agenda y Calendario Integrado:</strong> Gestiona tus actividades, eventos y recordatorios en un calendario visual y organizado</span>
+                            <span style="color: #ffffff;"><strong>Acceso fácil a todas las herramientas:</strong> Gestiona todo desde un solo lugar y accede de forma rápida y sencilla.</span>
                         </div>
                         <!-- <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
                             <i class="fas fa-chart-line" style="color: #8B5CF6; font-size: 1.5rem;"></i>
@@ -2310,7 +2650,7 @@
                             <div style="margin-bottom: 20px; animation: pulse 3s ease-in-out infinite; display: flex; align-items: center; justify-content: center;">
                                 <img src="assets/images/ChatGPT-Logo.png" alt="ChatGPT Logo" style="width: 120px; height: auto; filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.5));">
                             </div>
-                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">ChatGPT Integrado</h4>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">ChatGPT disponible para uso ilimitado</h4>
                             <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
                                 La plataforma de IA por excelencia. ChatGPT 5 ilimitado con acceso completo y sin restricciones.
                             </p>
@@ -2615,21 +2955,34 @@
                 </div>
             </div>
 
-            <!-- Frase de transición persuasiva -->
-            <div class="transition-persuasive-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" style="text-align: center; padding: 40px 20px; margin: 30px 0;">
+            <!-- Frase de transición persuasiva mejorada -->
+            <div class="transition-persuasive-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                 <div class="transition-decorative-particles">
+                    <div class="transition-particle"></div>
+                    <div class="transition-particle"></div>
                     <div class="transition-particle"></div>
                     <div class="transition-particle"></div>
                     <div class="transition-particle"></div>
                     <div class="transition-particle"></div>
                 </div>
                 <div class="transition-persuasive-box">
-                    <p style="font-size: 1.8rem; font-weight: 600; color: #ffffff; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 30px; border-radius: 15px; position: relative; z-index: 2;">
+                    <div class="transition-icon-container">
+                        <i class="fas fa-layer-group transition-main-icon"></i>
+                        <div class="transition-icon-ring"></div>
+                    </div>
+                    <h2 class="transition-persuasive-title">
                         <span class="transition-persuasive-text">
-                            Combina el poder de estas herramientas
-                            <strong>tu ecosistema educativo completo!</strong>
+                            Todas las Herramientas
                         </span>
+                    </h2>
+                    <p class="transition-persuasive-subtitle">
+                        <strong>en un solo lugar!</strong>
                     </p>
+                    <div class="transition-feature-badges">
+                        <span class="transition-badge"><i class="fas fa-check-circle"></i> Integradas</span>
+                        <span class="transition-badge"><i class="fas fa-bolt"></i> Instantáneas</span>
+                        <span class="transition-badge"><i class="fas fa-infinity"></i> Ilimitadas</span>
+                    </div>
                 </div>
             </div>
 
@@ -3855,8 +4208,10 @@
                         <span>Social media, soporte y atención al cliente: Cris Hernández</span>
                     </div>
                 </div>
+
             </div>
         </div>
+        <p class="footer-copyright">© <script>document.write(new Date().getFullYear());</script> Plan Maestro.</p>
     </footer>
 
     <!-- Scripts -->
@@ -4041,6 +4396,205 @@
                 document.addEventListener('DOMContentLoaded', initFeatureListToggle);
             } else {
                 initFeatureListToggle();
+            }
+        })();
+    </script>
+
+    <!-- Enhanced Scroll Storytelling Animation using GSAP -->
+    <script>
+        (function() {
+            function initScrollStorytelling() {
+                // Check for reduced motion preference
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                
+                const section = document.querySelector('.core-highlight');
+                const card = document.querySelector('.scroll-story-card');
+                const items = Array.from(document.querySelectorAll('.scroll-story-item'));
+                
+                if (!section || items.length === 0 || !card) {
+                    return;
+                }
+
+                // If reduced motion, just show everything immediately
+                if (prefersReducedMotion) {
+                    card.classList.add('animate');
+                    items.forEach(item => {
+                        const icon = item.querySelector('.scroll-story-icon');
+                        const text = item.querySelector('.scroll-story-text');
+                        if (icon) icon.classList.add('animate');
+                        if (text) text.classList.add('animate');
+                    });
+                    return;
+                }
+
+                // Check if GSAP is available
+                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                    console.warn('GSAP or ScrollTrigger not loaded, falling back to basic animation');
+                    // Fallback: simple fade in on scroll
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                card.classList.add('animate');
+                                items.forEach((item, index) => {
+                                    setTimeout(() => {
+                                        const icon = item.querySelector('.scroll-story-icon');
+                                        const text = item.querySelector('.scroll-story-text');
+                                        if (icon) icon.classList.add('animate');
+                                        if (text) text.classList.add('animate');
+                                    }, index * 100);
+                                });
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observer.observe(section);
+                    return;
+                }
+
+                // Register ScrollTrigger plugin
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Set initial states
+                gsap.set(card, { opacity: 0, y: 40, scale: 0.98 });
+                items.forEach(item => {
+                    gsap.set(item, { opacity: 0, y: 30, scale: 0.95 });
+                    const icon = item.querySelector('.scroll-story-icon');
+                    const text = item.querySelector('.scroll-story-text');
+                    if (icon) gsap.set(icon, { opacity: 0, scale: 0, rotation: -180 });
+                    if (text) gsap.set(text, { opacity: 0, x: -20 });
+                });
+
+                // Create main timeline with scroll-linked animation
+                const masterTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top 80%',
+                        end: 'top 25%',
+                        scrub: 1.5, // Smooth scroll-linked animation
+                        markers: false,
+                        invalidateOnRefresh: true
+                    }
+                });
+
+                // Animate card entrance first (happens at start of scroll range)
+                masterTl.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    ease: 'power2.out'
+                }, 0);
+
+                // Animate items progressively (distributed across scroll range)
+                items.forEach((item, index) => {
+                    const icon = item.querySelector('.scroll-story-icon');
+                    const text = item.querySelector('.scroll-story-text');
+                    
+                    // Distribute animations across 65% of timeline (starting at 35% to give card time to animate)
+                    // This creates a smooth progressive reveal as user scrolls
+                    const startProgress = 0.35 + (index / items.length) * 0.55;
+                    
+                    // Animate item container with smooth easing
+                    masterTl.to(item, {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        ease: 'power2.out'
+                    }, startProgress);
+                    
+                    // Animate icon with bounce effect (starts slightly before item for visual interest)
+                    if (icon) {
+                        masterTl.to(icon, {
+                            opacity: 1,
+                            scale: 1,
+                            rotation: 0,
+                            ease: 'back.out(1.6)'
+                        }, startProgress - 0.05);
+                    }
+                    
+                    // Animate text slightly after icon for cascading effect
+                    if (text) {
+                        masterTl.to(text, {
+                            opacity: 1,
+                            x: 0,
+                            ease: 'power2.out'
+                        }, startProgress + 0.06);
+                    }
+                });
+
+                // Add hover effects using GSAP for smoother transitions
+                items.forEach(item => {
+                    const icon = item.querySelector('.scroll-story-icon');
+                    const text = item.querySelector('.scroll-story-text');
+                    
+                    item.addEventListener('mouseenter', () => {
+                        gsap.to(item, {
+                            x: 8,
+                            scale: 1.02,
+                            duration: 0.3,
+                            ease: 'power2.out'
+                        });
+                        if (icon) {
+                            gsap.to(icon, {
+                                scale: 1.15,
+                                rotation: 360,
+                                duration: 0.5,
+                                ease: 'back.out(1.7)'
+                            });
+                        }
+                        if (text) {
+                            gsap.to(text, {
+                                x: 4,
+                                duration: 0.3,
+                                ease: 'power2.out'
+                            });
+                        }
+                    });
+                    
+                    item.addEventListener('mouseleave', () => {
+                        gsap.to(item, {
+                            x: 0,
+                            scale: 1,
+                            duration: 0.3,
+                            ease: 'power2.out'
+                        });
+                        if (icon) {
+                            gsap.to(icon, {
+                                scale: 1,
+                                rotation: 0,
+                                duration: 0.4,
+                                ease: 'power2.out'
+                            });
+                        }
+                        if (text) {
+                            gsap.to(text, {
+                                x: 0,
+                                duration: 0.3,
+                                ease: 'power2.out'
+                            });
+                        }
+                    });
+                });
+
+                // Refresh ScrollTrigger on resize for better mobile support
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => {
+                        ScrollTrigger.refresh();
+                    }, 250);
+                });
+            }
+            
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initScrollStorytelling);
+            } else {
+                // Wait a bit for GSAP to load if needed
+                if (typeof gsap !== 'undefined') {
+                    initScrollStorytelling();
+                } else {
+                    // Try again after a short delay
+                    setTimeout(initScrollStorytelling, 100);
+                }
             }
         })();
     </script>
