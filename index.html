@@ -126,6 +126,68 @@
             font-size: 28px;
         }
 
+        /* LED Banner DGES 2026 - texto deslizante derecha a izquierda */
+        .dges-led-banner {
+            background: linear-gradient(90deg, #0a0a0f 0%, #0d1117 20%, #0d1117 80%, #0a0a0f 100%);
+            padding: 28px 0;
+            overflow: hidden;
+            position: relative;
+            border-top: 2px solid rgba(34, 197, 94, 0.3);
+            border-bottom: 2px solid rgba(34, 197, 94, 0.3);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.15), inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        .dges-led-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(34, 197, 94, 0.03) 2px,
+                rgba(34, 197, 94, 0.03) 4px
+            );
+            pointer-events: none;
+        }
+        .dges-led-track {
+            display: flex;
+            width: max-content;
+            animation: dges-marquee 25s linear infinite;
+            will-change: transform;
+        }
+        .dges-led-track span {
+            color: #4ade80;
+            font-family: 'Inter', 'Poppins', monospace;
+            font-size: 1.65rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            padding: 0 3rem;
+            white-space: nowrap;
+            text-shadow: 
+                0 0 2px rgba(255, 255, 255, 0.9),
+                0 0 6px #22c55e,
+                0 0 12px #16a34a;
+            filter: none;
+        }
+        @keyframes dges-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @media (max-width: 576px) {
+            .dges-led-banner {
+                padding: 20px 0;
+            }
+            .dges-led-track span {
+                font-size: 1.2rem;
+                letter-spacing: 0.2em;
+                padding: 0 2rem;
+            }
+        }
+
         /* Mobile Hamburger Menu - Force visibility */
         @media (max-width: 991.98px) {
             .navbar-expand-lg .navbar-toggler,
@@ -496,6 +558,61 @@
             color: #cbd5e1;
             margin-top: 18px;
             font-size: 0.95rem;
+        }
+
+        /* Instituciones Section */
+        .institutions-section {
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.12), transparent 40%),
+                        radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.1), transparent 35%),
+                        #0f172a;
+            color: #f8fafc;
+        }
+        .institutions-section .section-title {
+            color: #f8fafc;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .institution-logo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .institution-logo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+        }
+        .institution-logo-card img {
+            max-height: 80px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(1.05);
+        }
+        .institution-logo-card .institution-desc {
+            margin-top: 1rem;
+            color: rgba(248, 250, 252, 0.85);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .institution-instagram {
+            display: inline-flex;
+            align-items: center;
+            color: #c7d2fe;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.25s ease;
+        }
+        .institution-instagram:hover {
+            color: #e879f9;
+        }
+        .institution-instagram .fab {
+            font-size: 1.1rem;
         }
 
         @media (max-width: 768px) {
@@ -2294,6 +2411,20 @@
         </div>
     </section>
 
+    <!-- Banner LED DGES 2026 -->
+    <div class="dges-led-banner">
+        <div class="dges-led-track">
+            <span>Actualizado DGES 2026</span>
+            <span>Actualizado DGES 2026</span>
+            <span>Actualizado DGES 2026</span>
+            <span>Actualizado DGES 2026</span>
+            <span>Actualizado DGES 2026</span>
+            <span>Actualizado DGES 2026</span>
+            <span>Actualizado DGES 2026</span>
+            <span>Actualizado DGES 2026</span>
+        </div>
+    </div>
+
     <!-- Frase de Efecto -->
     <section class="hero-impact-phrase py-4" style="background: linear-gradient(135deg, #1b1e35 0%, #1d1e47 100%); position: relative; overflow: hidden;">
         <div class="container">
@@ -2454,6 +2585,10 @@
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
                                     <span class="scroll-story-text">Chat con documentos</span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Organiza chats en carpetas</span>
                                 </li>
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
@@ -2794,6 +2929,64 @@
                     <!-- <a href="https://prime.plan-maestro.com/dashboard/memoria" target="_blank" class="btn btn-outline-primary btn-sm" style="border-color: #8B5CF6; color: #8B5CF6;">
                         <i class="fas fa-external-link-alt me-2"></i>Ver Mi Memoria
                     </a> -->
+                </div>
+            </div>
+
+            <!-- Organiza chats en carpetas -->
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%); border: 2px solid rgba(99, 102, 241, 0.25);">
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+                        <i class="fas fa-folder-tree"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Organiza chats en carpetas</h3>
+                        <p>Agrupa tus conversaciones en carpetas personalizadas con arrastrar y soltar</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1e1b4b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📁</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Mantén todo ordenado</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
+                                Crea carpetas, arrastra conversaciones y encuentra rápidamente lo que necesitas por proyecto, asignatura o tema.
+                            </p>
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-folder-plus" style="font-size: 16px;"></i>
+                                    <span>Crear carpetas</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-arrows-alt" style="font-size: 16px;"></i>
+                                    <span>Arrastrar y soltar</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-search" style="font-size: 16px;"></i>
+                                    <span>Búsqueda rápida</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="feature-list-toggle" aria-label="Ver más detalles" data-target="chats-carpetas-feature-list">
+                        <span class="toggle-text">Ver detalles</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="detailed-feature-list" id="chats-carpetas-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-folder-plus" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Carpetas personalizadas:</strong> Crea, renombra y organiza carpetas según tu criterio</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-arrows-alt" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Arrastrar y soltar:</strong> Mueve chats entre carpetas con un simple gesto</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(14, 165, 233, 0.15); border-left: 4px solid #0EA5E9; opacity: 1 !important;">
+                            <i class="fas fa-search" style="color: #0EA5E9; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Búsqueda en historial:</strong> Encuentra conversaciones rápidamente por nombre o carpeta</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -4090,6 +4283,33 @@
         </div>
     </section>
 
+    <!-- Instituciones que utilizan Plan Maestro -->
+    <section id="instituciones" class="institutions-section py-5 parallax-section">
+        <div class="container position-relative">
+            <div class="row justify-content-center text-center mb-4">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <span class="testimonials-eyebrow"><i class="fas fa-school"></i> Instituciones</span>
+                    <h2 class="section-title mt-3">Instituciones que utilizan Plan Maestro</h2>
+                    <p class="section-subtitle mt-2" style="color: rgba(248, 250, 252, 0.75); font-size: 1.05rem;">Equipos docentes que confían en nuestra herramienta</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="institution-logo-card h-100">
+                        <img src="assets/images/logo%20northern.jpeg" alt="Northern School - Logo de institución que utiliza Plan Maestro" class="img-fluid">
+                        <p class="institution-desc mb-0">
+                            <strong>Northern School</strong><br>
+                            Institución con un excelente equipo de docentes!
+                        </p>
+                        <a href="https://www.instagram.com/northernschoolrivera/" target="_blank" rel="noopener noreferrer" class="institution-instagram mt-2" aria-label="Instagram de Northern School">
+                            <i class="fab fa-instagram me-1"></i> @northernschoolrivera
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Perfect Tool Section -->
     <section id="perfect-tool" class="perfect-tool-section py-5 parallax-section">
         <div class="parallax-bg perfect-tool-bg" data-speed="0.3"></div>
@@ -4601,5 +4821,3 @@
 </body>
 
 </html>
-
-
