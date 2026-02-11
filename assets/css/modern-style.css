@@ -29,11 +29,41 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--dark-color);
     overflow-x: hidden;
+    background: #0f172a;
+    width: 100%;
+    min-width: 100%;
+}
+
+/* Force full width - fix empty strip on right */
+body > *,
+body > header,
+body > section,
+body > footer,
+body > div,
+.doc-footer,
+.parallax-section,
+.navbar,
+.dges-led-banner {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.parallax-section .parallax-bg,
+.parallax-bg {
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 
 /* Typography */
@@ -1479,7 +1509,6 @@ html {
 /* Hero Section Parallax */
 .hero-section .parallax-bg {
     background-image: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-    background-attachment: fixed;
 }
 
 /* Features Section Parallax */
@@ -1832,12 +1861,17 @@ html {
     transition: all 0.6s ease-out;
 }
 
-/* Enhanced Hero Section Parallax */
+/* Enhanced Hero Section Parallax - sin gradientes estirados */
 .hero-section .parallax-bg {
     background-image: 
-        linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%),
-        radial-gradient(circle at 30% 70%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
-    background-attachment: fixed;
+        linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/* Neutralizar los círculos del ::after genérico de parallax-section en el hero */
+.hero-section.parallax-section::after {
+    background: none;
 }
 
 /* Parallax Depth Perception */
@@ -2020,6 +2054,69 @@ html {
     bottom: 10%;
     right: 20%;
     animation-delay: 4.5s;
+}
+
+/* Medium desktop: Cards más grandes para pantallas < 1400px (evitar overlap) */
+@media (min-width: 992px) and (max-width: 1499px) {
+    .hero-visual {
+        height: 460px;
+    }
+
+    .hero-float-card {
+        padding: 1.35rem 1.5rem;
+        min-width: 140px;
+    }
+
+    .hero-float-card i {
+        font-size: 1.85rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .hero-float-card span {
+        font-size: 0.95rem;
+        line-height: 1.2;
+    }
+
+    .hero-float-card.card-1 {
+        top: 2%;
+        left: 5%;
+    }
+
+    .hero-float-card.card-2 {
+        top: 5%;
+        right: 0%;
+    }
+
+    .hero-float-card.card-3 {
+        bottom: 28%;
+        left: 10%;
+    }
+
+    .hero-float-card.card-4 {
+        bottom: 2%;
+        right: 5%;
+    }
+}
+
+/* Pantallas 992px - 1399px: cards aún más grandes para mejor legibilidad */
+@media (min-width: 992px) and (max-width: 1399px) {
+    .hero-visual {
+        height: 480px;
+    }
+
+    .hero-float-card {
+        padding: 1.5rem 1.6rem;
+        min-width: 150px;
+    }
+
+    .hero-float-card i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-float-card span {
+        font-size: 1rem;
+    }
 }
 
 /* Mobile: Reset all positioning */
