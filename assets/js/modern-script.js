@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
-        const typeDelay = 140;
+        const typeDelay = 95;
         const deleteDelay = 40;
         const pauseAfterWord = 2200;
 

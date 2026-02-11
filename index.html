@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Plaɳ MaeŠtrɸ - La Calculadora del Pensamiento Docente Uruguayo | Planificación Educativa ANEP</title>
-    <meta name="description" content="Revoluciona tu planificación educativa con Plaɳ MaeŠtrɸ. Herramienta completa para docentes uruguayos con documentación ANEP 2026, IA integrada y metodologías activas. ¡Optimiza tu tiempo de planificación!">
+    <title>Plaɳ MaeŠtrɸ - Tu aliado para planificar con placer, en tiempo RÉCORD y creatividad | Planificación Educativa ANEP</title>
+    <meta name="description" content="Tu aliado para planificar con placer, en tiempo RÉCORD y creatividad. Herramienta completa para docentes uruguayos con documentación ANEP 2026, IA integrada y metodologías activas. ¡Planificá en minutos!">
     <meta name="keywords" content="planificación ,planificación educativa, docentes uruguayos, ANEP, plan maestro, IA educativa, metodologías activas, tramos educativos, planificación docente, Uruguay educación">
     <meta name="author" content="Marcos Mello - Plan Maestro">
     <meta name="robots" content="index, follow">
@@ -17,8 +17,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plan-maestro.com/">
-    <meta property="og:title" content="Plaɳ MaeŠtrɸ - La Calculadora del Pensamiento Docente Uruguayo">
-    <meta property="og:description" content="Revoluciona tu planificación educativa con Plaɳ MaeŠtrɸ. Herramienta completa para docentes uruguayos con documentación ANEP 2026, IA integrada y metodologías activas.">
+    <meta property="og:title" content="Plaɳ MaeŠtrɸ - Tu aliado para planificar con placer, en tiempo RÉCORD y creatividad">
+    <meta property="og:description" content="Tu aliado para planificar con placer, en tiempo RÉCORD y creatividad. Herramienta completa para docentes uruguayos con ANEP 2026 e IA integrada. ¡Planificá en minutos!">
     <meta property="og:image" content="https://plan-maestro.com/assets/images/pm-26.png">
     <meta property="og:site_name" content="Plan Maestro">
     <meta property="og:locale" content="es_UY">
@@ -26,8 +26,8 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://plan-maestro.com/">
-    <meta property="twitter:title" content="Plaɳ MaeŠtrɸ - La Calculadora del Pensamiento Docente Uruguayo">
-    <meta property="twitter:description" content="Revoluciona tu planificación educativa con Plaɳ MaeŠtrɸ. Herramienta completa para docentes uruguayos con documentación ANEP 2026, IA integrada y metodologías activas.">
+    <meta property="twitter:title" content="Plaɳ MaeŠtrɸ - Tu aliado para planificar con placer, en tiempo RÉCORD y creatividad">
+    <meta property="twitter:description" content="Tu aliado para planificar con placer, en tiempo RÉCORD y creatividad. Herramienta completa para docentes uruguayos con ANEP 2026 e IA integrada. ¡Planificá en minutos!">
     <meta property="twitter:image" content="https://plan-maestro.com/assets/images/pm-26.png">
     
     <link rel="icon" href="./assets/images/icon.png" type="image/png">
@@ -48,6 +48,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/modern-style.css">
     
+    <!-- Critical: Fix full-width layout (evitar espacio vacío a la derecha) -->
+    <style>
+        html, body { width: 100% !important; min-width: 100% !important; max-width: none !important; margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; }
+        body > header, body > section, body > footer, body > div:not(#preloader) { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+        #preloader { width: 100% !important; }
+    </style>
     <!-- Mi Memoria Feature Styles -->
     <style>
         @keyframes pulse {
@@ -142,6 +148,9 @@
         @media (max-width: 768px) {
             .hero-hecho-para-row { min-height: 100px; padding: 4rem 0 0.25rem 0; }
             .hero-hecho-para { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1rem !important; }
+            .hero-impact-inline { font-size: 0.9rem !important; }
+            .hero-trust-line { font-size: 0.8rem !important; }
         }
         @media (min-width: 992px) {
             .hero-hecho-para-row { padding: 3.5rem 0 0.25rem 0; min-height: 90px; }
@@ -551,6 +560,11 @@
             color: #e2e8f0;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
         }
+        .testimonial-card.testimonial-fixed {
+            min-width: 0;
+            max-width: none;
+            height: 100%;
+        }
 
         .testimonial-quote {
             font-size: 0.95rem;
@@ -694,17 +708,17 @@
             content: "";
             position: absolute;
             inset: 0;
-            width: 62%;
-            max-width: 760px;
-            background: linear-gradient(90deg,
-                rgba(15, 23, 42, 0.85) 0%,
-                rgba(76, 29, 149, 0.55) 70%,
-                rgba(76, 29, 149, 0) 100%);
+            width: 100%;
+            background: linear-gradient(180deg,
+                rgba(15, 23, 42, 0.5) 0%,
+                rgba(76, 29, 149, 0.3) 50%,
+                rgba(15, 23, 42, 0.5) 100%);
             pointer-events: none;
             z-index: 1;
         }
 
-        .ecosystem-section .container {
+        .ecosystem-section .container,
+        .ecosystem-section .container-fluid {
             position: relative;
             z-index: 2;
         }
@@ -2422,20 +2436,31 @@
                     <div class="hero-content parallax-content" data-speed="0.3">
                         <span class="badge bg-warning text-dark mb-3 new-feature-badge">Nuevo 2026</span>
                         <h1 class="hero-title">
-                            La Calculadora del <span class="text-gradient">Pensamiento Docente</span> Uruguayo
+                            Planifica con placer, en <span class="text-gradient">tiempo RÉCORD</span> y creatividad
                         </h1>
-                        <!-- <p class="hero-subtitle">
-                            ...porque Grandes Docentes merecen <em class="hero-accent-pop">GRANDES HERRAMIENTAS!</em>.
-                        </p> -->
+                        <p class="hero-subtitle mb-3" style="font-size: 1.2rem; color: rgba(255,255,255,0.9); line-height: 1.5;">
+                            IA que conoce todo ANEP 2026 y que te conoce. 
+                            <strong style="color: #fbbf24;">Menos horas en papeles, más tiempo creativo con tu clase y familia.</strong>
+                        </p>
+                        <p class="hero-impact-inline mb-3" style="font-size: 1rem; color: #fbbf24; font-weight: 600; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                            <i class="fas fa-bolt"></i>
+                            Reduce el tiempo de planificación de días a minutos
+                        </p>
                         <div class="hero-buttons">
-                            <div class="d-flex gap-3 mb-3">
+                            <div class="d-flex gap-3 mb-2 flex-wrap">
                                 <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg flex-fill" onclick="fbq('track', 'Lead', {content_name: 'Hero CTA - Empezar Ahora'});">
                                     <i class="fas fa-rocket me-2"></i>Empezar Ahora
                                 </a>
-                                <!-- <a href="#lanzamiento2026" class="btn btn-outline-light btn-lg flex-fill">
+                                <a href="#lanzamiento2026" class="btn btn-outline-light btn-lg flex-fill">
                                     <i class="fas fa-arrow-down me-2"></i>Descubre Funcionalidades
-                                </a> -->
+                                </a>
                             </div>
+                            <p class="hero-trust-line mb-0 mt-2" style="font-size: 0.9rem; color: rgba(255,255,255,0.75);">
+                                <i class="fas fa-google me-1"></i> Acceso con Google en 1 clic · Docentes de Inicial a Media en todo Uruguay
+                            </p>
+                            <p class="hero-trust-line mb-0 mt-1" style="font-size: 0.85rem; color: rgba(255,255,255,0.65);">
+                                <i class="fas fa-shield-alt me-1"></i> Anímate a probarlo
+                            </p>
                            <!--  <a href="https://prime.plan-maestro.com/whiteboard" target="_blank" class="btn btn-success btn-lg w-100" style="position: relative; pointer-events: auto !important; background-color: #28a745 !important; border-color: #28a745 !important; cursor: pointer; transition: all 0.3s ease;">
                                 <i class="fas fa-chalkboard me-2"></i>Prueba la Pizarra Virtual
                                 <span class="badge bg-light text-dark ms-2" style="font-size: 0.7rem; padding: 2px 6px;">GRATIS</span>
@@ -2600,19 +2625,25 @@
         </div> -->
         
         <!-- Elementos decorativos -->
-        <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; z-index: 1;"></div>
-        <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; z-index: 1;"></div>
+        <!-- <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; z-index: 1;"></div>
+        <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; z-index: 1;"></div> -->
     </section>
 
     <!-- Core Highlight Section -->
-    <section class="core-highlight py-5" style="position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(51,104,134,0.45) 0%, rgba(14,25,46,0.75) 100%), url('assets/images/imgplan.png') center -6vh / cover no-repeat; min-height: 70vh; display: flex; align-items: center;">
+    <section class="core-highlight py-4" style="position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(51,104,134,0.45) 0%, rgba(14,25,46,0.75) 100%), url('assets/images/imgplan.png') center -6vh / cover no-repeat; min-height: 45vh; display: flex; align-items: center;">
         <div style="position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0) 45%), radial-gradient(circle at 80% 30%, rgba(0,0,0,0.25), rgba(0,0,0,0) 50%);"></div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 scroll-story-container">
                     <div class="scroll-story-card" style="position: relative; border-radius: 22px; padding: 34px 36px; background: rgba(14, 25, 46, 0.72); box-shadow: 0 25px 65px rgba(6, 182, 212, 0.25), 0 0 0 1px rgba(103, 232, 249, 0.2); backdrop-filter: blur(6px);">
                         <div style="text-align: center;">
+                            <h3 class="mb-4" style="color: #f8fafc; font-weight: 800; font-size: clamp(1.4rem, 3vw, 1.8rem); letter-spacing: 0.3px;">Todo lo que podés crear y usar con Plan Maestro</h3>
+                            <p class="mb-4" style="color: rgba(248, 250, 252, 0.9); font-size: 1rem; line-height: 1.5;">Con cada componente del <strong style="color: #67e8f9;">quehacer educativo</strong>, listos para brillar de forma creativa</p>
                             <ul class="scroll-story-list" style="list-style: none; padding: 0; margin: 0 0 24px 0; display: inline-block; text-align: left;">
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Planificaciones</span>
+                                </li>
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
                                     <span class="scroll-story-text">Proyectos</span>
@@ -2631,15 +2662,15 @@
                                 </li>
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
-                                    <span class="scroll-story-text">Planificaciones</span>
+                                    <span class="scroll-story-text">Mi Memoria (IA que te conoce)</span>
                                 </li>
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
-                                    <span class="scroll-story-text">Investigaciones Académicas </span>
+                                    <span class="scroll-story-text">ChatGPT integrado</span>
                                 </li>
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
-                                    <span class="scroll-story-text">Genera imágenes </span>
+                                    <span class="scroll-story-text">Genera imágenes</span>
                                 </li>
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
@@ -2647,17 +2678,13 @@
                                 </li>
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
-                                    <span class="scroll-story-text">Organiza chats en carpetas</span>
+                                    <span class="scroll-story-text">Pizarra virtual y mapas mentales</span>
                                 </li>
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
                                     <span class="scroll-story-text">y mucho más...</span>
                                 </li>
-                                
                             </ul>
-                            <!-- <p style="margin: 0; color: #f8fafc; font-weight: 800; font-size: clamp(1.35rem, 2vw + 1rem, 1.8rem); line-height: 1.5; letter-spacing: 0.4px; text-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 1px rgba(255,255,255,0.35);" data-aos="fade-up" data-aos-delay="700">
-                                con cada componente del <em>QUEHACER EDUCATIVO</em>, listos para brillar de forma <em>CREATIVA</em> y <em>CAUTIVADORA!</em>
-                            </p> -->
                         </div>
                     </div>
                 </div>
@@ -2668,17 +2695,76 @@
         </div>
     </section>
 
+    <!-- Testimonials Section - Social proof temprano -->
+    <section id="testimonials" class="testimonials-section py-5 parallax-section">
+        <div class="parallax-bg testimonials-bg" data-speed="0.35"></div>
+        <div class="container position-relative">
+            <div class="row justify-content-center text-center mb-4">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <span class="testimonials-eyebrow"><i class="fas fa-bolt"></i>+1000 historias reales</span>
+                    <h2 class="section-title mt-3">Docentes que ya usan Plaɳ MaeŠtrɸ todos los días</h2>
+                    <p class="section-subtitle mt-2" style="color: rgba(248, 250, 252, 0.8);">Lo que dicen docentes como vos</p>
+                </div>
+            </div>
+            <!-- Testimonios fijos destacados -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+                    <div class="testimonial-card testimonial-fixed">
+                        <p class="testimonial-quote"><i class="fas fa-quote-left"></i>Ahora planifico rápido y me queda tiempo libre para mis hijos y la familia.</p>
+                        <div class="testimonial-user">
+                            <div class="testimonial-avatar">MJC</div>
+                            <div class="testimonial-meta">
+                                <span class="testimonial-name">María José Cabrera</span>
+                                <span class="testimonial-role">Mamá y docente de 4.º</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card testimonial-fixed">
+                        <p class="testimonial-quote"><i class="fas fa-quote-left"></i>Las planificaciones salen listas y me permite merendar tranquila con mis gurises.</p>
+                        <div class="testimonial-user">
+                            <div class="testimonial-avatar">PD</div>
+                            <div class="testimonial-meta">
+                                <span class="testimonial-name">Patricia Duarte</span>
+                                <span class="testimonial-role">Madre y maestra de Inicial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+                    <div class="testimonial-card testimonial-fixed">
+                        <p class="testimonial-quote"><i class="fas fa-quote-left"></i>Productividad altísima: cierro planificaciones antes y gano tiempo en familia.</p>
+                        <div class="testimonial-user">
+                            <div class="testimonial-avatar">VC</div>
+                            <div class="testimonial-meta">
+                                <span class="testimonial-name">Viviana Costa</span>
+                                <span class="testimonial-role">Coordinadora y mamá</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mb-3" style="color: rgba(248, 250, 252, 0.7); font-size: 0.95rem; font-weight: 600;">Más docentes que confían</p>
+            <div class="testimonial-marquee" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-track" id="testimonialTrack"></div>
+            </div>
+            <p class="testimonial-highlight" data-aos="fade-up" data-aos-delay="200">
+                Pasa el dedo o coloca el mouse encima para pausar y leer con calma. Todos ya la tienen en su cel.
+            </p>
+        </div>
+    </section>
+
     <!-- Detailed Features Section (Replaces Launch 2026 Overview) -->
     <section id="lanzamiento2026" class="py-5 parallax-section">
         <div class="parallax-bg cta-bg" data-speed="0.35"></div>
         <div class="container detailed-features-container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-9" data-aos="fade-up">                   
-                    <h2 class="section-title">Todas las funcionalidades de esta SÚPER HERRAMIENTA</h2>
+                    <h2 class="section-title">Funcionalidades pensadas para vos</h2>
+                    <p class="section-subtitle mt-2" style="color: rgba(248, 250, 252, 0.85); font-size: 1.1rem;">Todo lo que necesitás para planificar con placer, en tiempo récord</p>
                 </div>
             </div>
-
-            
 
             <!-- Planificaciones con IA (Core) -->
             <div class="detailed-feature-section" style="border: 2px solid rgba(6, 182, 212, 0.25);">
@@ -2744,159 +2830,7 @@
                 </div>
             </div>
 
-            <!-- Dashboard Principal -->
-            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%); border: 2px solid rgba(99, 102, 241, 0.25);">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
-                        <i class="fas fa-th-large"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Panel de Control Integral de toda la plataforma</h3>
-                        <!-- <p>Centro de control con vista general de todas las herramientas</p> -->
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <!-- Visual representation of Dashboard -->
-                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1e1b4b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
-                            <!-- Animated background circles -->
-                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
-                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
-                            
-                            <!-- Main icon -->
-                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📊</div>
-                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Centro de Control</h4>
-                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
-                                Vista general de todas las herramientas y funcionalidades en un solo lugar.
-                            </p>
-                            
-                            <!-- Feature buttons -->
-                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
-                                <div style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-calendar-alt" style="font-size: 16px;"></i>
-                                    <span>Fácil manejo y navegación</span>
-                                </div>
-                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-chart-line" style="font-size: 16px;"></i>
-                                    <span>Estadísticas</span>
-                                </div>
-                                <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-lightbulb" style="font-size: 16px;"></i>
-                                    <span>Tips</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Botón para expandir/colapsar en móvil -->
-                    <button class="feature-list-toggle" aria-label="Ver más detalles" data-target="dashboard-principal-feature-list">
-                        <span class="toggle-text">Ver detalles</span>
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </button>
-                    <div class="detailed-feature-list" id="dashboard-principal-feature-list" style="opacity: 1 !important;">
-                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
-                            <i class="fas fa-calendar-alt" style="color: #6366F1; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Acceso fácil a todas las herramientas:</strong> Gestiona todo desde un solo lugar y accede de forma rápida y sencilla.</span>
-                        </div>
-                        <!-- <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
-                            <i class="fas fa-chart-line" style="color: #8B5CF6; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Estadísticas y Métricas en Tiempo Real:</strong> Visualiza el progreso de tus planificaciones, documentos generados y uso de herramientas con gráficos interactivos</span>
-                        </div> -->
-                        <!-- <div class="detailed-feature-item" style="background: rgba(59, 130, 246, 0.15); border-left: 4px solid #3B82F6; opacity: 1 !important;">
-                            <i class="fas fa-lightbulb" style="color: #3B82F6; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Tips Diarios Personalizados:</strong> Recibe consejos y sugerencias adaptadas a tu contexto educativo y nivel de enseñanza</span>
-                        </div> -->
-                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
-                            <i class="fas fa-th-large" style="color: #10B981; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Acceso Rápido a Herramientas:</strong> Navega fácilmente entre todas las funcionalidades desde un panel centralizado</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
-                            <i class="fas fa-bell" style="color: #F97316; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Notificaciones Inteligentes:</strong> Mantente al día con alertas sobre tareas pendientes, actualizaciones y recordatorios importantes</span>
-                        </div>
-                        <!-- <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
-                            <i class="fas fa-history" style="color: #EC4899; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Historial de Actividad:</strong> Revisa tus documentos recientes y accesos rápidos a tus trabajos más utilizados</span>
-                        </div> -->
-                    </div>
-                </div>
-            </div>   
-
-            <!-- ChatGPT Integrado -->
-            <div class="detailed-feature-section">
-                <div class="detailed-section-header">
-                    <div class="detailed-section-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="detailed-section-info">
-                        <h3>ChatGPT Integrado</h3>
-                        <p>La plataforma de IA por excelencia disponible y sin límites</p>
-                    </div>
-                </div>
-                <div class="detailed-feature-content">
-                    <div class="detailed-feature-image">
-                        <!-- Visual representation of ChatGPT Integrated -->
-                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1b2e1b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
-                            <!-- Animated background circles -->
-                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
-                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
-                            
-                            <!-- Main icon -->
-                            <div style="margin-bottom: 20px; animation: pulse 3s ease-in-out infinite; display: flex; align-items: center; justify-content: center;">
-                                <img src="assets/images/ChatGPT-Logo.png" alt="ChatGPT Logo" style="width: 120px; height: auto; filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.5));">
-                            </div>
-                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">ChatGPT disponible para uso ilimitado</h4>
-                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
-                                La plataforma de IA por excelencia. ChatGPT 5 ilimitado con acceso completo y sin restricciones.
-                            </p>
-                            
-                            <!-- Feature buttons -->
-                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
-                                <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-infinity" style="font-size: 16px;"></i>
-                                    <span>Sin Límites</span>
-                                </div>
-                                <div style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-rocket" style="font-size: 16px;"></i>
-                                    <span>ChatGPT 5</span>
-                                </div>
-                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-history" style="font-size: 16px;"></i>
-                                    <span>Historial</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Botón para expandir/colapsar en móvil -->
-                    <button class="feature-list-toggle" aria-label="Ver más detalles" data-target="chatgpt-integrado-feature-list">
-                        <span class="toggle-text">Ver detalles</span>
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </button>
-                    <div class="detailed-feature-list" id="chatgpt-integrado-feature-list">
-                        <!-- <div class="detailed-feature-item" style="background: rgba(138, 43, 226, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
-                            <i class="fas fa-infinity" style="color: #8B5CF6; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;">Sin límites de uso y consultas</span>
-                        </div> -->
-                        <div class="detailed-feature-item" style="background: rgba(6, 182, 212, 0.15); border-left: 4px solid #06B6D4; opacity: 1 !important;">
-                            <i class="fas fa-rocket" style="color: #06B6D4; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;">Versión de ChatGPT 5 ILIMITADA!</span>
-                        </div>
-                        <!-- <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
-                            <i class="fas fa-history" style="color: #F97316; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;">Historial de conversaciones guardado para mejorar las respuestas SOBRE CUALQUIER TEMÁTICA</span>
-                        </div> -->
-                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
-                            <i class="fas fa-clock" style="color: #10B981; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Ahorra horas semanales:</strong> Reduce el tiempo de transición de una herramienta a otra. TODO en la misma plataforma!</span>
-                        </div>
-                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
-                            <i class="fas fa-dollar-sign" style="color: #EC4899; font-size: 1.5rem;"></i>
-                            <span style="color: #ffffff;"><strong>Inversión que se paga sola:</strong> El costo mensual es menor y el beneficio es INFINITO</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MI MEMORIA - NUEVA FEATURE DESTACADA -->
+            <!-- MI MEMORIA - Destacada 2º (después de Planificaciones) -->
             <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(0, 207, 232, 0.1) 100%); border: 2px solid rgba(138, 43, 226, 0.3); position: relative; overflow: hidden;">
                 <!-- Badge NUEVO -->
                 <div class="new-feature-badge" style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4); animation: pulse 2s infinite;">
@@ -2988,6 +2922,106 @@
                     <!-- <a href="https://prime.plan-maestro.com/dashboard/memoria" target="_blank" class="btn btn-outline-primary btn-sm" style="border-color: #8B5CF6; color: #8B5CF6;">
                         <i class="fas fa-external-link-alt me-2"></i>Ver Mi Memoria
                     </a> -->
+                </div>
+            </div>
+
+            <!-- ChatGPT Integrado -->
+            <div class="detailed-feature-section">
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3>ChatGPT Integrado</h3>
+                        <p>La plataforma de IA por excelencia disponible y sin límites</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1b2e1b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            <div style="margin-bottom: 20px; animation: pulse 3s ease-in-out infinite; display: flex; align-items: center; justify-content: center;">
+                                <img src="assets/images/ChatGPT-Logo.png" alt="ChatGPT Logo" style="width: 120px; height: auto; filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.5));">
+                            </div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">ChatGPT disponible para uso ilimitado</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
+                                La plataforma de IA por excelencia. ChatGPT 5 ilimitado con acceso completo y sin restricciones.
+                            </p>
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-infinity" style="font-size: 16px;"></i>
+                                    <span>Sin Límites</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-rocket" style="font-size: 16px;"></i>
+                                    <span>ChatGPT 5</span>
+                                </div>
+                                <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-history" style="font-size: 16px;"></i>
+                                    <span>Historial</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="feature-list-toggle" aria-label="Ver más detalles" data-target="chatgpt-integrado-feature-list">
+                        <span class="toggle-text">Ver detalles</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="detailed-feature-list" id="chatgpt-integrado-feature-list">
+                        <div class="detailed-feature-item" style="background: rgba(6, 182, 212, 0.15); border-left: 4px solid #06B6D4; opacity: 1 !important;">
+                            <i class="fas fa-rocket" style="color: #06B6D4; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;">Versión de ChatGPT 5 ILIMITADA!</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-clock" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Ahorra horas semanales:</strong> Reduce el tiempo de transición de una herramienta a otra. TODO en la misma plataforma!</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(236, 72, 153, 0.15); border-left: 4px solid #EC4899; opacity: 1 !important;">
+                            <i class="fas fa-dollar-sign" style="color: #EC4899; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Inversión que se paga sola:</strong> El costo mensual es menor y el beneficio es INFINITO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de Control - Dashboard -->
+            <div class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%); border: 2px solid rgba(99, 102, 241, 0.25);">
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Panel de Control Integral</h3>
+                        <p>Centro de control con vista general de todas las herramientas</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1e1b4b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📊</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Acceso rápido a todo</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto;">Vista general de herramientas, estadísticas y tips en un solo lugar.</p>
+                        </div>
+                    </div>
+                    <button class="feature-list-toggle" aria-label="Ver más detalles" data-target="dashboard-principal-feature-list">
+                        <span class="toggle-text">Ver detalles</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="detailed-feature-list" id="dashboard-principal-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(99, 102, 241, 0.15); border-left: 4px solid #6366F1; opacity: 1 !important;">
+                            <i class="fas fa-calendar-alt" style="color: #6366F1; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Acceso fácil:</strong> Gestiona todo desde un solo lugar</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-th-large" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Navegación rápida</strong> entre todas las funcionalidades</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-bell" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Notificaciones inteligentes</strong> de tareas y actualizaciones</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -3203,37 +3237,6 @@
                             <i class="fas fa-infinity" style="color: #FB923C; font-size: 1.5rem;"></i>
                             <span style="color: #ffffff;"><strong>Sin límites de generación:</strong> Crea todas las imágenes que necesites para tus materiales educativos sin restricciones</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Frase de transición persuasiva mejorada -->
-            <div class="transition-persuasive-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                <div class="transition-decorative-particles">
-                    <div class="transition-particle"></div>
-                    <div class="transition-particle"></div>
-                    <div class="transition-particle"></div>
-                    <div class="transition-particle"></div>
-                    <div class="transition-particle"></div>
-                    <div class="transition-particle"></div>
-                </div>
-                <div class="transition-persuasive-box">
-                    <div class="transition-icon-container">
-                        <i class="fas fa-layer-group transition-main-icon"></i>
-                        <div class="transition-icon-ring"></div>
-                    </div>
-                    <h2 class="transition-persuasive-title">
-                        <span class="transition-persuasive-text">
-                            Todas las Herramientas
-                        </span>
-                    </h2>
-                    <p class="transition-persuasive-subtitle">
-                        <strong>en un solo lugar!</strong>
-                    </p>
-                    <div class="transition-feature-badges">
-                        <span class="transition-badge"><i class="fas fa-check-circle"></i> Integradas</span>
-                        <span class="transition-badge"><i class="fas fa-bolt"></i> Instantáneas</span>
-                        <span class="transition-badge"><i class="fas fa-infinity"></i> Ilimitadas</span>
                     </div>
                 </div>
             </div>
@@ -3763,8 +3766,8 @@
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <div class="detailed-section-info">
-                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></h3>
-                        <!-- <p>Diseña proyectos, secuencias didácticas completas, descripción fundada, rúbricas y planificaciones con cada componente del quehacer educativo</p> -->
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Quehacer Educativo Completo</h3>
+                        <p>Proyectos, secuencias, descripciones fundadas y rúbricas con todos los componentes</p>
                     </div>
                 </div>
                 <div class="detailed-feature-content">
@@ -3859,44 +3862,6 @@
 
    
 
-    <!-- El placer de planificar! -->
-    <section id="el-placer-de-planificar" class="el-placer-de-planificar-section py-5 parallax-section">
-        <div class="parallax-bg el-placer-de-planificar-bg" data-speed="0.3"></div>
-        <div class="el-placer-de-planificar-overlay"></div>
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-10 col-xl-9" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="el-placer-de-planificar-content">
-                        <div class="el-placer-de-planificar-badge" data-aos="fade-down" data-aos-delay="200">
-                            <i class="fas fa-heart"></i>
-                            <span>Descubre la magia</span>
-                        </div>
-                        <h2 class="el-placer-de-planificar-title">
-                            <span class="title-word title-word-1">El placer</span>
-                            <span class="title-word title-word-2">de planificar!</span>
-                        </h2>
-                        <div class="el-placer-de-planificar-decoration" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="decoration-line"></div>
-                            <div class="decoration-star"><i class="fas fa-star"></i></div>
-                            <div class="decoration-line"></div>
-                        </div>
-                        <div class="el-placer-de-planificar-logo" data-aos="fade-up" data-aos-delay="600">
-                            <img src="assets/images/logo-lateral.png" alt="Plaɳ MaeŠtrɸ Logo" class="logo-image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="el-placer-de-planificar-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-    </section>
-
-    
     <!-- About Section -->
     <section id="inspirar" class="about-section py-5 parallax-section">
         <div class="parallax-bg about-bg" data-speed="0.3"></div>
@@ -3904,9 +3869,9 @@
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-10" data-aos="fade-up">
                     <span class="badge bg-success mb-3" style="font-size: 1rem; padding: 10px 25px; font-weight: 600;">Membresía PRIME</span>
-                    <h2 class="section-title mb-4">¿Qué es Plaɳ MaeŠtrɸ ?</h2>
+                    <h2 class="section-title mb-4">Conocé tu nuevo aliado</h2>
                     <p class="section-subtitle" style="font-size: 1.2rem; color: rgba(255,255,255,0.8); max-width: 800px; margin: 0 auto;">
-                        La Calculadora del Pensamiento Docente Uruguayo - Una plataforma educativa integral que combina inteligencia artificial avanzada con herramientas de planificación pedagógica
+                        Empezás en 1 clic, sin manuales ni capacitaciones. IA que entiende ANEP 2026 y se adapta a vos.
                     </p>
                 </div>
             </div>
@@ -3961,37 +3926,30 @@
                                     </div>
                                     <div style="flex: 1;">
                                         <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">IA Entrenada y Especializada</h5>
-                                        <p style="color: rgba(255,255,255,0.85); margin: 0; line-height: 1.6;">Sistema con Inteligencia Artificial entrenado con toda la documentación de ANEP a lo largo de los años lectivos de 2024-2025.</p>
+                                        <p style="color: rgba(255,255,255,0.85); margin: 0; line-height: 1.6;">Sistema con Inteligencia Artificial entrenado con toda la documentación de ANEP a lo largo de los años lectivos 2024-2025.</p>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- <div class="feature-item" style="background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(251, 146, 60, 0.15) 100%); border-left: 4px solid #F97316; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                                <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                                    <div style="background: linear-gradient(135deg, #F97316 0%, #FB923C 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);">
-                                        <i class="fas fa-chart-line" style="color: white; font-size: 1.5rem;"></i>
-                                    </div>
-                                    <div style="flex: 1;">
-                                        <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">Banco de Datos Inteligente</h5>
-                                        <p style="color: rgba(255,255,255,0.85); margin: 0; line-height: 1.6;">Base de datos que se enriquece y aprende con cada registro, mejorando continuamente las respuestas y personalización</p>
-                                    </div>
-                                </div>
-                            </div> -->
-                            
-                            <!-- <div class="feature-item" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%); border-left: 4px solid #8B5CF6; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(138, 43, 226, 0.25); position: relative; overflow: hidden;">
-                                <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 4px 12px; border-radius: 0 12px 0 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    🆕 NUEVO
-                                </div>
+
+                            <div class="feature-item" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.18) 0%, rgba(6, 182, 212, 0.18) 100%); border-left: 4px solid #8B5CF6; padding: 1.25rem; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2); position: relative; overflow: hidden;">
+                                <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); color: white; padding: 4px 12px; border-radius: 0 12px 0 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">🆕 NUEVO</div>
                                 <div style="display: flex; align-items: flex-start; gap: 1rem; margin-top: 0.5rem;">
                                     <div style="background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(138, 43, 226, 0.4);">
                                         <i class="fas fa-brain" style="color: white; font-size: 1.5rem;"></i>
                                     </div>
                                     <div style="flex: 1;">
-                                        <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Sistema "Mi Memoria"</h5>
-                                        <p style="color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; font-weight: 500;">La IA que te conoce y personaliza cada respuesta según tu perfil docente. Aprende de cada conversación y mejora continuamente</p>
+                                        <h5 style="color: #fff; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Mi Memoria - IA que te conoce</h5>
+                                        <p style="color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; font-weight: 500;">La IA aprende de tus conversaciones y personaliza cada respuesta según tu perfil docente. Mejora mientras más la usás.</p>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg" onclick="fbq('track', 'Lead', {content_name: 'About Section - Empezar Ahora'});">
+                                    <i class="fas fa-rocket me-2"></i>Empezar Ahora
+                                </a>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -4010,9 +3968,9 @@
                         </div>
                         <!-- Floating stats cards -->
                         <div style="position: absolute; top: -20px; right: -20px; background: linear-gradient(135deg, #10B981 0%, #22C55E 100%); color: white; padding: 1rem 1.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4); z-index: 10; animation: float 3s ease-in-out infinite;">
-                            <div style="font-size: 0.875rem; opacity: 0.9;">Documentación ANEP ocupando</div>
-                            <div style="font-size: 2rem; font-weight: 800; line-height: 1;">40,000+</div>
-                            <div style="font-size: 0.875rem; opacity: 0.9;">Líneas de código</div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Toda la documentación</div>
+                            <div style="font-size: 2rem; font-weight: 800; line-height: 1;">ANEP</div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Integrada</div>
                         </div>
                         <div style="position: absolute; bottom: -20px; left: -20px; background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); color: white; padding: 1rem 1.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4); z-index: 10; animation: float 3s ease-in-out infinite; animation-delay: 1s;">
                             <div style="font-size: 2rem; font-weight: 800; line-height: 1;">100%</div>
@@ -4024,92 +3982,54 @@
         </div>
     </section>
 
-    <!-- Documentation Invitation Section -->
-    <section id="documentacion" class="documentation-section py-5 parallax-section">
-        <div class="parallax-bg documentation-bg" data-speed="0.3"></div>
+    <!-- Documentation - Bar compacta -->
+    <!-- <section id="documentacion" class="py-4" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(14, 165, 233, 0.08) 100%);">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="documentation-content">
-                        <span class="badge bg-info mb-3">
-                            <i class="fas fa-book me-2"></i>Recursos y Guías
-                        </span>
-                        <h2 class="section-title">¿Quieres aprender más sobre el sistema?</h2>
-                        <p class="section-subtitle mb-4">
-                            Explora nuestra documentación completa y descubre todas las funcionalidades, 
-                            características y mejores prácticas para aprovechar al máximo <strong>Plaɳ MaeŠtrɸ PRIME</strong>.
-                        </p>
-                        <div class="documentation-features mb-4">
-                            <div class="feature-item mb-3">
-                                <i class="fas fa-check-circle text-info me-2"></i>
-                                <span>Guías paso a paso para cada herramienta</span>
-                            </div>
-                            <div class="feature-item mb-3">
-                                <i class="fas fa-check-circle text-info me-2"></i>
-                                <span>Ejemplos prácticos y casos de uso</span>
-                            </div>
-                            <div class="feature-item mb-3">
-                                <i class="fas fa-check-circle text-info me-2"></i>
-                                <span>Tutoriales y tips para optimizar tu trabajo</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check-circle text-info me-2"></i>
-                                <span>Respuestas a preguntas frecuentes</span>
-                            </div>
-                        </div>
-                        <a href="./documentation.html" class="btn btn-primary btn-lg">
-                            <i class="fas fa-book-open me-2"></i>Explorar Documentación
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="documentation-image text-center">
-                        <div class="documentation-icon-wrapper">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <p class="mt-3 text-light-50">
-                            Tu guía completa para dominar todas las herramientas
-                        </p>
-                    </div>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="mb-2" style="color: rgba(255,255,255,0.9); font-size: 1.1rem;"><i class="fas fa-book me-2 text-info"></i>Guías paso a paso y tips para sacarle jugo a la plataforma</p>
+                    <a href="./documentation.html" class="btn btn-outline-info btn-lg">
+                        <i class="fas fa-book-open me-2"></i>Ver guías y tutoriales
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- CTA Section -->
-    <section class="cta-section py-5 parallax-section">
+    <section class="cta-section py-4 parallax-section">
         <div class="parallax-bg cta-bg" data-speed="0.4"></div>
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-8" data-aos="fade-up">
                     <h2 class="cta-title">¡Actualizado 2026!</h2>
-                    <p class="cta-subtitle">Para construir planificaciones excelentes</p>
-                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg" onclick="fbq('track', 'InitiateCheckout', {content_name: 'CTA - Adquiere Ya'});">
-                        <i class="fas fa-rocket me-2"></i>Adquiere Ya
+                    <p class="cta-subtitle">Planificá con placer y creatividad en tiempo récord</p>
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg" onclick="fbq('track', 'InitiateCheckout', {content_name: 'CTA - Empezar Ahora'});">
+                        <i class="fas fa-rocket me-2"></i>Empezar Ahora
                     </a>
+                    <p class="mt-3 mb-0" style="font-size: 0.9rem; color: rgba(255,255,255,0.7);"><i class="fas fa-shield-alt me-1"></i> Cancelá cuando quieras · Sin compromisos</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Ecosystem Section -->
-    <section id="ecosistema" class="ecosystem-section py-5 parallax-section">
+    <section id="ecosistema" class="ecosystem-section py-4 parallax-section">
         <div class="parallax-bg ecosystem-bg" data-speed="0.2"></div>
-        <div class="container">
+        <div class="container-fluid px-lg-5">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-8" data-aos="fade-up">
                     <span class="badge bg-info mb-3">Ecosistema Completo</span>
-                    <h2 class="section-title">Bloques del Ecosistema - Actualizado 2026</h2>
-                    <p class="section-subtitle">Componentes especializados para cada necesidad educativa</p>
+                    <h2 class="section-title">Todo el sistema ANEP en un solo lugar</h2>
+                    <p class="section-subtitle">De Maternal a EMS, cada grado y modalidad está integrado y listo para usar</p>
                 </div>
             </div>
             
-            <div class="row g-4 align-items-stretch">
-                <div class="col-lg-6 order-lg-1 order-2">
+            <div class="row g-4 justify-content-center">
+                <div class="col-12">
                     <div class="row g-4">
 
-                        <!-- MI MEMORIA - Card destacada del ecosistema -->
-                        <!-- <div class="col-md-6" data-aos="fade-up" data-aos-delay="50">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
                             <div class="ecosystem-card highlighted">
                                 <div class="ecosystem-badge">🆕 NUEVO</div>
                                 <div class="card-visual visual-emoji">
@@ -4117,144 +4037,144 @@
                                 </div>
                                 <div class="card-body">
                                     <h5>🧠 Mi Memoria</h5>
-                                    <p>IA que aprende de ti: recuerda tus preferencias, contexto educativo y personaliza cada respuesta</p>
+                                    <p>IA que aprende de vos: recuerda tus preferencias y personaliza cada respuesta</p>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">📚</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Contenidos por tramo</h5>
-                                    <p>Absolutamente todos los contenidos organizados por tramo y grado correspondiente</p>
+                                    <p>Todos los contenidos organizados por tramo y grado.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">📝</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Evalúa</h5>
-                                    <p>Descripciones fundadas, listas de cotejo, rúbrica -> Cuenta con todos los instrumentos para evaluar</p>
+                                    <p>Descripciones fundadas, listas de cotejo, rúbricas. Todo para evaluar con criterio.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">👶</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Maternal 0 a 6 años</h5>
-                                    <p>Desde el nacimiento hasta los 6 años</p>
+                                    <p>Planificaciones adaptadas a la primera infancia (0 a 6 años)</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">📘</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Tramos 1 a 4</h5>
-                                    <p>Este bloque comprende toda la educación primaria separada por TRAMOS</p>
+                                    <p>Primaria completa, organizada por tramo y grado.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🧑‍🏫</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Multigrado</h5>
-                                    <p>Multigrado unidocente - Planifica de forma más efectiva para todos los grados!</p>
+                                    <p>Planificá varios grados en menos tiempo. Ideal para unidocente.</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🧩</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Tramos 5 y 6</h5>
-                                    <p>Este bloque comprende los grados 7, 8 y 9</p>
+                                    <p>Secundaria básica (7º a 9º). Todo lo que necesitás para cada grado.</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🎓</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>EMS - DGES</h5>
-                                    <p>Unidades curriculares de EMS 1, 2 y 3 - DGES</p>
+                                    <p>EMS 1, 2 y 3 con unidades curriculares ya integradas.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🛠️</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>EMS - DGETP</h5>
-                                    <p>Unidades curriculares de EMS 1, 2 y 3 - DGETP</p>
+                                    <p>EMS 1, 2 y 3 con unidades curriculares ya integradas.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🌎</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Segundas Lenguas</h5>
-                                    <p>Comprende todos los tramos - Inglés y Portugués</p>
+                                    <p>Inglés y Portugués en todos los tramos, listos para planificar.</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🏃‍♂️</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Educación Física</h5>
-                                    <p>Comprende todos los tramos - Incluyendo talleres de DGETP - Utu</p>
+                                    <p>Todos los tramos incluyendo talleres UTU. Planificá tus clases en minutos.</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🧪</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Metodologías Activas</h5>
-                                    <p>Todas las metodologías activas mencionadas en el MCN</p>
+                                    <p>Las metodologías del MCN listas para llevar al aula hoy.</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🎯</div>
@@ -4266,19 +4186,19 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🚀</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>STEAM</h5>
-                                    <p>Relaciona el contenido a un eje interdisciplinario</p>
+                                    <p>Contenido enlazado a ejes interdisciplinarios para proyectos integrados.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">🧲</div>
@@ -4290,66 +4210,48 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">💡</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Gatillos Mentales</h5>
-                                    <p>Utiliza gatillos mentales para generar hiperfoco en el alumno</p>
+                                    <p>Disparadores para generar hiperfoco en tus alumnos desde el inicio.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="ecosystem-card">
                                 <div class="card-visual visual-emoji">
                                     <div class="visual-icon">📜</div>
                                 </div>
                                 <div class="card-body">
                                     <h5>Estatuto Docente</h5>
-                                    <p>Responde de forma clara y precisa referente al estatuto docente!</p>
+                                    <p>Consultá dudas sobre el estatuto y recibí respuestas claras al instante.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-6 order-lg-2 order-1" data-aos="fade-left" data-aos-delay="50">
-                    <div class="ecosystem-visual half-face h-100" aria-hidden="true"></div>
+            </div>
+            <div class="row mt-4 justify-content-center text-center">
+                <div class="col-12">
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg" onclick="fbq('track', 'Lead', {content_name: 'Ecosistema - Empezar Ahora'});">
+                        <i class="fas fa-rocket me-2"></i>Empezar Ahora
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section py-5 parallax-section">
-        <div class="parallax-bg testimonials-bg" data-speed="0.35"></div>
-        <div class="container position-relative">
-            <div class="row justify-content-center text-center mb-4">
-                <div class="col-lg-10" data-aos="fade-up">
-                    <span class="testimonials-eyebrow"><i class="fas fa-bolt"></i>+1000 historias reales</span>
-                    <h2 class="section-title mt-3">Docentes que ya usan Plaɳ MaeŠtrɸ todos los días</h2>
-                </div>
-            </div>
-            <div class="testimonial-marquee" data-aos="fade-up" data-aos-delay="100">
-                <div class="testimonial-track" id="testimonialTrack"></div>
-            </div>
-            <p class="testimonial-highlight" data-aos="fade-up" data-aos-delay="200">
-                Pasa el dedo o coloca el mouse encima para pausar y leer con calma. Todos ya la tienen en su cel.
-            </p>
         </div>
     </section>
 
     <!-- Instituciones que utilizan Plan Maestro -->
-    <section id="instituciones" class="institutions-section py-5 parallax-section">
+    <section id="instituciones" class="institutions-section py-4 parallax-section">
         <div class="container position-relative">
-            <div class="row justify-content-center text-center mb-4">
-                <div class="col-lg-10" data-aos="fade-up">
-                    <span class="testimonials-eyebrow"><i class="fas fa-school"></i> Instituciones</span>
-                    <h2 class="section-title mt-3">Instituciones que utilizan Plan Maestro</h2>
-                    <p class="section-subtitle mt-2" style="color: rgba(248, 250, 252, 0.75); font-size: 1.05rem;">Equipos docentes que confían en nuestra herramienta</p>
+            <div class="row justify-content-center text-center mb-3">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="section-title mt-2 mb-1">Instituciones que confían en Plan Maestro</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -4369,48 +4271,74 @@
         </div>
     </section>
 
-    <!-- Perfect Tool Section -->
-    <section id="perfect-tool" class="perfect-tool-section py-5 parallax-section">
-        <div class="parallax-bg perfect-tool-bg" data-speed="0.3"></div>
-        <div class="perfect-tool-overlay"></div>
+    <!-- Humanización: docente + testimonios -->
+    <section class="py-5" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(76, 29, 149, 0.4) 100%); position: relative; overflow: hidden;">
         <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-10 col-xl-9" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="perfect-tool-content">
-                        <h2 class="perfect-tool-title">
-                            <span class="title-word title-word-1">La herramienta</span>
-                            <span class="title-word title-word-2">perfecta</span>
-                            <span class="title-word title-word-3">para el docente</span>
-                        </h2>
-                        <div class="perfect-tool-decoration" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="perfect-tool-line"></div>
-                            <div class="perfect-tool-star"><i class="fas fa-star"></i></div>
-                            <div class="perfect-tool-line"></div>
+            <div class="row align-items-center g-4">
+                <div class="col-lg-5 text-center" data-aos="fade-right">
+                    <div style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.4);">
+                        <img src="assets/images/model1.png" alt="Docente uruguaya que usa Plan Maestro" class="img-fluid" style="display: block; width: 100%; height: auto; object-fit: cover; max-height: 420px;">
+                        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(15, 23, 42, 0.7) 100%); pointer-events: none;"></div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <h2 class="section-title mb-4" style="font-size: 1.75rem;">Ellos ya confían en Plan Maestro</h2>
+                    <p class="mb-4" style="color: rgba(248,250,252,0.85); font-size: 1.05rem;">Docentes reales de Uruguay que planifican más rápido y disfrutan más tiempo en familia.</p>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="testimonial-card testimonial-fixed h-100">
+                                <p class="testimonial-quote"><i class="fas fa-quote-left"></i>Ahora planifico rápido y me queda tiempo libre para mis hijos.</p>
+                                <div class="testimonial-user">
+                                    <div class="testimonial-avatar">MJC</div>
+                                    <div class="testimonial-meta">
+                                        <span class="testimonial-name">María José C.</span>
+                                        <span class="testimonial-role">Mamá y docente de 4.º</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card testimonial-fixed h-100">
+                                <p class="testimonial-quote"><i class="fas fa-quote-left"></i>Las planificaciones salen listas y meriendo tranquila con mis gurises.</p>
+                                <div class="testimonial-user">
+                                    <div class="testimonial-avatar">PD</div>
+                                    <div class="testimonial-meta">
+                                        <span class="testimonial-name">Patricia D.</span>
+                                        <span class="testimonial-role">Maestra de Inicial</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card testimonial-fixed h-100">
+                                <p class="testimonial-quote"><i class="fas fa-quote-left"></i>Cierro planificaciones antes y gano tiempo en familia.</p>
+                                <div class="testimonial-user">
+                                    <div class="testimonial-avatar">VC</div>
+                                    <div class="testimonial-meta">
+                                        <span class="testimonial-name">Viviana C.</span>
+                                        <span class="testimonial-role">Coordinadora y mamá</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="perfect-tool-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
     </section>
 
     <!-- Final CTA -->
-    <section id="lanzamiento" class="final-cta-section py-5 parallax-section">
+    <section id="lanzamiento" class="final-cta-section py-4 parallax-section">
         <div class="parallax-bg final-cta-bg" data-speed="0.5"></div>
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-8" data-aos="fade-up">
-                    <h2 class="final-cta-title">¡Adquiere Ya!</h2>
-                    <p class="final-cta-subtitle">Potencia tu planificación con la herramienta del docente uruguayo por excelencia</p>
-                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg btn-glow" onclick="fbq('track', 'Lead', {content_name: 'Final CTA - Iniciar Sesión'});">
-                        <i class="fas fa-rocket me-2"></i>Iniciar Sesión
+                    <h2 class="final-cta-title">¡Empezá a planificar con placer!</h2>
+                    <p class="final-cta-subtitle">Tu aliado para crear planificaciones excelentes en tiempo récord</p>
+                    <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg btn-glow" onclick="fbq('track', 'Lead', {content_name: 'Final CTA - Empezar Ahora'});">
+                        <i class="fas fa-rocket me-2"></i>Empezar Ahora
                     </a>
+                    <p class="mt-3 mb-0" style="font-size: 0.9rem; color: rgba(255,255,255,0.7);"><i class="fas fa-shield-alt me-1"></i> Cancelá cuando quieras</p>
                 </div>
             </div>
         </div>
@@ -4440,7 +4368,7 @@
             <!-- Logo Section -->
             <div class="footer-logo-section">
                 <img src="assets/images/logo-lateral.png" alt="Plan Maestro PRIME Logo" class="footer-logo">
-                <p class="footer-subtitle">La Calculadora del Pensamiento Docente</p>
+                <p class="footer-subtitle">Tu aliado para planificar con placer y creatividad</p>
                 <p class="footer-tagline">Súper Herramienta de productividad y eficiencia en la labor de planificar, para que docentes puedan: inspirar, crear y transformar la educación</p>
             </div>
 
