@@ -33,7 +33,8 @@
     <link rel="icon" href="./assets/images/icon.png" type="image/png">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Playwrite+NZ+Guides&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/8d7470a3ffc57e31f3d9ce407d991c08?family=Reckless+Neue+Light" rel="stylesheet">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -92,6 +93,59 @@
             text-shadow: 0 0 18px rgba(255, 255, 255, 0.35), 0 14px 30px rgba(0, 0, 0, 0.35);
             letter-spacing: 0.8px;
             animation: rainbowShift 4.5s ease-in-out infinite;
+        }
+
+        /* Hero "Hecho para" typing effect - Built for style (Anthropic Serif) */
+        .hero-hecho-para-row {
+            min-height: 140px;
+            padding: 7rem 0 0.25rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-hecho-para {
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-family: "Reckless Neue Light", "Anthropic Serif", Georgia, serif;
+            font-size: clamp(3rem, 9vw, 5.5rem);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.02em;
+        }
+        .hero-typed-separator {
+            color: #f97316;
+            margin: 0 0.25em;
+            font-family: "Reckless Neue Light", "Anthropic Serif", Georgia, serif;
+            font-weight: 700;
+        }
+        .hero-typed-accent {
+            color: #f97316;
+            font-family: "Reckless Neue Light", "Anthropic Serif", Georgia, serif;
+            font-weight: 700;
+            min-height: 1.4em;
+            display: inline-block;
+            vertical-align: bottom;
+            border-bottom: 2px solid transparent;
+        }
+        .typed-cursor {
+            color: #f97316;
+            font-family: "Reckless Neue Light", "Anthropic Serif", Georgia, serif;
+            font-weight: 700;
+            animation: typedBlink 0.7s step-end infinite;
+        }
+        @keyframes typedBlink {
+            50% { opacity: 0; }
+        }
+        @media (max-width: 768px) {
+            .hero-hecho-para-row { min-height: 100px; padding: 4rem 0 0.25rem 0; }
+            .hero-hecho-para { font-size: 2.5rem; }
+        }
+        @media (min-width: 992px) {
+            .hero-hecho-para-row { padding: 3.5rem 0 0.25rem 0; min-height: 90px; }
+            .hero-section .row.min-vh-100 { min-height: 55vh !important; }
         }
         
         .hero-float-card.card-5 {
@@ -2355,32 +2409,37 @@
             <div class="hero-overlay"></div>
         </div>
         <div class="container">
+            <!-- Hecho para - typing phrase above title and cards -->
+            <div class="row hero-hecho-para-row justify-content-center align-items-center">
+                <div class="col-12">
+                    <p class="hero-hecho-para" data-aos="fade-down" data-aos-delay="100">
+                        Para<span class="hero-typed-separator">> </span><span id="hero-typed-word" class="hero-typed-accent" data-typed-words="docentes., maestros., profesores., formadores., creadores., vós!.">docentes</span><!-- <span class="typed-cursor" aria-hidden="true">|</span> -->
+                    </p>
+                </div>
+            </div>
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
                     <div class="hero-content parallax-content" data-speed="0.3">
                         <span class="badge bg-warning text-dark mb-3 new-feature-badge">Nuevo 2026</span>
                         <h1 class="hero-title">
-                            <h1 class="hero-title">
-                                La Calculadora del <span class="text-gradient">Pensamiento Docente</span> Uruguayo
-                            </h1>
-                            <br>
+                            La Calculadora del <span class="text-gradient">Pensamiento Docente</span> Uruguayo
                         </h1>
-                        <p class="hero-subtitle">
+                        <!-- <p class="hero-subtitle">
                             ...porque Grandes Docentes merecen <em class="hero-accent-pop">GRANDES HERRAMIENTAS!</em>.
-                        </p>
+                        </p> -->
                         <div class="hero-buttons">
                             <div class="d-flex gap-3 mb-3">
                                 <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg flex-fill" onclick="fbq('track', 'Lead', {content_name: 'Hero CTA - Empezar Ahora'});">
                                     <i class="fas fa-rocket me-2"></i>Empezar Ahora
                                 </a>
-                                <a href="#lanzamiento2026" class="btn btn-outline-light btn-lg flex-fill">
+                                <!-- <a href="#lanzamiento2026" class="btn btn-outline-light btn-lg flex-fill">
                                     <i class="fas fa-arrow-down me-2"></i>Descubre Funcionalidades
-                                </a>
+                                </a> -->
                             </div>
-                            <a href="https://prime.plan-maestro.com/whiteboard" target="_blank" class="btn btn-success btn-lg w-100" style="position: relative; pointer-events: auto !important; background-color: #28a745 !important; border-color: #28a745 !important; cursor: pointer; transition: all 0.3s ease;">
+                           <!--  <a href="https://prime.plan-maestro.com/whiteboard" target="_blank" class="btn btn-success btn-lg w-100" style="position: relative; pointer-events: auto !important; background-color: #28a745 !important; border-color: #28a745 !important; cursor: pointer; transition: all 0.3s ease;">
                                 <i class="fas fa-chalkboard me-2"></i>Prueba la Pizarra Virtual
                                 <span class="badge bg-light text-dark ms-2" style="font-size: 0.7rem; padding: 2px 6px;">GRATIS</span>
-                            </a>           
+                            </a>   -->         
                         </div>
                     </div>
                 </div>

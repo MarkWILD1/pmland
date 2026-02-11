@@ -25,6 +25,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Hero "Hecho para" typing effect
+    (function initHeroTyped() {
+        const el = document.getElementById('hero-typed-word');
+        if (!el) return;
+        const wordsStr = el.getAttribute('data-typed-words') || 'docentes, creadores, maestros';
+        const words = wordsStr.split(',').map(w => w.trim()).filter(Boolean);
+        if (words.length === 0) return;
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeDelay = 140;
+        const deleteDelay = 40;
+        const pauseAfterWord = 2200;
+
+        function tick() {
+            const word = words[wordIndex];
+            if (isDeleting) {
+                charIndex--;
+                el.textContent = word.substring(0, charIndex);
+                if (charIndex <= 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    setTimeout(tick, typeDelay);
+                } else {
+                    setTimeout(tick, deleteDelay);
+                }
+            } else {
+                charIndex++;
+                el.textContent = word.substring(0, charIndex);
+                if (charIndex >= word.length) {
+                    isDeleting = true;
+                    setTimeout(tick, pauseAfterWord);
+                } else {
+                    setTimeout(tick, typeDelay);
+                }
+            }
+        }
+        setTimeout(tick, 600);
+    })();
+
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     if (navbar) {
