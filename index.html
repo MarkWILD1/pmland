@@ -2298,23 +2298,12 @@
             return null;
         }
         
-        // Enhanced Facebook Pixel with Conversions API
-        // Guardar la función original de fbq antes de sobrescribirla
-        const originalFbq = (typeof fbq !== 'undefined') ? fbq : null;
-        
-        function fbqWithAPI(eventName, eventData) {
-            // Send to Facebook Pixel (client-side) usando la función original
-            if (originalFbq) {
-                originalFbq('track', eventName, eventData);
-            }
-            
-            // Send to Conversions API (server-side)
-            sendToMetaConversionsAPI(eventName, eventData);
-        }
-        
-        // Override fbq function to include Conversions API solo si fbq existe
-        if (originalFbq) {
-            window.fbq = fbqWithAPI;
+        // NO sobrescribir window.fbq - causa "Multiple pixels with conflicting versions"
+        // Para enviar a Conversions API, usar trackWithMeta(eventName, eventData)
+        // en eventos de alto valor, o llamar sendToMetaConversionsAPI() directamente
+        function trackWithMeta(eventName, eventData) {
+            if (typeof fbq !== 'undefined') fbq('track', eventName, eventData);
+            sendToMetaConversionsAPI(eventName, eventData || {});
         }
     </script>
     <!-- End Meta Conversions API -->
