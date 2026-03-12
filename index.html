@@ -471,6 +471,48 @@
             opacity: 0.9;
         }
 
+        .pm-ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .pm-ai-badge i {
+            font-size: 0.9em;
+        }
+
+        .pm-ai-badge--hero {
+            margin-top: 0.8rem;
+            padding: 0.45rem 0.85rem;
+            font-size: 0.86rem;
+            color: rgba(248, 250, 252, 0.98);
+            background: rgba(15, 23, 42, 0.5);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+        }
+
+        .pm-ai-badge--footer {
+            padding: 0.35rem 0.75rem;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.45);
+        }
+
+        .footer-badge-wrap {
+            position: relative;
+            z-index: 1;
+            margin-top: 1.25rem;
+            display: flex;
+            justify-content: center;
+        }
+
         /* Testimonials */
         .testimonials-section {
             position: relative;
@@ -926,6 +968,14 @@
 
             .footer-stats {
                 grid-template-columns: 1fr;
+            }
+
+            .pm-ai-badge--hero {
+                font-size: 0.8rem;
+            }
+
+            .footer-badge-wrap {
+                margin-top: 1rem;
             }
         }
 
@@ -2539,6 +2589,9 @@
                             <p class="hero-trust-line mb-0 mt-1" style="font-size: 0.85rem; color: rgba(255,255,255,0.65);">
                                 <i class="fas fa-shield-alt me-1"></i> Anímate a probarlo
                             </p>
+                            <span class="pm-ai-badge pm-ai-badge--hero" aria-label="Plan Maestro funciona con inteligencia artificial">
+                                <i class="fas fa-brain" aria-hidden="true"></i>Powered by I.A.
+                            </span>
                            <!--  <a href="https://prime.plan-maestro.com/whiteboard" target="_blank" class="btn btn-success btn-lg w-100" style="position: relative; pointer-events: auto !important; background-color: #28a745 !important; border-color: #28a745 !important; cursor: pointer; transition: all 0.3s ease;">
                                 <i class="fas fa-chalkboard me-2"></i>Prueba la Pizarra Virtual
                                 <span class="badge bg-light text-dark ms-2" style="font-size: 0.7rem; padding: 2px 6px;">GRATIS</span>
@@ -4698,6 +4751,11 @@
                 </div>
 
             </div>
+        </div>
+        <div class="footer-badge-wrap">
+            <span class="pm-ai-badge pm-ai-badge--footer" aria-label="Sello de Plan Maestro impulsado por inteligencia artificial">
+                <i class="fas fa-brain" aria-hidden="true"></i>Powered by I.A.
+            </span>
         </div>
         <p class="footer-copyright">© <script>document.write(new Date().getFullYear());</script> Plan Maestro.</p>
     </footer>
