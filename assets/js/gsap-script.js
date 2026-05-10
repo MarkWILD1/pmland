@@ -6,8 +6,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    // Initial Hero Animation
-    const heroTimeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+    // Initial Hero Animation — dispatch pmHeroIntroComplete when timeline + gradient intro both finish (for Anime.js hero layer)
+    let heroIntroTimelineDone = false;
+    let heroIntroGradientDone = false;
+    let heroIntroCompleteDispatched = false;
+
+    const tryDispatchHeroIntroComplete = () => {
+        if (heroIntroCompleteDispatched || !heroIntroTimelineDone || !heroIntroGradientDone) return;
+        heroIntroCompleteDispatched = true;
+        window.dispatchEvent(new CustomEvent('pmHeroIntroComplete'));
+    };
+
+    const heroTimeline = gsap.timeline({
+        defaults: { ease: "power3.out" },
+        onComplete: () => {
+            heroIntroTimelineDone = true;
+            tryDispatchHeroIntroComplete();
+        }
+    });
     
     heroTimeline
         .from(".hero-title", { 
@@ -42,14 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typing effect for "Pensamiento Docente" if present
     const gradientText = document.querySelector('.hero-title .text-gradient');
     if (gradientText) {
+        heroIntroGradientDone = false;
         // Simple scale/pop effect instead of typing to avoid breaking HTML structure
         gsap.from(gradientText, {
             scale: 0.9,
             opacity: 0,
             duration: 1.5,
             delay: 0.5,
-            ease: "elastic.out(1, 0.3)"
+            ease: "elastic.out(1, 0.3)",
+            onComplete: () => {
+                heroIntroGradientDone = true;
+                tryDispatchHeroIntroComplete();
+            }
         });
+    } else {
+        heroIntroGradientDone = true;
     }
 
     // Detailed Features Sections Animation
