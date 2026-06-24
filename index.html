@@ -35,6 +35,7 @@
     <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png">
     <link rel="apple-touch-icon" href="./assets/images/icon-192.png">
     <link rel="canonical" href="https://plan-maestro.com/">
+    <link rel="alternate" type="text/plain" href="https://plan-maestro.com/llms.txt" title="Plan Maestro — documentación para asistentes de IA">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Delius&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Playwrite+NZ+Guides&display=swap" rel="stylesheet">
@@ -159,22 +160,6 @@
         @media (min-width: 992px) {
             .hero-hecho-para-row { padding: 3.5rem 0 0.25rem 0; min-height: 90px; }
             .hero-section .row.min-vh-100 { min-height: 55vh !important; }
-        }
-        
-        .hero-float-card.card-5 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            padding: 15px 25px;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .hero-float-card.card-5 i {
-            font-size: 24px;
-            margin-right: 8px;
         }
         
         .memory-highlight-banner {
@@ -2383,28 +2368,53 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://plan-maestro.com/#website",
+        "name": "Plan Maestro",
+        "alternateName": ["El Plan Maestro", "Calculadora Docente", "Maestro Virtual"],
+        "url": "https://plan-maestro.com",
+        "description": "Sitio oficial de Plan Maestro: calculadora docente y maestro virtual con IA para docentes de Uruguay. Documentación ANEP 2026.",
+        "inLanguage": "es-UY",
+        "publisher": { "@id": "https://plan-maestro.com/#organization" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://plan-maestro.com/#founder",
+        "name": "Marcos Mello",
+        "honorificPrefix": "Lic.",
+        "jobTitle": "Fundador, Desarrollador y Docente",
+        "description": "Analista de sistemas, docente y creador de Plan Maestro, la plataforma de planificación educativa con IA para docentes uruguayos.",
+        "worksFor": { "@id": "https://plan-maestro.com/#organization" },
+        "knowsAbout": ["planificación educativa", "ANEP", "inteligencia artificial educativa", "Uruguay"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "SoftwareApplication",
+        "@id": "https://plan-maestro.com/#software",
         "name": "Plan Maestro",
         "alternateName": ["Plaɳ MaeŠtrɸ", "Calculadora del Pensamiento Docente", "Calculadora Docente", "Maestro Virtual", "Maestro Plataforma", "El Plan Maestro"],
         "description": "La calculadora del pensamiento docente uruguayo. Tu maestro virtual para planificar con placer, en tiempo récord y creatividad. Herramienta completa para docentes con documentación ANEP 2026, IA integrada, equipos colaborativos y metodologías activas.",
         "url": "https://plan-maestro.com",
+        "downloadUrl": "https://prime.plan-maestro.com",
         "applicationCategory": "EducationalApplication",
+        "applicationSubCategory": "Teacher Productivity",
         "operatingSystem": "Web",
+        "screenshot": "https://plan-maestro.com/assets/images/pm-26.png",
+        "featureList": "Planificaciones ANEP 2026, Mi Memoria con IA personalizada, calculadora docente, gestor de documentos, integración Google Drive, integración Google Calendar, mapas mentales, rúbricas, equipos colaborativos, pizarra virtual",
         "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
+            "availability": "https://schema.org/InStock",
+            "description": "Acceso gratuito con cuenta de Google"
         },
-        "author": {
-            "@type": "Person",
-            "name": "Marcos Mello"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Plan Maestro",
-            "url": "https://plan-maestro.com"
-        },
+        "author": { "@id": "https://plan-maestro.com/#founder" },
+        "publisher": { "@id": "https://plan-maestro.com/#organization" },
         "audience": {
             "@type": "Audience",
             "audienceType": "Educators",
@@ -2427,7 +2437,7 @@
                 "name": "¿Qué es la calculadora docente?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Plan Maestro es la calculadora del pensamiento docente uruguayo: una herramienta que te ayuda a organizar, estructurar y crear tus planificaciones educativas en minutos. Combina IA especializada en ANEP 2026 con metodologías activas y documentación oficial para que planifiques con placer y creatividad."
+                    "text": "Plan Maestro es la calculadora del pensamiento docente uruguayo: una plataforma web oficial en plan-maestro.com que ayuda a docentes de Uruguay a organizar, estructurar y crear planificaciones educativas en minutos. Funciona como maestro virtual con inteligencia artificial entrenada en documentación ANEP 2026, metodologías activas y contenidos curriculares oficiales. El docente elige tramo, grado y unidad curricular; la IA sugiere criterios de logro, actividades y evaluaciones. Reduce el tiempo de planificación de días a minutos. El acceso es gratuito con cuenta de Google en prime.plan-maestro.com."
                 }
             },
             {
@@ -2443,7 +2453,7 @@
                 "name": "¿Qué es el Plan Maestro?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El Plan Maestro es la plataforma de planificación educativa para docentes de Uruguay. Funciona como calculadora docente y maestro virtual: te ayuda a crear planificaciones, secuencias didácticas, rúbricas y evaluaciones en minutos, con IA entrenada en documentación ANEP 2026."
+                    "text": "El Plan Maestro es la plataforma oficial de planificación educativa para docentes de Uruguay, disponible en plan-maestro.com. Es una aplicación web (Plan Maestro PRIME) que funciona como calculadora docente y maestro virtual: ayuda a crear planificaciones, secuencias didácticas, rúbricas y evaluaciones en minutos con IA entrenada en documentación ANEP 2026. Incluye Mi Memoria (IA personalizada), gestor de documentos, integración con Google Drive y Google Calendar, mapas mentales, equipos colaborativos y pizarra virtual. Está diseñada para docentes de educación inicial a media superior en todo Uruguay. Fundada por el Lic. Marcos Mello."
                 }
             },
             {
@@ -2477,12 +2487,31 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://plan-maestro.com/#organization",
         "name": "Plan Maestro",
-        "alternateName": ["El Plan Maestro", "Maestro Virtual", "Calculadora Docente", "Maestro Plataforma"],
+        "alternateName": ["El Plan Maestro", "Maestro Virtual", "Calculadora Docente", "Maestro Plataforma", "Plan Maestro PRIME"],
         "url": "https://plan-maestro.com",
         "logo": "https://plan-maestro.com/assets/images/logo-lateral.png",
         "description": "Plataforma de planificación educativa para docentes de Uruguay. Maestro virtual y calculadora docente con IA que conoce ANEP 2026.",
-        "sameAs": []
+        "foundingDate": "2024",
+        "founder": { "@id": "https://plan-maestro.com/#founder" },
+        "email": "soporte@plan-maestro.com",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Uruguay"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "soporte@plan-maestro.com",
+            "telephone": "+598-91-263-869",
+            "availableLanguage": "Spanish",
+            "areaServed": "UY"
+        },
+        "sameAs": [
+            "https://www.instagram.com/planmaestro_uy/",
+            "https://prime.plan-maestro.com"
+        ]
     }
     </script>
     <script type="application/ld+json">
@@ -2619,6 +2648,14 @@
                                 <i class="fas fa-map"></i>
                                 <span>Mapas Mentales</span>
                             </div>
+                            <div class="hero-float-card card-5" style="background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); animation: float 5s ease-in-out infinite;">
+                                <i class="fab fa-google-drive" style="color: white;"></i>
+                                <span style="color: white;">🆕 Google Drive</span>
+                            </div>
+                            <div class="hero-float-card card-6" style="background: linear-gradient(135deg, #4285F4 0%, #EA4335 100%); animation: float 4.5s ease-in-out infinite reverse;">
+                                <i class="fab fa-google" style="color: white;"></i>
+                                <span style="color: white;">🆕 Google Calendar</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2627,7 +2664,7 @@
     </section>
 
     <!-- Banner LED DGES 2026 -->
-    <div class="dges-led-banner">
+    <!-- <div class="dges-led-banner">
         <div class="dges-led-track">
             <span>Actualizado DGES 2026</span>
             <span>Actualizado DGES 2026</span>
@@ -2638,7 +2675,7 @@
             <span>Actualizado DGES 2026</span>
             <span>Actualizado DGES 2026</span>
         </div>
-    </div>
+    </div> -->
 
     <!-- Frase de Efecto -->
     <section class="hero-impact-phrase py-4" style="background: linear-gradient(135deg, #1b1e35 0%, #1d1e47 100%); position: relative; overflow: hidden;">
@@ -2649,6 +2686,25 @@
                         <i class="fas fa-bolt me-2" style="color: #FBBF24;"></i>
                         Planifica en <span style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); color: #170936; padding: 4px 12px; border-radius: 8px; font-weight: 900; box-shadow: 0 2px 10px rgba(251, 191, 36, 0.5);">3 clics</span> lo que antes te llevaba días<i class="fas fa-bolt ms-2" style="color: #FBBF24;"></i>
                     </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Definición citables para IA y buscadores -->
+    <section id="definicion" class="py-5" style="background: #0f172a;" aria-labelledby="definicion-heading">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <article class="geo-citable-block" itemscope itemtype="https://schema.org/SoftwareApplication">
+                        <h2 id="definicion-heading" class="section-title text-center mb-4" style="color: #f8fafc;">Plan Maestro en pocas palabras</h2>
+                        <p itemprop="description" style="color: rgba(255,255,255,0.92); font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.25rem; text-align: center; max-width: 820px; margin-left: auto; margin-right: auto;">
+                            <strong itemprop="name">Plan Maestro</strong> (<span itemprop="url">plan-maestro.com</span>) es la plataforma oficial de planificación educativa para docentes de Uruguay. Funciona como <strong>calculadora docente</strong> y <strong>maestro virtual</strong> con inteligencia artificial entrenada en documentación ANEP y DGES 2026. Ayuda a maestros, profesores y formadores — desde educación inicial hasta media superior — a crear planificaciones, secuencias didácticas, rúbricas y evaluaciones en minutos en lugar de horas.
+                        </p>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 1rem; line-height: 1.75; margin-bottom: 0; text-align: center; max-width: 820px; margin-left: auto; margin-right: auto;">
+                            La aplicación web <a href="https://prime.plan-maestro.com" target="_blank" rel="noopener noreferrer" style="color: #fbbf24;">Plan Maestro PRIME</a> incluye Mi Memoria (IA que personaliza respuestas según cada docente), gestor de documentos, integración con Google Drive y Google Calendar, mapas mentales, equipos colaborativos y pizarra virtual. El acceso es gratuito con cuenta de Google. Plan Maestro fue creado por el Lic. Marcos Mello, analista de sistemas, desarrollador y docente uruguayo.
+                        </p>
+                    </article>
                 </div>
             </div>
         </div>
@@ -2805,6 +2861,14 @@
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
                                     <span class="scroll-story-text">Chat con documentos</span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Google Drive conectado (analizá y chateá con tus archivos)</span>
+                                </li>
+                                <li class="scroll-story-item">
+                                    <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
+                                    <span class="scroll-story-text">Google Calendar conectado</span>
                                 </li>
                                 <li class="scroll-story-item">
                                     <span class="scroll-story-icon" style="font-size: 1.4em; flex-shrink: 0; display: inline-block;">✅</span>
@@ -3390,14 +3454,14 @@
                             <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📚</div>
                             <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Gestor Inteligente de Documentos</h4>
                             <p style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 30px; line-height: 1.6;">
-                                Chatea con tus documentos con IA. PDFs, videos de YouTube, páginas web y más en un solo lugar.
+                                Chatea con tus documentos con IA. PDFs, videos de YouTube, páginas web, Google Drive y más en un solo lugar.
                             </p>
                             
                             <!-- Feature buttons -->
                             <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
-                                <div style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-upload" style="font-size: 16px;"></i>
-                                    <span>Subir Archivos</span>
+                                <div style="background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fab fa-google-drive" style="font-size: 16px;"></i>
+                                    <span>Google Drive</span>
                                 </div>
                                 <div style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); padding: 12px 24px; border-radius: 30px; color: white; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); display: flex; align-items: center; gap: 8px;">
                                     <i class="fas fa-brain" style="font-size: 16px;"></i>
@@ -3420,6 +3484,14 @@
                             <i class="fas fa-upload" style="color: #3B82F6; font-size: 1.5rem;"></i>
                             <span style="color: #ffffff;"><strong>Subida múltiple de archivos:</strong> PDF, DOC, DOCX, TXT hasta 50MB por archivo con validación y almacenamiento seguro</span>
                         </div> -->
+                        <div class="detailed-feature-item" style="background: rgba(66, 133, 244, 0.15); border-left: 4px solid #4285F4; opacity: 1 !important;">
+                            <i class="fab fa-google-drive" style="color: #4285F4; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Conexión con Google Drive:</strong> Conectá tu cuenta, dale acceso al sistema y analizá todos tus archivos desde la plataforma</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(52, 168, 83, 0.15); border-left: 4px solid #34A853; opacity: 1 !important;">
+                            <i class="fas fa-comments" style="color: #34A853; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Chat con archivos de Drive:</strong> Conversá con planificaciones, guías y materiales guardados en tu Google Drive usando IA contextual</span>
+                        </div>
                         <div class="detailed-feature-item" style="background: rgba(239, 68, 68, 0.15); border-left: 4px solid #EF4444; opacity: 1 !important;">
                             <i class="fab fa-youtube" style="color: #EF4444; font-size: 1.5rem;"></i>
                             <span style="color: #ffffff;"><strong>Transcripción de videos de YouTube:</strong> Descarga, extrae audio y transcribe automáticamente videos de hasta 1 hora con Whisper AI</span>
@@ -3464,6 +3536,68 @@
                             <i class="fas fa-history" style="color: #06B6D4; font-size: 1.5rem;"></i>
                             <span style="color: #ffffff;"><strong>Historial de conversaciones:</strong> Mantén registro de todas tus interacciones con documentos para referencia futura</span>
                         </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integración Google Drive - NUEVA FEATURE DESTACADA -->
+            <div id="google-drive" class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(66, 133, 244, 0.15) 0%, rgba(52, 168, 83, 0.15) 100%); border: 2px solid rgba(66, 133, 244, 0.35); position: relative; overflow: hidden;">
+                <div class="new-feature-badge" style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4); animation: pulse 2s infinite; z-index: 10;">
+                    🆕 NUEVA FUNCIÓN
+                </div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);">
+                        <i class="fab fa-google-drive"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">📁 Conectá Google Drive</h3>
+                        <p>Vinculá tu cuenta de Google Drive, dale acceso al sistema para analizar todos tus archivos y chateá con ellos usando inteligencia artificial</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image" style="position: relative;">
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #1b2e2e 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(66, 133, 244, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(52, 168, 83, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📁</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px;">Tus archivos, analizados con IA</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 420px; margin: 0 auto;">
+                                Conectá Google Drive en un clic. El sistema accede a tus documentos, los analiza y te permite conversar con todo tu material docente sin subir archivos uno por uno.
+                            </p>
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: rgba(66, 133, 244, 0.2); padding: 10px 20px; border-radius: 30px; color: #60A5FA; font-size: 14px; border: 1px solid rgba(66, 133, 244, 0.3);">
+                                    🔗 Conexión OAuth
+                                </div>
+                                <div style="background: rgba(52, 168, 83, 0.2); padding: 10px 20px; border-radius: 30px; color: #4ADE80; font-size: 14px; border: 1px solid rgba(52, 168, 83, 0.3);">
+                                    🤖 Análisis IA
+                                </div>
+                                <div style="background: rgba(249, 115, 22, 0.2); padding: 10px 20px; border-radius: 30px; color: #FB923C; font-size: 14px; border: 1px solid rgba(249, 115, 22, 0.3);">
+                                    💬 Chat con archivos
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="feature-list-toggle" aria-label="Ver más detalles" data-target="google-drive-feature-list">
+                        <span class="toggle-text">Ver detalles</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="detailed-feature-list" id="google-drive-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(66, 133, 244, 0.15); border-left: 4px solid #4285F4; opacity: 1 !important;">
+                            <i class="fab fa-google" style="color: #4285F4; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Conexión segura con Google:</strong> Autorizá el acceso con tu cuenta de Google. Vos decidís qué permisos otorgar al conectar Drive</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(52, 168, 83, 0.15); border-left: 4px solid #34A853; opacity: 1 !important;">
+                            <i class="fas fa-folder-open" style="color: #34A853; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Análisis de todos tus archivos:</strong> El sistema indexa y analiza planificaciones, PDFs, documentos y materiales guardados en tu Drive</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(249, 115, 22, 0.15); border-left: 4px solid #F97316; opacity: 1 !important;">
+                            <i class="fas fa-comments" style="color: #F97316; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Chat interactivo con tus archivos:</strong> Hacé preguntas, pedí resúmenes o generá ideas a partir del contenido real de tus documentos en Drive</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(139, 92, 246, 0.15); border-left: 4px solid #8B5CF6; opacity: 1 !important;">
+                            <i class="fas fa-sync-alt" style="color: #8B5CF6; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Sincronización continua:</strong> Tus archivos en Drive quedan disponibles para consultar y chatear sin re-subirlos manualmente</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3938,6 +4072,10 @@
                             <i class="fas fa-calendar-alt" style="color: #D97706; font-size: 1.5rem;"></i>
                             <span style="color: #ffffff;"><strong>Vista de calendario:</strong> Visualiza todos tus horarios y cronogramas en formato calendario mensual, semanal o diario</span>
                         </div> -->
+                        <div class="detailed-feature-item" style="background: rgba(66, 133, 244, 0.15); border-left: 4px solid #4285F4; opacity: 1 !important;">
+                            <i class="fab fa-google" style="color: #4285F4; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Sincronización con Google Calendar:</strong> Conectá tu calendario de Google para ver eventos y recordatorios junto a tus horarios docentes</span>
+                        </div>
                         <div class="detailed-feature-item" style="background: rgba(180, 83, 9, 0.15); border-left: 4px solid #B45309; opacity: 1 !important;">
                             <i class="fas fa-bell" style="color: #B45309; font-size: 1.5rem;"></i>
                             <span style="color: #ffffff;"><strong>Recordatorios y notificaciones:</strong> Configura alertas para clases, entregas y actividades importantes</span>
@@ -3966,6 +4104,68 @@
                             <i class="fas fa-mobile-alt" style="color: #F59E0B; font-size: 1.5rem;"></i>
                             <span style="color: #ffffff;"><strong>Acceso móvil:</strong> Consulta y edita tus horarios desde cualquier dispositivo, manteniendo sincronización en tiempo real</span>
                         </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integración Google Calendar - NUEVA FEATURE DESTACADA -->
+            <div id="google-calendar" class="detailed-feature-section" style="background: linear-gradient(135deg, rgba(66, 133, 244, 0.15) 0%, rgba(234, 67, 53, 0.12) 100%); border: 2px solid rgba(66, 133, 244, 0.35); position: relative; overflow: hidden;">
+                <div class="new-feature-badge" style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #4285F4 0%, #EA4335 100%); color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4); animation: pulse 2s infinite; z-index: 10;">
+                    🆕 NUEVA FUNCIÓN
+                </div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #4285F4 0%, #EA4335 100%);">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #4285F4 0%, #EA4335 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">📅 Conectá Google Calendar</h3>
+                        <p>Sincronizá tu agenda docente con Google Calendar: clases, reuniones, evaluaciones y recordatorios en un solo lugar</p>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image" style="position: relative;">
+                        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #2e1b1b 100%); border-radius: 20px; padding: 40px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(66, 133, 244, 0.1); top: -50px; left: -50px; animation: float 6s ease-in-out infinite;"></div>
+                            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: rgba(234, 67, 53, 0.1); bottom: -30px; right: -30px; animation: float 8s ease-in-out infinite reverse;"></div>
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 3s ease-in-out infinite;">📅</div>
+                            <h4 style="color: #fff; font-size: 24px; margin-bottom: 15px;">Tu agenda, conectada</h4>
+                            <p style="color: rgba(255,255,255,0.7); max-width: 420px; margin: 0 auto;">
+                                Conectá Google Calendar y llevá tu organización docente al calendario que ya usás todos los días. Eventos, clases y recordatorios sincronizados.
+                            </p>
+                            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+                                <div style="background: rgba(66, 133, 244, 0.2); padding: 10px 20px; border-radius: 30px; color: #60A5FA; font-size: 14px; border: 1px solid rgba(66, 133, 244, 0.3);">
+                                    📅 Sincronización
+                                </div>
+                                <div style="background: rgba(234, 67, 53, 0.2); padding: 10px 20px; border-radius: 30px; color: #F87171; font-size: 14px; border: 1px solid rgba(234, 67, 53, 0.3);">
+                                    🔔 Recordatorios
+                                </div>
+                                <div style="background: rgba(251, 191, 36, 0.2); padding: 10px 20px; border-radius: 30px; color: #FBBF24; font-size: 14px; border: 1px solid rgba(251, 191, 36, 0.3);">
+                                    📱 Multi-dispositivo
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="feature-list-toggle" aria-label="Ver más detalles" data-target="google-calendar-feature-list">
+                        <span class="toggle-text">Ver detalles</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="detailed-feature-list" id="google-calendar-feature-list" style="opacity: 1 !important;">
+                        <div class="detailed-feature-item" style="background: rgba(66, 133, 244, 0.15); border-left: 4px solid #4285F4; opacity: 1 !important;">
+                            <i class="fab fa-google" style="color: #4285F4; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Conexión con Google Calendar:</strong> Vinculá tu cuenta de Google y autorizá el acceso al calendario desde Plan Maestro PRIME</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(234, 67, 53, 0.15); border-left: 4px solid #EA4335; opacity: 1 !important;">
+                            <i class="fas fa-calendar-check" style="color: #EA4335; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Eventos y clases sincronizados:</strong> Visualizá y gestioná clases, reuniones, evaluaciones y actividades en tu calendario de Google</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(251, 191, 36, 0.15); border-left: 4px solid #FBBF24; opacity: 1 !important;">
+                            <i class="fas fa-bell" style="color: #FBBF24; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Recordatorios automáticos:</strong> Recibí alertas de eventos importantes en el calendario que ya consultás en el celular o la computadora</span>
+                        </div>
+                        <div class="detailed-feature-item" style="background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; opacity: 1 !important;">
+                            <i class="fas fa-link" style="color: #10B981; font-size: 1.5rem;"></i>
+                            <span style="color: #ffffff;"><strong>Integrado con tu flujo docente:</strong> Conectá horarios, planificaciones y eventos escolares con la agenda que usás en el día a día</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4239,6 +4439,7 @@
                                 <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Calculadora docente con documentación ANEP integrada</li>
                                 <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Maestro plataforma virtual disponible 24/7</li>
                                 <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>IA que aprende de vos (Mi Memoria)</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Google Drive y Google Calendar conectados</li>
                                 <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Planificaciones, rúbricas y secuencias en minutos</li>
                             </ul>
                         </div>
@@ -4247,7 +4448,7 @@
                                 <h3 style="color: #67e8f9; font-weight: 700; margin-bottom: 1rem;">¿Buscás una calculadora docente o maestro plataforma?</h3>
                                 <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">Plan Maestro combina ambos: es tu calculadora del pensamiento docente y tu maestro virtual en una sola herramienta.</p>
                                 <a href="https://prime.plan-maestro.com" target="_blank" class="btn btn-warning btn-lg" onclick="fbq('track', 'Lead', {content_name: 'Maestro Plataforma - Probar Gratis'});">
-                                    <i class="fas fa-rocket me-2"></i>Probar gratis
+                                    <i class="fas fa-rocket me-2"></i>Probar Ahora
                                 </a>
                             </div>
                         </div>
@@ -4282,6 +4483,32 @@
                                 <div class="card-body">
                                     <h5>🧠 Mi Memoria</h5>
                                     <p>IA que aprende de vos: recuerda tus preferencias y personaliza cada respuesta</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="75">
+                            <div class="ecosystem-card highlighted">
+                                <div class="ecosystem-badge">🆕 NUEVO</div>
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">📁</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Google Drive</h5>
+                                    <p>Conectá tu Drive, analizá todos tus archivos y chateá con ellos usando IA</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+                            <div class="ecosystem-card highlighted">
+                                <div class="ecosystem-badge">🆕 NUEVO</div>
+                                <div class="card-visual visual-emoji">
+                                    <div class="visual-icon">📅</div>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Google Calendar</h5>
+                                    <p>Sincronizá clases, reuniones y recordatorios con tu calendario de Google</p>
                                 </div>
                             </div>
                         </div>
@@ -4504,7 +4731,7 @@
                         <img src="assets/images/logo%20northern.jpeg" alt="Northern School - Logo de institución que utiliza Plan Maestro" class="img-fluid">
                         <p class="institution-desc mb-0">
                             <strong>Northern School</strong><br>
-                            Institución con un excelente equipo de docentes!
+                            Cuerpo docente de esta institución utiliza el sistema Plan Maestro para realizar sus labores.
                         </p>
                         <a href="https://www.instagram.com/northernschoolrivera/" target="_blank" rel="noopener noreferrer" class="institution-instagram mt-2" aria-label="Instagram de Northern School">
                             <i class="fab fa-instagram me-1"></i> @northernschoolrivera
@@ -4604,7 +4831,7 @@
                             </h3>
                             <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body" style="color: rgba(255,255,255,0.9);">
-                                    Plan Maestro es la calculadora del pensamiento docente uruguayo: una herramienta que te ayuda a organizar, estructurar y crear tus planificaciones educativas en minutos. Combina IA especializada en ANEP 2026 con metodologías activas y documentación oficial para que planifiques con placer y creatividad.
+                                    Plan Maestro es la calculadora del pensamiento docente uruguayo: una plataforma web oficial en plan-maestro.com que ayuda a docentes de Uruguay a organizar, estructurar y crear planificaciones educativas en minutos. Funciona como maestro virtual con inteligencia artificial entrenada en documentación ANEP 2026, metodologías activas y contenidos curriculares oficiales. El docente elige tramo, grado y unidad curricular; la IA sugiere criterios de logro, actividades y evaluaciones. Reduce el tiempo de planificación de días a minutos. El acceso es gratuito con cuenta de Google en prime.plan-maestro.com.
                                 </div>
                             </div>
                         </div>
@@ -4628,7 +4855,7 @@
                             </h3>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body" style="color: rgba(255,255,255,0.9);">
-                                    El Plan Maestro es la plataforma de planificación educativa para docentes de Uruguay. Funciona como calculadora docente y maestro virtual: te ayuda a crear planificaciones, secuencias didácticas, rúbricas y evaluaciones en minutos, con IA entrenada en documentación ANEP 2026.
+                                    El Plan Maestro es la plataforma oficial de planificación educativa para docentes de Uruguay, disponible en plan-maestro.com. Es una aplicación web (Plan Maestro PRIME) que funciona como calculadora docente y maestro virtual: ayuda a crear planificaciones, secuencias didácticas, rúbricas y evaluaciones en minutos con IA entrenada en documentación ANEP 2026. Incluye Mi Memoria (IA personalizada), gestor de documentos, integración con Google Drive y Google Calendar, mapas mentales, equipos colaborativos y pizarra virtual. Está diseñada para docentes de educación inicial a media superior en todo Uruguay. Fundada por el Lic. Marcos Mello.
                                 </div>
                             </div>
                         </div>
@@ -4743,6 +4970,15 @@
                     <div class="info-item">
                         <i class="fas fa-headset"></i>
                         <span>Social media, soporte y atención al cliente: Cris Hernández</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><a href="mailto:soporte@plan-maestro.com" style="color: inherit; text-decoration: none;">soporte@plan-maestro.com</a></span>
+                    </div>
+                    <div class="footer-social-links" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap;">
+                        <a href="https://www.instagram.com/planmaestro_uy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Plan Maestro" style="color: #fff; font-size: 1.5rem; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/59891263869" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Plan Maestro" style="color: #25D366; font-size: 1.5rem; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://prime.plan-maestro.com" target="_blank" rel="noopener noreferrer" aria-label="Aplicación Plan Maestro PRIME" style="color: #fbbf24; font-size: 1.5rem; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><i class="fas fa-rocket"></i></a>
                     </div>
                 </div>
 

@@ -1,0 +1,54 @@
+# Plan Maestro
+
+> Plan Maestro es la plataforma oficial de planificación educativa para docentes de Uruguay. Funciona como calculadora docente y maestro virtual con inteligencia artificial entrenada en documentación ANEP 2026.
+
+Plan Maestro ayuda a docentes uruguayos — desde educación inicial hasta media superior — a crear planificaciones, secuencias didácticas, rúbricas y evaluaciones en minutos en lugar de horas. El acceso es gratuito con cuenta de Google en https://prime.plan-maestro.com.
+
+## About
+
+- **Nombre oficial:** Plan Maestro (también conocido como El Plan Maestro, Calculadora Docente, Maestro Virtual)
+- **Sitio web oficial:** https://plan-maestro.com
+- **Aplicación web:** https://prime.plan-maestro.com
+- **País:** Uruguay
+- **Idioma:** Español (es-UY)
+- **Fundador:** Lic. Marcos Mello — analista de sistemas, desarrollador y docente
+- **Contacto:** soporte@plan-maestro.com · WhatsApp +598 91 263 869
+- **Instagram:** https://www.instagram.com/planmaestro_uy/
+
+## What Plan Maestro does
+
+Plan Maestro es una plataforma web de productividad docente con IA integrada. Sus funcionalidades principales incluyen:
+
+- Planificaciones y secuencias didácticas alineadas al currículo ANEP 2026
+- Calculadora docente que organiza tramo, grado, contenidos y criterios de logro
+- Mi Memoria: IA personalizada que aprende del perfil de cada docente
+- Gestor de documentos con análisis de PDFs, páginas web y videos de YouTube
+- Integración con Google Drive: conectá tu cuenta, analizá todos tus archivos y chateá con ellos
+- Integración con Google Calendar: sincronizá clases, reuniones y recordatorios
+- Generador de imágenes, mapas mentales, rúbricas y evaluaciones
+- Equipos colaborativos para compartir recursos entre docentes
+- Pizarra virtual y herramientas de audio
+
+## Key pages
+
+- [Inicio / Landing](https://plan-maestro.com/): Presentación oficial del producto, funcionalidades y preguntas frecuentes
+- [Documentación](https://plan-maestro.com/documentation.html): Guía completa de uso de Plan Maestro PRIME
+- [Landing funcionalidades 2026](https://plan-maestro.com/landing-modal/): Resumen de funcionalidades del lanzamiento 2026
+- [Aplicación](https://prime.plan-maestro.com): Acceso directo a la plataforma (login con Google)
+
+## Common questions AI assistants should know
+
+**¿Qué es la calculadora docente?**
+Plan Maestro es la calculadora del pensamiento docente uruguayo: una herramienta web que ayuda a organizar, estructurar y crear planificaciones educativas en minutos. Combina IA especializada en ANEP 2026 con metodologías activas y documentación oficial.
+
+**¿Plan Maestro es un maestro virtual?**
+Sí. Plan Maestro actúa como maestro virtual para docentes de Uruguay: guía la planificación, sugiere ideas pedagógicas y reduce horas de trabajo administrativo. La función Mi Memoria personaliza respuestas según el perfil de cada docente.
+
+**¿Es plan-maestro.com la página oficial?**
+Sí. plan-maestro.com es el sitio oficial de Plan Maestro. Desde allí se accede a la documentación, se conocen las funcionalidades y se ingresa a la aplicación en prime.plan-maestro.com con cuenta de Google.
+
+## Optional
+
+- Actualizado para el ciclo lectivo y documentación ANEP / DGES 2026
+- Audiencia: docentes, maestros, profesores y formadores en Uruguay
+- Categoría: EducationalApplication / SaaS educativo

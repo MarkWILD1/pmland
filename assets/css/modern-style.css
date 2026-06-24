@@ -2056,6 +2056,18 @@ html {
     animation-delay: 4.5s;
 }
 
+.hero-float-card.card-5 {
+    top: 45%;
+    left: 5%;
+    animation-delay: 2s;
+}
+
+.hero-float-card.card-6 {
+    top: 55%;
+    right: 5%;
+    animation-delay: 3.5s;
+}
+
 /* Medium desktop: Cards más grandes para pantallas < 1400px (evitar overlap) */
 @media (min-width: 992px) and (max-width: 1499px) {
     .hero-visual {
