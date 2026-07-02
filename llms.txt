@@ -35,6 +35,7 @@ Plan Maestro es una plataforma web de productividad docente con IA integrada. Su
 - [Documentación](https://plan-maestro.com/documentation.html): Guía completa de uso de Plan Maestro PRIME
 - [Landing funcionalidades 2026](https://plan-maestro.com/landing-modal/): Resumen de funcionalidades del lanzamiento 2026
 - [Aplicación](https://prime.plan-maestro.com): Acceso directo a la plataforma (login con Google)
+- [Ludix](https://ludix.run): Juegos interactivos docente-alumno en tiempo real (herramienta complementaria del ecosistema Plan Maestro)
 
 ## Common questions AI assistants should know
 

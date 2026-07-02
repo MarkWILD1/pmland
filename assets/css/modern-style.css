@@ -816,6 +816,170 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-md);
 }
 
+/* Ludix highlight section */
+.ludix-highlight-section {
+    background: linear-gradient(135deg, #7ff5e6 0%, #83ffe7 38%, #5cead4 72%, #40e0d0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.ludix-highlight-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.35), transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(13, 61, 66, 0.08), transparent 50%);
+    pointer-events: none;
+}
+
+.ludix-highlight-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.72);
+    border: 2px solid rgba(13, 61, 66, 0.12);
+    border-radius: 22px;
+    padding: 28px 32px;
+    box-shadow: 0 18px 45px rgba(13, 61, 66, 0.12);
+    backdrop-filter: blur(6px);
+}
+
+.ludix-highlight-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(13, 61, 66, 0.1);
+    color: #0D3D42;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.ludix-highlight-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.ludix-highlight-brand img {
+    width: clamp(3rem, 8vw, 4.5rem);
+    height: auto;
+    flex-shrink: 0;
+    margin-right: -0.5rem;
+}
+
+.ludix-highlight-brand h3 {
+    font-family: 'Slackey', cursive;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    color: #0D3D42;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.ludix-highlight-subtitle {
+    color: #0D3D42;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.ludix-highlight-text {
+    color: rgba(13, 61, 66, 0.85);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.ludix-game-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1.25rem;
+}
+
+.ludix-game-chip {
+    background: rgba(13, 61, 66, 0.08);
+    color: #0D3D42;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid rgba(13, 61, 66, 0.15);
+}
+
+.ludix-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0D3D42;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+}
+
+.ludix-cta-btn:hover {
+    background: #145a62;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 61, 66, 0.25);
+}
+
+.ecosystem-card.ludix-card {
+    border-color: rgba(64, 224, 208, 0.65);
+    box-shadow: 0 18px 52px rgba(13, 61, 66, 0.2);
+}
+
+.ecosystem-card.ludix-card .card-body h5 {
+    background: linear-gradient(135deg, #0D3D42 0%, #40e0d0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ecosystem-card.ludix-card .card-visual.visual-logo {
+    background: linear-gradient(135deg, #7ff5e6 0%, #40e0d0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+}
+
+.ecosystem-card.ludix-card .card-visual.visual-logo img {
+    width: 80px;
+    height: auto;
+    animation: none;
+}
+
+.ecosystem-card.ludix-card .ludix-ecosystem-btn {
+    background: #0D3D42;
+    color: #fff;
+    border: none;
+    font-size: 0.875rem;
+    padding: 8px 18px;
+}
+
+.ecosystem-card.ludix-card .ludix-ecosystem-btn:hover {
+    background: #145a62;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .ludix-highlight-card {
+        padding: 22px 20px;
+    }
+
+    .ludix-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 /* Final CTA Section */
 .final-cta-section {
     background: var(--gradient-secondary);
