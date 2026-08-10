@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ludix — Juegos interactivos en vivo para el aula | ludix.run</title>
+    <meta name="description" content="Ludix: juegos interactivos en vivo para el aula. Creá salas en segundos y tus alumnos se unen con un código. Trivia, sopa de letras, crucigrama, matemáticas y ahorcado.">
+    <meta name="keywords" content="ludix, juegos educativos, aula interactiva, trivia, sopa de letras, crucigrama, ahorcado, matemáticas, docentes, Uruguay, plan maestro">
+    <meta name="author" content="Plan Maestro — Ludix">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="es">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ludix.run/">
+    <meta property="og:title" content="Ludix — Juegos interactivos en vivo para el aula">
+    <meta property="og:description" content="Creá salas en segundos. Tus alumnos se unen con un código desde el celular. Ideal para repasar, evaluar en forma formativa o dinamizar la clase.">
+    <meta property="og:image" content="https://ludix.run/ludix-3.png">
+    <meta property="og:site_name" content="Ludix">
+    <meta property="og:locale" content="es_UY">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ludix — Juegos interactivos en vivo para el aula">
+    <meta name="twitter:description" content="Creá salas en segundos. Tus alumnos se unen con un código desde el celular.">
+    <meta name="twitter:image" content="https://ludix.run/ludix-3.png">
+
+    <link rel="icon" href="assets/images/ludix/Ludogram-fav.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="assets/images/ludix/ludix-3.png">
+    <link rel="canonical" href="https://ludix.run/">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Slackey&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/8d7470a3ffc57e31f3d9ce407d991c08?family=Reckless+Neue+Light" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --ludix-ink: #0D3D42;
+            --ludix-ink-soft: rgba(13, 61, 66, 0.85);
+            --ludix-mint: #7ff5e6;
+            --ludix-mint-mid: #5cead4;
+            --ludix-teal: #40e0d0;
+            --ludix-deep: #145a62;
+            --ludix-surface: rgba(255, 255, 255, 0.82);
+            --ludix-accent: #F59E0B;
+            --pm-dark: #0f172a;
+            --border-radius: 0.75rem;
+            --transition: all 0.3s ease;
+            --font-display: "Reckless Neue Light", Georgia, serif;
+            --font-brand: "Slackey", cursive;
+            --font-heading: "Poppins", sans-serif;
+            --font-body: "Inter", sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--ludix-ink);
+            background: var(--ludix-mint-mid);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a { text-decoration: none; }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #7ff5e6 0%, #40e0d0 100%);
+            transition: opacity 0.45s ease, visibility 0.45s ease;
+        }
+        #preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spinner { display: flex; gap: 0.5rem; }
+        .spinner > div {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--ludix-ink);
+            animation: bounce 1.2s infinite ease-in-out both;
+        }
+        .spinner .bounce1 { animation-delay: -0.32s; }
+        .spinner .bounce2 { animation-delay: -0.16s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Nav */
+        .ludix-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.85rem 0;
+            transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+        }
+        .ludix-nav.scrolled {
+            background: rgba(13, 61, 66, 0.88);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 28px rgba(13, 61, 66, 0.22);
+        }
+        .ludix-nav .navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.15rem;
+            color: #fff;
+        }
+        .ludix-nav .navbar-brand img {
+            width: 2.4rem;
+            height: auto;
+            margin-right: -0.35rem;
+        }
+        .ludix-nav .brand-text {
+            font-family: var(--font-brand);
+            font-size: 1.55rem;
+            color: #fff;
+            line-height: 1;
+        }
+        .ludix-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 0.9rem !important;
+        }
+        .ludix-nav .nav-link:hover { color: var(--ludix-mint) !important; }
+        .ludix-nav .navbar-toggler {
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            padding: 0.35rem 0.55rem;
+        }
+        .ludix-nav .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        .btn-nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--ludix-accent);
+            color: var(--pm-dark);
+            font-weight: 700;
+            padding: 0.55rem 1.15rem;
+            border-radius: var(--border-radius);
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+        }
+        .btn-nav-cta:hover {
+            background: #fbbf24;
+            color: var(--pm-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero — full-bleed composition */
+        .ludix-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #fff;
+        }
+        .ludix-hero__bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(160deg, rgba(13, 61, 66, 0.55) 0%, rgba(13, 61, 66, 0.35) 45%, rgba(20, 90, 98, 0.55) 100%),
+                url("assets/images/ludix/bg-2.png") center center / cover no-repeat;
+            transform: scale(1.03);
+            animation: heroDrift 18s ease-in-out infinite;
+        }
+        .ludix-hero__glow {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 25%, rgba(127, 245, 230, 0.28), transparent 42%),
+                radial-gradient(circle at 80% 75%, rgba(245, 158, 11, 0.18), transparent 48%);
+            pointer-events: none;
+        }
+        @keyframes heroDrift {
+            0%, 100% { transform: scale(1.03) translate3d(0, 0, 0); }
+            50% { transform: scale(1.06) translate3d(-1.2%, -0.6%, 0); }
+        }
+        .ludix-hero__content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 7.5rem 1.25rem 4rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+        .ludix-brand-lockup {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 1.25rem;
+            animation: brandFloat 6s ease-in-out infinite;
+        }
+        .ludix-brand-lockup img {
+            width: clamp(4.5rem, 12vw, 7rem);
+            height: auto;
+            margin-right: -0.85rem;
+            filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
+        }
+        .ludix-brand-lockup .brand-name {
+            font-family: var(--font-brand);
+            font-size: clamp(3.4rem, 12vw, 6.5rem);
+            color: #fff;
+            margin: 0;
+            line-height: 1;
+            text-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+        }
+        @keyframes brandFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .ludix-hero__phrase {
+            font-family: var(--font-display);
+            font-size: clamp(1.85rem, 5vw, 3.25rem);
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 1rem;
+            letter-spacing: 0.01em;
+        }
+        .ludix-hero__phrase span {
+            color: var(--ludix-accent);
+        }
+        .ludix-hero__lead {
+            font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 36rem;
+            margin: 0 auto 1.75rem;
+            font-weight: 500;
+        }
+        .ludix-hero__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .btn-ludix-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--ludix-accent);
+            color: var(--pm-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 0.95rem 1.75rem;
+            border-radius: var(--border-radius);
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 10px 28px rgba(245, 158, 11, 0.35);
+        }
+        .btn-ludix-primary:hover {
+            background: #fbbf24;
+            color: var(--pm-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 34px rgba(245, 158, 11, 0.45);
+        }
+        .btn-ludix-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: transparent;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 0.95rem 1.75rem;
+            border-radius: var(--border-radius);
+            border: 2px solid rgba(255, 255, 255, 0.75);
+            transition: var(--transition);
+        }
+        .btn-ludix-ghost:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+        .ludix-hero__trust {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.78);
+            margin: 0;
+        }
+
+        /* Sections shared */
+        .section-pad { padding: 5rem 0; }
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(13, 61, 66, 0.1);
+            color: var(--ludix-ink);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-size: clamp(1.85rem, 4vw, 2.6rem);
+            color: var(--ludix-ink);
+            margin-bottom: 0.75rem;
+        }
+        .section-subtitle {
+            color: var(--ludix-ink-soft);
+            font-size: 1.1rem;
+            max-width: 38rem;
+            margin: 0 auto;
+        }
+
+        /* How it works */
+        .how-section {
+            background: linear-gradient(180deg, #e8fffb 0%, #c9fff6 100%);
+            position: relative;
+        }
+        .how-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.55), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(13, 61, 66, 0.06), transparent 45%);
+            pointer-events: none;
+        }
+        .how-steps {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.75rem;
+        }
+        .how-step {
+            text-align: center;
+            padding: 0.5rem 0.75rem;
+        }
+        .how-step__num {
+            width: 3.25rem;
+            height: 3.25rem;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #fff;
+            background: var(--ludix-ink);
+            box-shadow: 0 10px 24px rgba(13, 61, 66, 0.22);
+        }
+        .how-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--ludix-ink);
+        }
+        .how-step p {
+            margin: 0;
+            color: var(--ludix-ink-soft);
+            font-size: 0.98rem;
+        }
+
+        /* Games */
+        .games-section {
+            position: relative;
+            background:
+                linear-gradient(160deg, rgba(13, 61, 66, 0.82) 0%, rgba(20, 90, 98, 0.78) 100%),
+                url("assets/images/ludix/bg-3.png") center center / cover no-repeat;
+            color: #fff;
+            overflow: hidden;
+        }
+        .games-section .section-kicker {
+            background: rgba(255, 255, 255, 0.14);
+            color: #fff;
+        }
+        .games-section .section-title,
+        .games-section .section-subtitle { color: #fff; }
+        .games-section .section-subtitle { opacity: 0.88; }
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+        .game-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            min-height: 160px;
+            padding: 1.25rem 0.85rem;
+            border-radius: 1.1rem;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .game-tile:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+            color: #fff;
+        }
+        .game-tile i {
+            font-size: 1.75rem;
+            color: var(--ludix-mint);
+        }
+        .game-tile strong {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+        }
+        .game-tile span {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            line-height: 1.35;
+        }
+
+        /* Roles */
+        .roles-section {
+            background: linear-gradient(135deg, #7ff5e6 0%, #83ffe7 38%, #5cead4 72%, #40e0d0 100%);
+            position: relative;
+        }
+        .roles-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.35), transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(13, 61, 66, 0.08), transparent 50%);
+            pointer-events: none;
+        }
+        .roles-panel {
+            position: relative;
+            z-index: 1;
+            background: var(--ludix-surface);
+            border: 2px solid rgba(13, 61, 66, 0.12);
+            border-radius: 22px;
+            padding: 2rem 2.25rem;
+            box-shadow: 0 18px 45px rgba(13, 61, 66, 0.12);
+            backdrop-filter: blur(6px);
+            height: 100%;
+        }
+        .roles-panel__icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(13, 61, 66, 0.1);
+            color: var(--ludix-ink);
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+        .roles-panel h3 {
+            color: var(--ludix-ink);
+            font-size: 1.4rem;
+            margin-bottom: 0.65rem;
+        }
+        .roles-panel p {
+            color: var(--ludix-ink-soft);
+            margin-bottom: 1rem;
+        }
+        .roles-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .roles-panel li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            color: var(--ludix-ink);
+            font-weight: 500;
+            margin-bottom: 0.55rem;
+        }
+        .roles-panel li i {
+            color: var(--ludix-deep);
+            margin-top: 0.2rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+            background:
+                linear-gradient(160deg, rgba(15, 23, 42, 0.78) 0%, rgba(13, 61, 66, 0.72) 100%),
+                url("assets/images/ludix/bg-4.png") center center / cover no-repeat;
+        }
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.85rem;
+            color: #fff;
+        }
+        .cta-section p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 34rem;
+            margin: 0 auto 1.75rem;
+        }
+
+        /* Footer */
+        .ludix-footer {
+            background: var(--pm-dark);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 2.75rem 0 1.75rem;
+            text-align: center;
+        }
+        .ludix-footer__brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.1rem;
+            margin-bottom: 0.85rem;
+        }
+        .ludix-footer__brand img {
+            width: 2.5rem;
+            height: auto;
+            margin-right: -0.35rem;
+        }
+        .ludix-footer__brand span {
+            font-family: var(--font-brand);
+            font-size: 1.75rem;
+            color: #fff;
+        }
+        .ludix-footer__eco {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin: 1rem 0 0.5rem;
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .ludix-footer__eco:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        .ludix-footer__eco img {
+            height: 1.35rem;
+            width: auto;
+            opacity: 0.95;
+        }
+        .ludix-footer__copy {
+            margin: 1.25rem 0 0;
+            font-size: 0.85rem;
+            opacity: 0.65;
+        }
+
+        @media (max-width: 991.98px) {
+            .games-grid { grid-template-columns: repeat(3, 1fr); }
+            .how-steps { grid-template-columns: 1fr; gap: 1.75rem; }
+            .ludix-nav .header-actions { margin-top: 0.75rem; }
+        }
+        @media (max-width: 575.98px) {
+            .games-grid { grid-template-columns: 1fr 1fr; }
+            .ludix-hero__content { padding-top: 6.5rem; }
+            .roles-panel { padding: 1.5rem 1.25rem; }
+            .btn-ludix-primary,
+            .btn-ludix-ghost { width: 100%; justify-content: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .ludix-hero__bg,
+            .ludix-brand-lockup { animation: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <header class="navbar navbar-expand-lg ludix-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio" aria-label="Ludix inicio">
+                <img src="assets/images/ludix/ludix-3.png" alt="">
+                <span class="brand-text">Ludix</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ludixNav" aria-controls="ludixNav" aria-expanded="false" aria-label="Menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="ludixNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#como-funciona">Cómo funciona</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#juegos">Juegos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#roles">Docente y alumno</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Plan Maestro</a></li>
+                </ul>
+                <div class="header-actions ms-lg-3">
+                    <a href="https://ludix.run" class="btn-nav-cta" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-gamepad"></i> Jugar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="ludix-hero" aria-labelledby="ludix-hero-heading">
+            <div class="ludix-hero__bg" aria-hidden="true"></div>
+            <div class="ludix-hero__glow" aria-hidden="true"></div>
+            <div class="ludix-hero__content" data-aos="fade-up" data-aos-duration="800">
+                <div class="ludix-brand-lockup">
+                    <img src="assets/images/ludix/ludix-3.png" alt="">
+                    <h1 id="ludix-hero-heading" class="brand-name">Ludix</h1>
+                </div>
+                <p class="ludix-hero__phrase">Juegos en vivo <span>para el aula</span></p>
+                <p class="ludix-hero__lead">
+                    Creá una sala en segundos. Tus alumnos se unen con un código desde el celular.
+                </p>
+                <div class="ludix-hero__actions">
+                    <a href="https://ludix.run" class="btn-ludix-primary" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-rocket"></i> Empezar ahora
+                    </a>
+                    <a href="#juegos" class="btn-ludix-ghost">
+                        <i class="fas fa-puzzle-piece"></i> Ver juegos
+                    </a>
+                </div>
+                <p class="ludix-hero__trust">
+                    <i class="fas fa-bolt me-1"></i> Ideal para repasar, evaluar en forma formativa o dinamizar la clase
+                </p>
+            </div>
+        </section>
+
+        <section id="como-funciona" class="how-section section-pad" aria-labelledby="how-heading">
+            <div class="container">
+                <div class="text-center" data-aos="fade-up">
+                    <span class="section-kicker"><i class="fas fa-magic"></i> Simple y en vivo</span>
+                    <h2 id="how-heading" class="section-title">Tres pasos y la clase se enciende</h2>
+                    <p class="section-subtitle">Sin instalaciones ni cuentas complicadas. Docente crea, alumnos entran, todos juegan.</p>
+                </div>
+                <div class="how-steps">
+                    <div class="how-step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="how-step__num">1</div>
+                        <h3>Elegí el juego</h3>
+                        <p>Trivia, sopa, crucigrama, matemáticas o ahorcado. Configurá el contenido a tu medida.</p>
+                    </div>
+                    <div class="how-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="how-step__num">2</div>
+                        <h3>Compartí el código</h3>
+                        <p>Se genera una sala al instante. Los alumnos entran desde el celular o la tablet.</p>
+                    </div>
+                    <div class="how-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="how-step__num">3</div>
+                        <h3>Jugá en vivo</h3>
+                        <p>Seguí el ritmo de la clase, retomá la sala si hace falta y cerrá con el podio final.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="juegos" class="games-section section-pad" aria-labelledby="games-heading">
+            <div class="container">
+                <div class="text-center" data-aos="fade-up">
+                    <span class="section-kicker"><i class="fas fa-gamepad"></i> Catálogo</span>
+                    <h2 id="games-heading" class="section-title">Cinco juegos, un mismo flujo</h2>
+                    <p class="section-subtitle">Pensados para activar la clase sin fricción técnica.</p>
+                </div>
+                <div class="games-grid" data-aos="fade-up" data-aos-delay="150">
+                    <a class="game-tile" href="https://ludix.run" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                        <strong>Trivia</strong>
+                        <span>Preguntas y respuestas</span>
+                    </a>
+                    <a class="game-tile" href="https://ludix.run" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <strong>Sopa de letras</strong>
+                        <span>Encontrá las palabras</span>
+                    </a>
+                    <a class="game-tile" href="https://ludix.run" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-th" aria-hidden="true"></i>
+                        <strong>Crucigrama</strong>
+                        <span>Palabras cruzadas con pistas</span>
+                    </a>
+                    <a class="game-tile" href="https://ludix.run" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-calculator" aria-hidden="true"></i>
+                        <strong>Matemáticas</strong>
+                        <span>Operaciones mentales</span>
+                    </a>
+                    <a class="game-tile" href="https://ludix.run" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-spell-check" aria-hidden="true"></i>
+                        <strong>Ahorcado</strong>
+                        <span>Adiviná la palabra</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="roles" class="roles-section section-pad" aria-labelledby="roles-heading">
+            <div class="container">
+                <div class="text-center mb-4 mb-lg-5" data-aos="fade-up">
+                    <span class="section-kicker"><i class="fas fa-users"></i> Para el aula completa</span>
+                    <h2 id="roles-heading" class="section-title">Docente dirige. Alumnos juegan.</h2>
+                    <p class="section-subtitle">Dos entradas claras, mismo partido en vivo.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6" data-aos="fade-right">
+                        <div class="roles-panel">
+                            <div class="roles-panel__icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <h3>Docente</h3>
+                            <p>Creá y gestioná el juego con control total de la sala.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i><span>Elegí el juego y el contenido</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Compartí el código de sala</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Retomá la sesión si se corta</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <div class="roles-panel">
+                            <div class="roles-panel__icon"><i class="fas fa-user-graduate"></i></div>
+                            <h3>Alumno</h3>
+                            <p>Entrada rápida, sin fricción, desde cualquier dispositivo.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i><span>Ingresá el código de la sala</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Escribí tu nombre y listo</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Jugá en vivo con la clase</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section section-pad" aria-labelledby="cta-heading">
+            <div class="container" data-aos="zoom-in">
+                <h2 id="cta-heading">La próxima clase puede empezar con un juego</h2>
+                <p>Abrí Ludix, creá la sala y activá a todo el grupo en minutos.</p>
+                <a href="https://ludix.run" class="btn-ludix-primary" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-gamepad"></i> Ir a ludix.run
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="ludix-footer">
+        <div class="container">
+            <div class="ludix-footer__brand">
+                <img src="assets/images/ludix/ludix-3.png" alt="">
+                <span>Ludix</span>
+            </div>
+            <p class="mb-0">Juegos interactivos en vivo para el aula</p>
+            <a class="ludix-footer__eco" href="index.html">
+                <img src="assets/images/ludix/logo-lpm.png" alt="Plan Maestro">
+                Parte del ecosistema Plan Maestro
+            </a>
+            <p class="ludix-footer__copy">© <span id="year"></span> Ludix · ludix.run</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        window.addEventListener('load', function () {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('hide');
+                setTimeout(function () { preloader.remove(); }, 500);
+            }
+        });
+
+        const nav = document.querySelector('.ludix-nav');
+        const onScroll = function () {
+            if (!nav) return;
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 60,
+            easing: 'ease-out-cubic'
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                const id = this.getAttribute('href');
+                if (!id || id === '#') return;
+                const target = document.querySelector(id);
+                if (!target) return;
+                e.preventDefault();
+                const navHeight = nav ? nav.offsetHeight : 80;
+                const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+                const collapse = document.getElementById('ludixNav');
+                if (collapse && collapse.classList.contains('show')) {
+                    bootstrap.Collapse.getOrCreateInstance(collapse).hide();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
