@@ -72,100 +72,116 @@ document.addEventListener('DOMContentLoaded', () => {
         heroIntroGradientDone = true;
     }
 
-    // Detailed Features: stacking cards (GSAP pin — CSS sticky fails with body overflow-x:hidden)
-    const featuresStack = document.querySelector('#lanzamiento2026 .features-stack');
-    const featureSections = gsap.utils.toArray('#lanzamiento2026 .features-stack .detailed-feature-section');
-    const navbar = document.querySelector('.navbar.fixed-top');
+    // Features motion slider (Code Jungle style: preview cards expand into full-bleed)
+    const featuresSlider = document.querySelector('#lanzamiento2026 .features-motion-slider');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let featureStackTriggers = [];
 
-    const getFeaturesPinTop = () => {
-        const navHeight = navbar ? navbar.offsetHeight : 80;
-        const stackGap = window.innerWidth < 576 ? 8 : 14;
-        return navHeight + stackGap;
-    };
+    if (featuresSlider) {
+        const nav = featuresSlider.querySelector('.features-slider-nav');
+        const prevBtn = featuresSlider.querySelector('.features-slider-prev');
+        const nextBtn = featuresSlider.querySelector('.features-slider-next');
+        let sliding = false;
 
-    const killFeatureStack = () => {
-        featureStackTriggers.forEach((st) => st.kill());
-        featureStackTriggers = [];
-    };
+        const getSlides = () =>
+            Array.from(featuresSlider.querySelectorAll('.detailed-feature-section'));
 
-    const initFeatureStack = () => {
-        killFeatureStack();
-        if (!featuresStack || !featureSections.length || prefersReducedMotion) return;
+        // Corporate accent + ensure photo layer exists for data-bg slides
+        getSlides().forEach((section) => {
+            const visual = section.querySelector('.feature-visual');
+            if (visual) {
+                const accent = getComputedStyle(visual).getPropertyValue('--fv-accent').trim();
+                if (accent) section.style.setProperty('--card-accent', accent);
+            }
 
-        const pinTop = getFeaturesPinTop();
-        featuresStack.style.setProperty('--features-stack-top', `${pinTop}px`);
+            const bgSrc = section.getAttribute('data-bg');
+            if (bgSrc) {
+                section.classList.add('has-slide-bg');
+                let bgEl = section.querySelector('.slide-bg');
+                if (!bgEl) {
+                    bgEl = document.createElement('div');
+                    bgEl.className = 'slide-bg';
+                    bgEl.setAttribute('aria-hidden', 'true');
+                    section.insertBefore(bgEl, section.firstChild);
+                }
+                bgEl.style.backgroundImage = `url('${bgSrc}')`;
+            }
 
-        featureSections.forEach((section, index) => {
-            section.style.setProperty('--stack-z', String(index + 1));
-            gsap.set(section, { zIndex: index + 1 });
-
-            const st = ScrollTrigger.create({
-                trigger: section,
-                start: () => `top ${getFeaturesPinTop()}px`,
-                endTrigger: featuresStack,
-                end: 'bottom bottom',
-                pin: true,
-                pinSpacing: false,
-                anticipatePin: 1,
-                invalidateOnRefresh: true,
-                id: `feature-stack-${index}`
+            section.querySelectorAll('.detailed-feature-item').forEach((item) => {
+                gsap.set(item, { clearProps: 'opacity,transform' });
             });
-            featureStackTriggers.push(st);
+            section.classList.add('items-visible');
         });
-    };
 
-    initFeatureStack();
-    window.addEventListener('load', () => {
-        ScrollTrigger.refresh();
-    });
-
-    let featureStackResizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(featureStackResizeTimer);
-        featureStackResizeTimer = setTimeout(() => {
-            initFeatureStack();
-            ScrollTrigger.refresh();
-        }, 150);
-    });
-
-    // Recalculate after expand/collapse of mobile feature lists
-    document.querySelectorAll('#lanzamiento2026 .feature-list-toggle').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            setTimeout(() => ScrollTrigger.refresh(), 420);
-        });
-    });
-
-    featureSections.forEach((section) => {
-        const image = section.querySelector('.detailed-feature-image');
-        if (image) {
-            gsap.from(image, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                },
-                scale: 0.97,
-                duration: 0.9,
-                delay: 0.1,
-                ease: 'power2.out'
-            });
+        // Bootstrap: put last slide first so the real first feature is in the active slot (nth-child 2)
+        const bootstrapSlides = getSlides();
+        if (bootstrapSlides.length > 1 && nav) {
+            featuresSlider.insertBefore(bootstrapSlides[bootstrapSlides.length - 1], bootstrapSlides[0]);
         }
 
-        const listItems = section.querySelectorAll('.detailed-feature-item');
-        if (listItems.length > 0) {
-            gsap.from(listItems, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 75%',
-                },
-                x: 20,
-                duration: 0.5,
-                stagger: 0.1,
-                ease: 'power1.out'
-            });
-        }
-    });
+        const goNext = () => {
+            if (sliding) return;
+            const slides = getSlides();
+            if (slides.length < 2 || !nav) return;
+            sliding = true;
+            featuresSlider.insertBefore(slides[0], nav);
+            window.setTimeout(() => { sliding = false; }, prefersReducedMotion ? 0 : 560);
+        };
+
+        const goPrev = () => {
+            if (sliding) return;
+            const slides = getSlides();
+            if (slides.length < 2 || !nav) return;
+            sliding = true;
+            featuresSlider.insertBefore(slides[slides.length - 1], slides[0]);
+            window.setTimeout(() => { sliding = false; }, prefersReducedMotion ? 0 : 560);
+        };
+
+        if (nextBtn) nextBtn.addEventListener('click', goNext);
+        if (prevBtn) prevBtn.addEventListener('click', goPrev);
+
+        // Click a preview card (3rd–5th) to jump forward in one motion
+        featuresSlider.addEventListener('click', (e) => {
+            if (e.target.closest('.features-slider-nav')) return;
+            const slide = e.target.closest('.detailed-feature-section');
+            if (!slide || !featuresSlider.contains(slide)) return;
+            const slides = getSlides();
+            const index = slides.indexOf(slide);
+            if (index < 2 || sliding || !nav) return;
+            sliding = true;
+            const steps = index - 1;
+            for (let i = 0; i < steps; i += 1) {
+                const current = getSlides();
+                featuresSlider.insertBefore(current[0], nav);
+            }
+            window.setTimeout(() => { sliding = false; }, prefersReducedMotion ? 0 : 560);
+        });
+
+        // Keyboard when section is in view
+        featuresSlider.setAttribute('tabindex', '0');
+        featuresSlider.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                goNext();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                goPrev();
+            }
+        });
+
+        // Light swipe on touch
+        let touchX = null;
+        featuresSlider.addEventListener('touchstart', (e) => {
+            touchX = e.changedTouches[0].clientX;
+        }, { passive: true });
+        featuresSlider.addEventListener('touchend', (e) => {
+            if (touchX == null) return;
+            const dx = e.changedTouches[0].clientX - touchX;
+            touchX = null;
+            if (Math.abs(dx) < 40) return;
+            if (dx < 0) goNext();
+            else goPrev();
+        }, { passive: true });
+    }
 
     // Ecosystem Cards Stagger
     gsap.set(".ecosystem-card", { opacity: 0, y: 50 }); // Ensure initial state is hidden
