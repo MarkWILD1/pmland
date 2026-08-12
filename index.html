@@ -40,6 +40,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Delius&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Playwrite+NZ+Guides&family=Slackey&display=swap" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/8d7470a3ffc57e31f3d9ce407d991c08?family=Reckless+Neue+Light" rel="stylesheet">
+    <!-- Clash Display (Fontshare) — wordmark navbar -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -82,6 +84,43 @@
             100% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
         }
         
+        /* Navbar brand — orb + Clash Display wordmark */
+        .navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+            line-height: 1;
+        }
+        .navbar-brand-orb {
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            line-height: 0;
+        }
+        .navbar-brand-orb canvas {
+            display: block;
+        }
+        .navbar-brand-text {
+            font-family: 'Clash Display', sans-serif;
+            font-weight: 600;
+            font-size: 1.35rem;
+            letter-spacing: 0.02em;
+            color: #fff;
+            white-space: nowrap;
+        }
+        .pm-brand-type {
+            font-family: 'Clash Display', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        @media (max-width: 575.98px) {
+            .navbar-brand-text { font-size: 1.15rem; }
+            .navbar-brand { gap: 0.5rem; }
+        }
+
         /* Hero Thinking Orb — solving a resolución nativa (sin upscale CSS) */
         .hero-visual--thinking {
             display: flex;
@@ -343,16 +382,13 @@
             text-align: center;
         }
 
-        .footer-logo {
-            width: 200px;
-            height: auto;
+        .footer-brand {
             margin-bottom: 1rem;
-            filter: brightness(0) invert(1);
-            transition: transform 0.3s ease;
+            text-decoration: none;
         }
 
-        .footer-logo:hover {
-            transform: scale(1.05);
+        .footer-brand .navbar-brand-text {
+            color: #fff;
         }
 
         .footer-subtitle {
@@ -2705,18 +2741,15 @@
 <body>
     <!-- Preloader -->
     <div id="preloader">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
+        <div id="preloader-thinking-orb" class="preloader-thinking-orb" aria-hidden="true"></div>
     </div>
 
     <!-- Header -->
     <header class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/images/logo-lateral-2_00000.png" alt="Plaɳ MaeŠtrɸ" height="50">
+            <a class="navbar-brand" href="#inicio" aria-label="Plan Maestro">
+                <span id="navbar-thinking-orb" class="navbar-brand-orb brand-thinking-orb" aria-hidden="true"></span>
+                <span class="navbar-brand-text">Plan Maestro</span>
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -4091,7 +4124,7 @@
             <div class="row justify-content-center text-center mb-4">
                 <div class="col-lg-10" data-aos="fade-up">
                     <span class="testimonials-eyebrow"><i class="fas fa-bolt"></i>+1000 historias reales</span>
-                    <h2 class="section-title mt-3">Docentes que ya usan Plaɳ MaeŠtrɸ todos los días</h2>
+                    <h2 class="section-title mt-3">Docentes que ya usan <span class="pm-brand-type">Plan Maestro</span> todos los días</h2>
                     <p class="section-subtitle mt-2" style="color: rgba(248, 250, 252, 0.8);">Lo que dicen docentes como vos</p>
                 </div>
             </div>
@@ -4310,7 +4343,10 @@
         <div class="footer-content">
             <!-- Logo Section -->
             <div class="footer-logo-section">
-                <img src="assets/images/logo-lateral.png" alt="Plan Maestro PRIME Logo" class="footer-logo">
+                <a class="footer-brand navbar-brand" href="#inicio" aria-label="Plan Maestro">
+                    <span id="footer-thinking-orb" class="navbar-brand-orb brand-thinking-orb" aria-hidden="true"></span>
+                    <span class="navbar-brand-text">Plan Maestro</span>
+                </a>
                 <p class="footer-subtitle">La calculadora del pensamiento docente · Tu aliado para planificar con placer y creatividad</p>
                 <p class="footer-tagline">Súper Herramienta de productividad y eficiencia en la labor de planificar, para que docentes puedan: inspirar, crear y transformar la educación</p>
             </div>
@@ -4391,6 +4427,8 @@
     <script src="assets/js/gsap-script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@4.0.0/lib/anime.umd.js"></script>
     <script src="assets/js/hero-anime.js"></script>
+    <script type="module" src="assets/js/preloader-thinking-orb.js"></script>
+    <script type="module" src="assets/js/navbar-thinking-orb.js"></script>
     <script type="module" src="assets/js/hero-thinking-orb.js"></script>
     <script type="module" src="assets/js/institutions-orb.js"></script>
     <script type="module" src="assets/js/scroll-story-orbs.js"></script>
