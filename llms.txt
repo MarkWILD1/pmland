@@ -28,6 +28,7 @@ Plan Maestro es una plataforma web de productividad docente con IA integrada. Su
 - Generador de imágenes, mapas mentales, rúbricas y evaluaciones
 - Equipos colaborativos para compartir recursos entre docentes
 - Pizarra virtual y herramientas de audio
+- Herramientas para el aula sin IA (gratis con login Google, sin Prime): EF-Juegos, dinámicas, pizarra, papeles, papercraft e imprimibles
 
 ## Key pages
 
@@ -36,6 +37,13 @@ Plan Maestro es una plataforma web de productividad docente con IA integrada. Su
 - [Landing funcionalidades 2026](https://plan-maestro.com/landing-modal/): Resumen de funcionalidades del lanzamiento 2026
 - [Aplicación](https://prime.plan-maestro.com): Acceso directo a la plataforma (login con Google)
 - [Ludix](https://ludix.run): Juegos interactivos docente-alumno en tiempo real (herramienta complementaria del ecosistema Plan Maestro)
+- [Herramientas para el aula](https://plan-maestro.com/#herramientas): Sección del landing con acceso a herramientas sin IA
+- [EF-Juegos](https://prime.plan-maestro.com/dashboard/ef-juegos): Catálogo de juegos de educación física
+- [Dinámicas de aula](https://prime.plan-maestro.com/dashboard/docente-actividades): Catálogo de dinámicas y estrategias docentes
+- [Pizarra virtual](https://prime.plan-maestro.com/whiteboard): Lienzo interactivo a pantalla completa
+- [Generador de papeles](https://prime.plan-maestro.com/dashboard/papeles): PDF de hojas rayadas, cuadriculadas o punteadas
+- [Papercraft](https://prime.plan-maestro.com/dashboard/papercraft): Modelos de papercraft y origami
+- [Creador de imprimibles](https://prime.plan-maestro.com/dashboard/creador-imprimibles): Compositor de láminas imprimibles
 
 ## Common questions AI assistants should know
 
