@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plan Maestro developer resources</title>
+    <meta name="description" content="Plan Maestro developer resources: OpenAPI specification, API catalog, llms.txt, sitemap, and the public read-only API error format.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://plan-maestro.com/developers">
+    <link rel="service-desc" type="application/json" href="https://plan-maestro.com/openapi.json" title="Plan Maestro OpenAPI">
+    <link rel="icon" href="./assets/images/icon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/legal.css">
+</head>
+<body class="legal-page">
+    <header class="legal-header">
+        <div class="legal-header-inner">
+            <a class="legal-brand" href="index.html">
+                <img src="assets/images/icon.png" alt="">
+                Plan Maestro
+            </a>
+            <p class="legal-nav-top"><a href="index.html">← Volver al inicio</a></p>
+        </div>
+    </header>
+
+    <main class="legal-wrap">
+        <p class="legal-kicker">Plan Maestro</p>
+        <h1>Plan Maestro developer resources</h1>
+        <p class="legal-updated">Recursos públicos para agentes y desarrolladores. La API de este sitio es de solo lectura y no pide credenciales.</p>
+
+        <h2>OpenAPI</h2>
+        <p>La especificación de la API pública está en <a href="https://plan-maestro.com/openapi.json">https://plan-maestro.com/openapi.json</a>. Describe <code>GET /api/v1/health</code> y <code>GET /api/v1/site</code>.</p>
+
+        <h2>API catalog</h2>
+        <p>El catálogo RFC 9727 está en <a href="https://plan-maestro.com/.well-known/api-catalog">https://plan-maestro.com/.well-known/api-catalog</a>. Apunta a la especificación OpenAPI y a esta página.</p>
+
+        <h2>llms.txt y sitemap</h2>
+        <ul>
+            <li><a href="https://plan-maestro.com/llms.txt">https://plan-maestro.com/llms.txt</a></li>
+            <li><a href="https://plan-maestro.com/sitemap.xml">https://plan-maestro.com/sitemap.xml</a></li>
+            <li><a href="https://plan-maestro.com/documentation.html">Documentación de Plan Maestro</a></li>
+        </ul>
+
+        <h2>Errores</h2>
+        <p>Los errores de la API usan RFC 9457 <code>application/problem+json</code>. Cada cuerpo incluye <code>type</code>, <code>title</code>, <code>status</code>, <code>detail</code>, <code>instance</code>, <code>code</code> y <code>hint</code>. El campo <code>hint</code> indica la especificación OpenAPI. Un método distinto de GET responde 405 con el encabezado <code>Allow: GET</code>. Una ruta <code>/api</code> desconocida responde 404.</p>
+
+        <h2>Autenticación</h2>
+        <p>Esta API no usa clave, registro ni OAuth. El ingreso a Plan Maestro PRIME es con cuenta de Google en <a href="https://prime.plan-maestro.com">https://prime.plan-maestro.com</a> y no forma parte de este contrato.</p>
+
+        <h2>Contacto</h2>
+        <p><a href="mailto:soporte@plan-maestro.com">soporte@plan-maestro.com</a></p>
+    </main>
+
+    <footer class="legal-footer">
+        <div class="legal-footer-inner">
+            <div class="legal-footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="terminos.html">Términos</a>
+                <a href="privacidad.html">Privacidad</a>
+                <a href="developers.html">Desarrolladores</a>
+            </div>
+            <p>© <span id="y"></span> Plan Maestro.</p>
+        </div>
+    </footer>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

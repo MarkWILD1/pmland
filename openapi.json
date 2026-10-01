@@ -1,0 +1,136 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Plan Maestro public API",
+    "version": "1.0.0",
+    "description": "Read-only discovery API for plan-maestro.com. The teaching application at https://prime.plan-maestro.com is not part of this contract. Paths under /api/v1 are stable. A deprecation is signaled with an RFC 8594 Sunset header at least 90 days ahead. Unknown /api paths return HTTP 404 and application/problem+json. This API requires no authentication."
+  },
+  "servers": [
+    {
+      "url": "https://plan-maestro.com"
+    }
+  ],
+  "security": [],
+  "paths": {
+    "/api/v1/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Liveness of the public Plan Maestro site API",
+        "description": "Returns whether the public read-only API on plan-maestro.com is responding. It does not check Plan Maestro PRIME.",
+        "responses": {
+          "200": {
+            "description": "The public API is up.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          },
+          "405": {
+            "$ref": "#/components/responses/MethodNotAllowed"
+          }
+        }
+      }
+    },
+    "/api/v1/site": {
+      "get": {
+        "operationId": "getSite",
+        "summary": "Public identity and discovery URLs for Plan Maestro",
+        "description": "Returns the product name and the public URLs an agent needs next: the app, documentation, developer resources, llms.txt, and the OpenAPI document.",
+        "responses": {
+          "200": {
+            "description": "Public site facts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Site"
+                }
+              }
+            }
+          },
+          "405": {
+            "$ref": "#/components/responses/MethodNotAllowed"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Health": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status", "service"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "ok"
+          },
+          "service": {
+            "type": "string",
+            "const": "plan-maestro"
+          }
+        }
+      },
+      "Site": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "url", "appUrl", "docsUrl", "developersUrl", "llmsTxt", "openapi", "language"],
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "appUrl": { "type": "string", "format": "uri" },
+          "docsUrl": { "type": "string", "format": "uri" },
+          "developersUrl": { "type": "string", "format": "uri" },
+          "llmsTxt": { "type": "string", "format": "uri" },
+          "openapi": { "type": "string", "format": "uri" },
+          "language": { "type": "string" }
+        }
+      },
+      "Problem": {
+        "type": "object",
+        "description": "RFC 9457 problem details. hint tells the agent where to look next.",
+        "required": ["type", "title", "status", "detail", "code", "hint"],
+        "properties": {
+          "type": { "type": "string", "format": "uri" },
+          "title": { "type": "string" },
+          "status": { "type": "integer" },
+          "detail": { "type": "string" },
+          "instance": { "type": "string" },
+          "code": { "type": "string" },
+          "hint": { "type": "string" }
+        }
+      }
+    },
+    "responses": {
+      "MethodNotAllowed": {
+        "description": "The HTTP method is not allowed on this endpoint.",
+        "headers": {
+          "Allow": {
+            "description": "Methods the endpoint accepts.",
+            "schema": { "type": "string", "const": "GET" }
+          }
+        },
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "No API resource exists at the requested path.",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
+          }
+        }
+      }
+    }
+  }
+}

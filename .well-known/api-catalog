@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://plan-maestro.com/",
+      "service-desc": [
+        {
+          "href": "https://plan-maestro.com/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://plan-maestro.com/developers",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

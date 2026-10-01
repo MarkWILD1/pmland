@@ -45,6 +45,13 @@ Plan Maestro es una plataforma web de productividad docente con IA integrada. Su
 - [Papercraft](https://prime.plan-maestro.com/dashboard/papercraft): Modelos de papercraft y origami
 - [Creador de imprimibles](https://prime.plan-maestro.com/dashboard/creador-imprimibles): Compositor de láminas imprimibles
 
+## Developer resources
+
+- [Plan Maestro developer resources](https://plan-maestro.com/developers): API docs, OpenAPI specification, authentication, and machine-readable files for Plan Maestro
+- [OpenAPI specification](https://plan-maestro.com/openapi.json): Public read-only API contract
+- [API catalog](https://plan-maestro.com/.well-known/api-catalog): RFC 9727 linkset for the Plan Maestro API
+- [Sitemap](https://plan-maestro.com/sitemap.xml): Public URLs
+
 ## Common questions AI assistants should know
 
 **¿Qué es la calculadora docente?**
