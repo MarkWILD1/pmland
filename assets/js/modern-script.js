@@ -33,6 +33,111 @@ document.addEventListener('DOMContentLoaded', function() {
         const words = wordsStr.split(',').map(w => w.trim()).filter(Boolean);
         if (words.length === 0) return;
 
+        if (el.hasAttribute('data-typed-subtle')) {
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const glyphs = 'abcdefghijklmnñopqrstuvwxyzáéíóú';
+            const probe = document.createElement('span');
+            probe.className = 'hero-typed-accent';
+            probe.style.position = 'absolute';
+            probe.style.visibility = 'hidden';
+            probe.style.whiteSpace = 'nowrap';
+            probe.style.minWidth = '0';
+            el.parentElement.appendChild(probe);
+            let widest = 0;
+            words.forEach((word) => {
+                probe.textContent = word;
+                widest = Math.max(widest, probe.offsetWidth);
+            });
+            const cellH = probe.offsetHeight || parseFloat(getComputedStyle(el).fontSize) * 1.15;
+            probe.remove();
+            el.style.minWidth = widest + 'px';
+            el.style.textAlign = 'left';
+            el.classList.add('hero-reels');
+            el.style.setProperty('--reel-cell', cellH + 'px');
+            if (reduced || typeof gsap === 'undefined') {
+                el.textContent = words[0];
+                return;
+            }
+
+            const randomGlyph = () => glyphs[Math.floor(Math.random() * glyphs.length)];
+            const measure = (text) => {
+                probe.textContent = text || 'm';
+                if (!probe.parentElement) el.parentElement.appendChild(probe);
+                const width = probe.offsetWidth || cellH * 0.6;
+                return width;
+            };
+
+            let wordIndex = 0;
+            let shown = '';
+            const blank = '\u00a0';
+            const show = (word, spin) => {
+                el.setAttribute('aria-label', word);
+                const previous = Array.from(shown);
+                const next = Array.from(word);
+                const count = spin ? Math.max(previous.length, next.length) : next.length;
+                const reels = [];
+                for (let index = 0; index < count; index += 1) {
+                    const fromChar = previous[index] || blank;
+                    const letter = next[index] || blank;
+                    const reel = document.createElement('span');
+                    reel.className = 'hero-reel';
+                    reel.setAttribute('aria-hidden', 'true');
+                    const startW = letter === blank && fromChar === blank ? 0 : measure(fromChar === blank ? letter : fromChar);
+                    const endW = letter === blank ? 0 : measure(letter);
+                    reel.style.width = (spin ? startW : endW) + 'px';
+                    const strip = document.createElement('span');
+                    strip.className = 'hero-reel-strip';
+                    const down = index % 2 === 0;
+                    const same = spin && fromChar === letter;
+                    const steps = spin && !same ? 12 : 1;
+                    const chars = [];
+                    if (!spin || same) {
+                        chars.push(letter);
+                    } else if (down) {
+                        chars.push(fromChar);
+                        for (let i = 0; i < steps - 2; i += 1) chars.push(randomGlyph());
+                        chars.push(letter);
+                    } else {
+                        chars.push(letter);
+                        for (let i = 0; i < steps - 2; i += 1) chars.push(randomGlyph());
+                        chars.push(fromChar);
+                    }
+                    chars.forEach((char) => {
+                        const cell = document.createElement('span');
+                        cell.textContent = char;
+                        strip.appendChild(cell);
+                    });
+                    reel.appendChild(strip);
+                    const from = spin && !same && !down ? -(chars.length - 1) * cellH : 0;
+                    const to = spin && !same && down ? -(chars.length - 1) * cellH : 0;
+                    strip.style.transform = `translateY(${from}px)`;
+                    if (spin && !same) {
+                        const distance = to - from;
+                        const delay = index * 0.04;
+                        gsap.timeline({ delay })
+                            .to(strip, { y: from + distance * 0.7, duration: 0.38, ease: 'power2.in' })
+                            .to(strip, { y: to, duration: 1.55, ease: 'power3.out' });
+                        if (startW !== endW) {
+                            gsap.to(reel, { width: endW, duration: 1.93, delay, ease: 'power2.inOut' });
+                        }
+                    }
+                    reels.push(reel);
+                }
+                probe.remove();
+                el.replaceChildren(...reels);
+                shown = word;
+            };
+
+            show(words[0], false);
+            const cycle = () => {
+                wordIndex = (wordIndex + 1) % words.length;
+                show(words[wordIndex], true);
+                window.setTimeout(cycle, 5600);
+            };
+            window.setTimeout(cycle, 3200);
+            return;
+        }
+
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;

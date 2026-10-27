@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Export orbe armado</title>
+</head>
+<body style="margin:0;background:#1e2936;display:grid;place-items:center;min-height:100vh;">
+  <canvas id="preview" width="320" height="320" style="width:320px;height:320px;"></canvas>
+  <script type="module">
+    import { MODE_DRAWS, resolvePreset } from 'https://esm.sh/thinking-orbs@0.2.0';
+
+    const FRAME_T = 0.6;
+    const { mode, opts } = resolvePreset('solving', 64);
+    const draw = MODE_DRAWS[mode];
+
+    const parseFill = (fillStyle) => {
+      const s = String(fillStyle).trim();
+      const hexMatch = s.match(/^#([0-9a-f]{3,8})$/i);
+      if (hexMatch) {
+        let h = hexMatch[1];
+        if (h.length === 3 || h.length === 4) h = [...h].map((c) => c + c).join('');
+        const r = parseInt(h.slice(0, 2), 16);
+        const g = parseInt(h.slice(2, 4), 16);
+        const b = parseInt(h.slice(4, 6), 16);
+        const a = h.length >= 8 ? parseInt(h.slice(6, 8), 16) / 255 : 1;
+        const hex = `#${[r, g, b].map((n) => n.toString(16).padStart(2, '0')).join('')}`;
+        return { fill: hex, opacity: a };
+      }
+      const m = s.match(/rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)/i);
+      if (!m) return { fill: '#ffffff', opacity: 1 };
+      const r = Math.round(Number(m[1]));
+      const g = Math.round(Number(m[2]));
+      const b = Math.round(Number(m[3]));
+      const a = m[4] == null ? 1 : Number(m[4]);
+      const hex = `#${[r, g, b].map((n) => n.toString(16).padStart(2, '0')).join('')}`;
+      return { fill: hex, opacity: a };
+    };
+
+    const captureDots = (sizeCss) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = sizeCss;
+      canvas.height = sizeCss;
+      const ctx = canvas.getContext('2d', { alpha: true });
+      const dots = [];
+      let pending = null;
+      const origArc = ctx.arc.bind(ctx);
+      const origFill = ctx.fill.bind(ctx);
+      ctx.arc = function (x, y, r, start, end, ccw) {
+        pending = { x, y, r };
+        return origArc(x, y, r, start, end, ccw);
+      };
+      ctx.fill = function (...args) {
+        if (pending) {
+          const parsed = parseFill(ctx.fillStyle);
+          dots.push({
+            x: pending.x,
+            y: pending.y,
+            r: pending.r,
+            fill: parsed.fill,
+            opacity: parsed.opacity * (typeof ctx.globalAlpha === 'number' ? ctx.globalAlpha : 1),
+          });
+          pending = null;
+        }
+        return origFill(...args);
+      };
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, sizeCss, sizeCss);
+      draw(ctx, sizeCss, FRAME_T, true, opts);
+      return { canvas, dots };
+    };
+
+    const makePng = (sizeCss, dpr) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(sizeCss * dpr);
+      canvas.height = Math.round(sizeCss * dpr);
+      const ctx = canvas.getContext('2d', { alpha: true });
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, sizeCss, sizeCss);
+      draw(ctx, sizeCss, FRAME_T, true, opts);
+      return canvas;
+    };
+
+    const makeSvg = (sizeCss, dots, padRatio = 0.06) => {
+      const visible = dots.filter((d) => d.r > 0 && d.opacity > 0.02);
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      for (const d of visible) {
+        minX = Math.min(minX, d.x - d.r);
+        minY = Math.min(minY, d.y - d.r);
+        maxX = Math.max(maxX, d.x + d.r);
+        maxY = Math.max(maxY, d.y + d.r);
+      }
+      const pad = Math.max(maxX - minX, maxY - minY) * padRatio;
+      minX -= pad; minY -= pad; maxX += pad; maxY += pad;
+      const w = maxX - minX;
+      const h = maxY - minY;
+      const side = Math.max(w, h);
+      const ox = minX - (side - w) / 2;
+      const oy = minY - (side - h) / 2;
+      const fmt = (n) => Number(n.toFixed(3));
+      const circles = visible.map((d) => {
+        const op = d.opacity >= 0.995 ? '' : ` fill-opacity="${fmt(d.opacity)}"`;
+        return `<circle cx="${fmt(d.x)}" cy="${fmt(d.y)}" r="${fmt(Math.max(d.r, 0.2))}" fill="${d.fill}"${op}/>`;
+      }).join('\n  ');
+      return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="${fmt(ox)} ${fmt(oy)} ${fmt(side)} ${fmt(side)}" width="${fmt(side)}" height="${fmt(side)}" role="img" aria-label="Plan Maestro orb">
+  ${circles}
+</svg>
+`;
+    };
+
+    const preview = document.getElementById('preview');
+    const pctx = preview.getContext('2d');
+    pctx.clearRect(0, 0, 320, 320);
+    draw(pctx, 320, FRAME_T, true, opts);
+
+    const { dots } = captureDots(1024);
+    const svg = makeSvg(1024, dots);
+    const png = makePng(1024, 4);
+
+    window.__orbReady = true;
+    window.__orbSvg = svg;
+    window.__orbDotCount = dots.length;
+    window.__orbPngCanvas = png;
+    window.__getPngDataUrl = () => png.toDataURL('image/png');
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "input": "d:\\pm-land\\pmland\\assets\\images\\brain.png",
+  "sha256": "b20006b2e68a7c2905ffb982923ee52554bde40a7a02ba55766ad8ec9dab9468",
+  "width": 360,
+  "height": 360,
+  "mask": "alpha",
+  "background": null,
+  "inkRatio": 0.3461,
+  "crop": {
+    "x": 34,
+    "y": 61,
+    "w": 286,
+    "h": 255
+  },
+  "tone": true,
+  "target": 560,
+  "pitch": 1,
+  "longCss": 316.5,
+  "dots": 4188,
+  "contour": 311,
+  "fill": 3877,
+  "recall": 0.9998,
+  "precision": 1,
+  "attempts": [
+    {
+      "pass": 0,
+      "contourPitch": 2.35,
+      "fillPitch": 4,
+      "contour": 311,
+      "fill": 3877,
+      "dots": 4188,
+      "recall": 0.9998,
+      "precision": 1,
+      "capped": false
+    }
+  ],
+  "warnings": [
+    "El PNG recortado mide menos de 512 px en el lado largo. Un export más grande conserva mejor los trazos finos."
+  ],
+  "files": {
+    "component": "d:\\pm-land\\pmland\\tools\\brain-orb\\BrainOrb.jsx",
+    "points": "d:\\pm-land\\pmland\\tools\\brain-orb\\brain-orb.points.json",
+    "preview": "d:\\pm-land\\pmland\\tools\\brain-orb\\brain-orb.preview.png",
+    "report": "d:\\pm-land\\pmland\\tools\\brain-orb\\report.json"
+  }
+}

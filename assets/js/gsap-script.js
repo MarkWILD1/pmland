@@ -183,21 +183,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    // Ecosystem Cards Stagger
-    gsap.set(".ecosystem-card", { opacity: 0, y: 50 }); // Ensure initial state is hidden
-    
-    gsap.to(".ecosystem-card", {
-        scrollTrigger: {
-            trigger: ".ecosystem-section",
-            start: "top 75%", // Trigger slightly earlier
-            toggleActions: "play none none reverse"
-        },
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out"
-    });
+    // Ecosystem Cards Stagger (la sección nueva no usa estas cards)
+    if (document.querySelector(".ecosystem-section")) {
+        gsap.set(".ecosystem-card", { opacity: 0, y: 50 });
+        gsap.to(".ecosystem-card", {
+            scrollTrigger: {
+                trigger: ".ecosystem-section",
+                start: "top 75%",
+                toggleActions: "play none none reverse"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out"
+        });
+    }
 
     // Subtle parallax for hero composing orb (Desktop only)
     if (window.innerWidth > 768) {

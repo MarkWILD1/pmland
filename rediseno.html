@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan Maestro — Rediseño | Calculadora del pensamiento docente</title>
+<meta name="description" content="Plan Maestro: tu maestro virtual con IA para docentes de Uruguay. Planificá con placer, en tiempo récord, con base ANEP 2026.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="./assets/images/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+
+:root {
+  --color-void: #000000;
+  --color-bone-white: #ffffff;
+  --color-ash-gray: #9a9a9a;
+  --color-silver-mist: #bdbdbd;
+  --color-electric-iris: #8052ff;
+  --color-saffron-spark: #ffb829;
+  --color-deep-verdant: #15846e;
+
+  --font: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --text-caption: 12px;
+  --text-nav-label: 14px;
+  --text-body: 18px;
+  --text-heading-2xs: 24px;
+  --text-heading-xs: 27px;
+  --text-subheading: 36px;
+  --text-heading-sm: 42px;
+  --text-heading: 48px;
+  --text-heading-lg: 78px;
+  --text-display: 113px;
+
+  --font-weight-extralight: 200;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+
+  --spacing-6: 6px;
+  --spacing-12: 12px;
+  --spacing-18: 18px;
+  --spacing-24: 24px;
+  --spacing-30: 30px;
+  --spacing-36: 36px;
+  --spacing-60: 60px;
+  --spacing-96: 96px;
+  --spacing-120: 120px;
+
+  --page-max-width: 1280px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+  --radius-buttons: 24px;
+  --radius-cards: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: var(--color-void);
+  color: var(--color-bone-white);
+  font-family: var(--font);
+  font-weight: var(--font-weight-extralight);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+
+.wrap {
+  width: min(100% - 48px, var(--page-max-width));
+  margin-inline: auto;
+}
+
+/* —— Nav —— */
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  background: transparent;
+  padding: 18px 0;
+}
+.site-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-left: auto;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-bone-white);
+}
+.brand-orb {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  line-height: 0;
+  flex-shrink: 0;
+}
+.brand-orb canvas { display: block; }
+.brand-text {
+  font-size: 15px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-size: var(--text-nav-label);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  color: var(--color-ash-gray);
+  transition: color 0.2s ease;
+}
+.nav-links a:hover { color: var(--color-bone-white); }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--color-bone-white);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-electric-iris);
+  color: var(--color-bone-white);
+  font-size: var(--text-nav-label);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  padding: 14.4px 16px;
+  border-radius: 22.5px;
+  border: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+.btn-pill:hover { opacity: 0.92; transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  color: var(--color-bone-white);
+  font-size: var(--text-nav-label);
+  font-weight: var(--font-weight-regular);
+  padding: 14px 8px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255,255,255,0.35);
+}
+.btn-ghost:hover { text-decoration-color: var(--color-saffron-spark); color: var(--color-saffron-spark); }
+
+/* —— Typography helpers —— */
+.label-amber {
+  display: block;
+  font-size: var(--text-nav-label);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+  color: var(--color-saffron-spark);
+  margin-bottom: var(--spacing-18);
+}
+.display {
+  font-size: clamp(48px, 8vw, var(--text-display));
+  font-weight: var(--font-weight-regular);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 0 0 var(--spacing-30);
+  color: var(--color-bone-white);
+}
+.heading-lg {
+  font-size: clamp(42px, 6vw, var(--text-heading-lg));
+  font-weight: var(--font-weight-regular);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 0 0 var(--spacing-24);
+  color: var(--color-bone-white);
+}
+.heading-sm {
+  font-size: clamp(28px, 4vw, var(--text-heading-sm));
+  font-weight: var(--font-weight-regular);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  margin: 0 0 var(--spacing-18);
+}
+.body-light {
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-extralight);
+  line-height: 1.5;
+  color: var(--color-bone-white);
+  max-width: 480px;
+  margin: 0;
+}
+.body-muted {
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-extralight);
+  line-height: 1.5;
+  color: var(--color-silver-mist);
+  max-width: 520px;
+  margin: 0;
+}
+
+/* —— Ambient particles —— */
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.ambient span {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid var(--p);
+  opacity: 0.35;
+  animation: drift 18s linear infinite;
+}
+@keyframes drift {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+  50% { opacity: 0.45; }
+  100% { transform: translateY(-40px) rotate(180deg); opacity: 0.15; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ambient span { animation: none; }
+}
+
+.page > *:not(.ambient):not(#particle-stage) { position: relative; z-index: 1; }
+
+#particle-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+#particle-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* —— Story sections (Dala scroll morph) —— */
+.story {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0;
+  position: relative;
+  z-index: 1;
+}
+.story-copy {
+  max-width: 480px;
+}
+.story-copy.left { margin-right: auto; }
+.story-copy.right { margin-left: auto; }
+.story-copy.center {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 640px;
+}
+.story-copy .display,
+.story-copy .heading-lg {
+  margin-bottom: var(--spacing-30);
+}
+.story-copy .label-amber {
+  margin-bottom: var(--spacing-18);
+}
+.story-copy .body-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-18);
+}
+.story-copy .body-stack p,
+.story-copy .body-light {
+  margin: 0;
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-extralight);
+  line-height: 1.5;
+  color: var(--color-bone-white);
+}
+.story-copy.center .body-stack p {
+  color: var(--color-silver-mist);
+}
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-18);
+  margin-top: var(--spacing-36);
+}
+.hero-trust {
+  margin-top: var(--spacing-18);
+  font-size: 15px;
+  font-weight: var(--font-weight-extralight);
+  color: var(--color-ash-gray);
+}
+.story-copy .display,
+.story-copy .heading-lg,
+.story-copy .body-stack p,
+.story-copy .body-light,
+.story-copy .label-amber {
+  text-shadow: 0 0 24px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.7);
+}
+
+/* —— Sections —— */
+.section {
+  padding: var(--spacing-120) 0;
+}
+.section-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--spacing-60);
+  align-items: start;
+}
+.section-split.reverse { grid-template-columns: 0.9fr 1.1fr; }
+.section-split.reverse .copy { order: 2; }
+.section-split.reverse .visual { order: 1; }
+.pill-list {
+  list-style: none;
+  margin: var(--spacing-36) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-18);
+}
+.pill-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 15px;
+  font-weight: var(--font-weight-extralight);
+  color: var(--color-silver-mist);
+  line-height: 1.45;
+}
+.pill-list .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-electric-iris);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* —— Features —— */
+.features-intro {
+  margin-bottom: var(--spacing-60);
+  max-width: 720px;
+}
+#lanzamiento2026 .detailed-features-container {
+  position: relative;
+  z-index: 2;
+  padding: 0;
+}
+
+#lanzamiento2026 .features-stack.features-motion-slider {
+  --preview-w: 180px;
+  --preview-h: 260px;
+  --preview-gap: 20px;
+  --preview-start: 52%;
+  position: relative;
+  width: 100%;
+  height: min(72vh, 640px);
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: var(--radius-cards);
+  background: #050505;
+  padding-bottom: 0;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section {
+  --card-accent: 128, 82, 255;
+  position: absolute;
+  top: 50%;
+  width: var(--preview-w);
+  height: var(--preview-h);
+  transform: translateY(-50%);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #000 !important;
+  box-shadow: none;
+  transition:
+    left 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
+    top 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
+    width 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
+    height 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-radius 0.55s ease,
+    opacity 0.45s ease;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#lanzamiento2026 .features-motion-slider .slide-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #000;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 85% 0%, rgba(var(--card-accent), 0.22), transparent 55%),
+    linear-gradient(160deg, #000 0%, #0a0a0a 55%, #000 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section.has-slide-bg::before {
+  background: linear-gradient(
+    100deg,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.78) 34%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.08) 72%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section.has-slide-bg:nth-child(n + 3)::before {
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%);
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section.has-slide-bg:nth-child(2) .detailed-feature-image {
+  display: block;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section.has-slide-bg:nth-child(2) .feature-visual {
+  width: fit-content;
+  max-width: 100%;
+  padding: 14px 18px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section.has-slide-bg:nth-child(n + 3) .detailed-feature-content {
+  display: block;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section.has-slide-bg:nth-child(n + 3) .feature-visual {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section > :not(.slide-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(1),
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(2) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  border-radius: 0;
+  border: none !important;
+  cursor: default;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(1) { z-index: 1; }
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(2) { z-index: 2; }
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(3) {
+  left: var(--preview-start); z-index: 4;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(4) {
+  left: calc(var(--preview-start) + var(--preview-w) + var(--preview-gap)); z-index: 4;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(5) {
+  left: calc(var(--preview-start) + (var(--preview-w) + var(--preview-gap)) * 2); z-index: 4;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 6) {
+  left: calc(var(--preview-start) + (var(--preview-w) + var(--preview-gap)) * 3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:hover {
+  transform: translateY(-50%);
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(1):hover,
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(2):hover {
+  transform: none;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3):hover {
+  transform: translateY(-50%) scale(1.04);
+  border-color: rgba(var(--card-accent), 0.55) !important;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section .detailed-section-header,
+#lanzamiento2026 .features-motion-slider .detailed-feature-section .detailed-feature-content {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(2) .detailed-section-header,
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(2) .detailed-feature-content {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(2) .detailed-feature-content {
+  animation: features-slider-show 0.75s ease-in-out 0.15s both;
+}
+@keyframes features-slider-show {
+  0% { opacity: 0; filter: blur(6px); transform: translateY(40px); }
+  100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3) .detailed-section-header { display: none; }
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3) .detailed-feature-content {
+  opacity: 1; visibility: visible; padding: 0; height: 100%; display: block;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3) .detailed-feature-list { display: none; }
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3) .detailed-feature-image { height: 100%; }
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3) .feature-visual {
+  height: 100%; min-height: 0; border-radius: 0; border: none; box-shadow: none; padding: 16px; gap: 10px;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3) .feature-visual-orb,
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3) .feature-visual-orb canvas {
+  width: 56px; height: 56px;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3) .feature-visual h4 {
+  font-size: 0.85rem; line-height: 1.25; padding: 0 4px; font-weight: 400;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(1) .detailed-section-header,
+#lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(1) .detailed-feature-content {
+  display: none;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-section-header {
+  background: transparent; border-bottom: none; padding: 2rem 2rem 0.5rem; max-width: min(520px, 48%);
+}
+#lanzamiento2026 .features-motion-slider .detailed-section-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff; margin-bottom: 12px; font-size: 1rem;
+}
+#lanzamiento2026 .features-motion-slider .detailed-section-info h3 {
+  margin: 0; color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: none !important;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+#lanzamiento2026 .features-motion-slider .detailed-section-info p { display: none; }
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-content {
+  padding: 1rem 2rem 5.5rem;
+  max-width: min(560px, 50%);
+  display: flex; flex-direction: column; gap: 1.25rem; align-items: stretch;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-image { order: -1; }
+
+#lanzamiento2026 .features-motion-slider .feature-visual {
+  --fv-accent: 128, 82, 255;
+  min-height: 0; height: auto; border-radius: 16px; padding: 20px 24px;
+  display: flex; flex-direction: row; justify-content: flex-start; align-items: center;
+  text-align: left; gap: 16px; color: #fff;
+  background: rgba(128, 82, 255, 0.12);
+  border: 1px solid rgba(128, 82, 255, 0.28);
+  box-shadow: none;
+}
+#lanzamiento2026 .features-motion-slider .feature-visual-orb {
+  width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; line-height: 0;
+}
+#lanzamiento2026 .features-motion-slider .feature-visual-orb canvas {
+  display: block; width: 64px; height: 64px;
+}
+#lanzamiento2026 .features-motion-slider .feature-visual h4 {
+  color: #fff; margin: 0; font-size: 1.1rem; font-weight: 400;
+}
+
+#lanzamiento2026 .features-motion-slider .detailed-feature-list {
+  display: flex; flex-direction: column; gap: 0.85rem; margin: 0;
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 1rem 1.15rem;
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  color: var(--color-silver-mist);
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 1.4;
+  backdrop-filter: blur(8px);
+}
+#lanzamiento2026 .features-motion-slider .detailed-feature-item i {
+  color: var(--color-electric-iris);
+  margin-top: 2px;
+}
+#lanzamiento2026 .features-motion-slider .feature-list-toggle,
+#lanzamiento2026 .features-motion-slider .new-feature-badge { display: none !important; }
+
+#lanzamiento2026 .features-slider-nav {
+  position: absolute; left: 2rem; bottom: 1.5rem; z-index: 10; display: flex; gap: 0.75rem;
+}
+#lanzamiento2026 .features-slider-btn {
+  width: 48px; height: 48px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+#lanzamiento2026 .features-slider-btn:hover {
+  background: rgba(128, 82, 255, 0.35);
+  border-color: rgba(128, 82, 255, 0.7);
+  transform: scale(1.05);
+}
+#lanzamiento2026 .features-slider-btn:focus-visible {
+  outline: 2px solid var(--color-electric-iris);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section { transition: none; }
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(2) .detailed-feature-content { animation: none; }
+}
+
+@media (max-width: 1199px) {
+  #lanzamiento2026 .features-stack.features-motion-slider {
+    --preview-w: 150px; --preview-h: 220px; --preview-gap: 14px; --preview-start: 55%;
+  }
+  #lanzamiento2026 .features-motion-slider .detailed-section-header,
+  #lanzamiento2026 .features-motion-slider .detailed-feature-content {
+    max-width: min(480px, 52%);
+  }
+}
+
+@media (max-width: 991px) {
+  #lanzamiento2026 .features-stack.features-motion-slider {
+    --preview-w: 92px; --preview-h: 128px; --preview-gap: 8px; --preview-start: auto;
+    --nav-h: 56px;
+    --preview-rail: calc(var(--preview-h) + var(--nav-h) + 0.85rem);
+    height: auto; min-height: 0;
+  }
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(1),
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(2) {
+    position: relative; height: auto; min-height: 420px;
+  }
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(1) {
+    position: absolute; inset: 0; height: 100%;
+  }
+  #lanzamiento2026 .features-motion-slider .detailed-section-header,
+  #lanzamiento2026 .features-motion-slider .detailed-feature-content {
+    max-width: 100%;
+  }
+  #lanzamiento2026 .features-motion-slider .detailed-feature-content {
+    padding: 1rem 1.25rem calc(var(--preview-rail) + 1rem);
+  }
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(3),
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(4),
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(5) {
+    top: auto; bottom: calc(var(--nav-h) + 0.35rem);
+    transform: none;
+  }
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(3) { right: calc((var(--preview-w) + var(--preview-gap)) * 2 + 12px); left: auto; }
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(4) { right: calc(var(--preview-w) + var(--preview-gap) + 12px); left: auto; }
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(5) { right: 12px; left: auto; }
+  #lanzamiento2026 .features-motion-slider .detailed-feature-section:nth-child(n + 3):hover { transform: scale(1.04); }
+  #lanzamiento2026 .features-slider-nav {
+    left: 50%; bottom: 0.5rem; transform: translateX(-50%);
+  }
+}
+
+/* —— CTA —— */
+.cta-block {
+  text-align: left;
+  padding: var(--spacing-96) 0;
+}
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-18);
+  margin-top: var(--spacing-36);
+  align-items: center;
+}
+
+/* —— FAQ —— */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-36);
+  margin-top: var(--spacing-60);
+}
+.faq-item details {
+  border: 0;
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--text-heading-2xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+  color: var(--color-bone-white);
+  padding: 0;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  float: right;
+  color: var(--color-electric-iris);
+  font-weight: 400;
+}
+.faq-item details[open] summary::after { content: '−'; }
+.faq-item p {
+  margin: var(--spacing-18) 0 0;
+  font-size: 16px;
+  font-weight: var(--font-weight-extralight);
+  color: var(--color-silver-mist);
+  max-width: 640px;
+  line-height: 1.55;
+}
+
+/* —— Footer —— */
+.site-footer {
+  padding: var(--spacing-96) 0 var(--spacing-60);
+  border-top: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--spacing-60);
+  margin-bottom: var(--spacing-60);
+}
+.footer-meta {
+  font-size: 14px;
+  font-weight: var(--font-weight-extralight);
+  color: var(--color-ash-gray);
+  line-height: 1.6;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  margin-top: var(--spacing-24);
+}
+.footer-links a {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-ash-gray);
+}
+.footer-links a:hover { color: var(--color-saffron-spark); }
+.footer-legal {
+  font-size: 12px;
+  color: var(--color-ash-gray);
+  font-weight: 200;
+  line-height: 1.5;
+  max-width: 720px;
+}
+
+/* —— Responsive —— */
+@media (max-width: 991px) {
+  .hero { padding: 110px 0 60px; min-height: auto; }
+  .hero-grid,
+  .spark-grid,
+  .section-split,
+  .section-split.reverse,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-split.reverse .copy,
+  .section-split.reverse .visual { order: initial; }
+  .story-copy.left,
+  .story-copy.right {
+    margin: 0 auto;
+    max-width: 520px;
+  }
+  .story { min-height: 85vh; padding: 100px 0 80px; }
+  .nav-links, .nav-cta, .nav-right { display: none; }
+  .site-nav.open .nav-right {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px; left: 24px; right: 24px;
+    background: #000;
+    padding: 24px;
+    gap: 18px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    align-items: stretch;
+  }
+  .site-nav.open .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: static;
+    border: 0;
+    padding: 0;
+    background: transparent;
+  }
+  .site-nav.open .nav-cta {
+    display: inline-flex;
+    position: static;
+    margin: 0;
+    justify-content: center;
+  }
+  .nav-toggle { display: inline-flex; }
+  .display { font-size: clamp(42px, 12vw, 64px); }
+  .section { padding: var(--spacing-96) 0; }
+}
+@media (max-width: 575px) {
+  .wrap { width: min(100% - 32px, var(--page-max-width)); }
+}
+
+</style>
+</head>
+<body class="page">
+  <div id="particle-stage" aria-hidden="true"></div>
+
+  <header class="site-nav" id="siteNav">
+    <div class="wrap site-nav-inner">
+      <a class="brand" href="#inicio" aria-label="Plan Maestro">
+        <span id="navbar-thinking-orb" class="brand-orb brand-thinking-orb" aria-hidden="true"></span>
+        <span class="brand-text">Plan Maestro</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Menú" id="navToggle">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#manifiesto">Manifiesto</a></li>
+          <li><a href="#lanzamiento2026">Funciones</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a class="btn-pill nav-cta" href="https://prime.plan-maestro.com" target="_blank" rel="noopener">Ingresar</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="story" data-shape="brain">
+      <div class="wrap">
+        <div class="story-copy left">
+          <h1 class="display">Desbloqueá sabiduría<br>colectiva.</h1>
+          <span class="label-amber">Dejá de gestionar papeles. Empezá a usarlos.</span>
+          <p class="body-light" style="margin-top:18px;">Conectate al conocimiento curricular compartido. Pedile a Plan Maestro que encuentre criterios, actividades y secuencias alineadas a ANEP 2026 — con contexto, convicción y claridad.</p>
+          <div class="hero-cta-row">
+            <a class="btn-pill" href="https://prime.plan-maestro.com" target="_blank" rel="noopener">Empezar ahora</a>
+          </div>
+          <p class="hero-trust">Acceso con Google · Inicial a Media en todo Uruguay</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="caos" class="story" data-shape="scatter">
+      <div class="wrap">
+        <div class="story-copy center">
+          <div class="body-stack">
+            <p>Así se siente planificar hoy: fragmentos de conocimiento críticos dispersos en carpetas, chats, PDFs y sistemas que no se hablan entre sí.</p>
+            <p>Gran parte del tiempo se va en buscar, organizar y rehacer lo que ya sabías — en vez de estar con tu clase.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="spark" class="story" data-shape="lamp">
+      <div class="wrap">
+        <div class="story-copy right">
+          <h2 class="heading-lg">Encendé momentos<br>de claridad.</h2>
+          <div class="body-stack">
+            <p>Plan Maestro es tu fuente inteligente de verdad docente: elimina la fricción de herramientas sueltas y la carga de planificar desde cero.</p>
+            <p>Conecta el currículo ANEP 2026 detrás de escena y junta exactamente el conocimiento que necesitás en una vista contextual, elegante y lista para usar.</p>
+            <p>Pedile la respuesta que avance tu clase — y decidí con más confianza, en minutos, no en días.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mundo" class="story" data-shape="earth">
+      <div class="wrap">
+        <div class="story-copy left">
+          <h2 class="heading-lg">Construí un mejor<br>mundo de aula.</h2>
+          <div class="body-stack">
+            <p>Nuestra misión es hacer el trabajo docente más coherente y disfrutable — pasar de “hacer más” a <span style="color:var(--color-saffron-spark)">ser mejor</span>.</p>
+            <p>Tus mejores momentos son cuando estás en flujo, estimulada intelectualmente y creando valor para tus estudiantes.</p>
+            <p>Queremos que eso pase cada vez que abrís Plan Maestro: una herramienta integrada a cómo pensás, sentís y enseñás.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="manifiesto" class="section" data-shape="brain">
+      <div class="wrap section-split">
+        <div class="copy">
+          <h2 class="heading-lg">Menos papeles.<br>Más clase.</h2>
+        </div>
+        <div class="visual">
+          <span class="label-amber">En pocas palabras</span>
+          <p class="body-muted">Plan Maestro trabaja para vos con base en documentación oficial de ANEP 2026. Sugerí planificaciones, secuencias, rúbricas e imágenes — vos validás con criterio profesional.</p>
+          <ul class="pill-list">
+            <li><span class="dot" aria-hidden="true"></span><span>Planificaciones, proyectos, secuencias y descripción fundada</span></li>
+            <li><span class="dot" aria-hidden="true"></span><span>Memoria que se adapta a tu nivel, materia e institución</span></li>
+            <li><span class="dot" aria-hidden="true"></span><span>Drive, Calendar, pizarra virtual y mapas mentales</span></li>
+            <li><span class="dot" aria-hidden="true"></span><span>De días de planificación a minutos</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="lanzamiento2026" class="section" data-shape="scatter">
+      <div class="wrap">
+        <div class="features-intro">
+          <span class="label-amber">Funcionalidades</span>
+          <h2 class="heading-lg">Pensadas para vos</h2>
+          <p class="body-muted">Explorá el stack: el slide activo llena el escenario; las previews a la derecha se expanden al siguiente.</p>
+        </div>
+        <div class="detailed-features-container">
+﻿            <div class="features-stack features-motion-slider" id="featuresMotionSlider" aria-roledescription="carousel" aria-label="Funcionalidades Plan Maestro">
+            <!-- Planificaciones con IA (Core) -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-01-planificaciones.jpg" style="--legacy-border: rgba(6, 182, 212, 0.25);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-01-planificaciones.jpg');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%);">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3>Planificaciones eficientes y creativas con IA</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 6,182,212;">
+                            <div class="feature-visual-orb" data-orb="solving" aria-hidden="true"></div>
+                            <h4>Planificador inteligente</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-database"></i>
+                            <span>Base de conocimientos con absolutamente TODA LA DOCUMENTACIÓN OFICIAL DE ANEP</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Atrapa al estudiante de forma CREATIVA y CAUTIVANTE!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mi Memoria -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-02-memoria.avif" style="--legacy-border: rgba(138, 43, 226, 0.3);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-02-memoria.avif');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Mi Memoria - IA que te Conoce</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 139,92,246;">
+                            <div class="feature-visual-orb" data-orb="breathing" aria-hidden="true"></div>
+                            <h4>Memoria híbrida inteligente</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Aprende tu perfil: recuerda nivel, materia e institución</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Mejora continua: cuanto más la usás, mejor te conoce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ChatGPT Integrado -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-03-inteligencia.jpg" style="--legacy-border: rgba(16, 185, 129, 0.25);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-03-inteligencia.jpg');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #10B981 0%, #22C55E 100%);">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3>Modelos de respuesta Ultra-rápidos</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 16,185,129;">
+                            <div class="feature-visual-orb" data-orb="composing" aria-hidden="true"></div>
+                            <h4>Respuesta optimizada</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Calidad de respuestas medidas acorde al contexto</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Inteligencia y precisión apuradas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de Control -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-04-velocidad.avif" style="--legacy-border: rgba(99, 102, 241, 0.25);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-04-velocidad.avif');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Panel de Control Integral</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 99,102,241;">
+                            <div class="feature-visual-orb" data-orb="working" aria-hidden="true"></div>
+                            <h4>Acceso rápido a todo</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Acceso fácil: gestioná todo desde un solo lugar</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-th-large"></i>
+                            <span>Navegación rápida entre todas las funcionalidades</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Organiza chats en carpetas -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-05-organizador.jpg" style="--legacy-border: rgba(99, 102, 241, 0.25);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-05-organizador.jpg');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+                        <i class="fas fa-folder-tree"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Organiza chats en carpetas</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 99,102,241;">
+                            <div class="feature-visual-orb" data-orb="shaping" aria-hidden="true"></div>
+                            <h4>Organizador Didáctico</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-folder-plus"></i>
+                            <span>Carpetas personalizadas según tu criterio</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-search"></i>
+                            <span>Búsqueda rápida en todo el historial</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generador de Imágenes -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-06-imagen.avif" style="--legacy-border: rgba(236, 72, 153, 0.25);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-06-imagen.avif');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #EC4899 0%, #F97316 100%);">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #EC4899 0%, #F97316 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Generador de Imágenes con IA</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 236,72,153;">
+                            <div class="feature-visual-orb" data-orb="weaving" aria-hidden="true"></div>
+                            <h4>Imágenes para tus clases</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Generá imágenes únicas a partir de una descripción</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-infinity"></i>
+                            <span>Sin límites de generación para tus materiales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gestor de Documentos -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-07-documentos.webp" style="--legacy-border: rgba(59, 130, 246, 0.25);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-07-documentos.webp');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);">
+                        <i class="fas fa-file-upload"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Gestor Inteligente de Documentos</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 59,130,246;">
+                            <div class="feature-visual-orb" data-orb="searching" aria-hidden="true"></div>
+                            <h4>Chateá con tus documentos</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fab fa-youtube"></i>
+                            <span>Transcribí videos de YouTube automáticamente</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Chat contextual con tus documentos y archivos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Drive -->
+            <div id="google-drive" class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-08-drive.avif" style="--legacy-border: rgba(66, 133, 244, 0.35);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-08-drive.avif');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);">
+                        <i class="fab fa-google-drive"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Conectá Google Drive</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 66,133,244;">
+                            <div class="feature-visual-orb" data-orb="connecting" aria-hidden="true"></div>
+                            <h4>Tus archivos, con IA</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Análisis de planificaciones, PDFs y materiales</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Chat interactivo con tus archivos de Drive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulador de Prompts -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-09-prompt.avif" style="--legacy-border: rgba(99, 102, 241, 0.25);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-09-prompt.avif');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"> Prompts Educativos Rápidos</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 99,102,241;">
+                            <div class="feature-visual-orb" data-orb="composing" aria-hidden="true"></div>
+                            <h4>Prompts con 3 clicks</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>01- Selecciona lo que necesitas </span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>02- Envía y LISTO!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asistente de Investigación -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-10-investigacion.jpg" style="--legacy-border: rgba(251, 146, 60, 0.3);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-10-investigacion.jpg');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #F97316 0%, #EF4444 100%);">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #F97316 0%, #EF4444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Asistente de Investigación con IA</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 249,115,22;">
+                            <div class="feature-visual-orb" data-orb="searching" aria-hidden="true"></div>
+                            <h4>Investigación en minutos</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Síntesis inteligente de la información encontrada</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>PDF profesional automático con secciones claras</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pizarra Virtual -->
+            <div id="pizarra-virtual" class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-11-pizarra.png" style="--legacy-border: rgba(34, 197, 94, 0.3);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-11-pizarra.png');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #22C55E 0%, #10B981 100%);">
+                        <i class="fas fa-chalkboard"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #22C55E 0%, #10B981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Pizarra Virtual Interactiva</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 34,197,94;">
+                            <div class="feature-visual-orb" data-orb="weaving" aria-hidden="true"></div>
+                            <h4>Creá y explicá en vivo</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-pencil-alt"></i>
+                            <span>Dibujo libre, formas, texto y herramientas profesionales</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-expand"></i>
+                            <span>Modo pantalla completa para presentar sin distracciones</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapas Mentales -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-12-mapa.jpg" style="--legacy-border: rgba(99, 102, 241, 0.3);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-12-mapa.jpg');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #0EA5E9 100%);">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #0EA5E9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Crea Mapas Mentales en Segundos</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 99,102,241;">
+                            <div class="feature-visual-orb" data-orb="shaping" aria-hidden="true"></div>
+                            <h4>De documento a mapa mental</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Generación instantánea desde cualquier documento</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Compartí el mapa mental con tu clase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Equipos de Docentes -->
+            <div id="equipos" class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-13-equipos.jpg" style="--legacy-border: rgba(139, 92, 246, 0.35);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-13-equipos.jpg');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Equipos de Docentes</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 139,92,246;">
+                            <div class="feature-visual-orb" data-orb="connecting" aria-hidden="true"></div>
+                            <h4>Trabajo colaborativo</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Creá y gestioná equipos con avatar personalizado</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Compartí chats, mapas y pizarras en un espacio común</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horarios y Cronograma -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-14-agenda.jpg" style="--legacy-border: rgba(251, 191, 36, 0.25);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-14-agenda.jpg');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Horarios y Cronograma</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 251,191,36;">
+                            <div class="feature-visual-orb" data-orb="listening" aria-hidden="true"></div>
+                            <h4>Tu semana, organizada</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Horarios semanales y mensuales con materias y grupos</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-bell"></i>
+                            <span>Recordatorios de clases, entregas y actividades</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Calendar -->
+            <div id="google-calendar" class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-15-cal.avif" style="--legacy-border: rgba(66, 133, 244, 0.35);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-15-cal.avif');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #4285F4 0%, #EA4335 100%);">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #4285F4 0%, #EA4335 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Conectá Google Calendar</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 66,133,244;">
+                            <div class="feature-visual-orb" data-orb="connecting" aria-hidden="true"></div>
+                            <h4>Agenda escolar sincronizada</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fab fa-google"></i>
+                            <span>Conexión segura con Google Calendar</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Clases, reuniones y evaluaciones sincronizadas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quehacer Educativo -->
+            <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-16-component.jpg" style="--legacy-border: rgba(99, 102, 241, 0.25);">
+                <div class="slide-bg" style="background-image: url('assets/images/feature-16-component.jpg');" aria-hidden="true"></div>
+                <div class="detailed-section-header">
+                    <div class="detailed-section-icon" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="detailed-section-info">
+                        <h3 style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Quehacer Educativo Completo</h3>
+                    </div>
+                </div>
+                <div class="detailed-feature-content">
+                    <div class="detailed-feature-image">
+                        <div class="feature-visual" style="--fv-accent: 99,102,241;">
+                            <div class="feature-visual-orb" data-orb="solving" aria-hidden="true"></div>
+                            <h4>Todos los componentes del quehacer educativo</h4>
+                        </div>
+                    </div>
+                    <div class="detailed-feature-list">
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Descripción fundada con justificación pedagógica</span>
+                        </div>
+                        <div class="detailed-feature-item">
+                            <i class="fas fa-magic"></i>
+                            <span>Alineación curricular automática con ANEP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="features-slider-nav" aria-label="Navegación de funcionalidades">
+                    <button type="button" class="features-slider-btn features-slider-prev" aria-label="Anterior">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="features-slider-btn features-slider-next" aria-label="Siguiente">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div><!-- /.features-stack -->
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-block story" id="cta" data-shape="cloud" style="min-height:80vh;display:flex;align-items:center;">
+      <div class="wrap">
+        <div class="story-copy center">
+          <h2 class="heading-lg">Tu planificación tiene la respuesta.<br>Preguntale a Plan Maestro.</h2>
+          <div class="cta-actions" style="justify-content:center;margin-top:36px;">
+            <a class="btn-pill" href="https://prime.plan-maestro.com" target="_blank" rel="noopener">Empezar ahora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="wrap">
+        <span class="label-amber">FAQ</span>
+        <h2 class="heading-sm">Preguntas frecuentes</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <details open>
+              <summary>¿Qué es Plan Maestro?</summary>
+              <p>Es la calculadora del pensamiento docente uruguayo: una plataforma web que ayuda a organizar, estructurar y crear planificaciones en minutos, con IA que usa documentación curricular de ANEP 2026 como referencia. Las sugerencias pueden contener errores y deben ser revisadas por el docente.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>¿Cómo ingreso?</summary>
+              <p>El acceso inicial es con cuenta de Google en prime.plan-maestro.com. Algunas funciones avanzadas requieren suscripción Prime.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>¿Reemplaza el criterio docente?</summary>
+              <p>No. Plan Maestro sugiere; el docente decide. No es un organismo de ANEP ni sustituye el criterio profesional.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#inicio" aria-label="Plan Maestro">
+            <span id="footer-thinking-orb" class="brand-orb brand-thinking-orb" aria-hidden="true"></span>
+            <span class="brand-text">Plan Maestro</span>
+          </a>
+          <p class="footer-meta" style="margin-top:18px;max-width:420px;">La calculadora del pensamiento docente · Inspirar, crear y transformar la educación.</p>
+          <nav class="footer-links" aria-label="Legal">
+            <a href="./terminos.html">Términos</a>
+            <a href="./privacidad.html">Privacidad</a>
+            <a href="./documentation.html">Documentación</a>
+            <a href="https://prime.plan-maestro.com" target="_blank" rel="noopener">App Prime</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer-legal">Plan Maestro usa inteligencia artificial para sugerir planificaciones, textos e imágenes. El docente es responsable de revisar, adaptar y validar todo material antes de usarlo.</p>
+          <p class="footer-meta" style="margin-top:24px;">© <span id="y"></span> Plan Maestro.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const nav = document.getElementById('siteNav');
+    const toggle = document.getElementById('navToggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => nav.classList.toggle('open'));
+      nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => nav.classList.remove('open')));
+    }
+
+    // Motion feature slider (no GSAP)
+    (function () {
+      const featuresSlider = document.querySelector('#lanzamiento2026 .features-motion-slider');
+      if (!featuresSlider) return;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const navEl = featuresSlider.querySelector('.features-slider-nav');
+      const prevBtn = featuresSlider.querySelector('.features-slider-prev');
+      const nextBtn = featuresSlider.querySelector('.features-slider-next');
+      let sliding = false;
+      const getSlides = () => Array.from(featuresSlider.querySelectorAll('.detailed-feature-section'));
+
+      getSlides().forEach((section) => {
+        const visual = section.querySelector('.feature-visual');
+        if (visual) {
+          const accent = getComputedStyle(visual).getPropertyValue('--fv-accent').trim();
+          if (accent) section.style.setProperty('--card-accent', accent);
+        }
+        const bgSrc = section.getAttribute('data-bg');
+        if (bgSrc) {
+          section.classList.add('has-slide-bg');
+          let bgEl = section.querySelector('.slide-bg');
+          if (!bgEl) {
+            bgEl = document.createElement('div');
+            bgEl.className = 'slide-bg';
+            bgEl.setAttribute('aria-hidden', 'true');
+            section.insertBefore(bgEl, section.firstChild);
+          }
+          bgEl.style.backgroundImage = `url('${bgSrc}')`;
+        }
+        section.classList.add('items-visible');
+      });
+
+      const bootstrapSlides = getSlides();
+      if (bootstrapSlides.length > 1 && navEl) {
+        featuresSlider.insertBefore(bootstrapSlides[bootstrapSlides.length - 1], bootstrapSlides[0]);
+      }
+
+      const goNext = () => {
+        if (sliding) return;
+        const slides = getSlides();
+        if (slides.length < 2 || !navEl) return;
+        sliding = true;
+        featuresSlider.insertBefore(slides[0], navEl);
+        window.setTimeout(() => { sliding = false; }, prefersReducedMotion ? 0 : 560);
+      };
+      const goPrev = () => {
+        if (sliding) return;
+        const slides = getSlides();
+        if (slides.length < 2 || !navEl) return;
+        sliding = true;
+        featuresSlider.insertBefore(slides[slides.length - 1], slides[0]);
+        window.setTimeout(() => { sliding = false; }, prefersReducedMotion ? 0 : 560);
+      };
+
+      if (nextBtn) nextBtn.addEventListener('click', goNext);
+      if (prevBtn) prevBtn.addEventListener('click', goPrev);
+
+      featuresSlider.addEventListener('click', (e) => {
+        if (e.target.closest('.features-slider-nav')) return;
+        const slide = e.target.closest('.detailed-feature-section');
+        if (!slide || !featuresSlider.contains(slide)) return;
+        const slides = getSlides();
+        const index = slides.indexOf(slide);
+        if (index < 2 || sliding || !navEl) return;
+        sliding = true;
+        const steps = index - 1;
+        for (let i = 0; i < steps; i += 1) {
+          const current = getSlides();
+          featuresSlider.insertBefore(current[0], navEl);
+        }
+        window.setTimeout(() => { sliding = false; }, prefersReducedMotion ? 0 : 560);
+      });
+
+      featuresSlider.setAttribute('tabindex', '0');
+      featuresSlider.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); }
+      });
+
+      let touchX = null;
+      featuresSlider.addEventListener('touchstart', (e) => {
+        touchX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      featuresSlider.addEventListener('touchend', (e) => {
+        if (touchX == null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        touchX = null;
+        if (Math.abs(dx) < 40) return;
+        if (dx < 0) goNext(); else goPrev();
+      }, { passive: true });
+    })();
+  </script>
+  <script type="module" src="assets/js/navbar-thinking-orb.js"></script>
+  <script type="module" src="assets/js/feature-card-orbs.js"></script>
+  <script src="assets/js/particle-stage.js" defer></script>
+</body>
+</html>

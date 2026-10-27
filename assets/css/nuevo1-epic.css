@@ -1,0 +1,252 @@
+/* Paleta oscura de epic.new/en/labs. Cargada después de modern-style.css. */
+
+:root {
+    --primary-color: #2d2621;
+    --secondary-color: #d4a574;
+    --success-color: #767e6b;
+    --info-color: #e5b882;
+    --warning-color: #d4a574;
+    --danger-color: #cb6149;
+    --dark-color: #2d2621;
+    --light-color: #f6f1e9;
+    --gradient-primary: linear-gradient(160deg, #3a322c 0%, #2d2621 100%);
+    --gradient-secondary: linear-gradient(135deg, #d4a574 0%, #c39462 100%);
+    --gradient-warning: linear-gradient(135deg, #e5b882 0%, #d4a574 100%);
+    --gradient-dark: linear-gradient(180deg, #2d2621 0%, #312b26 100%);
+}
+
+body {
+    background: #2d2621;
+    color: #f6f1e9;
+}
+
+#preloader {
+    background: #2d2621;
+}
+
+.navbar,
+.navbar.scrolled {
+    background: rgba(45, 38, 33, 0.92);
+    box-shadow: none;
+}
+
+.navbar-brand-text,
+.navbar.scrolled .navbar-brand .navbar-brand-text {
+    color: #f6f1e9 !important;
+}
+
+.nav-link {
+    color: #bfb6aa !important;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: #f6f1e9 !important;
+}
+
+.nav-link::after {
+    background: #d4a574;
+}
+
+.navbar-toggler {
+    border-color: #4a4039;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: rgba(45, 38, 33, 0.98);
+        border: 1px solid #4a4039;
+    }
+
+    .header-actions {
+        border-top-color: #4a4039;
+    }
+}
+
+.hero-section {
+    background: #2d2621;
+}
+
+.hero-section .parallax-bg,
+.hero-background {
+    background-image: none;
+    background-color: transparent;
+    opacity: 1;
+}
+
+.hero-overlay {
+    background: radial-gradient(circle at 72% 42%, rgba(212, 165, 116, 0.16), transparent 46%);
+    opacity: 1;
+}
+
+.hero-content,
+.hero-title {
+    color: #f6f1e9;
+}
+
+.hero-subtitle,
+.hero-subtitle strong {
+    color: #bfb6aa;
+    text-shadow: none;
+}
+
+.text-gradient {
+    background: linear-gradient(120deg, #f6f1e9 0%, #e5b882 55%, #d4a574 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-title,
+.cta-title,
+.final-cta-title {
+    color: #f6f1e9;
+}
+
+.section-subtitle,
+.cta-subtitle,
+.final-cta-subtitle {
+    color: #968a7d;
+}
+
+.features-section,
+.about-section,
+.ecosystem-section,
+.documentation-section,
+.testimonials-section,
+.institutions-section,
+.herramientas-section {
+    background: #2d2621;
+}
+
+.features-bg,
+.about-bg,
+.ecosystem-bg,
+.final-cta-bg {
+    background-image: none;
+}
+
+.cta-section,
+.final-cta-section {
+    background: #312b26;
+    color: #f6f1e9;
+}
+
+.feature-card,
+.ecosystem-card,
+.feature-item {
+    background: #312b26;
+    border-color: #4a4039;
+    color: #f6f1e9;
+}
+
+.feature-card p,
+.ecosystem-card p,
+.feature-item span,
+.section-subtitle {
+    color: #968a7d;
+}
+
+.ecosystem-card h5,
+.feature-card h3,
+.feature-card h4,
+.feature-card h5 {
+    color: #f6f1e9;
+}
+
+.ecosystem-icon-wrapper,
+.ecosystem-card:hover .ecosystem-icon-wrapper {
+    background: #3a322c;
+    border-bottom-color: #4a4039;
+}
+
+.ecosystem-icon-wrapper i,
+.ecosystem-card:hover .ecosystem-icon-wrapper i {
+    background: none;
+    -webkit-text-fill-color: #d4a574;
+    color: #d4a574;
+    filter: none;
+}
+
+.ludix-highlight-section {
+    background: #3a322c;
+    color: #f6f1e9;
+}
+
+.btn-warning,
+.btn-glow,
+.bg-warning,
+.badge.bg-warning,
+.new-feature-badge {
+    background: #d4a574 !important;
+    background-color: #d4a574 !important;
+    border-color: #d4a574 !important;
+    color: #2d2621 !important;
+    box-shadow: none !important;
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-glow:hover,
+.btn-glow:focus,
+.bg-warning:hover {
+    background: #c39462 !important;
+    background-color: #c39462 !important;
+    border-color: #c39462 !important;
+    color: #2d2621 !important;
+}
+
+.btn-outline-light {
+    color: #f6f1e9 !important;
+    border-color: #4a4039 !important;
+    background: transparent !important;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    background: #4a4039 !important;
+    border-color: #4a4039 !important;
+    color: #f6f1e9 !important;
+}
+
+.btn-success {
+    background: #767e6b !important;
+    border-color: #767e6b !important;
+    color: #f6f1e9 !important;
+}
+
+#faq .accordion-item {
+    background: #312b26;
+    border-color: #4a4039;
+}
+
+#faq .accordion-button {
+    background: #3a322c !important;
+    color: #f6f1e9 !important;
+}
+
+#faq .accordion-button:not(.collapsed) {
+    background: #4a4039 !important;
+    color: #f6f1e9 !important;
+}
+
+#faq .accordion-body {
+    background: #312b26;
+    color: #bfb6aa;
+}
+
+.doc-footer {
+    background: #2d2621;
+    color: #bfb6aa;
+}
+
+.doc-footer a {
+    color: #e5b882;
+}
+
+.navbar-brand-orb canvas,
+.hero-thinking-orb-mount canvas,
+.institutions-orb-mount canvas,
+.preloader-thinking-orb canvas {
+    display: block;
+}

@@ -1,0 +1,5 @@
+{
+  "brain": "assets/data/particles/brain.json",
+  "lamp": "assets/data/particles/lamp.json",
+  "earth": "assets/data/particles/earth.json"
+}

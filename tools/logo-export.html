@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Logo Plan Maestro — export alta calidad</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1e2936;
+      --ink: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0f1419;
+      color: #e8eef4;
+      font-family: Inter, system-ui, sans-serif;
+      padding: 2rem;
+    }
+    h1 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.35rem; }
+    p.hint { margin: 0 0 1.5rem; color: #9aa8b5; font-size: 0.9rem; max-width: 42rem; }
+    .preview-wrap {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 48px 56px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 1.25rem;
+    }
+    #lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+      line-height: 0;
+    }
+    #orb-mount {
+      width: 160px;
+      height: 160px;
+      display: grid;
+      place-items: center;
+    }
+    #orb-mount canvas { display: block; }
+    .wordmark {
+      font-family: "Clash Display", sans-serif;
+      font-weight: 600;
+      font-size: 96px;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.5rem; }
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      background: #3b82f6;
+      color: #fff;
+    }
+    button.ghost { background: #243041; }
+    #status { margin-top: 1rem; font-size: 0.85rem; color: #7dd3a0; }
+    #status.error { color: #f87171; }
+  </style>
+</head>
+<body>
+  <h1>Logo Plan Maestro</h1>
+  <p class="hint">
+    Orbe thinking-orbs (preset solving, tamaño nativo) + wordmark Clash Display.
+    Los PNG se exportan a 3× (retina) sin escalar el canvas con CSS.
+  </p>
+
+  <div class="preview-wrap" id="preview">
+    <div id="lockup">
+      <div id="orb-mount" aria-hidden="true"></div>
+      <span class="wordmark">Plan Maestro</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button type="button" id="btn-dark">Descargar PNG fondo navy</button>
+    <button type="button" class="ghost" id="btn-clear">Descargar PNG transparente</button>
+    <button type="button" class="ghost" id="btn-orb">Descargar solo orbe</button>
+  </div>
+  <p id="status">Cargando orbe y fuente…</p>
+
+  <script type="module">
+    import { MODE_DRAWS, resolvePreset } from 'https://esm.sh/thinking-orbs@0.2.0';
+
+    const ORB_CSS = 320;
+    const EXPORT_DPR = 3;
+    const FRAME_T = 0.6;
+    const PAD_X = 80;
+    const PAD_Y = 64;
+    const GAP = Math.round(ORB_CSS * 0.28);
+    const FONT_SIZE = Math.round(ORB_CSS * 0.62);
+    const NAVY = '#1e2936';
+
+    const statusEl = document.getElementById('status');
+    const previewMount = document.getElementById('orb-mount');
+
+    const { mode, opts } = resolvePreset('solving', 64);
+    const draw = MODE_DRAWS[mode];
+
+    const paintOrb = (ctx, sizeCss, dpr) => {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, sizeCss, sizeCss);
+      draw(ctx, sizeCss, FRAME_T, true, opts);
+    };
+
+    const makeOrbCanvas = (sizeCss, dpr) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(sizeCss * dpr);
+      canvas.height = Math.round(sizeCss * dpr);
+      const ctx = canvas.getContext('2d', { alpha: true });
+      paintOrb(ctx, sizeCss, dpr);
+      return canvas;
+    };
+
+    const makeLockup = async (background) => {
+      await document.fonts.load(`600 ${FONT_SIZE}px "Clash Display"`);
+      await document.fonts.ready;
+
+      const orbCanvas = makeOrbCanvas(ORB_CSS, EXPORT_DPR);
+      const measure = document.createElement('canvas').getContext('2d');
+      measure.font = `600 ${FONT_SIZE}px "Clash Display"`;
+      if ('letterSpacing' in measure) measure.letterSpacing = '0.02em';
+      const textW = measure.measureText('Plan Maestro').width;
+
+      const w = PAD_X * 2 + ORB_CSS + GAP + textW;
+      const h = PAD_Y * 2 + ORB_CSS;
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(w * EXPORT_DPR);
+      canvas.height = Math.round(h * EXPORT_DPR);
+      const ctx = canvas.getContext('2d', { alpha: true });
+      ctx.setTransform(EXPORT_DPR, 0, 0, EXPORT_DPR, 0, 0);
+
+      if (background) {
+        ctx.fillStyle = background;
+        ctx.fillRect(0, 0, w, h);
+      }
+
+      ctx.drawImage(orbCanvas, PAD_X, PAD_Y, ORB_CSS, ORB_CSS);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `600 ${FONT_SIZE}px "Clash Display"`;
+      if ('letterSpacing' in ctx) ctx.letterSpacing = '0.02em';
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'left';
+      ctx.fillText('Plan Maestro', PAD_X + ORB_CSS + GAP, PAD_Y + ORB_CSS / 2);
+      return canvas;
+    };
+
+    const downloadCanvas = (canvas, filename) => {
+      canvas.toBlob((blob) => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      }, 'image/png');
+    };
+
+    const preview = makeOrbCanvas(160, Math.min(2, devicePixelRatio || 1));
+    preview.style.width = '160px';
+    preview.style.height = '160px';
+    previewMount.appendChild(preview);
+
+    await document.fonts.ready;
+    statusEl.textContent = 'Listo — podés descargar PNG a 3× (orbe nativo 320px).';
+    window.__logoReady = true;
+    window.__makeLockup = makeLockup;
+    window.__makeOrbCanvas = () => makeOrbCanvas(ORB_CSS, EXPORT_DPR);
+
+    document.getElementById('btn-dark').onclick = async () => {
+      downloadCanvas(await makeLockup(NAVY), 'logo-plan-maestro-dark.png');
+    };
+    document.getElementById('btn-clear').onclick = async () => {
+      downloadCanvas(await makeLockup(null), 'logo-plan-maestro.png');
+    };
+    document.getElementById('btn-orb').onclick = () => {
+      downloadCanvas(window.__makeOrbCanvas(), 'logo-orb.png');
+    };
+  </script>
+</body>
+</html>

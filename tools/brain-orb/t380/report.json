@@ -1,0 +1,44 @@
+{
+  "input": "d:\\pm-land\\pmland\\tools\\brain-orb\\brain-strokes.png",
+  "sha256": "c006f72daf1b2df991667b526a4d3043570257726ea835d4be26a1489594255a",
+  "width": 1080,
+  "height": 1080,
+  "mask": "alpha",
+  "background": null,
+  "inkRatio": 0.0762,
+  "crop": {
+    "x": 108,
+    "y": 188,
+    "w": 847,
+    "h": 754
+  },
+  "tone": false,
+  "target": 380,
+  "pitch": 1,
+  "longCss": 214.4,
+  "dots": 1811,
+  "contour": 1769,
+  "fill": 42,
+  "recall": 0.9974,
+  "precision": 1,
+  "attempts": [
+    {
+      "pass": 0,
+      "contourPitch": 2.35,
+      "fillPitch": 4,
+      "contour": 1769,
+      "fill": 42,
+      "dots": 1811,
+      "recall": 0.9974,
+      "precision": 1,
+      "capped": false
+    }
+  ],
+  "warnings": [],
+  "files": {
+    "component": "d:\\pm-land\\pmland\\tools\\brain-orb\\t380\\BrainOrb.jsx",
+    "points": "d:\\pm-land\\pmland\\tools\\brain-orb\\t380\\brain-orb.points.json",
+    "preview": "d:\\pm-land\\pmland\\tools\\brain-orb\\t380\\brain-orb.preview.png",
+    "report": "d:\\pm-land\\pmland\\tools\\brain-orb\\t380\\report.json"
+  }
+}
