@@ -5,7 +5,7 @@
 const TITLE = [{ text: '...en pocas palabras' }];
 const LEAD = [
     { text: 'Plan Maestro', strong: true },
-    { text: ' trabaja para vós con BASE en documentación oficial de ANEP - 2026.' },
+    { text: ' trabaja para vós con BASE en documentación oficial de ANEP - 2027.' },
 ];
 const VERSION = [{ text: 'Versión 7.0' }];
 const TITLE_END = 0.26;

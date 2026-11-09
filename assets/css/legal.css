@@ -29,6 +29,28 @@
   margin: 0 auto;
 }
 
+.legal-page--guide .legal-header-inner,
+.legal-page--guide .legal-wrap,
+.legal-page--guide .legal-footer-inner {
+  max-width: 820px;
+}
+
+.legal-crumb {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: var(--pm-muted);
+}
+
+.legal-crumb a {
+  font-weight: 600;
+}
+
+.legal-related {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--pm-line);
+}
+
 .legal-brand {
   display: inline-flex;
   align-items: center;

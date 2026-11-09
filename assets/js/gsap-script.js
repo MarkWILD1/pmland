@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Features motion slider (Code Jungle style: preview cards expand into full-bleed)
-    const featuresSlider = document.querySelector('#lanzamiento2026 .features-motion-slider');
+    const featuresSlider = document.querySelector('#lanzamiento2027 .features-motion-slider');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (featuresSlider) {

@@ -19,6 +19,36 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://plan-maestro.com/sobre-plan-maestro.html</loc>
+        <lastmod>2026-11-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://plan-maestro.com/guia-planificacion-anual-anep-2027.html</loc>
+        <lastmod>2026-11-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://plan-maestro.com/como-hacer-rubrica-evaluacion.html</loc>
+        <lastmod>2026-11-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://plan-maestro.com/secuencias-didacticas-inicial.html</loc>
+        <lastmod>2026-11-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://plan-maestro.com/planificaciones-liceo-anep.html</loc>
+        <lastmod>2026-11-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://plan-maestro.com/llms.txt</loc>
         <lastmod>2026-06-24</lastmod>
         <changefreq>monthly</changefreq>
