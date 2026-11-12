@@ -775,6 +775,10 @@
             overflow: hidden;
             background: linear-gradient(160deg, #2d2621 0%, rgba(92, 23, 51, 0.45) 100%);
             color: #F3EDE8;
+            -webkit-text-fill-color: currentColor;
+        }
+        .mission-section .text-gradient {
+            -webkit-text-fill-color: transparent;
         }
         .mission-eyebrow {
             margin: 0 0 0.75rem;
@@ -866,14 +870,92 @@
         .mission-bridge strong {
             font-weight: 800;
         }
+        .mission-stage {
+            box-sizing: border-box;
+            padding: 2.25rem 0;
+        }
+        .mission-caret {
+            display: inline-block;
+            width: 0.07em;
+            height: 0.78em;
+            margin-left: 0.05em;
+            vertical-align: -0.05em;
+            background: #C99AA8;
+            border-radius: 1px;
+            animation: mission-caret-blink 1s steps(1) infinite;
+        }
+        .mission-eyebrow.is-complete .mission-caret,
+        .mission-title.is-complete .mission-caret,
+        .mission-lead.is-complete .mission-caret,
+        .mission-quote.is-complete .mission-caret {
+            animation: none;
+            opacity: 0;
+        }
+        @keyframes mission-caret-blink {
+            50% { opacity: 0; }
+        }
+        .mission-section.is-scrub .mission-card {
+            opacity: 0;
+            transform: translateY(28px);
+        }
+        .mission-section.is-scrub .mission-quote {
+            border-left-color: transparent;
+        }
+        .mission-section.is-scrub .mission-quote.is-writing {
+            border-left-color: #C99AA8;
+        }
+        @media (min-width: 768px) {
+            .mission-section.curtain-page {
+                height: 100svh;
+                min-height: 100svh !important;
+                max-height: 100svh;
+                padding: 0 !important;
+                overflow: visible;
+                z-index: 2;
+            }
+            .mission-stage {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                padding: 1.25rem 0;
+            }
+            .mission-section .mission-pillars {
+                margin-top: 1.5rem;
+            }
+            .mission-section .mission-quote {
+                margin-top: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) and (max-height: 820px) {
+            .mission-stage { padding: 0.75rem 0; }
+            .mission-title {
+                margin-bottom: 0.6rem;
+                font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+            }
+            .mission-lead { font-size: 0.98rem; }
+            .mission-card { padding: 1.1rem 1.15rem; }
+            .mission-section .mission-pillars,
+            .mission-section .mission-quote { margin-top: 1rem; }
+            .mission-quote { font-size: 1.05rem; }
+        }
         @media (max-width: 767.98px) {
             .mission-card { text-align: center; }
+            .mission-title { font-size: clamp(1.55rem, 7vw, 2.1rem); }
+            .mission-lead {
+                font-size: 0.95rem;
+                line-height: 1.45;
+            }
+            .mission-section .mission-pillars,
+            .mission-section .mission-quote { margin-top: 1.25rem; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .mission-section [data-aos] {
-                transition: none !important;
-                transform: none !important;
-                opacity: 1 !important;
+            .mission-caret { display: none; }
+            .mission-section.is-scrub .mission-card {
+                opacity: 1;
+                transform: none;
+            }
+            .mission-section.is-scrub .mission-quote {
+                border-left-color: #C99AA8;
             }
         }
 
@@ -3148,45 +3230,49 @@
     </section>
 
     <!-- Misión: fortalecer, potenciar y alivianar la labor docente -->
-    <section id="mision" class="mission-section py-5 curtain-page" data-curtain-title="Misión" aria-labelledby="mision-heading">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-9" data-aos="fade-up">
-                    <p class="mission-eyebrow">Nuestra misión</p>
-                    <h2 id="mision-heading" class="mission-title">
-                        Fortalecer y potenciar la labor docente, y hacerla más <span class="text-gradient">leve</span>.
-                    </h2>
-                    <p class="mission-lead">
-                        Plan Maestro existe para que disfrutes tu profesión, vivas tu carrera con orgullo y la lleves más lejos. No se trata de la herramienta: se trata de vos.
-                    </p>
+    <section id="mision" class="mission-section curtain-page" data-curtain-title="Misión" aria-labelledby="mision-heading">
+        <div class="mission-stage">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-9">
+                        <p class="mission-eyebrow" aria-label="Nuestra misión">
+                            <span class="mission-typed" data-mission="eyebrow">Nuestra misión</span><span class="mission-caret" aria-hidden="true"></span>
+                        </p>
+                        <h2 id="mision-heading" class="mission-title" aria-label="Fortalecer y potenciar la labor docente, y hacerla más leve.">
+                            <span class="mission-typed" data-mission="title">Fortalecer y potenciar la labor docente, y hacerla más <span class="text-gradient">leve</span>.</span>
+                        </h2>
+                        <p class="mission-lead" aria-label="Plan Maestro existe para que disfrutes tu profesión, vivas tu carrera con orgullo y la lleves más lejos. No se trata de la herramienta: se trata de vos.">
+                            <span class="mission-typed" data-mission="lead">Plan Maestro existe para que disfrutes tu profesión, vivas tu carrera con orgullo y la lleves más lejos. No se trata de la herramienta: se trata de vos.</span>
+                        </p>
+                    </div>
                 </div>
+                <div class="row g-4 mission-pillars">
+                    <div class="col-md-4">
+                        <article class="mission-card">
+                            <span class="mission-card-icon" aria-hidden="true"><i class="fas fa-hands-holding"></i></span>
+                            <h3>Fortalecer</h3>
+                            <p>Respaldo pedagógico con base en documentación oficial de ANEP.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="mission-card">
+                            <span class="mission-card-icon" aria-hidden="true"><i class="fas fa-seedling"></i></span>
+                            <h3>Potenciar</h3>
+                            <p>Más tiempo y energía para lo creativo, para crecer en tu carrera.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="mission-card">
+                            <span class="mission-card-icon" aria-hidden="true"><i class="fas fa-feather"></i></span>
+                            <h3>Alivianar</h3>
+                            <p>Menos carga administrativa y más disfrute del aula.</p>
+                        </article>
+                    </div>
+                </div>
+                <blockquote class="mission-quote" aria-label="Nuestros resultados no son para engrandecernos. Tienen una misión clara: fortalecer y potenciar tu labor docente.">
+                    <span class="mission-typed" data-mission="quote">Nuestros resultados no son para engrandecernos. Tienen una misión clara: <strong>fortalecer y potenciar</strong> tu labor docente.</span>
+                </blockquote>
             </div>
-            <div class="row g-4 mission-pillars">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
-                    <article class="mission-card">
-                        <span class="mission-card-icon" aria-hidden="true"><i class="fas fa-hands-holding"></i></span>
-                        <h3>Fortalecer</h3>
-                        <p>Respaldo pedagógico con base en documentación oficial de ANEP.</p>
-                    </article>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <article class="mission-card">
-                        <span class="mission-card-icon" aria-hidden="true"><i class="fas fa-seedling"></i></span>
-                        <h3>Potenciar</h3>
-                        <p>Más tiempo y energía para lo creativo, para crecer en tu carrera.</p>
-                    </article>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
-                    <article class="mission-card">
-                        <span class="mission-card-icon" aria-hidden="true"><i class="fas fa-feather"></i></span>
-                        <h3>Alivianar</h3>
-                        <p>Menos carga administrativa y más disfrute del aula.</p>
-                    </article>
-                </div>
-            </div>
-            <blockquote class="mission-quote" data-aos="fade-up">
-                Nuestros resultados no son para engrandecernos. Tienen una misión clara: <strong>fortalecer y potenciar</strong> tu labor docente.
-            </blockquote>
         </div>
     </section>
 
@@ -4779,7 +4865,7 @@
             <a href="terminos.html">Términos</a>
             <a href="privacidad.html">Privacidad</a>
             <a href="privacidad.html#cookies">Cookies</a>
-            <a href="developers.html">Desarrolladores</a>
+<!--             <a href="developers.html">Desarrolladores</a> -->
         </nav>
         <p class="footer-copyright">© <script>document.write(new Date().getFullYear());</script> Plan Maestro.</p>
     </footer>
@@ -4804,6 +4890,7 @@
     <script type="module" src="assets/js/scroll-story-orbs.js"></script>
     <script type="module" src="assets/js/feature-card-orbs.js"></script>
     <script type="module" src="assets/js/few-words-scroll.js?v=v7"></script>
+    <script type="module" src="assets/js/mission-scroll.js?v=v2"></script>
     <script type="module" src="assets/js/ecosistema-brain.js?v=pin2"></script>
     <script type="module" src="assets/js/final-cta-scroll.js"></script>
     <script src="assets/js/testimonials-data.js"></script>
