@@ -339,7 +339,6 @@ body:has(.hero-runway) .back-to-top {
 .curtain-page {
     min-height: 100vh !important;
     min-height: 100dvh !important;
-    padding-bottom: 6.5rem !important;
 }
 
 .curtain-page--center {

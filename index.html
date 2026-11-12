@@ -769,6 +769,114 @@
             font-size: 0.95rem;
         }
 
+        /* Misión docente */
+        .mission-section {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(160deg, #2d2621 0%, rgba(92, 23, 51, 0.45) 100%);
+            color: #F3EDE8;
+        }
+        .mission-eyebrow {
+            margin: 0 0 0.75rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #C99AA8;
+        }
+        .mission-title {
+            margin: 0 0 1rem;
+            font-size: clamp(1.8rem, 4.2vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.4px;
+            color: #F3EDE8;
+        }
+        .mission-lead {
+            margin: 0 auto;
+            max-width: 42rem;
+            font-size: 1.08rem;
+            line-height: 1.6;
+            color: rgba(243, 237, 232, 0.86);
+        }
+        .mission-pillars {
+            margin-top: 2.25rem;
+        }
+        .mission-card {
+            height: 100%;
+            border-radius: 22px;
+            padding: 1.6rem 1.4rem;
+            background: rgba(92, 23, 51, 0.45);
+            box-shadow: 0 25px 65px rgba(201, 154, 168, 0.18), 0 0 0 1px rgba(201, 154, 168, 0.2);
+            text-align: left;
+        }
+        .mission-card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.6rem;
+            height: 2.6rem;
+            margin-bottom: 0.85rem;
+            border-radius: 50%;
+            background: rgba(201, 154, 168, 0.18);
+            color: #C99AA8;
+            font-size: 1.1rem;
+        }
+        .mission-card h3 {
+            margin: 0 0 0.4rem;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #F3EDE8;
+        }
+        .mission-card p {
+            margin: 0;
+            color: rgba(243, 237, 232, 0.82);
+            line-height: 1.5;
+        }
+        .mission-quote {
+            margin: 2.25rem auto 0;
+            max-width: 46rem;
+            padding: 0.4rem 0 0.4rem 1.15rem;
+            border: 0;
+            border-left: 3px solid #C99AA8;
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
+            font-weight: 700;
+            line-height: 1.45;
+            color: #F3EDE8;
+            text-align: left;
+        }
+        .mission-quote strong {
+            color: #C99AA8;
+        }
+        .mission-bridge {
+            margin: 0 0 0.85rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .mission-bridge a {
+            color: #C99AA8;
+            text-decoration: none;
+        }
+        .mission-bridge a:hover,
+        .mission-bridge a:focus-visible {
+            color: #F3EDE8;
+        }
+        .mission-bridge strong {
+            font-weight: 800;
+        }
+        @media (max-width: 767.98px) {
+            .mission-card { text-align: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .mission-section [data-aos] {
+                transition: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+
         /* Instituciones Section */
         .institutions-section {
             position: relative;
@@ -2902,7 +3010,7 @@
     </script>
     <!-- End Schema.org -->
     <link rel="stylesheet" href="assets/css/nuevo1-epic.css">
-    <link rel="stylesheet" href="assets/css/nuevo1-scroll.css?v=hero-v7">
+    <link rel="stylesheet" href="assets/css/nuevo1-scroll.css?v=hero-v8">
     <link rel="stylesheet" href="assets/css/nuevo1-scroll-palette.css?v=2">
 </head>
 
@@ -2927,7 +3035,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#lanzamiento2027">Funcionalidades</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#lanzamiento2027">Funcionalidades</a></li> -->
                     <li class="nav-item"><a class="nav-link" href="#equipos">Equipos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#inspirar">Qué es?</a></li>
                     <li class="nav-item"><a class="nav-link" href="#ecosistema">Supercerebro</a></li>
@@ -3039,6 +3147,48 @@
         </div>
     </section>
 
+    <!-- Misión: fortalecer, potenciar y alivianar la labor docente -->
+    <section id="mision" class="mission-section py-5 curtain-page" data-curtain-title="Misión" aria-labelledby="mision-heading">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-9" data-aos="fade-up">
+                    <p class="mission-eyebrow">Nuestra misión</p>
+                    <h2 id="mision-heading" class="mission-title">
+                        Fortalecer y potenciar la labor docente, y hacerla más <span class="text-gradient">leve</span>.
+                    </h2>
+                    <p class="mission-lead">
+                        Plan Maestro existe para que disfrutes tu profesión, vivas tu carrera con orgullo y la lleves más lejos. No se trata de la herramienta: se trata de vos.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4 mission-pillars">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+                    <article class="mission-card">
+                        <span class="mission-card-icon" aria-hidden="true"><i class="fas fa-hands-holding"></i></span>
+                        <h3>Fortalecer</h3>
+                        <p>Respaldo pedagógico con base en documentación oficial de ANEP.</p>
+                    </article>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <article class="mission-card">
+                        <span class="mission-card-icon" aria-hidden="true"><i class="fas fa-seedling"></i></span>
+                        <h3>Potenciar</h3>
+                        <p>Más tiempo y energía para lo creativo, para crecer en tu carrera.</p>
+                    </article>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+                    <article class="mission-card">
+                        <span class="mission-card-icon" aria-hidden="true"><i class="fas fa-feather"></i></span>
+                        <h3>Alivianar</h3>
+                        <p>Menos carga administrativa y más disfrute del aula.</p>
+                    </article>
+                </div>
+            </div>
+            <blockquote class="mission-quote" data-aos="fade-up">
+                Nuestros resultados no son para engrandecernos. Tienen una misión clara: <strong>fortalecer y potenciar</strong> tu labor docente.
+            </blockquote>
+        </div>
+    </section>
 
     <!-- Core Highlight Section -->
     <section class="core-highlight py-4 curtain-page" data-curtain-title="Crear" style="position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(92, 23, 51, 0.45) 0%, rgba(92, 23, 51, 0.75) 100%), url('assets/images/imgplan.png') center -6vh / cover no-repeat; min-height: 45vh; display: flex; align-items: center;">
@@ -3075,7 +3225,7 @@
         </div>
     </section>
 
-    <!-- Detailed Features Section (Replaces Launch 2027 Overview) -->
+    <!-- Detailed Features Section (comentada)
     <section id="lanzamiento2027" class="py-5 parallax-section curtain-page" data-curtain-title="Funcionalidades">
         <div class="parallax-bg cta-bg" data-speed="0.35"></div>
         <div class="container detailed-features-container">
@@ -3087,7 +3237,7 @@
             </div>
 
             <div class="features-stack features-motion-slider" id="featuresMotionSlider" aria-roledescription="carousel" aria-label="Funcionalidades Plan Maestro">
-            <!-- Planificaciones con IA (Core) -->
+            <!-- Planificaciones con IA (Core) -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-01-planificaciones.jpg" style="border: 2px solid rgba(201, 154, 168, 0.25);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-01-planificaciones.jpg');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3118,7 +3268,7 @@
                 </div>
             </div>
 
-            <!-- Mi Memoria -->
+            <!-- Mi Memoria -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-02-memoria.avif" style="border: 2px solid rgba(92, 23, 51, 0.3);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-02-memoria.avif');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3149,7 +3299,7 @@
                 </div>
             </div>
 
-            <!-- ChatGPT Integrado -->
+            <!-- ChatGPT Integrado -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-03-inteligencia.jpg" style="border: 2px solid rgba(92, 23, 51, 0.25);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-03-inteligencia.jpg');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3180,7 +3330,7 @@
                 </div>
             </div>
 
-            <!-- Panel de Control -->
+            <!-- Panel de Control -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-04-velocidad.avif" style="border: 2px solid rgba(92, 23, 51, 0.25);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-04-velocidad.avif');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3211,7 +3361,7 @@
                 </div>
             </div>
 
-            <!-- Organiza chats en carpetas -->
+            <!-- Organiza chats en carpetas -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-05-organizador.jpg" style="border: 2px solid rgba(92, 23, 51, 0.25);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-05-organizador.jpg');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3242,7 +3392,7 @@
                 </div>
             </div>
 
-            <!-- Generador de Imágenes -->
+            <!-- Generador de Imágenes -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-06-imagen.avif" style="border: 2px solid rgba(138, 47, 74, 0.25);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-06-imagen.avif');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3273,7 +3423,7 @@
                 </div>
             </div>
 
-            <!-- Gestor de Documentos -->
+            <!-- Gestor de Documentos -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-07-documentos.webp" style="border: 2px solid rgba(201, 154, 168, 0.25);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-07-documentos.webp');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3304,7 +3454,7 @@
                 </div>
             </div>
 
-            <!-- Google Drive -->
+            <!-- Google Drive -- >
             <div id="google-drive" class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-08-drive.avif" style="border: 2px solid rgba(201, 154, 168, 0.35);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-08-drive.avif');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3335,7 +3485,7 @@
                 </div>
             </div>
 
-            <!-- Formulador de Prompts -->
+            <!-- Formulador de Prompts -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-09-prompt.avif" style="border: 2px solid rgba(92, 23, 51, 0.25);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-09-prompt.avif');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3366,7 +3516,7 @@
                 </div>
             </div>
 
-            <!-- Asistente de Investigación -->
+            <!-- Asistente de Investigación -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-10-investigacion.jpg" style="border: 2px solid rgba(201, 154, 168, 0.3);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-10-investigacion.jpg');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3397,7 +3547,7 @@
                 </div>
             </div>
 
-            <!-- Pizarra Virtual -->
+            <!-- Pizarra Virtual -- >
             <div id="pizarra-virtual" class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-11-pizarra.png" style="border: 2px solid rgba(92, 23, 51, 0.3);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-11-pizarra.png');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3433,7 +3583,7 @@
                 </div>
             </div>
 
-            <!-- Mapas Mentales -->
+            <!-- Mapas Mentales -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-12-mapa.jpg" style="border: 2px solid rgba(92, 23, 51, 0.3);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-12-mapa.jpg');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3464,7 +3614,7 @@
                 </div>
             </div>
 
-            <!-- Equipos de Docentes -->
+            <!-- Equipos de Docentes -- >
             <div id="equipos" class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-13-equipos.jpg" style="border: 2px solid rgba(92, 23, 51, 0.35);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-13-equipos.jpg');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3495,7 +3645,7 @@
                 </div>
             </div>
 
-            <!-- Horarios y Cronograma -->
+            <!-- Horarios y Cronograma -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-14-agenda.jpg" style="border: 2px solid rgba(201, 154, 168, 0.25);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-14-agenda.jpg');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3526,7 +3676,7 @@
                 </div>
             </div>
 
-            <!-- Google Calendar -->
+            <!-- Google Calendar -- >
             <div id="google-calendar" class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-15-cal.avif" style="border: 2px solid rgba(201, 154, 168, 0.35);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-15-cal.avif');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3557,7 +3707,7 @@
                 </div>
             </div>
 
-            <!-- Quehacer Educativo -->
+            <!-- Quehacer Educativo -- >
             <div class="detailed-feature-section has-slide-bg" data-bg="assets/images/feature-16-component.jpg" style="border: 2px solid rgba(92, 23, 51, 0.25);">
                 <div class="slide-bg" style="background-image: url('assets/images/feature-16-component.jpg');" aria-hidden="true"></div>
                 <div class="detailed-section-header">
@@ -3595,13 +3745,12 @@
                         <i class="fas fa-chevron-right" aria-hidden="true"></i>
                     </button>
                 </div>
-            </div><!-- /.features-stack -->
+            </div><!-- /.features-stack -- >
 
 
         </div>
     </section>
-
-   
+    -->
 
     <!-- About Section (comentada)
     <section id="inspirar" class="about-section py-5 parallax-section curtain-page">
@@ -4028,6 +4177,9 @@
         <div class="container position-relative">
             <div class="row justify-content-center text-center mb-4">
                 <div class="col-lg-9" data-aos="fade-up">
+                    <p class="mission-bridge">
+                        <a href="#mision">Cada resultado tiene un propósito: <strong>fortalecer, potenciar y alivianar la labor docente</strong>.</a>
+                    </p>
                     <h2 class="section-title mt-2 mb-2">Instituciones que confían en Plan Maestro</h2>
                     <p class="section-subtitle">Cuerpo docente de instituciones de todo el país ya planifica con el sistema.</p>
                 </div>
@@ -4640,7 +4792,7 @@
     <!-- GSAP for advanced animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="assets/js/nuevo1-curtain.js?v=chrome"></script>
+    <script src="assets/js/nuevo1-curtain.js?v=sin-nav"></script>
     
     <script src="assets/js/modern-script.js?v=reel-from"></script>
     <script src="assets/js/cookie-consent.js"></script>
