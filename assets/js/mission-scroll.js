@@ -1,6 +1,8 @@
 /**
  * "Nuestra misión": la ceja, el título, el párrafo y la cita se escriben
  * con el scroll. Las tres tarjetas entran al final.
+ * En mobile la sección es más alta que la pantalla y no se fija: cada bloque
+ * se escribe con su propio recorrido y termina mientras sigue legible.
  */
 const EYEBROW = [{ text: 'Nuestra misión' }];
 const TITLE = [
@@ -103,13 +105,9 @@ function init() {
     let leadShown = -1;
     let quoteShown = -1;
     let caretWhere = '';
-    let trigger = null;
+    let triggers = [];
 
-    const apply = (p) => {
-        const eyebrowCount = Math.round(clamp01(p / EYEBROW_END) * eyebrowTotal);
-        const titleCount = rangeCount(p, TITLE_START, TITLE_END, titleTotal);
-        const leadCount = rangeCount(p, LEAD_START, LEAD_END, leadTotal);
-        const quoteCount = rangeCount(p, QUOTE_START, QUOTE_END, quoteTotal);
+    const paint = (eyebrowCount, titleCount, leadCount, quoteCount) => {
         const eyebrowDone = eyebrowCount >= eyebrowTotal;
         const titleDone = titleCount >= titleTotal;
         const leadDone = leadCount >= leadTotal;
@@ -137,12 +135,48 @@ function init() {
         title.classList.toggle('is-complete', titleDone);
         lead.classList.toggle('is-complete', leadDone);
         quote.classList.toggle('is-complete', quoteDone);
+    };
 
+    const applyText = (p) => {
+        paint(
+            Math.round(clamp01(p / EYEBROW_END) * eyebrowTotal),
+            rangeCount(p, TITLE_START, TITLE_END, titleTotal),
+            rangeCount(p, LEAD_START, LEAD_END, leadTotal),
+            rangeCount(p, QUOTE_START, QUOTE_END, quoteTotal),
+        );
+    };
+
+    const applyCards = (amounts) => {
         cards.forEach((card, index) => {
-            const t = smooth((p - CARDS[index]) / CARD_SPAN);
+            const t = smooth(amounts[index]);
             card.style.opacity = t.toFixed(3);
             card.style.transform = 'translateY(' + ((1 - t) * 28).toFixed(1) + 'px)';
         });
+    };
+
+    const apply = (p) => {
+        applyText(p);
+        applyCards(CARDS.map((start) => (p - start) / CARD_SPAN));
+    };
+
+    const blockSeen = (el, startRatio, endRatio) => {
+        const vh = window.innerHeight || 1;
+        const top = el.getBoundingClientRect().top;
+        const start = vh * startRatio;
+        const end = vh * endRatio;
+        return clamp01((start - top) / (start - end || 1));
+    };
+
+    const typedCount = (el, total, start, end) => Math.round(blockSeen(el, start, end) * total);
+
+    const applyNarrow = () => {
+        paint(
+            typedCount(eyebrow, eyebrowTotal, 0.96, 0.78),
+            typedCount(title, titleTotal, 0.92, 0.5),
+            typedCount(lead, leadTotal, 0.9, 0.4),
+            typedCount(quote, quoteTotal, 0.9, 0.46),
+        );
+        applyCards(cards.map((card) => blockSeen(card, 0.94, 0.62)));
     };
 
     if (reduce || !window.gsap || !window.ScrollTrigger) {
@@ -153,22 +187,37 @@ function init() {
     section.classList.add('is-scrub');
     gsap.registerPlugin(ScrollTrigger);
 
+    const killTriggers = () => {
+        triggers.forEach((item) => item.kill());
+        triggers = [];
+    };
+
     const mount = () => {
-        if (trigger) {
-            trigger.kill();
-            trigger = null;
-        }
+        killTriggers();
         const narrow = narrowQuery.matches;
+        section.classList.add('is-scrub');
+        if (narrow) {
+            applyNarrow();
+            triggers.push(ScrollTrigger.create({
+                trigger: section,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+                invalidateOnRefresh: true,
+                onUpdate: applyNarrow,
+            }));
+            return;
+        }
         apply(0);
-        trigger = ScrollTrigger.create({
+        triggers.push(ScrollTrigger.create({
             trigger: section,
-            start: narrow ? 'top 75%' : 'top top',
-            end: narrow ? 'bottom 40%' : () => '+=' + Math.round(window.innerHeight * 2.2),
-            pin: !narrow,
+            start: 'top top',
+            end: () => '+=' + Math.round(window.innerHeight * 2.2),
+            pin: true,
             scrub: 0.6,
             invalidateOnRefresh: true,
             onUpdate: (self) => apply(self.progress),
-        });
+        }));
     };
 
     mount();
@@ -176,5 +225,8 @@ function init() {
     narrowQuery.addEventListener('change', () => {
         mount();
         ScrollTrigger.refresh();
+    });
+    window.addEventListener('resize', () => {
+        if (narrowQuery.matches) applyNarrow();
     });
 }

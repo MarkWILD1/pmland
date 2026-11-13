@@ -33,13 +33,19 @@ if (host && flight && pin && runway && slot && reveal) {
         return Math.max(dockSize(), large);
     };
 
+    const mobileNavQuery = window.matchMedia('(max-width: 991.98px)');
+
     const setChrome = (shown) => {
         const open = shown > 0.92;
+        // En mobile el menú vive detrás de la hamburguesa. La barra ya es visible
+        // (opacity forzada) y tiene que recibir el toque desde el primer pantallazo.
+        const navReady = mobileNavQuery.matches;
         [navbar, whatsapp, curtainNav].forEach((el) => {
             if (!el) return;
-            el.style.opacity = String(shown);
-            el.style.pointerEvents = open ? 'auto' : 'none';
-            if (open) el.removeAttribute('inert');
+            const ready = el === navbar && navReady;
+            el.style.opacity = String(ready ? 1 : shown);
+            el.style.pointerEvents = ready || open ? 'auto' : 'none';
+            if (ready || open) el.removeAttribute('inert');
             else el.setAttribute('inert', '');
         });
     };
